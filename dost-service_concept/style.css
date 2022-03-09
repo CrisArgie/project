@@ -12,26 +12,34 @@ body {
     --accent-color: rgb(204, 0, 0);
     --lightest-gray: rgb(244, 244, 244);
     --light-gray: rgb(218, 218, 218);
-    --normal-gray: rgb(96, 96, 96, 0.5);
+    --normal-gray: rgb(96, 96, 96, 0.9);
+    --low-light-gray: rgb(250, 250, 250);
     --medium-gray: rgb(96, 96, 96);
     --dark-gray: rgb(13, 13, 13);
     --color1: #185268;
     --color2: #00ADEA;
-    --header-height: 50px;
+    --header-height: 3.125rem;
     --animation-duration: 150ms;
     --animation-timing-curve: ease-in-out;
   }
   
+
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* position: sticky; */
+
+    width: 100%;
+    position: fixed;
+    
     top: 0;
     background-color: var(--color2);
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .4);
     padding: 0 .5rem;
     height: var(--header-height);
+
+    z-index: 11;
+    flex-grow: 1;
     /* flex-direction: row; */
   }
   
@@ -58,10 +66,13 @@ body {
     align-items: center;
     justify-content: stretch;
     transition: width var(--animation-duration) var(--animation-timing-curve);
+    
     position: sticky;
+    
     left: 0;
-    top: var(--header-height);
+    
     background-color: var(--color1);
+    z-index: 1;
   }
   
   .sidebar .hidden-sidebar {
@@ -108,9 +119,13 @@ body {
   }
 
   
-  .container {
-    display: flex;
-  }
+.container {
+  display: flex;
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  top: var(--header-height);
+}
   
 
   .sidebar-list {
@@ -248,10 +263,6 @@ body {
 
 
 /* logo code style */
-.container{
-    padding: 0px;
-    margin: 0px;
-}
 
 .left-menu {
     margin: 0em 3.5em;
@@ -391,7 +402,9 @@ a.link:hover {
 .request-menu {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 95%;
+
+  /*overflow-y: scroll;*/
 
   display: flex;
   flex-direction: row;
@@ -476,57 +489,7 @@ a.link:hover {
 }
 
 
-
-
-
-/* ELEMENT SETUP */
-
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  margin-top: 0;
-}
-
-ol,
-ul,
-dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  list-style: none;
-}
-
-ol ol,
-ul ul,
-ol ul,
-ul ol {
-  margin-bottom: 0;
-}
-
-dt {
-  font-weight: 700;
-}
-
-dd {
-  margin-bottom: .5rem;
-  margin-left: 0;
-}
-
-
-
-
-
 /* Table and Return */
-
-
 .content .return-icon {
   width: 24px;
   height: 24px;
@@ -601,7 +564,7 @@ dd {
 }
 
 .ctn-bottom {
-  
+
 }
 
 .ctn-middle img {
@@ -630,12 +593,51 @@ dd {
   font-weight: bold;
   font-size: 18px;
   color: var(--lightest-gray);
+  text-overflow: ellipsis;
 }
 
-.btm-box-1,
+.ctn-btn {
+  background-color: var(--color2);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
+
+  border: none;
+  border-radius: 4px;
+}
+
+.ctn-btn img {
+  width: 24px;
+  height: 24px;
+  padding: 4px 0px 0px 0px;
+  filter: saturate(100%) contrast(100%) brightness(100%) 
+      invert(90%) sepia(100%) hue-rotate(180deg) drop-shadow(0 0 10px white);
+}
+
+/*.btm-box-1,
 .btm-box-2,
 .btm-box-3 {
 
+}*/
+
+.textarea-h {
+  height: 225px !important;
+  width: 100%;
+  resize: none;
+  white-space: pre-wrap;
+  border: none;
+  background-color: var(--low-light-gray);
+  border-radius: 2px;
+}
+
+.txt-editor-icon {
+  width: 24px;
+  height: 24px;
+  padding-top: 3px; 
+}
+
+.bottom-content button {
+  border: none;
+  background-color: var(--lightest-gray);
+  border-radius: 5px;
 }
 
 
@@ -650,7 +652,86 @@ dd {
 
 
 
+
+
+
+
+
+
+/* ELEMENT SETUP */
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  list-style: none;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0;
+}
+
 /* rows columns and media queries */
+.g-1 {
+  gap: 0.25rem !important;
+}
+.g-2 {
+  gap: 0.5rem !important;
+}
+.g-3 {
+  gap: 1rem !important;
+}
+.g-4 {
+  gap: 1.5rem !important;
+}
+.g-5 {
+  gap: 3rem !important;
+}
+
+
+.d-grid {
+  display: grid !important;
+}
+
+.f-w-normal{
+  font-weight: normal;
+}
+
+.m-10 {
+  margin: 0.625rem !important; 
+}
+.mn-10 {
+  margin-left: 0.625rem !important;
+  margin-right: 0.625rem !important;
+}
+
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
@@ -4013,27 +4094,27 @@ dd {
 }
 
 
-.g-1 {
-  gap: 0.25rem !important;
-}
-.g-2 {
-  gap: 0.5rem !important;
-}
-.g-3 {
-  gap: 1rem !important;
-}
-.g-4 {
-  gap: 1.5rem !important;
-}
-.g-5 {
-  gap: 3rem !important;
+@media (max-width: 700px) {
+  .header-title {
+    width: auto;
+  }
+  .request-menu {
+    width: 100%;
+    height: 100%;
+  }
+  .content .item-1 {
+    width: 100vh;
+    height: 85vh;
+    gap: 3rem;
+  }
+
+  /*sidebar and header*/
 }
 
+@media (orientation: landscape) {
 
-.d-grid {
-  display: grid !important;
 }
 
-.f-w-normal{
-  font-weight: normal;
+@media (orientation: portrait) {
+
 }

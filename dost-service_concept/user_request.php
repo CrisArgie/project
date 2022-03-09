@@ -76,13 +76,13 @@
                       </a>
                     </li>
                     <li class="sidebar-list-item">
-                      <a href="#" class="sidebar-link">
+                      <a href="user_history.php" class="sidebar-link">
                         <img class="sidebar-icon" src="icons/png-files/alarm-clock.png">
                         <div class="hidden-sidebar">History</div>
                       </a>
                     </li>
                     <li class="sidebar-list-item">
-                      <a href="#" class="sidebar-link">
+                      <a href="user_view_request.php" class="sidebar-link">
                         <img class="sidebar-icon" src="icons/png-files/agenda.png">
                         <div class="hidden-sidebar">View Request</div>
                       </a>
@@ -133,13 +133,13 @@
             <div class="item-1">
               <h3 class="header-title">Request Interface</h3>
               <ul class="link-menu">
-                <li ><a href="#RR">
+                <li ><a href="user_repair_request.php">
                   <div class="btn-link">
                     Add Repair Request
                     <img class="content-icon" src="icons/png-files/files.png">
                   </div></a>
                 </li>
-                <li ><a href="#JR">
+                <li ><a href="user_ict_job_request.php">
                   <div class="btn-link">
                     Add ICT Job Request
                     <img class="content-icon" src="icons/png-files/service.png">

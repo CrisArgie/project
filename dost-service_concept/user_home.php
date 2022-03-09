@@ -76,13 +76,13 @@
                       </a>
                     </li>
                     <li class="sidebar-list-item">
-                      <a href="#" class="sidebar-link">
+                      <a href="user_history.php" class="sidebar-link">
                         <img class="sidebar-icon" src="icons/png-files/alarm-clock.png">
                         <div class="hidden-sidebar">History</div>
                       </a>
                     </li>
                     <li class="sidebar-list-item">
-                      <a href="#" class="sidebar-link">
+                      <a href="user_view_request.php" class="sidebar-link">
                         <img class="sidebar-icon" src="icons/png-files/agenda.png">
                         <div class="hidden-sidebar">View Request</div>
                       </a>
@@ -130,105 +130,7 @@
         </aside>
         <main class="content">
           <div class="content-menu">
-            <a href="" class="return-icon">
-              <img src="icons/png-files/chevron-left.png">
-            </a>
             
-            <div class="content-table">
-              <div class="row ctn-container">
-                <div class="row ctn-header">
-                  <h2>ICT JOB REQUEST FORM</h2>
-                </div>
-
-                <div class="row">
-
-                  <div class="row">
-                    <div class="ctn-top col-12 ">
-                      <div class="col-6 p-0">
-                        Date/Time of Request:
-                      </div>
-                      <div class="col-6 p-0">
-                        Request No.: 
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr class="ctn-linebreak">
-
-                  <div class="row">
-                    <div class="ctn-middle col-12">
-                      <div class="col-6 p-0 box-1">
-                        <h3 class="mb-4">CLIENT INFORMATION</h3>
-
-                        <label> End User: </label>  
-                          <input type="text" name="">
-
-                        <label> Division/Section/Unit: </label> 
-                          <input type="text" name=""> 
-
-                        <label> Equipment Property No.: </label>
-                          <input type="text" name=""> 
-
-
-                      </div>
-                      <div class="col-6 p-0">
-                        <h3 class="mb-4">TYPE OF REQUEST</h3>
-
-                        <input type="checkbox" name=""> <span class="mr-5"> Repair </span>
-                        <input type="checkbox" name=""> <span> Upgrade </span>
-                        <br><br>
-                        <input type="checkbox" name=""> <span> Other: </span> <input type="text" name="">
-
-                        <div class="mt-5 mr-4 d-flex flex-row align-items-center justify-content-end g-2">
-                          <button class="p-1 d-flex align-items-center justify-content-center g-2 my-shadow"> <img class="content-icon" src="icons/png-files/link.png"> <div class="text-1">Attach</div> </button>
-                          <button class="p-1 d-flex align-items-center justify-content-center g-2 my-shadow"> <img class="content-icon" src="icons/png-files/upload.png"> <div class="text-1">Upload</div> </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-                
-
-                <div class="row">
-                  
-                  <hr class="ctn-linebreak">
-                  
-                  <div class="row">
-                      <h3 class="col mb-4">Area of Request <i class="f-w-normal">(Check all that apply)</i> </h3> 
-                    <div class="row">
-                      <div class="ctn-bottom d-flex align-items-start col-12">
-                        <div class="col-4 p-0 pl-4 pr-4 btm-box-1 d-grid">
-                          <span> <input type="checkbox" name=""> Cables </span> 
-                          <span> <input type="checkbox" name=""> Keyboard </span> 
-                          <span> <input type="checkbox" name=""> Mouse </span> 
-                          <span> <input type="checkbox" name=""> Printer </span> 
-                          <span> <input type="checkbox" name=""> Internet </span> 
-                          <span> <input type="checkbox" name=""> CD/DVD Drive </span> 
-                          <span> <input type="checkbox" name=""> Memory </span> 
-                          <span> <input type="checkbox" name=""> Network </span>
-                        </div>
-                        <div class="col-4 p-0 pl-4 pr-4 btm-box-2 d-grid">
-                          <span> <input type="checkbox" name="">  Power Supply </span> 
-                          <span> <input type="checkbox" name="">  Hard Drive </span> 
-                          <span> <input type="checkbox" name="">  Monitor </span> 
-                          <span> <input type="checkbox" name="">  Software Programs (list): </span> <input type="text" name="">
-                        </div>
-                        <div class="col-4 p-0 pl-4 pr-4 btm-box-3 d-grid">
-                          <span class="h-auto"> <input type="checkbox" name=""> Other Hardware: </span> <input type="text" name=""> 
-                          <span class="h-auto"> <input type="checkbox" name=""> USB Device: </span> <input type="text" name="">
-                        </div>  
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="content-btn">
-              bottons
-            </div>
           </div>
         </main>
     </div>
