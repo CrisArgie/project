@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>DOST Service Request - Home</title>
+    <title>DOST Service Request - Request</title>
 
     
 
@@ -132,19 +132,21 @@
           <div class="request-menu">
             <div class="item-1">
               <h3 class="header-title">Request Interface</h3>
-              <ul class="link-menu">
-                <li ><a href="user_repair_request.php">
-                  <div class="btn-link">
-                    Add Repair Request
-                    <img class="content-icon" src="icons/png-files/files.png">
-                  </div></a>
-                </li>
-                <li ><a href="user_ict_job_request.php">
-                  <div class="btn-link">
-                    Add ICT Job Request
-                    <img class="content-icon" src="icons/png-files/service.png">
-                  </div></a></li>
-              </ul>
+
+                <ul class="link-menu">
+                  <li ><a href="user_repair_request.php">
+                    <div class="btn-link">
+                      Add Repair Request
+                      <img class="content-icon" src="icons/png-files/files.png">
+                    </div></a>
+                  </li>
+                  <li ><a href="user_ict_job_request.php">
+                    <div class="btn-link">
+                      Add ICT Job Request
+                      <img class="content-icon" src="icons/png-files/service.png">
+                    </div></a></li>
+                </ul>
+
             </div>
           </div>
         </main>

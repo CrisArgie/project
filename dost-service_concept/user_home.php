@@ -9,9 +9,6 @@
     
     <title>DOST Service Request - Home</title>
 
-    
-
-
     <!-- My styles for this template -->
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>

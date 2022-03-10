@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>DOST Service Request - Home</title>
+    <title>DOST Service Request - ICT Job Request</title>
 
     
 
@@ -130,93 +130,161 @@
         </aside>
         <main class="content">
           <div class="content-menu">
+<!-- Leftside menus -->
             <a href="user_request.php" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
-            
+<!-- Middleside menus -->
             <div class="content-table">
-              <div class="row ctn-container">
-                <div class="row ctn-header">
+              <div class="ctn-container">
+                
+                <div class="ctn-header mt-2">
                   <h2>ICT JOB REQUEST FORM</h2>
                 </div>
-                <div class="row">
-                  <div class="row">
-                    <div class="ctn-top col-12">
-                      <div class="col-6 p-0">
-                        Date/Time of Request: <input class="w-50" type="date" name=""> <!-- <input type="datetime-local" name=""> -->
-                      </div>
-                      <div class="col-6 p-0">
-                        Request No.: <input class="w-50" type="text" name="">
-                      </div>
-                    </div>
+                <div class="main-container">
+                  <div class="row justify-content-between pr-2 pl-2">
+                  <div class="col-xl-9 col-lg-12 p-0"> 
+                    <label> Date/Time of Request: </label> <input class="col-xl-6 col-lg-12" type="datetime-local" name=""> 
                   </div>
-                  <hr class="ctn-linebreak">
-                  <div class="row">
-                    <div class="ctn-middle col-12">
-                      <div class="col-6 p-0 box-1">
-                        <h3 class="mb-4">CLIENT INFORMATION</h3>
-                        <label> End User: </label>  
-                          <input type="text" name="">
-                        <label> Division/Section/Unit: </label> 
-                          <input type="text" name=""> 
-                        <label> Equipment Property No.: </label>
-                          <input type="text" name=""> 
-                      </div>
-                      <div class="col-6 p-0">
-                        <h3 class="mb-4">TYPE OF REQUEST</h3>
-                        <input type="checkbox" name=""> <span class="mr-5"> Repair </span>
-                        <input type="checkbox" name=""> <span> Upgrade </span>
-                        <br><br>
-                        <input type="checkbox" name=""> <span> Other: </span> <input type="text" name="">
-                        <div class="mt-5 mr-4 d-flex flex-row align-items-center justify-content-end g-2">
-                          <button class="p-1 d-flex align-items-center justify-content-center g-2 my-shadow"> <img class="content-icon" src="icons/png-files/link.png"> <div class="text-1">Attach</div> </button>
-                          <button class="p-1 d-flex align-items-center justify-content-center g-2 my-shadow"> <img class="content-icon" src="icons/png-files/upload.png"> <div class="text-1">Upload</div> </button>
-                        </div>
-                      </div>
+                  <div class="col-xl-3 col-lg-12  ml-auto p-0">
+                    <label> Request No.: </label> <input class="col-xl-6 col-lg-12" type="text" name="" disabled>
+                  </div>
+                  </div>
+                </div>
+
+                <hr class="ctn-linebreak">
+
+                <div class="main-container">
+                  <div class="row justify-content-end">
+                    <div class="col-xl-6 col-lg-12">
+                      <h3> CLIENT INFORMATION </h3>
+                      <ul class="p-0 mb-2 row">
+                        <li class="mt-2 col-xl-12">
+                          <label> End User: </label>
+                          <input class="w-100" type="text" name="">
+                        </li>
+                        <li class="mt-2 col-xl-12">
+                          <label> Division/Section/Unit: </label>
+                          <input class="w-100" type="text" name="">
+                        </li>
+                        <li class="mt-2 col-xl-12">
+                          <label> Equipment Property No.: </label>
+                          <input class="w-100" type="text" name="">
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-xl-6 col-lg-12">
+                      <h3> TYPE OF REQUEST </h3>
+                      <ul class="p-0 row">
+                        <li class="mt-2 col-xl-6">
+                          <input type="checkbox" name="">
+                          <label> Repair </label>
+                        </li>
+                        <li class="mt-2 col-xl-6">
+                          <input type="checkbox" name="">
+                          <label> Upgrade </label>
+                        </li>
+                        <li class="mt-2 col-xl-12">
+                          <input type="checkbox" name="">
+                          <label>Other:</label>
+                          <input class="w-100" type="text" name="" > <!-- hidden text -->
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="d-flex flex-row pr-4 pl-4 g-3">
+                      <button class="middle-button d-flex justify-content-center p-1 g-2 my-shadow"> <img class="content-icon" src="icons/png-files/link.png"> <div class="text-1">Attach</div> </button>
+                      <button class="middle-button d-flex justify-content-center p-1 g-2 my-shadow"> <img class="content-icon" src="icons/png-files/upload.png"> <div class="text-1">Upload</div> </button>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <hr class="ctn-linebreak">
-                  <div class="row">
-                   <h3 class="col mb-4">Area of Request <i class="f-w-normal">(Check all that apply)</i> </h3> 
-                    <div class="row">
-                      <div class="ctn-bottom d-flex align-items-start col-12">
-                        <div class="col-4 p-0 pl-4 pr-4 btm-box-1 d-grid g-2">
-                          <span> <input class="checkbox" type="checkbox" name=""> Cables </span> 
-                          <span> <input class="checkbox" type="checkbox" name=""> Keyboard </span> 
-                          <span> <input class="checkbox" type="checkbox" name=""> Mouse </span> 
-                          <span> <input class="checkbox" type="checkbox" name=""> Printer </span> 
-                          <span> <input class="checkbox" type="checkbox" name=""> Internet </span> 
-                          <span> <input class="checkbox" type="checkbox" name=""> CD/DVD Drive </span> 
-                          <span> <input class="checkbox" type="checkbox" name=""> Memory </span> 
-                          <span> <input class="checkbox" type="checkbox" name=""> Network </span>
-                        </div>
-                        <div class="col-4 p-0 pl-4 pr-4 btm-box-2 d-grid g-2">
-                          <span> <input class="checkbox" type="checkbox" name="">  Power Supply </span> 
-                          <span> <input class="checkbox" type="checkbox" name="">  Hard Drive </span> 
-                          <span> <input class="checkbox" type="checkbox" name="">  Monitor </span> 
-                          <span> <input class="checkbox" type="checkbox" name="">  Software Programs (list): </span> <input type="text" name="">
-                        </div>
-                        <div class="col-4 p-0 pl-4 pr-4 btm-box-3 d-grid g-2">
-                          <span class="h-auto"> <input class="checkbox" type="checkbox" name=""> Other Hardware: </span> <input type="text" name=""> 
-                          <span class="h-auto"> <input class="checkbox" type="checkbox" name=""> USB Device: </span> <input type="text" name="">
-                        </div>  
-                      </div>
+
+                <hr class="ctn-linebreak">
+
+                <div class="main-container">
+                  <h3 class="mt-3 mr-2 ml-2"> AREA OF REQUEST <i class="f-w-normal"> (Check all that apply) </i></h3>
+                  <div class="col p-2">
+                    <div class="row-xl-12 pr-3 pl-3">
+                      <ul class="d-flex align-items-center flex-wrap p-0 m-0 g-2">
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Cables </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Keyboard </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Mouse </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Printer </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Internet </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> CD/DVD Drive </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Memory </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Network </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Power Supply </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Hard Drive </label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="">
+                          <label> Monitor </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="row-xl-12 pr-3 pl-3 mt-2">
+                      <ul class="row align-items-center p-0 m-0">
+                        <li class="col-xl-4 p-0">
+                          <input type="checkbox" name="">
+                          <label> Software Programs (list): </label>
+                          <textarea class="textarea-j" placeholder="Type here..."></textarea>
+                        </li>
+                        <li class="col-xl-4 p-0">
+                          <input type="checkbox" name="">
+                          <label> Other Hardware: </label>
+                          <textarea class="textarea-j" placeholder="Type here..."></textarea>
+                        </li>
+                        <li class="col-xl-4 p-0">
+                          <input type="checkbox" name="">
+                          <label> USB Device: </label>
+                          <textarea class="textarea-j" placeholder="Type here..."></textarea>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
-              </div>
+
+              </div> <!-- END of contentContainer -->
             </div>
+<!-- Rightside menus -->
             <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
-            
               <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
               <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
               <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
               <button class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
-            
             </div>
           </div>
+
         </main>
     </div>
 
