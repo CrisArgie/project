@@ -232,7 +232,6 @@
               <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
               <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
               <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
-              <button class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
             </div>
           </div>
 

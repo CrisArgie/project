@@ -36,6 +36,3 @@ function StartScrolling()
 StartScrolling();
 
 
-$(document).ready(function() {
-  $('#example').DataTable();
-} );
