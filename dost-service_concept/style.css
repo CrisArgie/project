@@ -976,6 +976,30 @@ button.bg-dark:focus {
   background-color: #3a3b45 !important;
 }
 
+.my-bg-1 {
+  background-color: #BDBDBD !important;
+}
+.my-bg-2 {
+  background-color: #D4D4D4 !important;
+}
+.my-bg-3 {
+  background-color: #00ADEA !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+.overflow-auto-y {
+  overflow-y: auto !important; 
+}
+
+.overflow-scroll {
+  overflow: scroll !important;
+}
+.overflow-scroll-y {
+  overflow-y: scroll !important;
+}
+
 .o-hidden {
   overflow: hidden !important;
 }
@@ -1142,6 +1166,27 @@ button.bg-dark:focus {
 .d-grid {
   display: grid !important;
 }
+.grid-position-1 {
+  grid-template-columns: 200px 200px;
+  grid-gap: 10px;
+  grid-template-areas: 
+    "leftside1 rightside3"
+    "leftside2 rightside4"
+}
+.grid-1 {
+  grid-area: leftside1;
+}
+.grid-2 {
+  grid-area: leftside2;
+}
+.grid-3 {
+  grid-area: rightside3;
+}
+.grid-4 {
+  grid-area: rightside4;
+}
+
+
 
 .f-w-normal{
   font-weight: normal;
@@ -2017,6 +2062,10 @@ button.bg-dark:focus {
 
 .vh-100 {
   height: 100vh !important;
+}
+
+.fx-200 {
+  height: 10em;
 }
 
 .m-0 {

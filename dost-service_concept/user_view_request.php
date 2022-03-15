@@ -131,11 +131,13 @@
                 <div class="row flex-row justify-content-between">
                   <h1 class="m-0 p-0"> My Request </h1>
                   <div class="d-flex align-items-center justify-content-end col-xl-4 p-0 g-2">
-                    <button class="ctn-btn d-flex align-items-center g-1 pl-2 pr-2 pt-1 pb-1"> 
+                    <button class="ctn-btn d-flex align-items-center g-1 pl-2 pr-2 pt-1 pb-1 h-100"> 
                       <div class="text-1"> Generate Report </div>
                       <img src="icons/png-files/printer.png" class="p-0">
                     </button>
-                    <a href="user_request.php" class="link-a-tag pl-2 pr-2 pt-1 pb-1 my-shadow"> <div class="text-1"> Add Request </div></a>
+                    <a href="user_request.php" class="link-a-tag d-flex align-items-center pl-2 pr-2 pt-1 pb-1 my-shadow h-100"> 
+                        <div class="text-1"> Add Request </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -161,9 +163,10 @@
 
               <div class="main-container">
                 <div class="row justify-content-center">
-                  <table id="example" class="display" style="width:100%">
+                  <table id="example" class="display w-100">
                     <thead>
                         <tr>
+                            <th hidden>id</th>
                             <th>No.</th>
                             <th>Action</th>
                             <th>Status</th>
@@ -176,6 +179,7 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">98377</a> </td>
                             <td> <button class="ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> </td>
                             <td>Completed</td>
@@ -186,6 +190,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>8</td>
                             <td> <a href="" class="tbl-a">66817</a> </td>
                             <td> <button class="ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> </td>
                             <td>Completed</td>
@@ -196,6 +201,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>1</td>
                             <td> <a href="" class="tbl-a">18403</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
@@ -206,6 +212,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">94178</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
@@ -216,6 +223,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">81856</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pre-request</td>
@@ -226,6 +234,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">66804</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
@@ -236,6 +245,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">48125</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
@@ -246,6 +256,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">02773</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
@@ -256,6 +267,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">65584</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
@@ -266,6 +278,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">65584</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
@@ -276,6 +289,7 @@
                             <td>$320,800</td>
                         </tr>
                         <tr>
+                            <td hidden>9</td>
                             <td> <a href="" class="tbl-a">79997</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
@@ -300,7 +314,6 @@ $(document).ready(function() {
   $('#example').DataTable( {
     responsive: true;
   } );
-
 } );
 </script>
 

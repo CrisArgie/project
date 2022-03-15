@@ -9,10 +9,7 @@
     
     <title>DOST Service Request - Home</title>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
+    
     <!-- My styles for this template -->
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
@@ -128,50 +125,128 @@
             <div class="col-xl-12 p-0">
 
               <div class="main-container">
-                <div class="row">
-                  <h2 class="col-xl-12"> User Service Request Overview </h2>
-                  <div class="col-xl-8">
-                    <table id="example" class="display" style="width:100%">
-                      <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Action</th>
-                            <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                            <td> <a href="" class="tbl-a">98377</a> </td>
-                            <td> <button class="ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> </td>
-                            <td>Completed</td>
-                        </tr>
-                        <tr>
-                            <td> <a href="" class="tbl-a">66817</a> </td>
-                            <td> <button class="ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> </td>
-                            <td>Completed</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <div class="row my-shadow my-bg-3 pt-3 pb-4 m-4">
+                  
+                  <div class="col-xl-12 p-0">
+                    <h2 class="col-xl-5 col-md-12 text-1 m-0 p-0 my-bg-1 pr-4 pl-4 pb-3 pt-3"> User Service Request Overview </h2>
                   </div>
-                  <ul class="col-xl-4">
-                    <li class="">
-                      <section> Total of Repair Request: </section>
-                      <p></p>
-                    </li>
-                    <li class="">
-                      <section> Total of ICT Job Request: </section>
-                      <p></p>
-                    </li>
-                  </ul>
+
+                  <div class="col-xl-8 fx-200 p-0 mt-2">
+                    <div class="bg-white my-shadow m-2 p-3 h-100 overflow-scroll-y">
+                      <table class="display w-100">
+                        <thead>
+                          <tr>
+                            <th hidden>id</th>
+                            <th>No.</th>
+                            <th>Brand/Model</th>
+                            <th>Status</th>
+                            <th>Requested</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td hidden>1</td>
+                            <td>09669</td>
+                            <td>Dell</td>
+                            <td>In-progress</td>
+                            <td>1/13/2022</td>
+                            <td>View</td>
+                          </tr>
+                          <tr>
+                            <td hidden>1</td>
+                            <td>65488</td>
+                            <td>Lenovo</td>
+                            <td>In-progress</td>
+                            <td>12/4/2022</td>
+                            <td>View</td>
+                          </tr>
+                          <tr>
+                            <td hidden>1</td>
+                            <td>65488</td>
+                            <td>Lenovo</td>
+                            <td>In-progress</td>
+                            <td>12/4/2022</td>
+                            <td>View</td>
+                          </tr>
+                          <tr>
+                            <td hidden>1</td>
+                            <td>65488</td>
+                            <td>Lenovo</td>
+                            <td>In-progress</td>
+                            <td>12/4/2022</td>
+                            <td>View</td>
+                          </tr>
+                          <tr>
+                            <td hidden>1</td>
+                            <td>65488</td>
+                            <td>Lenovo</td>
+                            <td>In-progress</td>
+                            <td>12/4/2022</td>
+                            <td>View</td>
+                          </tr>
+                          <tr>
+                            <td hidden>1</td>
+                            <td>65488</td>
+                            <td>Lenovo</td>
+                            <td>In-progress</td>
+                            <td>12/4/2022</td>
+                            <td>View</td>
+                          </tr>
+                          <tr>
+                            <td hidden>1</td>
+                            <td>65488</td>
+                            <td>Lenovo</td>
+                            <td>In-progress</td>
+                            <td>12/4/2022</td>
+                            <td>View</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="col-xl-4 fx-200 p-0 mt-2">
+                    <ul class="d-flex flex-column bg-white my-shadow m-2 p-3 h-100">
+                      <li class="d-flex align-items-center h-50">
+                        <section class="w-75 text-2 f-bold"> Total of Repair Request: </section>
+                        <p class="m-0 text-3 f-bold"> 5 </p>
+                      </li>
+                      <li class="d-flex align-items-center h-50">
+                        <section class="w-75 text-2 f-bold"> Total of ICT Job Request: </section>
+                        <p class="m-0 text-3 f-bold"> 9 </p>
+                      </li>
+                    </ul>
+                  </div>
+
                 </div>
               </div>
 
               <div class="main-container">
-                <div class="row">
-                  <div class="col-xl-12">
-                    <h2 class="m-0 p-0"> User Interface </h2>
+                <div class="row my-shadow my-bg-2 pt-3 pb-4 m-4">
+                  <div class="col-xl-4 col-md-12 mb-3 pr-0 pl-0">
+                    <h2 class="text-1 m-0 p-0 my-bg-1 pr-4 pl-4 pb-3 pt-3"> User Interface </h2>
                   </div>
-                  <div class="col-xl-12"></div>
+                  <div class="col-xl-12 d-flex justify-content-center align-items-center ">
+                    <ul class="d-grid grid-position-1 m-0 p-0">
+                      <li class="grid-1"> 
+                        <a href="user_repair_request.php" class="btn-link"> 
+                          Add Repair Request 
+                          <img class="content-icon" src="icons/png-files/files.png"> </a> </li>
+                      <li class="grid-2"> 
+                        <a href="user_ict_job_request.php" class="btn-link"> 
+                          Add ICT Job Request 
+                          <img class="content-icon" src="icons/png-files/service.png" > </a> </li>
+                      <li class="grid-3"> 
+                        <a href="user_view_request.php" class="btn-link"> 
+                          View Request 
+                          <img class="content-icon" src="icons/png-files/agenda.png" > </a> </li>
+                      <li class="grid-4"> 
+                        <a href="about.php" class="btn-link"> 
+                          About 
+                          <img class="content-icon" src="icons/png-files/information.png"> </a> </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -180,14 +255,6 @@
         </main>
     </div>
 
-<script type="text/javascript">
-$(document).ready(function() {
-  $('#example').DataTable( {
-    responsive: true;
-  } );
-
-} );
-</script>
     
 </body>
 </html>

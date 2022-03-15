@@ -120,8 +120,71 @@
             </div>
         </aside>
         <main class="content">
-          <div class="content-menu">
-            
+          <div class="content-menu flex-column">
+            <div class="main-container">
+              <div class="row justify-content-between align-items-baseline mt-3 mr-2 ml-2">
+                <h2 class="p-0 m-0"> About </h2>
+                
+                <div class="col-xl-12 mt-3 ">
+                  <h4 class="d-flex justify-content-center p-0 m-0"> Process of Requesting Service </h4>  
+                  <ul class="row justify-content-around p-0 m-0 ">
+                    <li class="col-xl-12 mt-2 mb-2 "> 
+                      <h5 class="mt-2 d-flex justify-content-center"> Repair Request </h5>
+                      <h6>  </h6> </li>
+                    <li class="col-xl-3 p-0 mb-2 "> 
+                      <h5 class="mt-2 border-bottom-dark"> Step 1 </h5>
+                      <h6> Go to Request Page </h6> </li>
+                    <li class="col-xl-3 p-0 mb-2 "> 
+                      <h5 class="mt-2 border-bottom-dark"> Step 2 </h5>
+                      <h6> Click the Repair Request button </h6> </li>
+                    <li class="col-xl-3 p-0 mb-2 "> 
+                      <h5 class="mt-2 border-bottom-dark"> Step 3 </h5>
+                      <h6> Fill-in your details </h6> </li>
+                    <li class="col-xl-3 p-0 mb-2 "> 
+                      <h5 class="mt-2 border-bottom-dark"> Step 4 </h5>
+                      <h6> After filling the details then click send button and wait for your turn to be service </h6> </li>
+                  </ul>
+
+                  
+                  <ul class="row justify-content-around p-0 m-0">
+                    <li class="col-xl-12 mt-2 mb-2"> 
+                      <h5 class="mt-2 d-flex justify-content-center"> ICT job request </h5>
+                      <h6>  </h6> </li>
+                    <li class="col-xl-3 p-0 mb-2"> 
+                      <h5 class="mt-2 border-bottom-dark"> Step 1 </h5>
+                      <h6> Go to Request Page </h6> </li>
+                    <li class="col-xl-3 p-0 mb-2"> 
+                      <h5 class="mt-2 border-bottom-dark"> Step 2 </h5>
+                      <h6> Click the ICT job request button </h6> </li>
+                    <li class="col-xl-3 p-0 mb-2"> 
+                      <h5 class="mt-2 border-bottom-dark"> Step 3 </h5>
+                      <h6> Fill-in your details </h6> </li>
+                    <li class="col-xl-3 p-0 mb-2"> 
+                      <h5 class="mt-2 border-bottom-dark"> Step 4 </h5>
+                      <h6> After filling the details then click send button and wait for your turn to be service </h6> </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+            <hr class="ctn-linebreak mt-3">
+
+            <div class="main-container">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="accordion">
+                    <div class="accordion-header"> <h2>FAQ (Frequent Asked Question)</h2> </div>
+                    <div class="row accordion-body">
+                      <section class="col-xl-12">
+                        <span class="accordion-topic"> Question here? </span>
+                        <p class="accordion-answer"> Answer here? </p>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </main>
     </div>
