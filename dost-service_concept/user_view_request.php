@@ -312,7 +312,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
   $('#example').DataTable( {
-    responsive: true;
+    responsive: true
   } );
 } );
 </script>

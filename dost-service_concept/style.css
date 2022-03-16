@@ -62,7 +62,7 @@ body {
   /*position: -webkit-sticky;*/
 
   flex-shrink: 0;
-  overflow: auto;
+  overflow: hidden;
   width: 75px;
   height: calc(100vh - var(--header-height));
 
@@ -84,6 +84,7 @@ body {
 
   .sidebar .hidden-sidebar {
     opacity: 0;
+    overflow-x: hidden;
     width: 0;
     transition: opacity var(--animation-duration) var(--animation-timing-curve);
   }
@@ -118,12 +119,13 @@ body {
     flex-grow: 1;
     margin: 1rem 0;
   }
-  
-  .top-sidebar,
-  .middle-sidebar,
-  .bottom-sidebar {
-    width: 100%;
-  }
+
+.admin-top-sidebar,
+.top-sidebar,
+.middle-sidebar,
+.bottom-sidebar {
+  width: 100%;
+}
 
   
 .container {
@@ -135,35 +137,46 @@ body {
 }
   
 
-  .sidebar-list {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.sidebar-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar.open .sidebar-link {
+  /* justify-content: flex-start; */
+  justify-content: center;
+}
   
-  .sidebar.open .sidebar-link {
-    /* justify-content: flex-start; */
-    justify-content: center;
-  }
-  
-  .sidebar-icon {
-    width: 25px;
-    height: 25px;
-    flex-shrink: 0;
-    background-color: white;
-    border-radius: 3px;
-  }
+.sidebar-icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  background-color: white;
+  border-radius: 3px;
+}
 
 
 
-  .sidebar-list .hidden-sidebar {
-    margin-left: 1.5rem;
-    white-space: nowrap;
-  }
+.sidebar-list .hidden-sidebar {
+  margin-left: 1.5rem;
+  white-space: nowrap;
+}
 
 .top-sidebar .sidebar-link {
+  display: flex;
+  width: auto;
+  padding: .5rem 0;
+  color: var(--lightest-gray);
+  text-decoration: none;
+  align-items: center;
+  padding-left: 25px;
+  opacity: 50%;
+}
+
+.admin-top-sidebar .sidebar-link {
   display: flex;
   width: auto;
   padding: .5rem 0;
@@ -195,16 +208,32 @@ body {
     opacity: 50%;
     justify-content: center;
   }
-   
-  .sidebar-link:hover {
-    opacity: 100%;
-  }
 
-  .sidebar-list-item {
-    position: relative;
-    width: 100%;
-    fill: var(--light-gray);
-  }
+.bottom-sidebar .sidebar-link-top {
+  display: flex;
+  width: auto;
+  padding: .5rem 0;
+  color: var(--lightest-gray);
+  text-decoration: none;
+  align-items: center;
+  padding-left: 25px;
+  opacity: 50%;
+  overflow-x: hidden;
+}
+
+.sidebar-link-top:hover {
+  opacity: 100%;
+}
+   
+.sidebar-link:hover {
+  opacity: 100%;
+}
+
+.sidebar-list-item {
+  position: relative;
+  width: 100%;
+  fill: var(--light-gray);
+}
   
 .sidebar-list-item .active {
   color: var(--color2);
@@ -266,6 +295,75 @@ body {
   }
 
 
+.sidebar .admin-top-sidebar {
+  transition: height var(--animation-duration) var(--animation-timing-curve);
+}
+
+.sidebar.open .admin-top-sidebar {
+  height: 87px;
+}
+
+.sidebar .admin-top-sidebar .hidden-sidebar {
+  width: 100%;
+}
+
+
+
+.my-shadow-bottom {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .4);
+}
+
+
+/* ACCORDION FAQ START */
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.faq {
+  margin-bottom: 2px;
+}
+
+.faq-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+  
+.faq-label::after {
+  content: '\002B';
+  color: var(--color2);
+  padding: 0.51rem;
+  transform: scale(1.8);
+  text-align: center;
+  transition: all 0.35s;
+}
+
+.faq-content {
+  max-height: 0;
+  color: #2c3e50;
+  background: white;
+  transition: all 0.35s;
+  display: none;
+}
+
+/* input:checked + .faq-label {
+  
+} */
+input:checked + .faq-label::after {
+  content: '\2013';
+  transform: scale(1.5);
+  color: var(--color2);
+}
+input:checked ~ .faq-content {
+  max-height: 100vh;
+  display: block;
+  transition: all 0.35s;
+}
+/* ACCORDION FAQ END */
 
 
 
@@ -281,6 +379,18 @@ body {
 .left-menu .menu-logo-item {
     width: 30px;
     height: 30px;
+}
+
+.admin-top-sidebar .menu-logo-item {
+  width: 30px;
+  height: 30px;
+}
+.admin-top-sidebar .menu-icon-btn {
+  background: none;
+  border: none;
+  padding: 0px 0px;
+  margin-left: 0px;
+  filter: saturate(100%) contrast(100%) brightness(100%) invert(90%) sepia(100%) hue-rotate(180deg) drop-shadow(0 0 10px white);
 }
 
 .right-menu {
@@ -300,7 +410,7 @@ body {
 }
 
 .sidebar-linebreak {
-    width: 95%;
+    width: 100%;
     margin: 5px 0px;
     border: 1px solid var(--lightest-gray);
     padding: 0px;
@@ -2010,6 +2120,14 @@ button.bg-dark:focus {
 
 .w-70 {
   width: 70% !important;
+}
+
+.w-80 {
+  width: 80% !important;
+}
+
+.w-90 {
+  width: 90% !important;
 }
 
 .w-100 {
