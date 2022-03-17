@@ -14,6 +14,14 @@
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
 
+    <!-- High Charts style -->
+    <link rel="stylesheet" type="text/css" href="css/chart.css">
+    <!-- High Chatys scripts -->
+    <script src="charts/highcharts.js"></script>
+    <script src="charts/modules/exporting.js"></script>
+    <script src="charts/modules/export-data.js"></script>
+    <script src="charts/modules/accessibility.js"></script>
+
 </head>
 <body>
 <!-- Header Page  -->
@@ -126,37 +134,115 @@
         </aside>
         <main class="content">
             <div class="content-menu flex-column">
-                <div class="main-container">
+                <div class="main-container ">
                     <div class="row">
                         <div class="col-xl-12 mb-1"> <h2 class="pr-2 pl-2"> Primary Monitoring </h2> </div>
-                        <div class="col-xl-2 pl-0"> 
-                            <div class="my-shadow bg-gray-100 mb-2"> 
-                                <h3 class="m-0 p-0 pt-2 pl-3"> In-progress: </h3> 
-                                <div></div>
+                        <div class="col-xl-2 p-0 d-flex flex-column"> 
+                            <div class="admin-left-border-b my-shadow bg-gray-100 m-2 h-100"> 
+                                <h3 class="m-0 pl-2 pt-1 pr-2 pb-0"> In-progress: </h3> 
+                                <div class="d-flex align-items-center justify-content-between m-2">
+                                    <img class="admin-icon-1" src="icons/png-files/pencil-alt.png">
+                                    <p class="text-3 m-0 mr-2"> 4 </p>
+                                </div>
                             </div>
-                            <div class="my-shadow bg-gray-100 mb-2">  
-                                <h3 class="m-0 p-0 pt-2 pl-3"> Pending Request: </h3>
-                                <div></div>
+                            <div class="admin-left-border-o my-shadow bg-gray-100 m-2 h-100">  
+                                <h3 class="m-0 pl-2 pt-1 pr-2 pb-0"> Pending Request: </h3>
+                                <div class="d-flex align-items-center justify-content-between m-2">
+                                    <img class="admin-icon-1" src="icons/png-files/bubble.png">
+                                    <p class="text-3 m-0 mr-2"> 0 </p>    
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xl-10 my-shadow bg-gray-100 p-0 mb-2"> 
-                            <h4 class="pl-3 pt-2 m-0 p-0"> Total number of request by reports </h4>
-                            <div class=" "> 
-                            
+                        <div class="col-xl-10 p-0 m-0"> 
+                            <div class="admin-left-border-b overflow-auto-x d-flex m-2 my-shadow bg-gray-100">
+                                <div class="d-flex flex-column align-items-center justify-content-between">
+                                    <h4 class="pl-2 pt-3 pr-2 m-0 pb-0"> Total number of request by reports per year </h4>
+                                    <img class="admin-icon-1 mb-5" src="icons/png-files/bar-chart.png">
+                                </div>
+                                <div class="w-100"> 
+                                    <figure class="highcharts-figure">
+                                        <div id="bar-chart-request-per-reports"></div>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="main-container mt-4">
-                    <div class="row my-shadow bg-gray-100">
+                <div class="main-container mt-4 ">
+                    <div class="row my-shadow bg-gray-100 pb-3 pt-3">
                         <div class="col-xl-12 mb-3 mt-2"> <h2 class="pr-2 pl-2"> User and Request Monitoring </h2> </div>
                         <div class="col-xl-6 mb-2">
-                            <div class=" my-shadow bg-info">
-                                <h4> Total number of request by status </h4>
+                            <div class="h-100 p-2 my-shadow bg-info border-radius-1">
+                                <h4 class="mt-2 mb-5"> Total number of request by status per month </h4>
+                                <ul class="row p-0 mr-4 ml-4 pl-3 pr-3"> 
+                                    <li class="col-xl-6 mb-3 d-flex align-items-center"> 
+                                        <img class="admin-icon-2" src="icons/png-files/checkmark-circle.png">
+                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                            Completed: 
+                                            <p class="m-0 "> 5 </p> 
+                                        </label>
+                                    </li>
+                                    <li class="col-xl-6 mb-3 d-flex align-items-center">
+                                        <img class="admin-icon-2" src="icons/png-files/checkmark-circle.png">
+                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                            Assigned: 
+                                            <p class="m-0 "> 5 </p> 
+                                        </label>
+                                    </li>
+                                    <li class="col-xl-6 mb-3 d-flex align-items-center">
+                                        <img class="admin-icon-2" src="icons/png-files/archive.png">
+                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                            In-progress: 
+                                            <p class="m-0 "> 5 </p> 
+                                        </label>
+                                    </li>
+                                    <li class="col-xl-6 mb-3 d-flex align-items-center">
+                                        <img class="admin-icon-2" src="icons/png-files/archive.png">
+                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                            Pending: 
+                                            <p class="m-0 "> 5 </p> 
+                                        </label>
+                                    </li>
+                                    <li class="col-xl-6 mb-3 d-flex align-items-center">
+                                        <img class="admin-icon-2" src="icons/png-files/question-circle.png">
+                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                            New: 
+                                            <p class="m-0 "> 5 </p>
+                                        </label>
+                                    </li>
+                                </ul>
                             </div> </div>
                         <div class="col-xl-6 mb-2">
-                            <div class=" my-shadow bg-info">
-                                <h4> Total number of user by division </h4>
+                            <div class=" row h-100 p-2 my-shadow bg-info border-radius-1">
+                                <h4 class="col-xl-12 mt-2 mb-5"> Total number of user by division per month </h4>
+                                <ul class="col-xl-3 w-100 p-0 mr-4 ml-4 pl-3 pr-3">
+                                    <li class="mb-3 d-flex align-items-center"> 
+                                        <img class="admin-icon-2" src="icons/png-files/checkmark-circle.png">
+                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                            Completed: 
+                                            <p class="m-0"> 0 </p>
+                                        </label>
+                                    </li>
+                                    <li class="mb-3 d-flex align-items-center"> 
+                                        <img class="admin-icon-2" src="icons/png-files/archive.png">
+                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                            Pending: 
+                                            <p class="m-0"> 2 </p>
+                                        </label> 
+                                    </li>
+                                    <li class="mb-3 d-flex align-items-center"> 
+                                        <img class="admin-icon-2" src="icons/png-files/question-circle.png">
+                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                            Request:
+                                            <p class="m-0 ml-4"> 9 </p>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <div class="col-xl-9">
+                                    <figure class="highcharts-figure">
+                                        <div id="pie-chart-legend"></div>
+                                    </figure>
+                                </div>
                             </div> </div>
                     </div>
                 </div>
@@ -164,6 +250,7 @@
         </main>
     </div>
 
+<script type="text/javascript" src="scripts/chart-js/charts.js"></script>
     
 </body>
 </html>
