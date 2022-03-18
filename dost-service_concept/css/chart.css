@@ -1,8 +1,25 @@
 /* start admin_dashboard.php */
+
 .highcharts-figure,
 .highcharts-data-table table {
     height: 200px;
     margin: 1em auto;
+}
+
+.highcharts-figure-pie {
+    width: 100%;
+}
+
+.highcharts-figure-bar {
+    width: 100%;
+}
+
+.admin-bar-1 {
+    height: 250px !important;
+}
+
+.admin-pie-1 {
+    height: 150px;
 }
 
 #bar-chart-request-per-reports {

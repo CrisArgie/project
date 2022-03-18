@@ -16,7 +16,7 @@
 
     <!-- High Charts style -->
     <link rel="stylesheet" type="text/css" href="css/chart.css">
-    <!-- High Chatys scripts -->
+    <!-- High Charts scripts -->
     <script src="charts/highcharts.js"></script>
     <script src="charts/modules/exporting.js"></script>
     <script src="charts/modules/export-data.js"></script>
@@ -64,7 +64,7 @@
             <hr class="sidebar-linebreak">
                 <div class="sidebar-list">
                     <div class="sidebar-list-item">
-                        <a href="" class="sidebar-link active">
+                        <a href="admin_dashboard.php" class="sidebar-link active">
                             <img class="sidebar-icon" src="icons/png-files/archive.png">
                             <div class="hidden-sidebar">Dashboard</div>
                         </a>
@@ -76,13 +76,13 @@
             <div class="middle-sidebar">
                 <ul class="sidebar-list">
                     <li class="sidebar-list-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="admin_users.php" class="sidebar-link">
                         <img class="sidebar-icon" src="icons/png-files/users.png">
                         <div class="hidden-sidebar">Users</div>
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="admin_request.php" class="sidebar-link">
                         <img class="sidebar-icon" src="icons/png-files/add-files.png">
                         <div class="hidden-sidebar">Requests</div>
                         </a>
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="w-100"> 
                                     <figure class="highcharts-figure">
-                                        <div id="bar-chart-request-per-reports"></div>
+                                        <div id="bar-chart-request-per-reports" class="overflow-auto-x"></div>
                                     </figure>
                                 </div>
                             </div>
@@ -172,40 +172,40 @@
                     <div class="row my-shadow bg-gray-100 pb-3 pt-3">
                         <div class="col-xl-12 mb-3 mt-2"> <h2 class="pr-2 pl-2"> User and Request Monitoring </h2> </div>
                         <div class="col-xl-6 mb-2">
-                            <div class="h-100 p-2 my-shadow bg-info border-radius-1">
+                            <div class="h-100 p-2 my-shadow admin-bg-1 border-radius-1">
                                 <h4 class="mt-2 mb-5"> Total number of request by status per month </h4>
                                 <ul class="row p-0 mr-4 ml-4 pl-3 pr-3"> 
                                     <li class="col-xl-6 mb-3 d-flex align-items-center"> 
                                         <img class="admin-icon-2" src="icons/png-files/checkmark-circle.png">
-                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                        <label class="text-2 f-bold pl-2 d-flex justify-content-between w-100"> 
                                             Completed: 
                                             <p class="m-0 "> 5 </p> 
                                         </label>
                                     </li>
                                     <li class="col-xl-6 mb-3 d-flex align-items-center">
                                         <img class="admin-icon-2" src="icons/png-files/checkmark-circle.png">
-                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                        <label class="text-2 f-bold pl-2 d-flex justify-content-between w-100"> 
                                             Assigned: 
                                             <p class="m-0 "> 5 </p> 
                                         </label>
                                     </li>
                                     <li class="col-xl-6 mb-3 d-flex align-items-center">
                                         <img class="admin-icon-2" src="icons/png-files/archive.png">
-                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                        <label class="text-2 f-bold pl-2 d-flex justify-content-between w-100"> 
                                             In-progress: 
                                             <p class="m-0 "> 5 </p> 
                                         </label>
                                     </li>
                                     <li class="col-xl-6 mb-3 d-flex align-items-center">
                                         <img class="admin-icon-2" src="icons/png-files/archive.png">
-                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                        <label class="text-2 f-bold pl-2 d-flex justify-content-between w-100"> 
                                             Pending: 
                                             <p class="m-0 "> 5 </p> 
                                         </label>
                                     </li>
                                     <li class="col-xl-6 mb-3 d-flex align-items-center">
                                         <img class="admin-icon-2" src="icons/png-files/question-circle.png">
-                                        <label class="pl-2 d-flex justify-content-between w-100"> 
+                                        <label class="text-2 f-bold pl-2 d-flex justify-content-between w-100"> 
                                             New: 
                                             <p class="m-0 "> 5 </p>
                                         </label>
@@ -213,35 +213,39 @@
                                 </ul>
                             </div> </div>
                         <div class="col-xl-6 mb-2">
-                            <div class=" row h-100 p-2 my-shadow bg-info border-radius-1">
-                                <h4 class="col-xl-12 mt-2 mb-5"> Total number of user by division per month </h4>
-                                <ul class="col-xl-3 w-100 p-0 mr-4 ml-4 pl-3 pr-3">
-                                    <li class="mb-3 d-flex align-items-center"> 
-                                        <img class="admin-icon-2" src="icons/png-files/checkmark-circle.png">
-                                        <label class="pl-2 d-flex justify-content-between w-100"> 
-                                            Completed: 
-                                            <p class="m-0"> 0 </p>
-                                        </label>
-                                    </li>
-                                    <li class="mb-3 d-flex align-items-center"> 
-                                        <img class="admin-icon-2" src="icons/png-files/archive.png">
-                                        <label class="pl-2 d-flex justify-content-between w-100"> 
-                                            Pending: 
-                                            <p class="m-0"> 2 </p>
-                                        </label> 
-                                    </li>
-                                    <li class="mb-3 d-flex align-items-center"> 
-                                        <img class="admin-icon-2" src="icons/png-files/question-circle.png">
-                                        <label class="pl-2 d-flex justify-content-between w-100"> 
-                                            Request:
-                                            <p class="m-0 ml-4"> 9 </p>
-                                        </label>
-                                    </li>
-                                </ul>
-                                <div class="col-xl-9">
-                                    <figure class="highcharts-figure">
-                                        <div id="pie-chart-legend"></div>
-                                    </figure>
+                            <div class=" row overflow-auto-y admin-bottom-h-1 p-2 my-shadow admin-bg-1 border-radius-1 ">
+                                <h4 class="col-xl-12 mt-2 "> Total number of user by division per month </h4>
+                                <div class="col-xl-4 mt-4 pt-1">
+                                    <ul class="p-0 pl-3">
+                                        <li class="mb-3 d-flex align-items-center"> 
+                                            <img class="admin-icon-2" src="icons/png-files/checkmark-circle.png">
+                                            <label class="text-2 f-bold pl-2 d-flex justify-content-between w-100"> 
+                                                Completed: 
+                                                <p class="m-0"> 0 </p>
+                                            </label>
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center"> 
+                                            <img class="admin-icon-2" src="icons/png-files/archive.png">
+                                            <label class="text-2 f-bold pl-2 d-flex justify-content-between w-100"> 
+                                                Pending: 
+                                                <p class="m-0"> 2 </p>
+                                            </label> 
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center"> 
+                                            <img class="admin-icon-2" src="icons/png-files/question-circle.png">
+                                            <label class="text-2 f-bold pl-2 d-flex justify-content-between w-100"> 
+                                                Request:
+                                                <p class="m-0 ml-4"> 9 </p>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-8">
+                                    <div class="overflow-auto-x d-flex">
+                                        <figure class="highcharts-figure-pie m-0 ">
+                                            <div id="pie-chart-legend" class="admin-pie-1 overflow-auto-x"></div>
+                                        </figure>
+                                    </div>
                                 </div>
                             </div> </div>
                     </div>

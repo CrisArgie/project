@@ -1,8 +1,8 @@
 // start admin_dashboard.php
-
 // BAR
-Highcharts.chart('bar-chart-request-per-reports', {
+window.chart = new Highcharts.chart({
     chart: {
+        renderTo: 'bar-chart-request-per-reports',
         type: 'bar'
     },
     title: {
@@ -36,52 +36,52 @@ Highcharts.chart('bar-chart-request-per-reports', {
                 enabled: true
             }
         }
-    // },
-    // legend: {
-    //     layout: 'vertical',
-    //     align: 'right',
-    //     verticalAlign: 'top',
-    //     x: -40,
-    //     y: 80,
-    //     floating: true,
-    //     borderWidth: 1,
-    //     backgroundColor:
-    //         Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-    //     shadow: true
+        // },
+        // legend: {
+        //     layout: 'vertical',
+        //     align: 'right',
+        //     verticalAlign: 'top',
+        //     x: -40,
+        //     y: 80,
+        //     floating: true,
+        //     borderWidth: 1,
+        //     backgroundColor:
+        //         Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+        //     shadow: true
     },
     credits: {
-        enabled: false
+        enabled: true
     },
-    series: [
-    {
-        name: 'Requested service',
-        data: [133]
-    },
-    {
-        name: 'Pre-repair inspection',
-        data: [136]
-    },
-    {
-        name: 'Post repair inspection',
-        data: [120]
-    },
-    {
-        name: 'ICT job request',
-        data: [250]
-    }
+    series: [{
+            name: 'Requested service',
+            data: [133]
+        },
+        {
+            name: 'Pre-repair inspection',
+            data: [136]
+        },
+        {
+            name: 'Post repair inspection',
+            data: [120]
+        },
+        {
+            name: 'ICT job request',
+            data: [250]
+        }
     ]
 });
 
 // PIE
-Highcharts.chart('pie-chart-legend', {
+window.chart = new Highcharts.chart({
     chart: {
+        renderTo: 'pie-chart-legend',
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie'
     },
     title: {
-        text: 'Browser market shares in January, 2018'
+        text: null
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -96,13 +96,13 @@ Highcharts.chart('pie-chart-legend', {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
-                enabled: false
-            },
-            showInLegend: true
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
         }
     },
     series: [{
-        name: 'Brands',
+        name: 'Request',
         colorByPoint: true,
         data: [{
             name: 'Chrome',
@@ -115,15 +115,6 @@ Highcharts.chart('pie-chart-legend', {
         }, {
             name: 'Firefox',
             y: 10.85
-        }, {
-            name: 'Edge',
-            y: 4.67
-        }, {
-            name: 'Safari',
-            y: 4.18
-        }, {
-            name: 'Other',
-            y: 7.05
         }]
     }]
 });

@@ -176,21 +176,21 @@
                   <h2 class="p-0 mr-2 ml-2 mt-2 mb-3"> FAQ (Frequent Asked Questions) </h2>
                   <div class="faq-box mr-4 ml-4 pl-1 pr-1">
                     <div class="faq border-bottom-dark mt-2 mb-2">
-                      <input type="checkbox" id="faq1">
+                      <input type="checkbox" id="faq1" class="checkbox">
                       <label class="faq-label mt-2 mb-2" for="faq1">Accordion using CSS only?</label>
                       <div class="faq-content mb-3 w-90">
                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae inventore voluptates corrupti illum quod itaque quia delectus blanditiis laboriosam iure.
                       </div>
                     </div>
                     <div class="faq border-bottom-dark mt-2 mb-2">
-                      <input type="checkbox" id="faq2">
+                      <input type="checkbox" id="faq2" class="checkbox">
                       <label class="faq-label mt-2 mb-2" for="faq2">Accordion using CSS only?</label>
                       <div class="faq-content mb-3 w-90">
                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae inventore voluptates corrupti illum quod itaque quia delectus blanditiis laboriosam iure. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam facilis sit, at laborum maiores recusandae ut vitae nobis blanditiis quae!
                       </div>
                     </div>
                     <div class="faq border-bottom-dark mt-2 mb-2">
-                      <input type="checkbox" id="faq3">
+                      <input type="checkbox" id="faq3" class="checkbox">
                       <label class="faq-label mt-2 mb-2" for="faq3">Accordion using CSS only?</label>
                       <div class="faq-content mb-3 w-90">
                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae inventore voluptates corrupti illum quod itaque quia delectus blanditiis laboriosam iure. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit assumenda nobis eos esse impedit tempore, fugiat quam praesentium numquam ducimus, quisquam sapiente, ex sunt dicta aliquam voluptate vitae in ullam dolore laudantium illo mollitia exercitationem! Praesentium optio facere ipsum obcaecati.
