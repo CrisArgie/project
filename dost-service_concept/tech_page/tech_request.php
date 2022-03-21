@@ -7,11 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>DOST Service Request - Home</title>
+    <title>DOST Service Request - Request</title>
 
     <!-- My styles for this template -->
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <link href="../style.css" rel="stylesheet">
+    <script src="../script.js" defer></script>
 
     <!-- Datatable -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
@@ -19,14 +19,14 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
     <!-- High Charts style -->
-    <link rel="stylesheet" type="text/css" href="css/chart.css">
+    <link rel="stylesheet" type="text/css" href="../css/chart.css">
     <!-- High Charts scripts -->
-    <script src="charts/highcharts.js"></script>
-    <script src="charts/modules/exporting.js"></script>
-    <script src="charts/modules/export-data.js"></script>
-    <script src="charts/modules/accessibility.js"></script>
-    <script src="charts/modules/data.js"></script>
-    <script src="charts/modules/drilldown.js"></script>
+    <script src="../charts/highcharts.js"></script>
+    <script src="../charts/modules/exporting.js"></script>
+    <script src="../charts/modules/export-data.js"></script>
+    <script src="../charts/modules/accessibility.js"></script>
+    <script src="../charts/modules/data.js"></script>
+    <script src="../charts/modules/drilldown.js"></script>
 
 
 </head>
@@ -35,21 +35,21 @@
     <header class="header">
 <!-- Left menu buttons -->
         <div class="left-menu">
-            <img class="menu-logo-item" src="img/DOST_log.png">
+            <img class="menu-logo-item" src="../img/DOST_log.png">
         </div>
 <!-- Right menu buttons -->
         <div class="right-menu" >
           
           <div class="dropdown" data-dropdown-menu>
             <button class="menu-profile-btn">
-              <img class="menu-logo-item" src="img/undraw_profile.svg" data-dropdown-button>
+              <img class="menu-logo-item" src="../img/undraw_profile.svg" data-dropdown-button>
             </button>
             <div class="dropdown-menu" >
-              <a class="link" href=""><img class="link-icon" src="icons/png-files/cogs.png" alt="Settings.png"> 
+              <a class="link" href=""><img class="link-icon" src="../icons/png-files/cogs.png" alt="Settings.png"> 
                 Settings
               </a> 
               <a class="link" href="">
-                <img class="link-icon" src="icons/png-files/exit.png" alt="Logout.png"> 
+                <img class="link-icon" src="../icons/png-files/exit.png" alt="Logout.png"> 
                 Logout
               </a>
             </div>
@@ -65,14 +65,14 @@
             <div class="admin-top-sidebar">
                 <div class="sidebar-list">
                     <button class="menu-icon-btn" data-menu-icon-btn>
-                        <img class="menu-logo-item" src="icons/png-files/chevron-left.png">
+                        <img class="menu-logo-item" src="../icons/png-files/chevron-left.png">
                     </button>
                 </div>
             <hr class="sidebar-linebreak">
                 <div class="sidebar-list">
                     <div class="sidebar-list-item">
-                        <a href="admin_dashboard.php" class="sidebar-link ">
-                            <img class="sidebar-icon" src="icons/png-files/archive.png">
+                        <a href="tech_dashboard.php" class="sidebar-link ">
+                            <img class="sidebar-icon" src="../icons/png-files/archive.png">
                             <div class="hidden-sidebar">Dashboard</div>
                         </a>
                     </div>
@@ -83,14 +83,14 @@
             <div class="middle-sidebar">
                 <ul class="sidebar-list">
                     <li class="sidebar-list-item">
-                        <a href="admin_users.php" class="sidebar-link">
-                        <img class="sidebar-icon" src="icons/png-files/users.png">
+                        <a href="tech_users.php" class="sidebar-link">
+                        <img class="sidebar-icon" src="../icons/png-files/users.png">
                         <div class="hidden-sidebar">Users</div>
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="#" class="sidebar-link active">
-                        <img class="sidebar-icon" src="icons/png-files/add-files.png">
+                        <a href="tech_request.php" class="sidebar-link active">
+                        <img class="sidebar-icon" src="../icons/png-files/add-files.png">
                         <div class="hidden-sidebar">Requests</div>
                         </a>
                     </li>
@@ -101,20 +101,20 @@
             <hr class="sidebar-linebreak">
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="about.php" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="icons/png-files/information.png">
+                    <a href="../about.php" class="sidebar-link-top">
+                    <img class="sidebar-icon" src="../icons/png-files/information.png">
                     <div class="hidden-sidebar">About</div>
                     </a>
                 </li>
                 <li class="sidebar-list-item">
                     <a href="#" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="icons/png-files/cog.png">
+                    <img class="sidebar-icon" src="../icons/png-files/cog.png">
                     <div class="hidden-sidebar">Settings</div>
                     </a>
                 </li>
                 <li class="sidebar-list-item">
                     <a href="#" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="icons/png-files/exit.png">
+                    <img class="sidebar-icon" src="../icons/png-files/exit.png">
                     <div class="hidden-sidebar">Logout</div>
                     </a>
                 </li>
@@ -123,17 +123,17 @@
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/envelope.png">
+                    <img class="sidebar-icon" src="../icons/png-files/envelope.png">
                   </a>
                 </li>
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/world.png">
+                    <img class="sidebar-icon" src="../icons/png-files/world.png">
                   </a>
                 </li>
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/facebook-oval.png">
+                    <img class="sidebar-icon" src="../icons/png-files/facebook-oval.png">
                   </a>
                 </li>
               </ul>
@@ -147,7 +147,7 @@
                 <div class="col-xl-2 col-md-12 align-items-center mt-2 mb-3 g-1 p-0">
                   <div class="row">
                     <div class="p-0 col-xl-12 col-md-6 col-sm-4 d-flex justify-content-center">
-                      <a href="admin_add_request.php" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
+                      <a href="#request" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
                         <div class="text-1"> Add Request </div>
                       </a>
                     </div>
@@ -172,7 +172,7 @@
                       <div class="mr-1 ml-1 mb-2 p-2 my-shadow overflow-auto">
                         <h5 class="m-0 p-0"> Recent request per month, last 6 months </h5>
                         <figure class="highcharts-figure-bar">
-                            <div id="bar-chart-2" class="admin-pie-2"></div>
+                            <div id="bar-chart-2" class=""></div>
                         </figure>
                       </div>
                     </div>
@@ -330,8 +330,8 @@
 
 
 
-<script type="text/javascript" src="scripts/chart-js/charts-2.js"></script>
-<script type="text/javascript" src="scripts/datatable-js/admin-datatable-1.js"></script>
+<script type="text/javascript" src="../scripts/chart-js/charts-2.js"></script>
+<script type="text/javascript" src="../scripts/datatable-js/admin-datatable-1.js"></script>
 
 </body>
 </html>

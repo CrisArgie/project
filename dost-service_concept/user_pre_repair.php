@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>DOST Service Request - Home</title>
+    <title>DOST Service Request - Pre-repair inspection report</title>
 
     <!-- My styles for this template -->
     <link href="style.css" rel="stylesheet">
@@ -121,7 +121,7 @@
         </aside>
         <main class="content">
           <div class="content-menu">
-            
+
           </div>
         </main>
     </div>

@@ -6,12 +6,18 @@
     margin: 1em auto;
 }
 
-.highcharts-figure-pie {
+.highcharts-figure-pie,
+.highcharts-data-table table {
     width: 100%;
+    height: 100%;
+    margin: 1em auto !important;
 }
 
-.highcharts-figure-bar {
+.highcharts-figure-bar,
+.highcharts-data-table table {
     width: 100%;
+    height: 100%;
+    margin: 1em auto !important;
 }
 
 .admin-bar-1 {
@@ -19,11 +25,11 @@
 }
 
 .admin-pie-1 {
-    height: 150px;
+    height: 150px !important;
 }
 
-#bar-chart-request-per-reports {
-    height: 100%;
+.admin-pie-2 {
+    height: 210px !important;
 }
 
 .highcharts-data-table table {
@@ -67,11 +73,17 @@
     .highcharts-data-table table {
         width: 70%;
     }
+    .highcharts-figure-pie {
+        width: 70%;
+    }
 }
 
 @media (min-width: 768px) {
     .highcharts-figure,
     .highcharts-data-table table {
+        width: 95%;
+    }
+    .highcharts-figure-pie {
         width: 95%;
     }
 }

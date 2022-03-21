@@ -7,11 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>DOST Service Request - Home</title>
+    <title>DOST Service Request - Users</title>
 
     <!-- My styles for this template -->
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <link href="../style.css" rel="stylesheet">
+    <script src="../script.js" defer></script>
 
     <!-- Datatable -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
@@ -19,15 +19,12 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
     <!-- High Charts style -->
-    <link rel="stylesheet" type="text/css" href="css/chart.css">
+    <link rel="stylesheet" type="text/css" href="../css/chart.css">
     <!-- High Charts scripts -->
-    <script src="charts/highcharts.js"></script>
-    <script src="charts/modules/exporting.js"></script>
-    <script src="charts/modules/export-data.js"></script>
-    <script src="charts/modules/accessibility.js"></script>
-    <script src="charts/modules/data.js"></script>
-    <script src="charts/modules/drilldown.js"></script>
-
+    <script src="../charts/highcharts.js"></script>
+    <script src="../charts/modules/exporting.js"></script>
+    <script src="../charts/modules/export-data.js"></script>
+    <script src="../charts/modules/accessibility.js"></script>
 
 </head>
 <body>
@@ -35,21 +32,21 @@
     <header class="header">
 <!-- Left menu buttons -->
         <div class="left-menu">
-            <img class="menu-logo-item" src="img/DOST_log.png">
+            <img class="menu-logo-item" src="../img/DOST_log.png">
         </div>
 <!-- Right menu buttons -->
         <div class="right-menu" >
           
           <div class="dropdown" data-dropdown-menu>
             <button class="menu-profile-btn">
-              <img class="menu-logo-item" src="img/undraw_profile.svg" data-dropdown-button>
+              <img class="menu-logo-item" src="../img/undraw_profile.svg" data-dropdown-button>
             </button>
             <div class="dropdown-menu" >
-              <a class="link" href=""><img class="link-icon" src="icons/png-files/cogs.png" alt="Settings.png"> 
+              <a class="link" href=""><img class="link-icon" src="../icons/png-files/cogs.png" alt="Settings.png"> 
                 Settings
               </a> 
               <a class="link" href="">
-                <img class="link-icon" src="icons/png-files/exit.png" alt="Logout.png"> 
+                <img class="link-icon" src="../icons/png-files/exit.png" alt="Logout.png"> 
                 Logout
               </a>
             </div>
@@ -65,14 +62,14 @@
             <div class="admin-top-sidebar">
                 <div class="sidebar-list">
                     <button class="menu-icon-btn" data-menu-icon-btn>
-                        <img class="menu-logo-item" src="icons/png-files/chevron-left.png">
+                        <img class="menu-logo-item" src="../icons/png-files/chevron-left.png">
                     </button>
                 </div>
             <hr class="sidebar-linebreak">
                 <div class="sidebar-list">
                     <div class="sidebar-list-item">
-                        <a href="admin_dashboard.php" class="sidebar-link ">
-                            <img class="sidebar-icon" src="icons/png-files/archive.png">
+                        <a href="tech_dashboard.php" class="sidebar-link">
+                            <img class="sidebar-icon" src="../icons/png-files/archive.png">
                             <div class="hidden-sidebar">Dashboard</div>
                         </a>
                     </div>
@@ -83,14 +80,14 @@
             <div class="middle-sidebar">
                 <ul class="sidebar-list">
                     <li class="sidebar-list-item">
-                        <a href="admin_users.php" class="sidebar-link">
-                        <img class="sidebar-icon" src="icons/png-files/users.png">
+                        <a href="tech_users.php" class="sidebar-link active">
+                        <img class="sidebar-icon" src="../icons/png-files/users.png">
                         <div class="hidden-sidebar">Users</div>
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="#" class="sidebar-link active">
-                        <img class="sidebar-icon" src="icons/png-files/add-files.png">
+                        <a href="tech_request.php" class="sidebar-link">
+                        <img class="sidebar-icon" src="../icons/png-files/add-files.png">
                         <div class="hidden-sidebar">Requests</div>
                         </a>
                     </li>
@@ -101,20 +98,20 @@
             <hr class="sidebar-linebreak">
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="about.php" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="icons/png-files/information.png">
+                    <a href="../about.php" class="sidebar-link-top">
+                    <img class="sidebar-icon" src="../icons/png-files/information.png">
                     <div class="hidden-sidebar">About</div>
                     </a>
                 </li>
                 <li class="sidebar-list-item">
                     <a href="#" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="icons/png-files/cog.png">
+                    <img class="sidebar-icon" src="../icons/png-files/cog.png">
                     <div class="hidden-sidebar">Settings</div>
                     </a>
                 </li>
                 <li class="sidebar-list-item">
                     <a href="#" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="icons/png-files/exit.png">
+                    <img class="sidebar-icon" src="../icons/png-files/exit.png">
                     <div class="hidden-sidebar">Logout</div>
                     </a>
                 </li>
@@ -123,59 +120,92 @@
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/envelope.png">
+                    <img class="sidebar-icon" src="../icons/png-files/envelope.png">
                   </a>
                 </li>
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/world.png">
+                    <img class="sidebar-icon" src="../icons/png-files/world.png">
                   </a>
                 </li>
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/facebook-oval.png">
+                    <img class="sidebar-icon" src="../icons/png-files/facebook-oval.png">
                   </a>
                 </li>
               </ul>
             </div>
         </aside>
         <main class="content">
-        <div class="content-menu flex-column">
+          <div class="content-menu flex-column">
             <div class="main-container">
               <div class="row">
-                <div class="col-xl-12 mb-3 mt-3"> <h2> Request Monitoring </h2> </div>
+                <div class="col-xl-12 mb-3 mt-3"> <h2> Users Monitoring </h2> </div>
                 <div class="col-xl-2 col-md-12 align-items-center mt-2 mb-3 g-1 p-0">
                   <div class="row">
-                    <div class="p-0 col-xl-12 col-md-6 col-sm-4 d-flex justify-content-center">
-                      <a href="admin_add_request.php" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
-                        <div class="text-1"> Add Request </div>
+                    <div class="p-0 col-xl-12 col-md-4 col-sm-4 d-flex justify-content-center">
+                      <button class="wf-1 ctn-btn mb-2"> 
+                        <div class="text-1"> Generate Report </div>
+                      </button>
+                    </div>
+                    <div class="p-0 col-xl-12 col-md-4 col-sm-4 d-flex justify-content-center">
+                      <a href="#technician" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
+                        <div class="text-1"> Add Technician </div> 
                       </a>
                     </div>
-                    <div class="p-0 col-xl-12 col-md-6 col-sm-4 d-flex justify-content-center">
-                      <button class="wf-1 ctn-btn mb-2"> 
-                        <div class="text-1"> Generate Report </div> 
-                      </button>
+                    <div class="p-0 col-xl-12 col-md-4 col-sm-4 d-flex justify-content-center">
+                      <a href="#user" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
+                        <div class="text-1"> Add User </div> 
+                      </a>  
                     </div>
                   </div>
                 </div>
                 <div class="col-xl-10 p-0 mb-3">
-                  <div class="row p-2">
-                    <div class="col-xl-4 p-0  ">
-                      <div class="mr-1 ml-1 mb-2 p-2 my-shadow overflow-auto">
-                        <h5 class="m-0 p-0"> Total number of Brand per year </h5>
-                        <figure class="highcharts-figure-pie mt-0 mb-0 m-0">
-                            <div id="pie-chart" class="admin-pie-2"></div>
-                        </figure>
-                      </div>
+                  <div class="row border-radius-1 my-shadow p-2">
+                    <div class="col-xl-3 col-md-12 p-0  flex-column">
+                      <h4 class="p-0 mt-2 mb-3"> Total of user per division </h4>
+                      <ul class="row p-0 overflow-auto-y">
+                        <li class="d-flex g-1 col-xl-6 col-md-6 f-bold p-0 mb-1">
+                          <label> 
+                            Division 1:
+                          </label>
+                          <p class="mb-0"> 1 </p>
+                        </li>
+                        <li class="d-flex g-1 col-xl-6 col-md-6 f-bold p-0 mb-1">
+                          <label> 
+                            Division 2: 
+                          </label>
+                          <p class="mb-0"> 186 </p>
+                        </li>
+                        <li class="d-flex g-1 col-xl-6 col-md-6 f-bold p-0 mb-1">
+                          <label> 
+                            Division 3: 
+                          </label>
+                          <p class="mb-0"> 163 </p>
+                        </li>
+                        <li class="d-flex g-1 col-xl-6 col-md-6 f-bold p-0 mb-1">
+                          <label> 
+                            Division 4: 
+                          </label>
+                          <p class="mb-0"> 15 </p>
+                        </li>
+                        <li class="d-flex g-1 col-xl-6 col-md-6 f-bold p-0 mb-1">
+                          <label> 
+                            Division 5: 
+                          </label>
+                          <p class="mb-0"> 12 </p>
+                        </li>
+                        <li class="d-flex g-1 col-xl-6 col-md-6 f-bold p-0 mb-1">
+                          <label> 
+                            Division 6: 
+                          </label>
+                          <p class="mb-0"> 0 </p>
+                        </li>
+                      </ul>
                     </div>
-                    <div class="col-xl-8 p-0">
-                      <div class="mr-1 ml-1 mb-2 p-2 my-shadow overflow-auto">
-                        <h5 class="m-0 p-0"> Recent request per month, last 6 months </h5>
-                        <figure class="highcharts-figure-bar">
-                            <div id="bar-chart-2" class="admin-pie-2"></div>
-                        </figure>
-                      </div>
-                    </div>
+                    <figure class="col-xl-9 col-md-12 overflow-auto p-0 highcharts-figure-bar ml-0 mr-0">
+                      <div id="admin-bar-per-users" class="admin-bar-1"></div>
+                    </figure>
                   </div>
                 </div>
               </div>
@@ -186,14 +216,17 @@
                 <div class="col-xl-12 overflow-auto my-shadow pt-3 pb-3 pr-2 pl-2">
                   <div class="row justify-content-between p-0 mb-4">
                     <div class="col-xl-6 p-0 m-0 col-md-12"> 
-                      <h4 class="m-0 p-2 "> Request data table </h4>  
+                      <h4 class="m-0 p-2 "> User data table </h4>  
                     </div>
                     <div class="col-xl-4 col-md-12 p-0 m-0 d-flex justify-content-end">
-                      <div class="col-md-6 col-xl-3">
+                      <div class="col-md-4 col-xl-3">
                         <button class="p-2 w-100 ctn-btn"> <div class="text-1"> Delete </div> </button>
                       </div>
-                      <div class="col-md-6 col-xl-3">
+                      <div class="col-md-4 col-xl-3">
                         <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> Edit </div>  </a>
+                      </div>
+                      <div class="col-md-4 col-xl-6">
+                        <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> View Details </div> </a>
                       </div>
                     </div>
                   </div>
@@ -330,8 +363,8 @@
 
 
 
-<script type="text/javascript" src="scripts/chart-js/charts-2.js"></script>
-<script type="text/javascript" src="scripts/datatable-js/admin-datatable-1.js"></script>
+<script type="text/javascript" src="../scripts/chart-js/charts-1.js"></script>
+<script type="text/javascript" src="../scripts/datatable-js/admin-datatable-1.js"></script>
 
 </body>
 </html>

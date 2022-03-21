@@ -149,18 +149,18 @@
                       </button>
                     </div>
                     <div class="p-0 col-xl-12 col-md-4 col-sm-4 d-flex justify-content-center">
-                      <button class="wf-1 ctn-btn mb-2"> 
+                      <a href="#technician" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
                         <div class="text-1"> Add Technician </div> 
-                      </button>
+                      </a>
                     </div>
                     <div class="p-0 col-xl-12 col-md-4 col-sm-4 d-flex justify-content-center">
-                      <button class="wf-1 ctn-btn mb-2"> 
+                      <a href="#user" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
                         <div class="text-1"> Add User </div> 
-                      </button>  
+                      </a>  
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-10 p-0 mb-3 admin-bottom-h-2">
+                <div class="col-xl-10 p-0 mb-3">
                   <div class="row border-radius-1 my-shadow p-2">
                     <div class="col-xl-3 col-md-12 p-0  flex-column">
                       <h4 class="p-0 mt-2 mb-3"> Total of user per division </h4>
@@ -214,141 +214,142 @@
               <div class="row justify-content-center mt-4 mb-4 border-radius-1">
                 
                 <div class="col-xl-12 overflow-auto my-shadow pt-3 pb-3 pr-2 pl-2">
+                  <div class="row justify-content-between p-0 mb-4">
+                    <div class="col-xl-6 p-0 m-0 col-md-12"> 
+                      <h4 class="m-0 p-2 "> User data table </h4>  
+                    </div>
+                    <div class="col-xl-4 col-md-12 p-0 m-0 d-flex justify-content-end">
+                      <div class="col-md-4 col-xl-3">
+                        <button class="p-2 w-100 ctn-btn"> <div class="text-1"> Delete </div> </button>
+                      </div>
+                      <div class="col-md-4 col-xl-3">
+                        <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> Edit </div>  </a>
+                      </div>
+                      <div class="col-md-4 col-xl-6">
+                        <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> View Details </div> </a>
+                      </div>
+                    </div>
+                  </div>
                   <table id="example" class="display w-100">
                     <thead>
                         <tr>
-                            <th hidden>id</th>
+                            <th></th>
                             <th>No.</th>
-                            <th>Action</th>
-                            <th>Status</th>
-                            <th>Requested</th>
-                            <th>Needed</th>
-                            <th>Brand/Model</th>
-                            <th>Serial/Engine No.</th>
-                            <th>Cost(₱)</th>
+                            <th>Name</th>
+                            <th>User type</th>
+                            <th>Division</th>
+                            <th>Email</th>
+                            <th>Address</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">98377</a> </td>
-                            <td> <button class="ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> </td>
-                            <td>Completed</td>
-                            <td>2011/04/25</td>
-                            <td>2011/04/25</td>
-                            <td>DELL</td>
-                            <td>jUusrNo92OX6ew7r</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 1 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 5 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>8</td>
-                            <td> <a href="" class="tbl-a">66817</a> </td>
-                            <td> <button class="ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> </td>
-                            <td>Completed</td>
-                            <td>2011/07/25</td>
-                            <td>2011/04/25</td>
-                            <td>DELL</td>
-                            <td>eAyPUTpdDL2wQF3L</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 2 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>1</td>
-                            <td> <a href="" class="tbl-a">18403</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pending</td>
-                            <td>2009/01/12</td>
-                            <td>2011/04/25</td>
-                            <td>LENOVO</td>
-                            <td>eAyPUTpdDL2wQF3L</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 3 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 2 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">94178</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pending</td>
-                            <td>2012/03/29</td>
-                            <td>2011/04/25</td>
-                            <td>ACER</td>
-                            <td>eAyPUTpdDL2wQF3L</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 4 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 1 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">81856</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pre-request</td>
-                            <td>2008/11/28</td>
-                            <td>2011/04/25</td>
-                            <td>MAC</td>
-                            <td>WuhahHDeFSwFjW7X</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 5 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">66804</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pending</td>
-                            <td>2012/12/02</td>
-                            <td>2011/04/25</td>
-                            <td>ACER</td>
-                            <td>qhjkEZL1iFoaLdBc</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 6 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 4 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">48125</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pending</td>
-                            <td>2012/12/02</td>
-                            <td>2011/04/25</td>
-                            <td>HUAWEI</td>
-                            <td>cSX6UtpTWtwvGwCs</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 7 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 6 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">02773</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pending</td>
-                            <td>2012/12/02</td>
-                            <td>2011/04/25</td>
-                            <td>ACER</td>
-                            <td>cSX6UtpTWtwvGwCs</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 8 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 6 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">65584</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pending</td>
-                            <td>2012/12/02</td>
-                            <td>2011/04/25</td>
-                            <td>ASUS</td>
-                            <td>cauqsM5wNdDwDbbq</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 9 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 2 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">65584</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pending</td>
-                            <td>2012/12/02</td>
-                            <td>2011/04/25</td>
-                            <td>Lenovo</td>
-                            <td>kVoFi8eb9FpuCCkN</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 10 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                         <tr>
-                            <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">79997</a> </td>
-                            <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pending</td>
-                            <td>2012/12/02</td>
-                            <td></td>
-                            <td>DELL</td>
-                            <td>cSX6UtpTWtwvGwCs</td>
-                            <td>$320,800</td>
+                            <td> <input type="checkbox"> </td>
+                            <td> 11 </td>
+                            <td> Mary Grace </td>
+                            <td> Employee </td>
+                            <td> 4 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 12 </td>
+                            <td> Mary Grace </td>
+                            <td> Employee </td>
+                            <td> 5 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
                         </tr>
                     </tbody>
                   </table>  
@@ -364,8 +365,6 @@
 
 <script type="text/javascript" src="scripts/chart-js/charts-1.js"></script>
 <script type="text/javascript" src="scripts/datatable-js/admin-datatable-1.js"></script>
-
-<!-- DataTables -->
 
 </body>
 </html>
