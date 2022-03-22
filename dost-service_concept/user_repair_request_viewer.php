@@ -125,14 +125,13 @@
         <main class="content">
           <div class="content-menu">
 <!-- Leftside menus -->
-          	<a href="user_request.php" class="return-icon">
+            <a href="user_view_request.php" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
 <!-- Middleside menus -->
             <div class="content-table">
-<!-- Container -->
-            	<div class="ctn-container"> 
-            		<div class="main-container mt-4">
+              <div class="ctn-container">
+                <div class="main-container mt-4">
                   <div class="row justify-content-between p-0">
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-3">
@@ -148,93 +147,89 @@
               			</div>
                   </div>
             		</div>
-
             		<div class="row ctn-header mt-2">
             			<h2>REQUEST FOR REPAIR</h2>
             		</div>
-
-            <div class="main-container">
-             <div class="row mn-10 mt-1">
-	    				 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 mb-0 w-100">
-	        				<li class="mb-2">
-	        					<label>Desciption of Property Type:</label>
-	        					<input type="text" name="" class="w-100">
-	        				</li>
-	        				<li class="mb-2">
-	        					<label>Serial/Engine No.:</label>
-	        					<input type="text" name="" class="w-100">
-	        				</li>
-	        				<li class="mb-2">
-	        					<label>Acquisition Date:</label>
-	        					<input type="date" name="" class="w-100">
-	        				</li>
-	        				<li class="mb-2">
-	        					<label>Location:</label>
-	        					<input type="text" name="" class="w-100">
-	        				</li>
-	        			</ul>
-
-	    				 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 m-0 w-100">
-	        				<li class="mb-2">
-	        					<label> Brand Model: </label>
-	        					<input type="text" name="" class="w-100">
-	        				</li>
-	        				<li class="mb-2">
-	        					<label>Property No.:</label>
-	        					<input type="text" name="" class="w-100">
-	        				</li>
-	        				<li class="mb-2">
-	        					<label> Acquisition Cost: </label>
-	        					<input type="text" name="" placeholder="ex. 2440 - (Php: 2,440.00)" class="w-100">
-	        				</li>
-	        			</ul>            			
-            	</div>
-            </div>
-            
+                <div class="main-container">
+                  <div class="row mn-10 mt-1">
+	    				      <ul class="col-xl-6 col-lg-12 pr-3 pl-3 mb-0 w-100">
+                      <li class="mb-2">
+                        <label>Desciption of Property Type:</label>
+                        <input type="text" name="" class="w-100">
+                      </li>
+                      <li class="mb-2">
+                        <label>Serial/Engine No.:</label>
+                        <input type="text" name="" class="w-100">
+                      </li>
+                      <li class="mb-2">
+                        <label>Acquisition Date:</label>
+                        <input type="date" name="" class="w-100">
+                      </li>
+                      <li class="mb-2">
+                        <label>Location:</label>
+                        <input type="text" name="" class="w-100">
+                      </li>
+                    </ul>
+                    <ul class="col-xl-6 col-lg-12 pr-3 pl-3 m-0 w-100">
+                      <li class="mb-2">
+                        <label> Brand Model: </label>
+                        <input type="text" name="" class="w-100">
+                      </li>
+                      <li class="mb-2">
+                        <label>Property No.:</label>
+                        <input type="text" name="" class="w-100">
+                      </li>
+                      <li class="mb-2">
+                        <label> Acquisition Cost: </label>
+                        <input type="text" name="" placeholder="ex. 2440 - (Php: 2,440.00)" class="w-100">
+                      </li>
+                    </ul>            			
+            	    </div>
+                </div>
             		<hr class="ctn-linebreak">
-            
-            <div class="main-container h-auto">
-          		<div class="row mt-2 mr-2 ml-2 ">	
-  	    				<div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
-  	        				<h3 class="p-0 f-w-normal"> Problem Encountered: </h3>
-                    <div class="btn-leftside mb-2">
-    	        				<textarea class="textarea-h" placeholder="Type here..."></textarea>
-    	        				<div class="mb-2">
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/underline.png"> </button>
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/list.png"> </button>
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/eraser.png"> </button>
-    	        				</div>
+                <div class="main-container">
+                  <div class="row">
+                    <div class="col-xl-12 mt-3">
+                      <div class="row">
+                        <div class="col-xl-4">
+                          <h3 class="p-0 f-w-normal"> Problem Encountered: </h3>
+                        </div>
+                        <div class="col-xl-8 border-box-1 border-radius-1 p-0">
+                          <textarea class="textarea-k"></textarea>
+                        </div>
+                      </div>
                     </div>
-  	    				</div>
-  	    				<div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
-  	        				<h3 class="p-0 f-w-normal"> Corrective Action Performed: </h3>
-                    <div class="btn-rightside mb-2">
-    	        				<textarea class="textarea-h" placeholder="Type here..."></textarea>
-    	        				<div class="mb-2">
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/underline.png"> </button>
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/list.png"> </button>
-      	    						<button > <img class="txt-editor-icon" src="icons/png-files/eraser.png"> </button>
-    	        				</div>
+                    <div class="col-xl-12 mt-3">
+                      <div class="row">
+                        <div class="col-xl-4">
+                          <h3 class="p-0 f-w-normal"> Corrective Action Performed: </h3>
+                        </div>
+                        <div class="col-xl-8 border-box-1 border-radius-1 p-0">
+                          <textarea class="textarea-k"></textarea>
+                        </div>
+                      </div>
                     </div>
-  	    				</div>
-          		</div>
-            </div>
-
-
-            	</div> <!-- END of Container -->
-            </div>
-<!-- Rightside menus -->
-            <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
-              <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
-              <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
-              <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
+                  </div>
+                </div>
+                <div class="main-container mt-4 mb-2">
+                  <div class="row justify-content-end ml-4 mr-4 g-2">
+                    <button class="ctn-btn d-flex p-1"> 
+                      <div class="text-1 pl-1 m-auto">
+                        Save
+                      </div> <img src="icons/png-files/save.png" class="ml-1 mr-1 p-0"> </button> 
+                    <button class="ctn-btn d-flex p-1"> 
+                      <div class="text-1 pl-1 m-auto">
+                        Generate Report
+                      </div> <img src="icons/png-files/save.png" class="ml-1 mr-1 p-0"> </button> 
+                    <button class="ctn-btn d-flex p-1"> 
+                      <div class="text-1 pl-1 m-auto">
+                        Download
+                      </div> <img src="icons/png-files/save.png" class="ml-1 mr-1 p-0"> </button> 
+                  </div>
+                </div>
+              </div> <!-- END of contentContainer -->
             </div>
           </div>
-
         </main>
     </div>
 

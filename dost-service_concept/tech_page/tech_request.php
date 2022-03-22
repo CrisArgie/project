@@ -172,7 +172,7 @@
                       <div class="mr-1 ml-1 mb-2 p-2 my-shadow overflow-auto">
                         <h5 class="m-0 p-0"> Recent request per month, last 6 months </h5>
                         <figure class="highcharts-figure-bar">
-                            <div id="bar-chart-2" class=""></div>
+                            <div id="bar-chart-2" class="admin-pie-2"></div>
                         </figure>
                       </div>
                     </div>

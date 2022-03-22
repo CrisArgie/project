@@ -173,31 +173,31 @@
                             <th>Requested</th>
                             <th>Needed</th>
                             <th>Brand/Model</th>
-                            <th>Serial/Engine No.</th>
+                            <th>Type of Request</th>
                             <th>Cost(₱)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">98377</a> </td>
+                            <td> <a href="user_repair_request_viewer.php" class="tbl-a">98377</a> </td>
                             <td> <button class="ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> </td>
                             <td>Completed</td>
                             <td>2011/04/25</td>
                             <td>2011/04/25</td>
                             <td>DELL</td>
-                            <td>jUusrNo92OX6ew7r</td>
+                            <td>Repair request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
                             <td hidden>8</td>
-                            <td> <a href="" class="tbl-a">66817</a> </td>
+                            <td> <a href="user_ict_job_request_viewer.php" class="tbl-a">66817</a> </td>
                             <td> <button class="ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> </td>
                             <td>Completed</td>
                             <td>2011/07/25</td>
                             <td>2011/04/25</td>
                             <td>DELL</td>
-                            <td>eAyPUTpdDL2wQF3L</td>
+                            <td>ICT job request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -208,7 +208,7 @@
                             <td>2009/01/12</td>
                             <td>2011/04/25</td>
                             <td>LENOVO</td>
-                            <td>eAyPUTpdDL2wQF3L</td>
+                            <td>Repair request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -219,7 +219,7 @@
                             <td>2012/03/29</td>
                             <td>2011/04/25</td>
                             <td>ACER</td>
-                            <td>eAyPUTpdDL2wQF3L</td>
+                            <td>Repair request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -230,7 +230,7 @@
                             <td>2008/11/28</td>
                             <td>2011/04/25</td>
                             <td>MAC</td>
-                            <td>WuhahHDeFSwFjW7X</td>
+                            <td>ICT job request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -241,7 +241,7 @@
                             <td>2012/12/02</td>
                             <td>2011/04/25</td>
                             <td>ACER</td>
-                            <td>qhjkEZL1iFoaLdBc</td>
+                            <td>ICT job request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -252,7 +252,7 @@
                             <td>2012/12/02</td>
                             <td>2011/04/25</td>
                             <td>HUAWEI</td>
-                            <td>cSX6UtpTWtwvGwCs</td>
+                            <td>Repair request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -263,7 +263,7 @@
                             <td>2012/12/02</td>
                             <td>2011/04/25</td>
                             <td>ACER</td>
-                            <td>cSX6UtpTWtwvGwCs</td>
+                            <td>ICT job request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -274,7 +274,7 @@
                             <td>2012/12/02</td>
                             <td>2011/04/25</td>
                             <td>ASUS</td>
-                            <td>cauqsM5wNdDwDbbq</td>
+                            <td>ICT job request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -285,7 +285,7 @@
                             <td>2012/12/02</td>
                             <td>2011/04/25</td>
                             <td>Lenovo</td>
-                            <td>kVoFi8eb9FpuCCkN</td>
+                            <td>Repair request</td>
                             <td>$320,800</td>
                         </tr>
                         <tr>
@@ -296,7 +296,7 @@
                             <td>2012/12/02</td>
                             <td></td>
                             <td>DELL</td>
-                            <td>cSX6UtpTWtwvGwCs</td>
+                            <td>Repair request</td>
                             <td>$320,800</td>
                         </tr>
                     </tbody>
