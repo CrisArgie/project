@@ -121,7 +121,107 @@
         </aside>
         <main class="content">
           <div class="content-menu">
-            
+<!-- Leftside menus -->
+            <a href="user_view_request.php" class="return-icon">
+              <img src="icons/png-files/chevron-left.png">
+            </a>
+<!-- Middleside menus -->
+            <div class="content-table">
+              <div class="ctn-container">
+                <div class="main-container mt-4">
+                  <div class="row justify-content-between p-0">
+              			<div class="col-xl-4 col-lg-12">
+                      <div class="d-flex flex-row g-3">
+              				  <label> No.: </label>
+              				  <input type="text" name="" disabled class="w-100">	
+                      </div>
+              			</div>
+              			<div class="col-xl-4 col-lg-12">
+                      <div class="d-flex flex-row g-2 justify-content-end">
+              				  <label> Date: </label>
+              				  <input type="text" name="" disabled class="w-100">	
+                      </div>
+              			</div>
+                  </div>
+            		</div>
+            		<div class="row ctn-header mt-2">
+            			<h2>POST REPAIR INSPECTION REPORT</h2>
+            		</div>
+                <div class="main-container">
+                  <div class="row mn-10 mt-1">
+                    <div class="folder-container">
+                      <div class="folder-header">
+                        <div class="folder-page show">
+                          <div class="text-2 pt-3 pl-2 pr-2">
+                            POST REPAIR REPORT
+                          </div>
+                        </div>
+                      </div>
+                      <div class="folder-content">
+                        <div class="row">
+                          <ul class="col-xl-6 p-2 m-0">
+                            <li class="row mt-2 mb-2">
+                              <label class="col-xl-4 p-0 m-auto">Repair Shop/Supplier:</label>
+                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                            </li>
+                            <li class="row mt-2 mb-2">
+                              <label class="col-xl-4 p-0 m-auto">Job Order/P.O. No.:</label>
+                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                            </li>
+                            <li class="row mt-2 mb-2">
+                              <label class="col-xl-4 p-0 m-auto">Invoice No.:</label>
+                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                            </li>
+                            <li class="row mt-2 mb-2">
+                              <label class="col-xl-4 p-0 m-auto">Amt/J.O./P.O. No.:</label>
+                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                            </li>
+                          </ul>
+                          <ul class="col-xl-6 p-2 m-0">
+                            <li class="row mt-2 mb-2">
+                              <label class="col-xl-4 p-0 m-auto">Date:</label>
+                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                            </li>
+                            <li class="row mt-2 mb-2">
+                              <label class="col-xl-4 p-0 m-auto">Date:</label>
+                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                            </li>
+                            <li class="row mt-2 mb-2">
+                              <label class="col-xl-4 p-0 m-auto">Payable Account:</label>
+                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                            </li>
+                          </ul>
+                        </div>
+                        <hr class="ctn-linebreak">
+                        <div class="main-container">
+                          <div class="row">
+                            <div class="col-xl-12 mt-3">
+                              <textarea class="textarea-l w-100 p-2" placeholder="FINDINGS/RECOMMENDATIONS"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="main-container mt-4 mb-2">
+                          <div class="row justify-content-end ml-4 mr-4 g-2">
+                            <!-- <button class="ctn-btn d-flex p-1"> 
+                              <div class="text-1 pl-1 m-auto">
+                                Save
+                              </div> <img src="icons/png-files/save.png" class="ml-1 mr-1 p-0"> </button>  -->
+                            <button class="ctn-btn d-flex p-1"> 
+                              <div class="text-1 pl-1 m-auto">
+                                Generate Report
+                              </div> <img src="icons/png-files/printer.png" class="ml-1 mr-1 p-0"> </button> 
+                            <button class="ctn-btn d-flex p-1"> 
+                              <div class="text-1 pl-1 m-auto">
+                                Download
+                              </div> <img src="icons/png-files/download.png" class="ml-1 mr-1 p-0"> </button> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            	    </div>
+                </div>
+              </div> <!-- END of contentContainer -->
+            </div>
           </div>
         </main>
     </div>

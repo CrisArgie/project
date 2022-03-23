@@ -13,6 +13,7 @@ body {
 
 :root {
     --accent-color: rgb(204, 0, 0);
+    --white: rgb(255, 255, 255);
     --lightest-gray: rgb(244, 244, 244);
     --light-gray: rgb(218, 218, 218);
     --normal-gray: rgb(96, 96, 96, 0.9);
@@ -615,6 +616,53 @@ a.link:hover {
     /*justify-content: space-between;*/
 }
 
+
+/* Start folder styles */
+
+.folder-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 4px 2px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.folder-header {
+    height: 50px;
+    width: 100%;
+    z-index: 0;
+    transform: translateY(.5em);
+}
+
+.folder-page {
+    height: 100%;
+    width: 30%;
+    padding-bottom: 0.4em;
+    border: 1px solid var(--medium-gray);
+    border-radius: 10px;
+    background-color: var(--lightest-gray);
+    z-index: 0;
+}
+
+.folder-page.show {
+    background-color: var(--white);
+}
+
+.folder-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: var(--white);
+    border-radius: 3px;
+    z-index: 1;
+    border: 1px solid var(--medium-gray);
+}
+
+
+/* End folder styles */
+
 .ctn-header {
     display: flex;
     justify-content: center;
@@ -790,6 +838,13 @@ a.link:hover {
 
 .textarea-h:focus {
     outline-style: none;
+}
+
+.textarea-l {
+    height: 170px;
+    border-radius: 5px;
+    resize: none;
+    white-space: pre-wrap;
 }
 
 .textarea-j {

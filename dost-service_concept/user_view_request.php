@@ -163,21 +163,22 @@
 
               <div class="main-container">
                 <div class="row justify-content-center">
-                  <table id="example" class="display w-100">
+                  <table id="example" class="display">
                     <thead>
                         <tr>
                             <th hidden>id</th>
                             <th>No.</th>
                             <th>Action</th>
-                            <th>Status</th>
+                            <th style="width: 90px">
+                              Status</th>
                             <th>Requested</th>
                             <th>Needed</th>
                             <th>Brand/Model</th>
                             <th>Type of Request</th>
-                            <th>Cost(₱)</th>
+                            <th>Property No.</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="w-100">
                         <tr>
                             <td hidden>9</td>
                             <td> <a href="user_repair_request_viewer.php" class="tbl-a">98377</a> </td>
@@ -187,7 +188,7 @@
                             <td>2011/04/25</td>
                             <td>DELL</td>
                             <td>Repair request</td>
-                            <td>$320,800</td>
+                            <td>uBDQ1W9J8g</td>
                         </tr>
                         <tr>
                             <td hidden>8</td>
@@ -198,40 +199,40 @@
                             <td>2011/04/25</td>
                             <td>DELL</td>
                             <td>ICT job request</td>
-                            <td>$320,800</td>
+                            <td>QqF6Omn682</td>
                         </tr>
                         <tr>
                             <td hidden>1</td>
-                            <td> <a href="" class="tbl-a">18403</a> </td>
+                            <td> <a href="user_pre_repair.php" class="tbl-a">18403</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
                             <td>2009/01/12</td>
                             <td>2011/04/25</td>
                             <td>LENOVO</td>
-                            <td>Repair request</td>
-                            <td>$320,800</td>
+                            <td>Pre-repair</td>
+                            <td>jerhPN50rK</td>
                         </tr>
                         <tr>
                             <td hidden>9</td>
-                            <td> <a href="" class="tbl-a">94178</a> </td>
+                            <td> <a href="user_post_repair.php" class="tbl-a">94178</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
                             <td>Pending</td>
                             <td>2012/03/29</td>
                             <td>2011/04/25</td>
                             <td>ACER</td>
-                            <td>Repair request</td>
-                            <td>$320,800</td>
+                            <td>Post repair</td>
+                            <td>TUIAuBI7Ur</td>
                         </tr>
                         <tr>
                             <td hidden>9</td>
                             <td> <a href="" class="tbl-a">81856</a> </td>
                             <td> <button class="ctn-btn w-100"> <div class="text-1"> Cancel </div> </button> </td>
-                            <td>Pre-request</td>
+                            <td>In-progress</td>
                             <td>2008/11/28</td>
                             <td>2011/04/25</td>
                             <td>MAC</td>
                             <td>ICT job request</td>
-                            <td>$320,800</td>
+                            <td>wPdY2QszBh</td>
                         </tr>
                         <tr>
                             <td hidden>9</td>
@@ -242,7 +243,7 @@
                             <td>2011/04/25</td>
                             <td>ACER</td>
                             <td>ICT job request</td>
-                            <td>$320,800</td>
+                            <td>5PzYIgU3Dy</td>
                         </tr>
                         <tr>
                             <td hidden>9</td>
@@ -253,7 +254,7 @@
                             <td>2011/04/25</td>
                             <td>HUAWEI</td>
                             <td>Repair request</td>
-                            <td>$320,800</td>
+                            <td>LPwAVxlP94</td>
                         </tr>
                         <tr>
                             <td hidden>9</td>
@@ -264,7 +265,7 @@
                             <td>2011/04/25</td>
                             <td>ACER</td>
                             <td>ICT job request</td>
-                            <td>$320,800</td>
+                            <td>XSjPmWx4Ib</td>
                         </tr>
                         <tr>
                             <td hidden>9</td>
@@ -275,7 +276,7 @@
                             <td>2011/04/25</td>
                             <td>ASUS</td>
                             <td>ICT job request</td>
-                            <td>$320,800</td>
+                            <td>irh5unlrHD</td>
                         </tr>
                         <tr>
                             <td hidden>9</td>
@@ -286,7 +287,7 @@
                             <td>2011/04/25</td>
                             <td>Lenovo</td>
                             <td>Repair request</td>
-                            <td>$320,800</td>
+                            <td>dZ0jRr6x6g</td>
                         </tr>
                         <tr>
                             <td hidden>9</td>
@@ -297,7 +298,7 @@
                             <td></td>
                             <td>DELL</td>
                             <td>Repair request</td>
-                            <td>$320,800</td>
+                            <td>D0G9264ajc</td>
                         </tr>
                     </tbody>
                   </table>

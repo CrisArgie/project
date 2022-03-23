@@ -220,11 +220,11 @@
                     <button class="ctn-btn d-flex p-1"> 
                       <div class="text-1 pl-1 m-auto">
                         Generate Report
-                      </div> <img src="icons/png-files/save.png" class="ml-1 mr-1 p-0"> </button> 
+                      </div> <img src="icons/png-files/printer.png" class="ml-1 mr-1 p-0"> </button> 
                     <button class="ctn-btn d-flex p-1"> 
                       <div class="text-1 pl-1 m-auto">
                         Download
-                      </div> <img src="icons/png-files/save.png" class="ml-1 mr-1 p-0"> </button> 
+                      </div> <img src="icons/png-files/download.png" class="ml-1 mr-1 p-0"> </button> 
                   </div>
                 </div>
               </div> <!-- END of contentContainer -->

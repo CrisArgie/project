@@ -234,8 +234,8 @@
                             </li>
                           </ul>
                         </div>
-                        <div class="col-xl-12 mt-2">
-                          <div class="ml-2 mr-2 textarea-bg d-flex flex-column align-items-end">
+                        <div class="col-xl-12">
+                          <div class="border-box-1 pl-2 pr-2 pb-2 ml-2 mr-2 textarea-bg d-flex flex-column align-items-end">
                             <textarea class="textarea-k" placeholder="Attached file or image"></textarea>
                             <img src="icons/png-files/download.png" class="menu-icon"> 
                           </div>

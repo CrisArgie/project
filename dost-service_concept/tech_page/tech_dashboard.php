@@ -94,7 +94,7 @@
             <hr class="sidebar-linebreak">
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="../about.php" class="sidebar-link-top">
+                    <a href="../admin-about.php" class="sidebar-link-top">
                     <img class="sidebar-icon" src="../icons/png-files/information.png">
                     <div class="hidden-sidebar">About</div>
                     </a>
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="w-100"> 
                                     <figure class="highcharts-figure">
-                                        <div id="bar-chart-request-per-reports" class="overflow-auto-x"></div>
+                                        <div id="bar-chart-request-per-reports" class="admin-bar-2"></div>
                                     </figure>
                                 </div>
                             </div>
