@@ -60,7 +60,7 @@
 
 <!-- Page Content Container -->
     <div class="container">
-        <aside class="sidebar" data-slider>
+        <aside class="sidebar open" data-slider>
 <!-- Sidebar top menu-->
             <div class="admin-top-sidebar">
                 <div class="sidebar-list">
@@ -147,7 +147,7 @@
                 <div class="col-xl-2 col-md-12 align-items-center mt-2 mb-3 g-1 p-0">
                   <div class="row">
                     <div class="p-0 col-xl-12 col-md-6 col-sm-4 d-flex justify-content-center">
-                      <a href="#request" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
+                      <a href="#tech_add_request.php" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
                         <div class="text-1"> Add Request </div>
                       </a>
                     </div>
@@ -159,9 +159,9 @@
                   </div>
                 </div>
                 <div class="col-xl-10 p-0 mb-3">
-                  <div class="row p-2">
+                  <div class="row pt-2 pl-2 pb-2 pr-0">
                     <div class="col-xl-4 p-0  ">
-                      <div class="mr-1 ml-1 mb-2 p-2 my-shadow overflow-auto">
+                      <div class=" ml-1 mb-2 p-2 my-shadow overflow-auto">
                         <h5 class="m-0 p-0"> Total number of Brand per year </h5>
                         <figure class="highcharts-figure-pie mt-0 mb-0 m-0">
                             <div id="pie-chart" class="admin-pie-2"></div>
@@ -169,7 +169,7 @@
                       </div>
                     </div>
                     <div class="col-xl-8 p-0">
-                      <div class="mr-1 ml-1 mb-2 p-2 my-shadow overflow-auto">
+                      <div class=" ml-1 mb-2 p-2 my-shadow overflow-auto">
                         <h5 class="m-0 p-0"> Recent request per month, last 6 months </h5>
                         <figure class="highcharts-figure-bar">
                             <div id="bar-chart-2" class="admin-pie-2"></div>
@@ -181,6 +181,38 @@
               </div>
             </div>
             <div class="main-container">
+              <ul class="row bg-gray-200 border-radius-1 p-2 m-0 pt-3 pb-3">
+                <li class="col-xl-3 col-md-6 p-0">
+                  <div class="d-flex justify-content-center mt-2 mb-2">
+                    <a href="tech_accept_repair_request.php" class="pt-2 pb-2 pl-0 pr-0 wf-2 ctn-btn d-flex justify-content-center "> 
+                        <div class="text-1"> Repair Request </div>
+                      </a>
+                  </div>
+                </li>
+                <li class="col-xl-3 col-md-6 p-0">
+                  <div class="d-flex justify-content-center mt-2 mb-2"> 
+                    <a href="tech_ict_job_request.php" class="pt-2 pb-2 pl-0 pr-0 wf-2 ctn-btn d-flex justify-content-center "> 
+                        <div class="text-1"> ICT job Request </div>
+                      </a>
+                  </div>
+                </li>
+                <li class="col-xl-3 col-md-6 p-0">
+                  <div class="d-flex justify-content-center mt-2 mb-2">
+                    <a href="tech_pre_repair.php" class="pt-2 pb-2 pl-0 pr-0 wf-2 ctn-btn d-flex justify-content-center "> 
+                        <div class="text-1"> Pre-repair Request </div>
+                      </a>
+                  </div>
+                </li>
+                <li class="col-xl-3 col-md-6 p-0">
+                  <div class="d-flex justify-content-center mt-2 mb-2">
+                    <a href="tech_post_repair.php" class="pt-2 pb-2 pl-0 pr-0 wf-2 ctn-btn d-flex justify-content-center "> 
+                        <div class="text-1"> Post Repair Request </div>
+                      </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="main-container">
               <div class="row justify-content-center mt-4 mb-4 border-radius-1">
                 
                 <div class="col-xl-12 overflow-auto my-shadow pt-3 pb-3 pr-2 pl-2">
@@ -189,10 +221,10 @@
                       <h4 class="m-0 p-2 "> Request data table </h4>  
                     </div>
                     <div class="col-xl-4 col-md-12 p-0 m-0 d-flex justify-content-end">
-                      <div class="col-md-6 col-xl-3">
+                      <div class="col-md-6 col-xl-4">
                         <button class="p-2 w-100 ctn-btn"> <div class="text-1"> Delete </div> </button>
                       </div>
-                      <div class="col-md-6 col-xl-3">
+                      <div class="col-md-6 col-xl-4">
                         <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> Edit </div>  </a>
                       </div>
                     </div>

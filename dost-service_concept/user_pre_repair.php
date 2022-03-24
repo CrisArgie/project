@@ -130,13 +130,13 @@
               <div class="ctn-container">
                 <div class="main-container mt-4">
                   <div class="row justify-content-between p-0">
-              			<div class="col-xl-4 col-lg-12">
+              			<div class="col-xl-4 col-lg-12 mb-1">
                       <div class="d-flex flex-row g-3">
               				  <label> No.: </label>
               				  <input type="text" name="" disabled class="w-100">	
                       </div>
               			</div>
-              			<div class="col-xl-4 col-lg-12">
+              			<div class="col-xl-4 col-lg-12 mb-1">
                       <div class="d-flex flex-row g-2 justify-content-end">
               				  <label> Date: </label>
               				  <input type="text" name="" disabled class="w-100">	

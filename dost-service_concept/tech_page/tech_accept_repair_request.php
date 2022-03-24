@@ -45,7 +45,7 @@
 
 <!-- Page Content Container -->
     <div class="container">
-        <aside class="sidebar" data-slider>
+        <aside class="sidebar open" data-slider>
 <!-- Sidebar top menu-->
             <div class="admin-top-sidebar">
                 <div class="sidebar-list">
@@ -216,10 +216,17 @@
                         </div>
             	    </div>
                 </div>
-                <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
-                    <button button class="p-2 ctn-btn w-100"> <img src="../icons/png-files/printer.png"> <div class="text-1"> Print </div> </button>
-                    <button class="p-2 ctn-btn w-100"> <div class="text-1"> Done </div> </button>
-                    <a href="" class="d-flex justify-content-center p-2 ctn-btn bg-success w-100"> <div class="text-1"> Save </div> </a> 
+                <div class="content-right d-flex flex-column align-items-center justify-content-between p-0 pt-2 pb-3">
+                    <div class="content-btn-btm">
+                        <a href="tech_request.php" class="return-icon">
+                            <img src="../icons/png-files/chevron-left.png">
+                        </a>
+                    </div>
+                    <div class="content-btn-btm">
+                        <button button class="p-2 ctn-btn w-100"> <img src="../icons/png-files/printer.png"> <div class="text-1"> Print </div> </button>
+                        <button class="p-2 ctn-btn w-100"> <div class="text-1"> Save </div> </button>
+                        <a href="" class="d-flex justify-content-center p-2 ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </a> 
+                    </div>
                 </div>
             </div>
         </main>

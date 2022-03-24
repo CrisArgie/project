@@ -32,7 +32,6 @@
         </div>
 <!-- Right menu buttons -->
         <div class="right-menu" >
-          
           <div class="dropdown" data-dropdown-menu>
             <button class="menu-profile-btn">
               <img class="menu-logo-item" src="../img/undraw_profile.svg" data-dropdown-button>
@@ -46,14 +45,13 @@
                 Logout
               </a>
             </div>
-
           </div>
         </div>
     </header>
 
 <!-- Page Content Container -->
     <div class="container">
-        <aside class="sidebar" data-slider>
+        <aside class="sidebar open" data-slider>
 <!-- Sidebar top menu-->
             <div class="admin-top-sidebar">
                 <div class="sidebar-list">
