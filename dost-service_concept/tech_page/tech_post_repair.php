@@ -86,7 +86,7 @@
             <hr class="sidebar-linebreak">
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="../admin-about.php" class="sidebar-link-top">
+                    <a href="tech_about.php" class="sidebar-link-top">
                     <img class="sidebar-icon" src="../icons/png-files/information.png">
                     <div class="hidden-sidebar">About</div>
                     </a>
@@ -153,12 +153,12 @@
                         <div class="folder-header d-flex flex-row">
                           <div class="folder-page mr-1">
                             <div class="text-2 pt-3 pl-2 pr-2">
-                              <a href="tech_pre_repair.php" class="text-gray-900"> PRE-REPAIR REPORT </a>
+                              <a href="tech_pre_repair.php" class="text-gray-700"> PRE-REPAIR REPORT </a>
                             </div>
                           </div>
                           <div class="folder-page show">
                             <div class="text-2 pt-3 pl-2 pr-2">
-                              <a href="tech_post_repair.php" class="text-gray-700"> POST REPAIR   REPORT </a>
+                              <a href="tech_post_repair.php" class="text-gray-900"> POST REPAIR   REPORT </a>
                             </div>
                           </div>
                         </div>
@@ -166,67 +166,48 @@
                           <div class="row">
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Description of Property Type:</label>
+                                <label class="col-xl-4 p-0 m-auto">Repair Shop/Supplier:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Serial/Engine No.:</label>
+                                <label class="col-xl-4 p-0 m-auto">Job Order/P.O No.:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Acquisition Date:</label>
+                                <label class="col-xl-4 p-0 m-auto">Invoice No.:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="date" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Date of Latest Repair:</label>
+                                <label class="col-xl-4 p-0 m-auto">Amt/J.O./P.O. No.:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="date" name="" id="">
                               </li>
                             </ul>
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Brand Model:</label>
+                                <label class="col-xl-4 p-0 m-auto">Date:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Property No.:</label>
+                                <label class="col-xl-4 p-0 m-auto">Date:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Acquisition Cost:</label>
+                                <label class="col-xl-4 p-0 m-auto">Payable Account:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
-                              </li>
-                              <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Mature of Latest Repair:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="date" name="" id="">
                               </li>
                             </ul>
                           </div>
                           <hr class="ctn-linebreak">
                           <div class="row mb-2 mt-1">
-                            <div class=col-xl-12>
-                              <h3 class="p-0"> Attach copy of Latest Job Order</h3>
-                            </div>
-                            <div class="col-xl-6 pr-0 mb-1">
-                              <div class="border-box-1 border-radius-1 btn-rightside">
-                                <textarea class="textarea-h w-100"></textarea>
+                            <div class="col-xl-12 mt-3">
+                              <div class="bg-gray-100 pl-2 pr-2 pt-3 pb-1">
+                                <textarea class="textarea-o border-box-none w-100 p-2" placeholder="FINDINGS/RECOMMENDATIONS"></textarea>
                                 <div class="mb-2">
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/bold.png"> </button> 
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/italic.png"> </button>
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/underline.png"> </button>
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/list.png"> </button>
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/eraser.png"> </button>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-xl-6 pl-0 mb-1">
-                              <div class="border-box-1 border-radius-1 btn-rightside">
-                                <textarea class="textarea-h w-100"></textarea>
-                                <div class="mb-2">
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/bold.png"> </button> 
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/italic.png"> </button>
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/underline.png"> </button>
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/list.png"> </button>
-                                  <button > <img class="txt-editor-icon" src="../icons/png-files/eraser.png"> </button>
+                                  <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/bold.png"> </button> 
+                                  <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/italic.png"> </button>
+                                  <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/underline.png"> </button>
+                                  <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/list.png"> </button>
+                                  <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/eraser.png"> </button>
                                 </div>
                               </div>
                             </div>
@@ -245,8 +226,6 @@
                   </div>
                   <div class="content-btn-btm">
                       <button button class="p-2 ctn-btn w-100"> <img src="../icons/png-files/save.png"> </button>
-                      
-                      <a href="" class="d-flex justify-content-center p-2 ctn-btn w-100"> Need Post Inspection </a>
                       
                       <button class="p-2 ctn-btn w-100"> <div class="text-1"> Print </div> </button>
                       <a href="" class="d-flex justify-content-center p-2 ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </a> 

@@ -7,11 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>DOST Service Request - Home</title>
+    <title>DOST Service Request - About</title>
 
     <!-- My styles for this template -->
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <link href="../style.css" rel="stylesheet">
+    <script src="../script.js" defer></script>
 
 </head>
 <body>
@@ -19,9 +19,9 @@
     <header class="header">
 <!-- Left menu buttons -->
         <div class="left-menu">
-            <img class="menu-logo-item" src="img/DOST_log.png">
+            <img class="menu-logo-item" src="../img/DOST_log.png">
             <button class="menu-icon-btn" data-menu-icon-btn>
-                <img class="menu-logo-item" src="icons/png-files/menu.png">
+                <img class="menu-logo-item" src="../icons/png-files/menu.png">
             </button>
         </div>
 <!-- Right menu buttons -->
@@ -29,14 +29,14 @@
           
           <div class="dropdown" data-dropdown-menu>
             <button class="menu-profile-btn">
-              <img class="menu-logo-item" src="img/undraw_profile.svg" data-dropdown-button>
+              <img class="menu-logo-item" src="../img/undraw_profile.svg" data-dropdown-button>
             </button>
             <div class="dropdown-menu" >
-              <a class="link" href="user_settings.php"><img class="link-icon" src="icons/png-files/cogs.png" alt="Settings.png"> 
+              <a class="link" href="_settings.php"><img class="link-icon" src="../icons/png-files/cogs.png" alt="Settings.png"> 
                 Settings
               </a> 
               <a class="link" href="">
-                <img class="link-icon" src="icons/png-files/exit.png" alt="Logout.png"> 
+                <img class="link-icon" src="../icons/png-files/exit.png" alt="Logout.png"> 
                 Logout
               </a>
             </div>
@@ -52,14 +52,14 @@
             <div class="admin-top-sidebar">
                 <div class="sidebar-list">
                     <button class="menu-icon-btn" data-menu-icon-btn>
-                        <img class="menu-logo-item" src="icons/png-files/chevron-left.png">
+                        <img class="menu-logo-item" src="../icons/png-files/chevron-left.png">
                     </button>
                 </div>
             <hr class="sidebar-linebreak">
                 <div class="sidebar-list">
                     <div class="sidebar-list-item">
-                        <a href="admin_dashboard.php" class="sidebar-link ">
-                            <img class="sidebar-icon" src="icons/png-files/archive.png">
+                        <a href="tech_dashboard.php" class="sidebar-link ">
+                            <img class="sidebar-icon" src="../icons/png-files/archive.png">
                             <div class="hidden-sidebar">Dashboard</div>
                         </a>
                     </div>
@@ -70,14 +70,14 @@
             <div class="middle-sidebar">
                 <ul class="sidebar-list">
                     <li class="sidebar-list-item">
-                        <a href="admin_users.php" class="sidebar-link">
-                        <img class="sidebar-icon" src="icons/png-files/users.png">
+                        <a href="tech_users.php" class="sidebar-link">
+                        <img class="sidebar-icon" src="../icons/png-files/users.png">
                         <div class="hidden-sidebar">Users</div>
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="admin_request.php" class="sidebar-link ">
-                        <img class="sidebar-icon" src="icons/png-files/add-files.png">
+                        <a href="tech_request.php" class="sidebar-link">
+                        <img class="sidebar-icon" src="../icons/png-files/add-files.png">
                         <div class="hidden-sidebar">Requests</div>
                         </a>
                     </li>
@@ -88,20 +88,20 @@
             <hr class="sidebar-linebreak">
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="admin-about.php" class="sidebar-link-top active">
-                    <img class="sidebar-icon" src="icons/png-files/information.png">
+                    <a href="tech_about.php" class="sidebar-link-top active">
+                    <img class="sidebar-icon" src="../icons/png-files/information.png">
                     <div class="hidden-sidebar">About</div>
                     </a>
                 </li>
                 <li class="sidebar-list-item">
                     <a href="#" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="icons/png-files/cog.png">
+                    <img class="sidebar-icon" src="../icons/png-files/cog.png">
                     <div class="hidden-sidebar">Settings</div>
                     </a>
                 </li>
                 <li class="sidebar-list-item">
                     <a href="#" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="icons/png-files/exit.png">
+                    <img class="sidebar-icon" src="../icons/png-files/exit.png">
                     <div class="hidden-sidebar">Logout</div>
                     </a>
                 </li>
@@ -110,17 +110,17 @@
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/envelope.png">
+                    <img class="sidebar-icon" src="../icons/png-files/envelope.png">
                   </a>
                 </li>
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/world.png">
+                    <img class="sidebar-icon" src="../icons/png-files/world.png">
                   </a>
                 </li>
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/facebook-oval.png">
+                    <img class="sidebar-icon" src="../icons/png-files/facebook-oval.png">
                   </a>
                 </li>
               </ul>
@@ -134,7 +134,7 @@
                 <div class="col-xl-12 mt-3 ">
                   <h4 class="d-flex justify-content-center p-0 m-0"> Process of Requesting Service </h4>  
                   <div class="w-100 mt-2 d-flex justify-content-center">
-                    <img src="img/IMG_PFLW_032322.jpg" style="width: auto; height: 450px;">
+                    <img src="../img/IMG_PFLW_032322.jpg" style="width: auto; height: 450px;">
                   </div>
                 </div>
               </div>

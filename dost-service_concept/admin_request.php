@@ -60,7 +60,7 @@
 
 <!-- Page Content Container -->
     <div class="container">
-        <aside class="sidebar" data-slider>
+        <aside class="sidebar open" data-slider>
 <!-- Sidebar top menu-->
             <div class="admin-top-sidebar">
                 <div class="sidebar-list">
