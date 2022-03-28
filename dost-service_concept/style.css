@@ -28,6 +28,38 @@ body {
     --sidebar-width: 199px;
 }
 
+
+/* Start transition page */
+
+.transition-fade {
+    opacity: 1;
+    transition: 500ms;
+    transform: translateX(0);
+    transform-origin: left;
+}
+
+html.is-animating .transition-fade {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+.transition-swipe {
+    transition: 500ms;
+    transform: translateY(0);
+}
+
+html.is-animating .transition-swipe {
+    transform: translateY(100px);
+}
+
+
+/* End transition page */
+
 .header {
     display: flex;
     align-items: center;
@@ -811,6 +843,14 @@ a.link:hover {
     cursor: pointer;
 }
 
+.ctn-btn-2 {
+    background-color: var(--color2);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
+    border: none;
+    border-radius: 0.9rem;
+    cursor: pointer;
+}
+
 .ctn-btn:hover {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
 }
@@ -909,7 +949,7 @@ a.link:hover {
     border: none;
 }
 
-button:hover {
+.btn-brdr:hover {
     border: 1px solid var(--dark-gray) !important;
 }
 
@@ -969,6 +1009,10 @@ button:hover {
     font-size: 36px;
 }
 
+.text-4 {
+    color: var(--color2) !important;
+}
+
 .f-bold {
     font-weight: bold;
 }
@@ -977,6 +1021,10 @@ button:hover {
     text-decoration: underline !important;
     color: var(--color2) !important;
     font-weight: normal !important;
+}
+
+.text-none {
+    text-decoration: none;
 }
 
 
@@ -2335,6 +2383,10 @@ button.bg-dark:focus {
 
 .w-25 {
     width: 25% !important;
+}
+
+.w-30 {
+    width: 30% !important;
 }
 
 .w-50 {

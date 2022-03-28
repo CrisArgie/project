@@ -9,7 +9,6 @@
     
     <title>DOST Service Request - Dashboard</title>
 
-    
     <!-- My styles for this template -->
     <link href="../style.css" rel="stylesheet">
     <script src="../script.js" defer></script>

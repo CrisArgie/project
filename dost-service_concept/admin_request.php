@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>DOST Service Request - Home</title>
+    <title>DOST Service Request - Request</title>
 
     <!-- My styles for this template -->
     <link href="style.css" rel="stylesheet">
@@ -89,7 +89,7 @@
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="#" class="sidebar-link active">
+                        <a href="admin_request.php" class="sidebar-link active">
                         <img class="sidebar-icon" src="icons/png-files/add-files.png">
                         <div class="hidden-sidebar">Requests</div>
                         </a>
@@ -141,7 +141,7 @@
         </aside>
         <main class="content">
         <div class="content-menu flex-column">
-            <div class="main-container">
+            <div class="main-container ">
               <div class="row">
                 <div class="col-xl-12 mb-3 mt-3"> <h2> Request Monitoring </h2> </div>
                 <div class="col-xl-2 col-md-12 align-items-center mt-2 mb-3 g-1 p-0">
@@ -159,9 +159,9 @@
                   </div>
                 </div>
                 <div class="col-xl-10 p-0 mb-3">
-                  <div class="row p-2">
+                  <div class="row pt-2 pl-2 pb-2 pr-0">
                     <div class="col-xl-4 p-0  ">
-                      <div class="mr-1 ml-1 mb-2 p-2 my-shadow overflow-auto">
+                      <div class=" ml-1 mb-2 p-2 my-shadow overflow-auto">
                         <h5 class="m-0 p-0"> Total number of Brand per year </h5>
                         <figure class="highcharts-figure-pie mt-0 mb-0 m-0">
                             <div id="pie-chart" class="admin-pie-2"></div>
@@ -169,7 +169,7 @@
                       </div>
                     </div>
                     <div class="col-xl-8 p-0">
-                      <div class="mr-1 ml-1 mb-2 p-2 my-shadow overflow-auto">
+                      <div class=" ml-1 mb-2 p-2 my-shadow overflow-auto">
                         <h5 class="m-0 p-0"> Recent request per month, last 6 months </h5>
                         <figure class="highcharts-figure-bar">
                             <div id="bar-chart-2" class="admin-pie-2"></div>
@@ -181,32 +181,64 @@
               </div>
             </div>
             <div class="main-container">
+              <ul class="row bg-gray-200 border-radius-1 p-2 m-0 pt-3 pb-3">
+                <li class="col-xl-3 col-md-6 p-0">
+                  <div class="d-flex justify-content-center mt-2 mb-2">
+                    <a href="admin_accept_repair_request.php" class="pt-2 pb-2 pl-0 pr-0 wf-2 ctn-btn d-flex justify-content-center "> 
+                        <div class="text-1"> Repair Request </div>
+                      </a>
+                  </div>
+                </li>
+                <li class="col-xl-3 col-md-6 p-0">
+                  <div class="d-flex justify-content-center mt-2 mb-2"> 
+                    <a href="admin_ict_job_request.php" class="pt-2 pb-2 pl-0 pr-0 wf-2 ctn-btn d-flex justify-content-center "> 
+                        <div class="text-1"> ICT job Request </div>
+                      </a>
+                  </div>
+                </li>
+                <li class="col-xl-3 col-md-6 p-0">
+                  <div class="d-flex justify-content-center mt-2 mb-2">
+                    <a href="admin_pre_repair.php" class="pt-2 pb-2 pl-0 pr-0 wf-2 ctn-btn d-flex justify-content-center "> 
+                        <div class="text-1"> Pre-repair Request </div>
+                      </a>
+                  </div>
+                </li>
+                <li class="col-xl-3 col-md-6 p-0">
+                  <div class="d-flex justify-content-center mt-2 mb-2">
+                    <a href="admin_post_repair.php" class="pt-2 pb-2 pl-0 pr-0 wf-2 ctn-btn d-flex justify-content-center "> 
+                        <div class="text-1"> Post Repair Request </div>
+                      </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="main-container">
               <div class="row justify-content-center mt-4 mb-4 border-radius-1">
                 
                 <div class="col-xl-12 overflow-auto my-shadow pt-3 pb-3 pr-2 pl-2">
                   <div class="row justify-content-between p-0 mb-4">
                     <div class="col-xl-6 p-0 m-0 col-md-12"> 
-                      <h4 class="m-0 p-2 "> Request data table </h4>  
+                      <h4 class="m-0 p-2 "> Repair Request data table </h4>  
                     </div>
                     <div class="col-xl-4 col-md-12 p-0 m-0 d-flex justify-content-end">
-                      <div class="col-md-6 col-xl-3">
+                      <div class="col-md-6 col-xl-4">
                         <button class="p-2 w-100 ctn-btn"> <div class="text-1"> Delete </div> </button>
                       </div>
-                      <div class="col-md-6 col-xl-3">
+                      <div class="col-md-6 col-xl-4">
                         <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> Edit </div>  </a>
                       </div>
                     </div>
                   </div>
-                  <table id="example" class="display w-100">
+                  <table id="" class="display w-100">
                     <thead>
                         <tr>
                             <th></th>
                             <th>No.</th>
-                            <th>Name</th>
-                            <th>User type</th>
-                            <th>Division</th>
-                            <th>Email</th>
-                            <th>Address</th>
+                            <th>Brand Model</th>
+                            <th>Status</th>
+                            <th>Property No.</th>
+                            <th>Serial No.</th>
+                            <th>Date Requested</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -321,7 +353,435 @@
                     </tbody>
                   </table>  
                 </div>
+              </div>
+            </div>
+            <div class="main-container">
+              <div class="row justify-content-center mt-4 mb-4 border-radius-1">
                 
+                <div class="col-xl-12 overflow-auto my-shadow pt-3 pb-3 pr-2 pl-2">
+                  <div class="row justify-content-between p-0 mb-4">
+                    <div class="col-xl-6 p-0 m-0 col-md-12"> 
+                      <h4 class="m-0 p-2 "> ICT job request data table </h4>  
+                    </div>
+                    <div class="col-xl-4 col-md-12 p-0 m-0 d-flex justify-content-end">
+                      <div class="col-md-6 col-xl-4">
+                        <button class="p-2 w-100 ctn-btn"> <div class="text-1"> Delete </div> </button>
+                      </div>
+                      <div class="col-md-6 col-xl-4">
+                        <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> Edit </div>  </a>
+                      </div>
+                    </div>
+                  </div>
+                  <table id="" class="display w-100">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>No.</th>
+                            <th>Repair Shop</th>
+                            <th>Status</th>
+                            <th>Property No.</th>
+                            <th>Brand Model</th>
+                            <th>Type of Request</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 1 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 5 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 2 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 3 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 2 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 4 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 1 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 5 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 6 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 4 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 7 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 6 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 8 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 6 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 9 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 2 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 10 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 11 </td>
+                            <td> Mary Grace </td>
+                            <td> Employee </td>
+                            <td> 4 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 12 </td>
+                            <td> Mary Grace </td>
+                            <td> Employee </td>
+                            <td> 5 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                    </tbody>
+                  </table>  
+                </div>
+              </div>
+            </div>
+            <div class="main-container">
+              <div class="row justify-content-center mt-4 mb-4 border-radius-1">
+                
+                <div class="col-xl-12 overflow-auto my-shadow pt-3 pb-3 pr-2 pl-2">
+                  <div class="row justify-content-between p-0 mb-4">
+                    <div class="col-xl-6 p-0 m-0 col-md-12"> 
+                      <h4 class="m-0 p-2 "> Pre-Repair Request data table </h4>  
+                    </div>
+                    <div class="col-xl-4 col-md-12 p-0 m-0 d-flex justify-content-end">
+                      <div class="col-md-6 col-xl-4">
+                        <button class="p-2 w-100 ctn-btn"> <div class="text-1"> Delete </div> </button>
+                      </div>
+                      <div class="col-md-6 col-xl-4">
+                        <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> Edit </div>  </a>
+                      </div>
+                    </div>
+                  </div>
+                  <table id="" class="display w-100">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>No.</th>
+                            <th>Brand Model</th>
+                            <th>Status</th>
+                            <th>Date Requested</th>
+                            <th>Date of Latest Repair</th>
+                            <th>Date of Latest Repair</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 1 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 5 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 2 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 3 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 2 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 4 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 1 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 5 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 6 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 4 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 7 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 6 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 8 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 6 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 9 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 2 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 10 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 11 </td>
+                            <td> Mary Grace </td>
+                            <td> Employee </td>
+                            <td> 4 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 12 </td>
+                            <td> Mary Grace </td>
+                            <td> Employee </td>
+                            <td> 5 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                    </tbody>
+                  </table>  
+                </div>
+              </div>
+            </div>
+            <div class="main-container">
+              <div class="row justify-content-center mt-4 mb-4 border-radius-1">
+                
+                <div class="col-xl-12 overflow-auto my-shadow pt-3 pb-3 pr-2 pl-2">
+                  <div class="row justify-content-between p-0 mb-4">
+                    <div class="col-xl-6 p-0 m-0 col-md-12"> 
+                      <h4 class="m-0 p-2 "> Post Repair Request data table </h4>  
+                    </div>
+                    <div class="col-xl-4 col-md-12 p-0 m-0 d-flex justify-content-end">
+                      <div class="col-md-6 col-xl-4">
+                        <button class="p-2 w-100 ctn-btn"> <div class="text-1"> Delete </div> </button>
+                      </div>
+                      <div class="col-md-6 col-xl-4">
+                        <a class="p-2 ctn-btn d-flex justify-content-center"> <div class="text-1"> Edit </div>  </a>
+                      </div>
+                    </div>
+                  </div>
+                  <table id="" class="display w-100">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>No.</th>
+                            <th>Repair Shop</th>
+                            <th>Status</th>
+                            <th>Job Order</th>
+                            <th>Invoice No.</th>
+                            <th>Amt/J.O./P.O. No.:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 1 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 5 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 2 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 3 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 2 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 4 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 1 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 5 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 6 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 4 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 7 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 6 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 8 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 6 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 9 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 2 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 10 </td>
+                            <td> Mary Grace </td>
+                            <td> Technician </td>
+                            <td> 3 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 11 </td>
+                            <td> Mary Grace </td>
+                            <td> Employee </td>
+                            <td> 4 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                        <tr>
+                            <td> <input type="checkbox"> </td>
+                            <td> 12 </td>
+                            <td> Mary Grace </td>
+                            <td> Employee </td>
+                            <td> 5 </td>
+                            <td> marygrace@gmail.com </td>
+                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                        </tr>
+                    </tbody>
+                  </table>  
+                </div>
               </div>
             </div>
           </div>
@@ -331,7 +791,42 @@
 
 
 <script type="text/javascript" src="scripts/chart-js/charts-2.js"></script>
-<script type="text/javascript" src="scripts/datatable-js/admin-datatable-1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('table.display').DataTable({
+        responsive: true,
+        "order": [
+            [3, "desc"]
+        ],
+        "pagingType": "full_numbers",
+        stateSave: true,
+        search: {
+            return: true
+        }
+    });
+});
+
+// "paging":   false,
+// "ordering": false,
+// "info":     false
+// DOM
+// var table = $('#example').DataTable();
+  
+// $('#example tbody').on('click', 'tr', function () {
+//     var data = table.row( this ).data();
+//     alert( 'You clicked on '+data[0]+'\'s row' );
+// } );
+
+// "aoColumns": [
+//     null,
+//     null,
+//     { "orderSequence": [ "asc" ] },
+//     { "orderSequence": [ "desc", "asc", "asc" ] },
+//     { "orderSequence": [ "desc" ] },
+//     null
+// ]
+</script>
 
 </body>
 </html>

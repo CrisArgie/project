@@ -141,13 +141,13 @@
         </aside>
         <main class="content">
         <div class="content-menu flex-column">
-            <div class="main-container">
+            <div class="main-container ">
               <div class="row">
                 <div class="col-xl-12 mb-3 mt-3"> <h2> Request Monitoring </h2> </div>
                 <div class="col-xl-2 col-md-12 align-items-center mt-2 mb-3 g-1 p-0">
                   <div class="row">
                     <div class="p-0 col-xl-12 col-md-6 col-sm-4 d-flex justify-content-center">
-                      <a href="#tech_add_request.php" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
+                      <a href="tech_add_request.php" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
                         <div class="text-1"> Add Request </div>
                       </a>
                     </div>
@@ -377,10 +377,10 @@
                         <tr>
                             <th></th>
                             <th>No.</th>
-                            <th>Name</th>
-                            <th>Property No.</th>
-                            <th>Division</th>
+                            <th>Repair Shop</th>
                             <th>Status</th>
+                            <th>Property No.</th>
+                            <th>Brand Model</th>
                             <th>Type of Request</th>
                         </tr>
                     </thead>
@@ -663,11 +663,11 @@
                         <tr>
                             <th></th>
                             <th>No.</th>
-                            <th>Name</th>
-                            <th>User type</th>
-                            <th>Division</th>
-                            <th>Email</th>
-                            <th>Address</th>
+                            <th>Repair Shop</th>
+                            <th>Status</th>
+                            <th>Job Order</th>
+                            <th>Invoice No.</th>
+                            <th>Amt/J.O./P.O. No.:</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -791,20 +791,21 @@
 
 
 <script type="text/javascript" src="../scripts/chart-js/charts-2.js"></script>
-<script type="text/javascript" src="../scripts/datatable-js/admin-datatable-1.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
     $('table.display').DataTable({
-      responsive: true,
-      "order": [[ 3, "desc" ]],
-      "pagingType": "full_numbers",
-      stateSave: true,
-      search: {
-        return: true
-      }
+        responsive: true,
+        "order": [
+            [3, "desc"]
+        ],
+        "pagingType": "full_numbers",
+        stateSave: true,
+        search: {
+            return: true
+        }
     });
-} );
+});
 
 // "paging":   false,
 // "ordering": false,
