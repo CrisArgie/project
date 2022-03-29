@@ -123,12 +123,14 @@
             </div>
         </aside>
         <main class="content">
-          <div class="content-menu">
+          <form class="content-menu" action="results.html" method="GET" enctype="multipart/form-data"> <!-- start form -->
+
 <!-- Leftside menus -->
           	<a href="user_request.php" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
 <!-- Middleside menus -->
+
             <div class="content-table">
 <!-- Container -->
             	<div class="ctn-container"> 
@@ -136,14 +138,20 @@
                   <div class="row justify-content-between p-0">
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-3">
-              				  <label> No.: </label>
-              				  <input type="text" name="" disabled class="w-100">	
+              				  <label for="id_no"> No.: </label>
+              				  <input type="text" 
+                        name="id_no"
+                        id="id_no" 
+                        value="" disabled class="w-100">	
                       </div>
               			</div>
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-2 justify-content-end">
-              				  <label> Date: </label>
-              				  <input type="text" name="" disabled class="w-100">	
+              				  <label for="date"> Date: </label>
+              				  <input type="text" 
+                        name="date"
+                        id="date" 
+                        value="<?php echo date('m-d-Y'); ?>" disabled class="w-100">	
                       </div>
               			</div>
                   </div>
@@ -157,35 +165,49 @@
              <div class="row mn-10 mt-1">
 	    				 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 mb-0 w-100">
 	        				<li class="mb-2">
-	        					<label>Desciption of Property Type:</label>
-	        					<input type="text" name="" class="w-100">
+	        					<label for="desc_property_type">Desciption of Property Type:</label>
+	        					<input type="text" 
+                    name="desc_property_type"
+                    id="desc_property_type" placeholder="ex. CPU problem" class="w-100">
 	        				</li>
 	        				<li class="mb-2">
-	        					<label>Serial/Engine No.:</label>
-	        					<input type="text" name="" class="w-100">
+	        					<label for="serial_engine_no">Serial/Engine No.:</label>
+	        					<input type="text"
+                    name="serial_engine_no"
+                    id="serial_engine_no"min="10" placeholder="ex. DSEDJN8J3D72J49D" class="w-100 text-uppercase">
 	        				</li>
 	        				<li class="mb-2">
-	        					<label>Acquisition Date:</label>
-	        					<input type="date" name="" class="w-100">
+	        					<label for="acquisition_date">Acquisition Date:</label>
+	        					<input type="date" 
+                    name="acquisition_date"
+                    id="acquisition_date" class="w-100">
 	        				</li>
 	        				<li class="mb-2">
-	        					<label>Location:</label>
-	        					<input type="text" name="" class="w-100">
+	        					<label for="location">Location:</label>
+	        					<input type="text" 
+                    name="location"
+                    id="location" placeholder="Format: Barangay, City, Province, Region" class="w-100">
 	        				</li>
 	        			</ul>
 
 	    				 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 m-0 w-100">
 	        				<li class="mb-2">
-	        					<label> Brand Model: </label>
-	        					<input type="text" name="" class="w-100">
+	        					<label for="brand_model"> Brand Model: </label>
+	        					<input type="text" 
+                    name="brand_model" 
+                    id="brand_model" placeholder="ex. Huawei" class="w-100 text-capitalize">
 	        				</li>
 	        				<li class="mb-2">
-	        					<label>Property No.:</label>
-	        					<input type="text" name="" class="w-100">
+	        					<label for="property_no">Property No.:</label>
+	        					<input type="text" 
+                    name="property_no" 
+                    id="property_no" placeholder="ex. N9DWHJN24 (N9DW-HJN24)" class="w-100 text-uppercase">
 	        				</li>
 	        				<li class="mb-2">
-	        					<label> Acquisition Cost: </label>
-	        					<input type="text" name="" placeholder="ex. 2440 - (Php: 2,440.00)" class="w-100">
+	        					<label for="acquisition_cost"> Acquisition Cost: </label>
+	        					<input type="text" 
+                    name="acquisition_cost" 
+                    id="acquisition_cost" min="" placeholder="ex. 2440 - (Php: 2,440.00)" class="w-100">
 	        				</li>
 	        			</ul>            			
             	</div>
@@ -198,7 +220,10 @@
   	    				<div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
   	        				<h3 class="p-0 f-w-normal"> Problem Encountered: </h3>
                     <div class="btn-leftside mb-2">
-    	        				<textarea class="textarea-h" placeholder="Type here..."></textarea>
+                      <label for="problem_encountered" hidden></label>
+    	        				<textarea class="textarea-h" 
+                      name="problem_encountered"
+                      id="problem_encountered" placeholder="Type here..."></textarea>
     	        				<div class="mb-2">
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
@@ -211,7 +236,10 @@
   	    				<div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
   	        				<h3 class="p-0 f-w-normal"> Corrective Action Performed: </h3>
                     <div class="btn-rightside mb-2">
-    	        				<textarea class="textarea-h" placeholder="Type here..."></textarea>
+                      <label for="corrective_action_performed" hidden></label>
+    	        				<textarea class="textarea-h"
+                      name="corrective_action_performed"
+                      id="corrective_action_performed" placeholder="Type here..."></textarea>
     	        				<div class="mb-2">
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
@@ -223,8 +251,7 @@
   	    				</div>
           		</div>
             </div>
-
-
+            
             	</div> <!-- END of Container -->
             </div>
 <!-- Rightside menus -->
@@ -232,9 +259,10 @@
               <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
               <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
               <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
-              <button class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
+              <button type="submit" class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
             </div>
-          </div>
+
+          </form>
 
         </main>
     </div>

@@ -163,7 +163,7 @@
 
               <div class="main-container">
                 <div class="row justify-content-center">
-                  <table id="example" class="display">
+                  <table id="example" class="display" style="width: 100%;">
                     <thead>
                         <tr>
                             <th hidden>id</th>
@@ -312,7 +312,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-  $('#example').DataTable( {
+  $('table.display').DataTable({
     responsive: true
   } );
 } );

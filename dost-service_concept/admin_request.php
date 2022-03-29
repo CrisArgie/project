@@ -214,7 +214,7 @@
             </div>
             <div class="main-container">
               <div class="row justify-content-center mt-4 mb-4 border-radius-1">
-                
+
                 <div class="col-xl-12 overflow-auto my-shadow pt-3 pb-3 pr-2 pl-2">
                   <div class="row justify-content-between p-0 mb-4">
                     <div class="col-xl-6 p-0 m-0 col-md-12"> 
@@ -229,7 +229,7 @@
                       </div>
                     </div>
                   </div>
-                  <table id="" class="display w-100">
+                  <table id="example" class="display">
                     <thead>
                         <tr>
                             <th></th>
@@ -245,110 +245,110 @@
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 1 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 5 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 2 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 3 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 2 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 4 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 1 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 5 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 6 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 4 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 7 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 6 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 8 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 6 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 9 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 2 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 10 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 11 </td>
-                            <td> Mary Grace </td>
-                            <td> Employee </td>
-                            <td> 4 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 12 </td>
-                            <td> Mary Grace </td>
-                            <td> Employee </td>
-                            <td> 5 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell </td>
+                            <td> Pending </td>
+                            <td> 5423234 </td>
+                            <td> 7830982DSW24 </td>
+                            <td> 3-29-2022 </td>
                         </tr>
                     </tbody>
                   </table>  
@@ -372,7 +372,7 @@
                       </div>
                     </div>
                   </div>
-                  <table id="" class="display w-100">
+                  <table id="example" class="display">
                     <thead>
                         <tr>
                             <th></th>
@@ -388,110 +388,11 @@
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 1 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 5 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 2 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 3 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 2 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 4 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 1 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 5 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 6 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 4 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 7 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 6 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 8 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 6 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 9 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 2 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 10 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 11 </td>
-                            <td> Mary Grace </td>
-                            <td> Employee </td>
-                            <td> 4 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 12 </td>
-                            <td> Mary Grace </td>
-                            <td> Employee </td>
-                            <td> 5 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Datalink Shop </td>
+                            <td> In-progress </td>
+                            <td> 7925492 </td>
+                            <td> Lenovo Intel 3 </td>
+                            <td> Upgrade </td>
                         </tr>
                     </tbody>
                   </table>  
@@ -515,7 +416,7 @@
                       </div>
                     </div>
                   </div>
-                  <table id="" class="display w-100">
+                  <table id="example" class="display">
                     <thead>
                         <tr>
                             <th></th>
@@ -524,117 +425,27 @@
                             <th>Status</th>
                             <th>Date Requested</th>
                             <th>Date of Latest Repair</th>
-                            <th>Date of Latest Repair</th>
+                            <th>Mature of Latest Repair</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 1 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 5 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Acer Intel 3 </td>
+                            <td> Pending </td>
+                            <td> 3-29-2022 </td>
+                            <td> 3-31-2022 </td>
+                            <td>  </td>
                         </tr>
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 2 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 3 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 2 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 4 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 1 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 5 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 6 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 4 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 7 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 6 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 8 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 6 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 9 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 2 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 10 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 11 </td>
-                            <td> Mary Grace </td>
-                            <td> Employee </td>
-                            <td> 4 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 12 </td>
-                            <td> Mary Grace </td>
-                            <td> Employee </td>
-                            <td> 5 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> Dell Intel 5 </td>
+                            <td> Pending </td>
+                            <td> 3-30-2022 </td>
+                            <td>  </td>
+                            <td>  </td>
                         </tr>
                     </tbody>
                   </table>  
@@ -658,7 +469,7 @@
                       </div>
                     </div>
                   </div>
-                  <table id="" class="display w-100">
+                  <table id="example" class="display">
                     <thead>
                         <tr>
                             <th></th>
@@ -674,110 +485,11 @@
                         <tr>
                             <td> <input type="checkbox"> </td>
                             <td> 1 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 5 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 2 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 3 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 2 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 4 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 1 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 5 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 6 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 4 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 7 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 6 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 8 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 6 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 9 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 2 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 10 </td>
-                            <td> Mary Grace </td>
-                            <td> Technician </td>
-                            <td> 3 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 11 </td>
-                            <td> Mary Grace </td>
-                            <td> Employee </td>
-                            <td> 4 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="checkbox"> </td>
-                            <td> 12 </td>
-                            <td> Mary Grace </td>
-                            <td> Employee </td>
-                            <td> 5 </td>
-                            <td> marygrace@gmail.com </td>
-                            <td> Brgy. 1 Cabadbaran City, Agusan Del Norte </td>
+                            <td> DataThreads Shop </td>
+                            <td> In-progress </td>
+                            <td> 352NK5323V2 </td>
+                            <td> 22413623 </td>
+                            <td> 3OJBIAC924225JN2 </td>
                         </tr>
                     </tbody>
                   </table>  
@@ -791,42 +503,8 @@
 
 
 <script type="text/javascript" src="scripts/chart-js/charts-2.js"></script>
+<script type="text/javascript" src="scripts/datatable-js/admin-datatable-1.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function() {
-    $('table.display').DataTable({
-        responsive: true,
-        "order": [
-            [3, "desc"]
-        ],
-        "pagingType": "full_numbers",
-        stateSave: true,
-        search: {
-            return: true
-        }
-    });
-});
-
-// "paging":   false,
-// "ordering": false,
-// "info":     false
-// DOM
-// var table = $('#example').DataTable();
-  
-// $('#example tbody').on('click', 'tr', function () {
-//     var data = table.row( this ).data();
-//     alert( 'You clicked on '+data[0]+'\'s row' );
-// } );
-
-// "aoColumns": [
-//     null,
-//     null,
-//     { "orderSequence": [ "asc" ] },
-//     { "orderSequence": [ "desc", "asc", "asc" ] },
-//     { "orderSequence": [ "desc" ] },
-//     null
-// ]
-</script>
 
 </body>
 </html>

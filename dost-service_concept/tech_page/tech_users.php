@@ -230,7 +230,7 @@
                       </div>
                     </div>
                   </div>
-                  <table id="example" class="display w-100">
+                  <table id="example" class="display">
                     <thead>
                         <tr>
                             <th></th>
@@ -364,7 +364,7 @@
 
 
 <script type="text/javascript" src="../scripts/chart-js/charts-1.js"></script>
-<script type="text/javascript" src="../scripts/datatable-js/admin-datatable-1.js"></script>
+<script type="text/javascript" src="../scripts/datatable-js/admin-datatable-2.js"></script>
 
 </body>
 </html>

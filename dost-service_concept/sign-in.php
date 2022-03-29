@@ -14,7 +14,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="bg-gray-900" style="height:100vh; weight:100%; ">
+    <div class="" style="height:100vh; weight:100%; ">
         <div class="row h-100 w-100 justify-content-center">
             <div class="h-50 d-flex justify-content-center m-auto">
                 <section class="row w-30 bg-gray-100 border-radius-1">
@@ -23,16 +23,22 @@
                             <li class="d-flex justify-content-center">
                                 <img src="img/DOST_log.png" alt="" class="w-15 h-15">
                             </li>
-                            <li></li>
-                            <li class="d-flex justify-content-center">
-                                <h5 class="f-w-normal"> Don't have an account? <a href="" class="text-none text-4"> Sign up here </a> </h5> 
+                            <li>
+                                
                             </li>
-                            <li class="d-flex justify-content-center">
-                                <h4 class="ctn-btn-2 p-2 pl-4 pr-4"> 
-                                    <a href="" class="text-1 text-none"> Continue with Google </a> </h4>
-                            </li>
-                            <li class="d-flex justify-content-center">
-                                <h5 class="f-w-normal"> <a href="" class="text-none text-4"> Sign up with email instead </a> </h5>
+                            <li>
+                                <ul class="m-0 p-0">
+                                    <li class="d-flex justify-content-center">
+                                        <h5 class="f-w-normal"> Don't have an account? <a href="" class="text-none text-4"> Sign up here </a> </h5> 
+                                    </li>
+                                    <li class="d-flex justify-content-center">
+                                        <h4 class="ctn-btn-2 p-2 pl-4 pr-4"> 
+                                            <a href="" class="text-1 text-none"> Continue with Google </a> </h4>
+                                    </li>
+                                    <li class="d-flex justify-content-center">
+                                        <h5 class="f-w-normal"> <a href="" class="text-none text-4"> Sign up with email instead </a> </h5>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>

@@ -14,6 +14,12 @@
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
 
+    <!-- Datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
 </head>
 <body>
 <!-- Header Page  -->
@@ -123,17 +129,14 @@
         <main class="content">
           <div class="content-menu">
             <div class="col-xl-12 p-0">
-
               <div class="main-container">
                 <div class="row my-shadow my-bg-3 pt-3 pb-4 m-4">
-                  
                   <div class="col-xl-12 p-0">
                     <h2 class="col-xl-5 col-md-12 text-1 m-0 p-0 my-bg-1 pr-4 pl-4 pb-3 pt-3"> User Service Request Overview </h2>
                   </div>
-
                   <div class="col-xl-8 fx-200 p-0 mt-2">
                     <div class="bg-white my-shadow m-2 p-3 h-100 overflow-scroll-y">
-                      <table class="display w-100">
+                      <table id="example" class="display">
                         <thead>
                           <tr>
                             <th hidden>id</th>
@@ -151,7 +154,7 @@
                             <td>Dell</td>
                             <td>In-progress</td>
                             <td>1/13/2022</td>
-                            <td>View</td>
+                            <td> <button class="ctn-btn bg-primary w-100"> <div class="text-1"> View </div> </button> </td>
                           </tr>
                           <tr>
                             <td hidden>1</td>
@@ -159,7 +162,7 @@
                             <td>Lenovo</td>
                             <td>In-progress</td>
                             <td>12/4/2022</td>
-                            <td>View</td>
+                            <td> <button class="ctn-btn bg-primary w-100"> <div class="text-1"> View </div> </button> </td>
                           </tr>
                           <tr>
                             <td hidden>1</td>
@@ -167,7 +170,7 @@
                             <td>Lenovo</td>
                             <td>In-progress</td>
                             <td>12/4/2022</td>
-                            <td>View</td>
+                            <td> <button class="ctn-btn bg-primary w-100"> <div class="text-1"> View </div> </button> </td>
                           </tr>
                           <tr>
                             <td hidden>1</td>
@@ -175,31 +178,7 @@
                             <td>Lenovo</td>
                             <td>In-progress</td>
                             <td>12/4/2022</td>
-                            <td>View</td>
-                          </tr>
-                          <tr>
-                            <td hidden>1</td>
-                            <td>65488</td>
-                            <td>Lenovo</td>
-                            <td>In-progress</td>
-                            <td>12/4/2022</td>
-                            <td>View</td>
-                          </tr>
-                          <tr>
-                            <td hidden>1</td>
-                            <td>65488</td>
-                            <td>Lenovo</td>
-                            <td>In-progress</td>
-                            <td>12/4/2022</td>
-                            <td>View</td>
-                          </tr>
-                          <tr>
-                            <td hidden>1</td>
-                            <td>65488</td>
-                            <td>Lenovo</td>
-                            <td>In-progress</td>
-                            <td>12/4/2022</td>
-                            <td>View</td>
+                            <td> <button class="ctn-btn bg-primary w-100"> <div class="text-1"> View </div> </button> </td>
                           </tr>
                         </tbody>
                       </table>
@@ -254,6 +233,8 @@
           </div>
         </main>
     </div>
+
+    <script type="text/javascript" src="scripts/datatable-js/user-datatable-1.js"></script>
 
     
 </body>
