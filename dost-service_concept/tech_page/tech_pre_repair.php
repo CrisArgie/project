@@ -125,21 +125,23 @@
             </div>
         </aside>
         <main class="content">
-            <div class="content-menu">
+            <form class="content-menu">
               <div class="content-table">
                 <div class="ctn-container"> 
                   <div class="main-container mt-4">
                     <div class="row justify-content-between p-0">
                       <div class="col-xl-4 col-lg-12 mb-1">
                         <div class="d-flex flex-row g-3">
-                          <label> No.: </label>
-                          <input type="text" name="" disabled class="w-100">	
+                          <label for=""> No.: </label>
+                          <input type="text" name="" readonly tabindex="-1" 
+                          class="disabling-input w-100">	
                         </div>
                       </div>
                       <div class="col-xl-4 col-lg-12 mb-1">
                         <div class="d-flex flex-row g-2 justify-content-end">
-                          <label> Date: </label>
-                          <input type="text" name="" disabled class="w-100">	
+                          <label for=""> Date: </label>
+                          <input type="text" name="" readonly tabindex="-1" 
+                          class="disabling-input w-100">	
                         </div>
                       </div>
                     </div>
@@ -166,37 +168,37 @@
                           <div class="row">
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Description of Property Type:</label>
+                                <label for="" class="col-xl-4 p-0 m-auto">Description of Property Type:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Serial/Engine No.:</label>
+                                <label for="" class="col-xl-4 p-0 m-auto">Serial/Engine No.:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Acquisition Date:</label>
+                                <label for="" class="col-xl-4 p-0 m-auto">Acquisition Date:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="date" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Date of Latest Repair:</label>
+                                <label for="" class="col-xl-4 p-0 m-auto">Date of Latest Repair:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="date" name="" id="">
                               </li>
                             </ul>
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Brand Model:</label>
+                                <label for="" class="col-xl-4 p-0 m-auto">Brand Model:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Property No.:</label>
+                                <label for="" class="col-xl-4 p-0 m-auto">Property No.:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Acquisition Cost:</label>
+                                <label for="" class="col-xl-4 p-0 m-auto">Acquisition Cost:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label class="col-xl-4 p-0 m-auto">Mature of Latest Repair:</label>
+                                <label for="" class="col-xl-4 p-0 m-auto">Mature of Latest Repair:</label>
                                 <input class="col-xl-8 mt-2 mb-2" type="date" name="" id="">
                               </li>
                             </ul>
@@ -252,7 +254,7 @@
                       <a href="" class="d-flex justify-content-center p-2 ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </a> 
                   </div>
               </div>
-            </div>
+            </form>
         </main>
     </div>
 

@@ -310,13 +310,7 @@
         </main>
     </div>
 
-<script type="text/javascript">
-$(document).ready(function() {
-  $('table.display').DataTable({
-    responsive: true
-  } );
-} );
-</script>
+    <script type="text/javascript" src="scripts/datatable-js/user-datatable-2.js"></script>
 
 </body>
 </html>

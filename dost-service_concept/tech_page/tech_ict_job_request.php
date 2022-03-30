@@ -134,10 +134,16 @@
                         <div class="main-container">
                             <div class="row justify-content-between pr-2 pl-2">
                                 <div class="col-xl-9 col-lg-12 p-0"> 
-                                    <label> Date/Time of Request: </label> <input class="col-xl-6 col-lg-12" type="text" name="" disabled>
+                                    <label> Date/Time of Request: </label> 
+                                    <input class="disabling-input col-xl-6 col-lg-12" type="text" 
+                                    readonly tabindex="-1"
+                                    value="">
                                 </div>
                                 <div class="col-xl-3 col-lg-12  ml-auto p-0">
-                                    <label> Request No.: </label> <input class="col-xl-6 col-lg-12" type="text" name="" disabled>
+                                    <label> Request No.: </label> 
+                                    <input class="disabling-input col-xl-6 col-lg-12" type="text" 
+                                    readonly tabindex="-1"
+                                    value="">
                                 </div>
                             </div>
                         </div>
@@ -150,15 +156,18 @@
                                         <ul class="p-0 mb-2 row">
                                             <li class="mt-2 col-xl-6">
                                                 <label> End User: </label>
-                                                <input class="w-100" type="text" name="">
+                                                <input class="disabling-input w-100" type="text" readonly tabindex="-1"
+                                                value="">
                                             </li>
                                             <li class="mt-2 col-xl-6">
                                                 <label> Division/Section/Unit: </label>
-                                                <input class="w-100" type="text" name="">
+                                                <input class="disabling-input w-100" type="text" readonly tabindex="-1"
+                                                value="">
                                             </li>
                                             <li class="mt-2 col-xl-6">
                                                 <label> Equipment Property No.: </label>
-                                                <input class="w-100" type="text" name="">
+                                                <input class="disabling-input w-100" type="text" readonly tabindex="-1"
+                                                value="">
                                             </li>
                                         </ul>
                                     </div>
@@ -174,66 +183,97 @@
                                         <div class="row ml-3 mr-3">
                                             <ul class="col-6 p-0 m-0">
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox"
+                                                    id="cables">
                                                     <label> Cables </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="keyboard">
                                                     <label> Keyboard </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="mouse">
                                                     <label> Mouse </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="printer">
                                                     <label> Printer </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="internet">
                                                     <label> Internet </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="cd_dvd_drive">
                                                     <label> CD/DVD Drive </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="memory">
                                                     <label> Memory </label>
                                                 </li>
                                                 <li class="mt-1 mb-1">
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="Network">
                                                     <label> Network </label>
                                                 </li>
                                             </ul>
                                             <ul class="col-6 p-0 m-0">
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="power_supply">
                                                     <label> Power Supply </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="hard_drive">
                                                     <label> Hard Drive </label>
                                                 </li>
                                                 <li class="mt-1 mb-1">
-                                                    <input type="checkbox" name="">
+                                                    <input type="checkbox" 
+                                                    id="monitor">
                                                     <label> Monitor </label>
                                                 </li>
                                                 <li class="mt-1 mb-1">
                                                     <h4 class="p-0 mt-2"> Type of Request</h4>
-                                                    <label for="request_type"></label>
-                                                    <select name="request_type" onChange='checkRequest(this.value);' class="w-100">
-                                                        <option value="repair">Repair</option>
-                                                        <option value="upgrade">Upgrade</option>
-                                                        <option value="other">Other</option>
-                                                    </select>
+                                                    <input readonly tabindex="-1"
+                                                    id="type_request_display" 
+                                                    value="" class="disabling-input w-100">
+                                                    <input id="type_request" value="repair" hidden>
                                                     <input type="text" name="request_type" id="request_type" class="w-100 mt-1 display-none">
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-xl-12">
                                             <div class="border-box-1 pl-2 pr-2 pb-2 ml-2 mr-2 textarea-bg d-flex flex-column align-items-end">
-                                                <textarea class="textarea-k" placeholder="Attached file or image"></textarea>
+                                                <div class="textarea-k overflow-auto-y d-flex">
+                                                    <div class="d-flex flex-column align-content-center m-1">
+                                                        <div class="d-flex justify-content-center">
+                                                            <img class="textarea-files" src="../icons/png-files/folder.png">
+                                                        </div>
+                                                        <span>filename.png</span>
+                                                    </div>
+                                                    <div class="d-flex flex-column align-content-center m-1">
+                                                        <div class="d-flex justify-content-center">
+                                                            <img class="textarea-files" src="../icons/png-files/folder.png">
+                                                        </div>
+                                                        <span>filename.docx</span>
+                                                    </div>
+                                                    <div class="d-flex flex-column align-content-center m-1">
+                                                        <div class="d-flex justify-content-center">
+                                                            <img class="textarea-files" src="../icons/png-files/folder.png">
+                                                        </div>
+                                                        <span>filename.ppt</span>
+                                                    </div>
+                                                    <div class="d-flex flex-column align-content-center m-1">
+                                                        <span>No Attach or Upload files.</span>
+                                                    </div>
+                                                </div>
                                                 <img src="../icons/png-files/download.png" class="menu-icon"> 
                                             </div>
                                         </div>
@@ -241,19 +281,25 @@
                                     <div class="col-xl-6">
                                         <ul class="p-0 m-0">
                                             <li class="mt-1 mb-1">
-                                                <input type="checkbox" name="" id="">
+                                                <input type="checkbox" 
+                                                id="software_programs">
                                                 <label> Software Programs (list): </label>
-                                                <textarea name="" id="" class="textarea-i" rows="2"></textarea>
+                                                <textarea  class="textarea-i" rows="2"
+                                                id="software_programs_txt"></textarea>
                                             </li>
                                             <li class="mt-1 mb-1">
-                                                <input type="checkbox" name="" id="">
+                                                <input type="checkbox"  
+                                                id="other_hardware">
                                                 <label> Other Hardware: </label>
-                                                <textarea name="" id="" class="textarea-i" rows="2"></textarea>
+                                                <textarea class="textarea-i" rows="2"
+                                                id="other_hardware_txt"></textarea>
                                             </li>
                                             <li class="mt-1 mb-1">
-                                                <input type="checkbox" name="" id="">
+                                                <input type="checkbox" 
+                                                id="usb_device">
                                                 <label> USB Device: </label>
-                                                <textarea name="" id="" class="textarea-i" rows="2"></textarea>
+                                                <textarea class="textarea-i" rows="2"
+                                                id="usb_device_txt"></textarea>
                                             </li>
                                         </ul>
                                     </div>
@@ -280,16 +326,47 @@
 
 
 <script>
-function checkRequest(val) {
-  var element = document.getElementById('request_type');
-  if (val == 'other'){
-    element.style.display = 'block';
-  }
-  else if(val=='repair' || val=='upgrade')
-  {
-    element.style.display = 'none';
-  }
+const requestType = document.getElementById("type_requests");
+var element = document.getElementById('request_type');
+
+requestType.addEventListener("change", function() {
+    console.log(requestType.value);
+    if (requestType.value == "repair" || requestType.value == "upgrade") {
+        element.style.display = 'none';
+    } else {
+        element.style.display = 'block';
+    }
+});
+
+// function checkRequest(val) {
+//   var element = document.getElementById('request_type');
+//   if (val == 'other'){
+//     element.style.display = 'block';
+//   }
+//   else if(val=='repair' || val=='upgrade')
+//   {
+//     element.style.display = 'none';
+//   }
+// }
+
+
+// function getText() {
+//     var text = document.getElementById("textareabox").value;
+//     alert(text);
+// }
+
+function setTextValue(txtAns){
+    if(txtAns == "\\software checked"){
+        document.getElementById("software_programs_txt").value = '';
+    }
+    else if(txtAns == "\\hardware checked"){
+        document.getElementById("other_hardware_txt").value = '';
+    }
+    else if(txtAns == "\\usb checked"){
+        document.getElementById("usb_device_txt").value = ''; 
+    }
 }
+
 </script>
 
 </body>

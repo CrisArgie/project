@@ -892,12 +892,23 @@ a.link:hover {
     pointer-events: none;
 }
 
+.text-input-upload {
+    height: 19px;
+    font-size: 12px;
+    color: var(--medium-gray);
+}
+
 .text-uppercase {
     text-transform: uppercase !important;
 }
 
 .text-capitalize {
     text-transform: capitalize !important;
+}
+
+.textarea-files {
+    width: 62px;
+    height: 62px;
 }
 
 .textarea-h {

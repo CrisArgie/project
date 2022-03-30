@@ -139,19 +139,19 @@
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-3">
               				  <label for="id_no"> No.: </label>
-              				  <input type="text" 
+              				  <input type="text" tabindex="-1"
                         name="id_no"
                         id="id_no" 
-                        value="" disabled class="w-100">	
+                        value="" readonly class="disabling-input w-100">	
                       </div>
               			</div>
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-2 justify-content-end">
-              				  <label for="date"> Date: </label>
-              				  <input type="text" 
-                        name="date"
-                        id="date" 
-                        value="<?php echo date('m-d-Y'); ?>" disabled class="w-100">	
+              				  <label for="date_requested"> Date: </label>
+              				  <input type="text" tabindex="-1"
+                        name="date_requested"
+                        id="date_requested" 
+                        value="<?php echo date('m-d-Y'); ?>" readonly class="disabling-input w-100">	
                       </div>
               			</div>
                   </div>
@@ -183,10 +183,10 @@
                     id="acquisition_date" class="w-100">
 	        				</li>
 	        				<li class="mb-2">
-	        					<label for="location">Location:</label>
+	        					<label for="request_location">Location:</label>
 	        					<input type="text" 
-                    name="location"
-                    id="location" placeholder="Format: Barangay, City, Province, Region" class="w-100">
+                    name="request_location"
+                    id="request_location" placeholder="Format: Barangay, City, Province, Region" class="w-100">
 	        				</li>
 	        			</ul>
 

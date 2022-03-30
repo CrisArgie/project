@@ -214,13 +214,31 @@
                       </ul>
                     </div>
 
-                    <div class="d-flex flex-row pr-4 pl-4 g-3">
-                    <input type="file" id="" hidden>
-                      <button class="middle-button d-flex justify-content-center p-1 g-2 my-shadow"
-                      type="file"> <img class="content-icon" src="icons/png-files/link.png"> <div class="text-1">Attach</div> </button>
-                      <input type="file" id="" hidden>
-                      <button class="middle-button d-flex justify-content-center p-1 g-2 my-shadow"
-                      type="file"> <img class="content-icon" src="icons/png-files/upload.png"> <div class="text-1">Upload</div> </button>
+                    <div class="col-xl-6 pr-4 pl-4 g-3">
+                      <div class="row p-0 m-0">
+                        <div class="col-xl-12 d-flex flex-row g-2 justify-content-end">
+                          <label for="real-file" hidden></label>
+                          <input type="file" hidden
+                          id="real-file"
+                          name="real-file">
+                            <button class="middle-button d-flex justify-content-center p-1 g-2 my-shadow"
+                            type="button"
+                            id="custom-button"> 
+                            <img class="content-icon" src="icons/png-files/link.png"> <div class="text-1">Attach</div> </button>
+                          
+                          <label for="multiple-file-img" hidden></label>
+                          <input type="file" hidden multiple
+                          id="multiple-file-img" 
+                          name="multiple-file-img">
+                            <button class="middle-button d-flex justify-content-center p-1 g-2 my-shadow"
+                            type="button"
+                            id="custom-button-2"> 
+                            <img class="content-icon" src="icons/png-files/upload.png"> <div class="text-1">Upload</div> </button>
+                        </div>
+                        <div class="col-xl-12 mt-1 d-flex flex-row justify-content-end">
+                          <span class="text-input-upload overflow-auto-x" id="custom-text-1"> No file chosen, yet. </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -364,18 +382,7 @@
         </main>
     </div>
 
+<script type="text/javascript" src="script_functions_ict.js"></script>
 
-<script>
-function chckboxFunc(cbox) {
-  var text = document.getElementById("other_req_type");
-
-  if (cbox.value == "Other"){
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
-}
-</script>
-    
 </body>
 </html>
