@@ -9,12 +9,11 @@
     
     <title>DOST Service Request - ICT Job Request</title>
 
-    
-
-
     <!-- My styles for this template -->
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
+    <?php include('functions.php');?>
+
 
 </head>
 <body>
@@ -142,7 +141,7 @@
                     <input class="col-xl-6 col-lg-12 disabling-input" tabindex="-1" type="text" readonly
                     name="datetime_request"
                     id="datetime_request"
-                    value="<?php date_default_timezone_set("Asia/Manila"); echo date('Y-m-d H:i:s');?>"> 
+                    value="<?php echo date('m-d-Y H:i');?>"> 
                   </div>
                   <div class="d-flex justify-content-end col-xl-3 col-lg-12  ml-auto p-0">
                     <label for="req_no"> Request No.: </label> 

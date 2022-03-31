@@ -218,7 +218,7 @@
                 </div>
                 <div class="content-btn d-flex flex-column justify-content-between align-items-center w-auto pb-3 g-4">
                     <div class="content-btn-btm mt-2">
-                        <a href="admin_request.php" class="return-icon">
+                        <a onclick="window.history.back()" class="return-icon">
                             <img src="icons/png-files/chevron-left.png">
                         </a>
                     </div>

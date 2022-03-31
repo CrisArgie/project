@@ -12,6 +12,7 @@
     <!-- My styles for this template -->
     <link href="../style.css" rel="stylesheet">
     <script src="../script.js" defer></script>
+    <?php include('../functions.php');?>
 
 
 </head>
@@ -135,15 +136,15 @@
               				            <label for=""> No.: </label>
               				            <input type="text" readonly tabindex="-1"
                                         value=""
-                                        class="disabling-input w-100">	
+                                        class="w-100">	
                                     </div>
               			        </div>
               			        <div class="col-xl-4 col-lg-12">
                                     <div class="d-flex flex-row g-2 justify-content-end">
                                         <label for=""> Date: </label>
                                         <input type="text" readonly tabindex="-1"
-                                        value=""
-                                        class="disabling-input w-100">	
+                                        value="<?php echo date("m-d-Y")?>"
+                                        class="w-100">	
                                     </div>
               			        </div>
                             </div>
@@ -158,25 +159,25 @@
                                         <label for="">Desciption of Property Type:</label>
                                         <input type="text" readonly tabindex="-1"
                                         value=""
-                                        class="disabling-input w-100">
+                                        class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label for="">Serial/Engine No.:</label>
                                         <input type="text" readonly tabindex="-1"
                                         value=""
-                                        class="disabling-input w-100">
+                                        class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label for="">Acquisition Date:</label>
                                         <input type="text" readonly tabindex="-1"
                                         value="" 
-                                        class="disabling-input w-100">
+                                        class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label for="">Location:</label>
                                         <input type="text" readonly tabindex="-1"
                                         value="" 
-                                        class="disabling-input w-100">
+                                        class="w-100">
                                     </li>
                                 </ul>
                                 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 m-0 w-100">
@@ -184,19 +185,19 @@
                                         <label for=""> Brand Model: </label>
                                         <input type="text" readonly tabindex="-1"
                                         value=""
-                                        class="disabling-input w-100">
+                                        class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label for="">Property No.:</label>
                                         <input type="text" readonly tabindex="-1"
                                         value=""
-                                        class="disabling-input w-100">
+                                        class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label for=""> Acquisition Cost: </label>
                                         <input type="text" readonly tabindex="-1"
                                         value=""
-                                        class="disabling-input w-100">
+                                        class="w-100">
                                     </li>
                                 </ul>            			
                         	</div>

@@ -132,14 +132,14 @@
                             <div class="row justify-content-between p-0">
               			        <div class="col-xl-4 col-lg-12">
                                     <div class="d-flex flex-row g-3">
-              				            <label> No.: </label>
-              				            <input type="text" name="" disabled class="w-100">	
+              				            <label for="admin_repair_no"> No.: </label>
+              				            <input type="text" name="admin_repair_no" id="admin_repair_no" readonly tabindex="-1" class="w-100">	
                                     </div>
               			        </div>
               			        <div class="col-xl-4 col-lg-12">
                                     <div class="d-flex flex-row g-2 justify-content-end">
-                                        <label> Date: </label>
-                                        <input type="text" name="" disabled class="w-100">	
+                                        <label for="admin_repair_date"> Date: </label>
+                                        <input type="text" name="admin_repair_date" id="admin_repair_date" value="<?php echo date('m-d-Y');?>" readonly tabindex="-1" class="w-100">	
                                     </div>
               			        </div>
                             </div>
@@ -151,34 +151,34 @@
                             <div class="row mn-10 mt-1">
                                 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 mb-0 w-100">
                                     <li class="mb-2">
-                                        <label>Desciption of Property Type:</label>
-                                        <input type="text" name="" class="w-100">
+                                        <label for="dscpt_property_type">Desciption of Property Type:</label>
+                                        <input type="text" name="dscpt_property_type" id="dscpt_property_type" placeholder="ex. CPU problem" class="w-100">
                                     </li>
                                     <li class="mb-2">
-                                        <label>Serial/Engine No.:</label>
-                                        <input type="text" name="" class="w-100">
+                                        <label for="serial_engine_no">Serial/Engine No.:</label>
+                                        <input type="text" name="serial_engine_no" id="serial_engine_no" placeholder="ex. 14D77D2498" class="w-100" >
                                     </li>
                                     <li class="mb-2">
-                                        <label>Acquisition Date:</label>
-                                        <input type="date" name="" class="w-100">
+                                        <label for="acquisition_date">Acquisition Date:</label>
+                                        <input type="date" name="acquisition_date" id="acquisition_date" class="w-100">
                                     </li>
                                     <li class="mb-2">
-                                        <label>Location:</label>
-                                        <input type="text" name="" class="w-100">
+                                        <label for="repair_location">Location:</label>
+                                        <input type="text" name="repair_location" id="repair_location" placeholder="Barangay, City, Province, Region" class="w-100">
                                     </li>
                                 </ul>
                                 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 m-0 w-100">
                                     <li class="mb-2">
-                                        <label> Brand Model: </label>
-                                        <input type="text" name="" class="w-100">
+                                        <label for="brand_model"> Brand Model: </label>
+                                        <input type="text" name="brand_model" id="brand_model" placeholder="ex. Dell, Lenovo, Intels or AMDs" class="w-100">
                                     </li>
                                     <li class="mb-2">
-                                        <label>Property No.:</label>
-                                        <input type="text" name="" class="w-100">
+                                        <label for="property_no">Property No.:</label>
+                                        <input type="text" name="property_no" id="property_no" placeholder="ex. 1234567890" class="w-100">
                                     </li>
                                     <li class="mb-2">
-                                        <label> Acquisition Cost: </label>
-                                        <input type="text" name="" placeholder="ex. 2440 - (Php: 2,440.00)" class="w-100">
+                                        <label  for="acquisition_cost"> Acquisition Cost: </label>
+                                        <input type="text" name="acquisition_cost" id="acquisition_cost" placeholder="ex. 2440 - (Php: 2,440.00)" class="w-100">
                                     </li>
                                 </ul>            			
                         	</div>

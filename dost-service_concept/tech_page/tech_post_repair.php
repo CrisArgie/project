@@ -12,6 +12,7 @@
     <!-- My styles for this template -->
     <link href="../style.css" rel="stylesheet">
     <script src="../script.js" defer></script>
+    <?php include('../functions.php');?>
 
 
 </head>
@@ -132,16 +133,18 @@
                     <div class="row justify-content-between p-0">
                       <div class="col-xl-4 col-lg-12 mb-1">
                         <div class="d-flex flex-row g-3">
-                          <label for=""> No.: </label>
+                          <label for="post_repair_no"> No.: </label>
                           <input type="text" readonly tabindex="-1"
-                          name="" class="disabling-input w-100">	
+                          name="post_repair_no" 
+                          id="post_repair_no" class="w-100">	
                         </div>
                       </div>
                       <div class="col-xl-4 col-lg-12 mb-1">
                         <div class="d-flex flex-row g-2 justify-content-end">
-                          <label for=""> Date: </label>
+                          <label for="post_repair_date"> Date: </label>
                           <input type="text" readonly tabindex="-1"
-                          name="" class="disabling-input w-100">	
+                          name="post_repair_date" value="<?php echo date('m-d-Y');?>"
+                          id="post_repair_date" class="w-100">	
                         </div>
                       </div>
                     </div>
@@ -168,34 +171,48 @@
                           <div class="row">
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
-                                <label for="" class="col-xl-4 p-0 m-auto">Repair Shop/Supplier:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                                <label for="repair_shop" class="col-xl-4 p-0 m-auto">Repair Shop/Supplier:</label>
+                                <input class="col-xl-8 mt-2 mb-2" type="text" 
+                                name="repair_shop" 
+                                id="repair_shop">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label for="" class="col-xl-4 p-0 m-auto">Job Order/P.O No.:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                                <label for="jp_order_no" class="col-xl-4 p-0 m-auto">Job Order/P.O No.:</label>
+                                <input class="col-xl-8 mt-2 mb-2" type="text" 
+                                name="jp_order_no" 
+                                id="jp_order_no">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label for="" class="col-xl-4 p-0 m-auto">Invoice No.:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="date" name="" id="">
+                                <label for="invoice_no" class="col-xl-4 p-0 m-auto">Invoice No.:</label>
+                                <input class="col-xl-8 mt-2 mb-2" type="text" 
+                                name="invoice_no" 
+                                id="invoice_no">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label for="" class="col-xl-4 p-0 m-auto">Amt/J.O./P.O. No.:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="date" name="" id="">
+                                <label for="amtjp_order_no" class="col-xl-4 p-0 m-auto">Amt/J.O./P.O. No.:</label>
+                                <input class="col-xl-8 mt-2 mb-2" type="text" 
+                                name="amtjp_order_no" 
+                                id="amtjp_order_no">
                               </li>
                             </ul>
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
-                                <label for="" class="col-xl-4 p-0 m-auto">Date:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                                <label for="repair_shop_date" class="col-xl-4 p-0 m-auto">Date:</label>
+                                <input class="col-xl-8 mt-2 mb-2" type="date" 
+                                name="repair_shop_date" 
+                                id="repair_shop_date">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label for="" class="col-xl-4 p-0 m-auto">Date:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                                <label for="jp_order_date" class="col-xl-4 p-0 m-auto">Date:</label>
+                                <input class="col-xl-8 mt-2 mb-2" type="date" 
+                                name="jp_order_date" 
+                                id="jp_order_date">
                               </li>
                               <li class="row mt-2 mb-2">
-                                <label for="" class="col-xl-4 p-0 m-auto">Payable Account:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                                <label for="payable_acc" class="col-xl-4 p-0 m-auto">Payable Account:</label>
+                                <input class="col-xl-8 mt-2 mb-2" type="text" 
+                                name="payable_acc" 
+                                id="payable_acc">
                               </li>
                             </ul>
                           </div>
@@ -203,7 +220,10 @@
                           <div class="row mb-2 mt-1">
                             <div class="col-xl-12 mt-3">
                               <div class="bg-gray-100 pl-2 pr-2 pt-3 pb-1">
-                                <textarea class="textarea-o border-box-none w-100 p-2" placeholder="FINDINGS/RECOMMENDATIONS"></textarea>
+                                <label for="findings_recomm" hidden></label>
+                                <textarea class="textarea-o border-box-none w-100 p-2" placeholder="FINDINGS/RECOMMENDATIONS"
+                                name="findings_recomm"
+                                id="findings_recomm"></textarea>
                                 <div class="mb-2">
                                   <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/bold.png"> </button> 
                                   <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/italic.png"> </button>

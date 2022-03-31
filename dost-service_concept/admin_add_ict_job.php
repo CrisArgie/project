@@ -10,9 +10,9 @@
     <title>DOST Service Request - Home</title>
 
     <!-- My styles for this template -->
-    <link href="../style.css" rel="stylesheet">
-    <script src="../script.js" defer></script>
-    <?php include('../functions.php');?>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <?php include('functions.php');?>
 
 
 </head>
@@ -21,21 +21,21 @@
     <header class="header">
 <!-- Left menu buttons -->
         <div class="left-menu">
-            <img class="menu-logo-item" src="../img/DOST_log.png">
+            <img class="menu-logo-item" src="img/DOST_log.png">
         </div>
 <!-- Right menu buttons -->
         <div class="right-menu" >
           
           <div class="dropdown" data-dropdown-menu>
             <button class="menu-profile-btn">
-              <img class="menu-logo-item" src="../img/undraw_profile.svg" data-dropdown-button>
+              <img class="menu-logo-item" src="img/undraw_profile.svg" data-dropdown-button>
             </button>
             <div class="dropdown-menu" >
-              <a class="link" href="../"><img class="link-icon" src="../icons/png-files/cogs.png" alt="Settings.png"> 
+              <a class="link" href=""><img class="link-icon" src="icons/png-files/cogs.png" alt="Settings.png"> 
                 Settings
               </a> 
-              <a class="link" href="../">
-                <img class="link-icon" src="../icons/png-files/exit.png" alt="Logout.png"> 
+              <a class="link" href="">
+                <img class="link-icon" src="icons/png-files/exit.png" alt="Logout.png"> 
                 Logout
               </a>
             </div>
@@ -51,14 +51,14 @@
             <div class="admin-top-sidebar">
                 <div class="sidebar-list">
                     <button class="menu-icon-btn" data-menu-icon-btn>
-                        <img class="menu-logo-item" src="../icons/png-files/chevron-left.png">
+                        <img class="menu-logo-item" src="icons/png-files/chevron-left.png">
                     </button>
                 </div>
             <hr class="sidebar-linebreak">
                 <div class="sidebar-list">
                     <div class="sidebar-list-item">
-                        <a href="tech_dashboard.php" class="sidebar-link ">
-                            <img class="sidebar-icon" src="../icons/png-files/archive.png">
+                        <a href="admin_dashboard.php" class="sidebar-link ">
+                            <img class="sidebar-icon" src="icons/png-files/archive.png">
                             <div class="hidden-sidebar">Dashboard</div>
                         </a>
                     </div>
@@ -69,14 +69,14 @@
             <div class="middle-sidebar">
                 <ul class="sidebar-list">
                     <li class="sidebar-list-item">
-                        <a href="tech_users.php" class="sidebar-link">
-                        <img class="sidebar-icon" src="../icons/png-files/users.png">
+                        <a href="admin_users.php" class="sidebar-link">
+                        <img class="sidebar-icon" src="icons/png-files/users.png">
                         <div class="hidden-sidebar">Users</div>
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="tech_request.php" class="sidebar-link active">
-                        <img class="sidebar-icon" src="../icons/png-files/add-files.png">
+                        <a href="admin_request.php" class="sidebar-link active">
+                        <img class="sidebar-icon" src="icons/png-files/add-files.png">
                         <div class="hidden-sidebar">Requests</div>
                         </a>
                     </li>
@@ -87,20 +87,20 @@
             <hr class="sidebar-linebreak">
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="tech_about.php" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="../icons/png-files/information.png">
+                    <a href="admin-about.php" class="sidebar-link-top">
+                    <img class="sidebar-icon" src="icons/png-files/information.png">
                     <div class="hidden-sidebar">About</div>
                     </a>
                 </li>
                 <li class="sidebar-list-item">
                     <a href="#" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="../icons/png-files/cog.png">
+                    <img class="sidebar-icon" src="icons/png-files/cog.png">
                     <div class="hidden-sidebar">Settings</div>
                     </a>
                 </li>
                 <li class="sidebar-list-item">
                     <a href="#" class="sidebar-link-top">
-                    <img class="sidebar-icon" src="../icons/png-files/exit.png">
+                    <img class="sidebar-icon" src="icons/png-files/exit.png">
                     <div class="hidden-sidebar">Logout</div>
                     </a>
                 </li>
@@ -109,24 +109,24 @@
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="../icons/png-files/envelope.png">
+                    <img class="sidebar-icon" src="icons/png-files/envelope.png">
                   </a>
                 </li>
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="../icons/png-files/world.png">
+                    <img class="sidebar-icon" src="icons/png-files/world.png">
                   </a>
                 </li>
                 <li class="sidebar-list-item">
                   <a href="#" class="sidebar-link">
-                    <img class="sidebar-icon" src="../icons/png-files/facebook-oval.png">
+                    <img class="sidebar-icon" src="icons/png-files/facebook-oval.png">
                   </a>
                 </li>
               </ul>
             </div>
         </aside>
         <main class="content">
-            <form class="content-menu" action="../results.html" method="GET" enctype="multipart/form-data">
+            <form class="content-menu" action="results.html" method="GET" enctype="multipart/form-data">
                 <div class="content-table">
                     <div class="ctn-container">
                         <div class="ctn-header mt-2">
@@ -136,17 +136,14 @@
                             <div class="row justify-content-between pr-2 pl-2">
                                 <div class="col-xl-9 col-lg-12 p-0"> 
                                     <label for="datetime_request"> Date/Time of Request: </label> 
-                                    <input class="col-xl-6 col-lg-12 disabling-input" tabindex="-1" type="text" readonly
+                                    <input class="col-xl-6 col-lg-12" tabindex="-1" type="text" readonly
                                     name="datetime_request"
                                     id="datetime_request"
                                     value="<?php echo date('m-d-Y H:i');?>"> 
                                 </div>
                                 <div class="d-flex justify-content-end col-xl-3 col-lg-12  ml-auto p-0">
                                     <label for="req_no"> Request No.: </label> 
-                                    <input class="col-xl-6 col-lg-12 disabling-input" tabindex="-1" type="text" readonly
-                                    name="req_no"
-                                    id="req_no"
-                                    value="" >
+                                    <input class="col-xl-6 col-lg-12" tabindex="-1" type="text" readonly name="req_no" id="req_no" value="">
                                 </div>
                             </div>
                         </div>
@@ -158,23 +155,15 @@
                                     <ul class="p-0 mb-2 row">
                                         <li class="mt-2 col-xl-12">
                                             <label for="end_user"> End User: </label>
-                                            <input class="w-100 text-capitalize disabling-input" tabindex="-1" type="text" readonly
-                                            name="end_user"
-                                            id="end_user"
-                                            value=""> <!-- Value collected from database -->
+                                            <input class="w-100 text-capitalize" type="text" name="end_user" id="end_user" placeholder="ex. First name then Last name">
                                         </li>
                                         <li class="mt-2 col-xl-12">
                                             <label for="divsecunit"> Division/Section/Unit: </label>
-                                            <input class="w-100 disabling-input" tabindex="-1" type="text" readonly
-                                            name="divsecunit"
-                                            id="divsecunit"
-                                            value=""> <!-- Value collected from database -->
+                                            <input class="w-100" type="text" name="divsecunit" id="divsecunit" placeholder="ex. System Support Division 4">
                                         </li>
                                         <li class="mt-2 col-xl-12">
                                             <label for="equipt_property_no"> Equipment Property No.: </label>
-                                            <input class="w-100 text-uppercase" type="text" 
-                                            name="equipt_property_no"
-                                            id="equipt_property_no" placeholder="ex. JVJV212324XJ97WN">
+                                            <input class="w-100 text-uppercase" type="text"  name="equipt_property_no" id="equipt_property_no" placeholder="ex. JVJV212324XJ97WN">
                                         </li>
                                     </ul>
                                 </div>
@@ -218,7 +207,7 @@
                                                 <button class="middle-button d-flex justify-content-center p-1 g-2 my-shadow"
                                                 type="button"
                                                 id="custom-button"> 
-                                                <img class="content-icon" src="../icons/png-files/link.png"> <div class="text-1">Attach</div> </button>
+                                                <img class="content-icon" src="icons/png-files/link.png"> <div class="text-1">Attach</div> </button>
                                             
                                             <label for="multiple-file-img" hidden></label>
                                             <input type="file" hidden multiple
@@ -227,7 +216,7 @@
                                                 <button class="middle-button d-flex justify-content-center p-1 g-2 my-shadow"
                                                 type="button"
                                                 id="custom-button-2"> 
-                                                <img class="content-icon" src="../icons/png-files/upload.png"> <div class="text-1">Upload</div> </button>
+                                                <img class="content-icon" src="icons/png-files/upload.png"> <div class="text-1">Upload</div> </button>
                                         </div>
                                         <div class="col-xl-12 mt-1 d-flex flex-row justify-content-end">
                                             <span class="text-input-upload overflow-auto-x" id="custom-text-1"> No file chosen, yet. </span>
@@ -363,16 +352,16 @@
                     </div> <!-- END of contentContainer -->
                 </div>
                 <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
-                    <button class="ctn-btn"> <img src="../icons/png-files/save.png"> </button> 
-                    <button class="ctn-btn"> <img src="../icons/png-files/printer.png"> </button>
-                    <button class="ctn-btn"> <img src="../icons/png-files/trash-can.png"> </button> 
-                    <button type="submit" class="ctn-btn"> <img src="../icons/png-files/telegram-original.png"> </button>
+                    <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
+                    <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
+                    <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
+                    <button type="submit" class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
                 </div>
             </form>
         </main>
     </div>
 
-<script type="text/javascript" src="../script_functions_ict.js"></script>
+<script type="text/javascript" src="script_functions_ict.js"></script>
 
 </body>
 </html>

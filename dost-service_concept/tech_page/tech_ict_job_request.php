@@ -12,6 +12,7 @@
     <!-- My styles for this template -->
     <link href="../style.css" rel="stylesheet">
     <script src="../script.js" defer></script>
+    <?php include('../functions.php');?>
 
 
 </head>
@@ -135,13 +136,13 @@
                             <div class="row justify-content-between pr-2 pl-2">
                                 <div class="col-xl-9 col-lg-12 p-0"> 
                                     <label> Date/Time of Request: </label> 
-                                    <input class="disabling-input col-xl-6 col-lg-12" type="text" 
+                                    <input class="col-xl-6 col-lg-12" type="text" 
                                     readonly tabindex="-1"
-                                    value="">
+                                    value="<?php echo date('m-d-Y H:i');?>">
                                 </div>
                                 <div class="col-xl-3 col-lg-12  ml-auto p-0">
                                     <label> Request No.: </label> 
-                                    <input class="disabling-input col-xl-6 col-lg-12" type="text" 
+                                    <input class="col-xl-6 col-lg-12" type="text" 
                                     readonly tabindex="-1"
                                     value="">
                                 </div>
@@ -156,17 +157,17 @@
                                         <ul class="p-0 mb-2 row">
                                             <li class="mt-2 col-xl-6">
                                                 <label> End User: </label>
-                                                <input class="disabling-input w-100" type="text" readonly tabindex="-1"
+                                                <input class="w-100" type="text" readonly tabindex="-1"
                                                 value="">
                                             </li>
                                             <li class="mt-2 col-xl-6">
                                                 <label> Division/Section/Unit: </label>
-                                                <input class="disabling-input w-100" type="text" readonly tabindex="-1"
+                                                <input class="w-100" type="text" readonly tabindex="-1"
                                                 value="">
                                             </li>
                                             <li class="mt-2 col-xl-6">
                                                 <label> Equipment Property No.: </label>
-                                                <input class="disabling-input w-100" type="text" readonly tabindex="-1"
+                                                <input class="w-100" type="text" readonly tabindex="-1"
                                                 value="">
                                             </li>
                                         </ul>
@@ -183,69 +184,73 @@
                                         <div class="row ml-3 mr-3">
                                             <ul class="col-6 p-0 m-0">
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox"
-                                                    id="cables">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="cables" class="disabling-input">
                                                     <label> Cables </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" 
-                                                    id="keyboard">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="keyboard" class="disabling-input">
                                                     <label> Keyboard </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" 
-                                                    id="mouse">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="mouse" class="disabling-input">
                                                     <label> Mouse </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" 
-                                                    id="printer">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="printer" class="disabling-input">
                                                     <label> Printer </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" 
-                                                    id="internet">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="internet" class="disabling-input">
                                                     <label> Internet </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" 
-                                                    id="cd_dvd_drive">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="cd_dvd_drive" class="disabling-input">
                                                     <label> CD/DVD Drive </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" 
-                                                    id="memory">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="memory" class="disabling-input">
                                                     <label> Memory </label>
                                                 </li>
                                                 <li class="mt-1 mb-1">
-                                                    <input type="checkbox" 
-                                                    id="Network">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="Network" class="disabling-input">
                                                     <label> Network </label>
                                                 </li>
                                             </ul>
                                             <ul class="col-6 p-0 m-0">
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" 
-                                                    id="power_supply">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="power_supply" class="disabling-input">
                                                     <label> Power Supply </label>
                                                 </li>
                                                 <li class="mt-1 mb-1"> 
-                                                    <input type="checkbox" 
-                                                    id="hard_drive">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="hard_drive" class="disabling-input">
                                                     <label> Hard Drive </label>
                                                 </li>
                                                 <li class="mt-1 mb-1">
-                                                    <input type="checkbox" 
-                                                    id="monitor">
+                                                    <input type="checkbox" readonly tabindex="-1"
+                                                    id="monitor" class="disabling-input">
                                                     <label> Monitor </label>
                                                 </li>
                                                 <li class="mt-1 mb-1">
                                                     <h4 class="p-0 mt-2"> Type of Request</h4>
                                                     <input readonly tabindex="-1"
                                                     id="type_request_display" 
-                                                    value="" class="disabling-input w-100">
-                                                    <input id="type_request" value="repair" hidden>
-                                                    <input type="text" name="request_type" id="request_type" class="w-100 mt-1 display-none">
+                                                    class="disabling-input w-100">
+                                                    <input id="type_request" 
+                                                    value="repair" hidden> <!-- From getting value from database -->
+                                                    <input type="text" readonly
+                                                    name="request_type"
+                                                    value=""
+                                                    id="request_type" class="w-100 mt-1 display-none">
                                                 </li>
                                             </ul>
                                         </div>
@@ -281,24 +286,30 @@
                                     <div class="col-xl-6">
                                         <ul class="p-0 m-0">
                                             <li class="mt-1 mb-1">
-                                                <input type="checkbox" 
+                                                <input type="checkbox" readonly tabindex="-1"
+                                                class="disabling-input"
                                                 id="software_programs">
                                                 <label> Software Programs (list): </label>
-                                                <textarea  class="textarea-i" rows="2"
+                                                <textarea readonly tabindex="-1" 
+                                                class="textarea-i" rows="2"
                                                 id="software_programs_txt"></textarea>
                                             </li>
                                             <li class="mt-1 mb-1">
-                                                <input type="checkbox"  
+                                                <input type="checkbox" readonly tabindex="-1"
+                                                class="disabling-input"
                                                 id="other_hardware">
                                                 <label> Other Hardware: </label>
-                                                <textarea class="textarea-i" rows="2"
+                                                <textarea readonly tabindex="-1" 
+                                                class="textarea-i" rows="2"
                                                 id="other_hardware_txt"></textarea>
                                             </li>
                                             <li class="mt-1 mb-1">
-                                                <input type="checkbox" 
+                                                <input type="checkbox" readonly tabindex="-1"
+                                                class="disabling-input"
                                                 id="usb_device">
                                                 <label> USB Device: </label>
-                                                <textarea class="textarea-i" rows="2"
+                                                <textarea readonly tabindex="-1" 
+                                                class="textarea-i" rows="2"
                                                 id="usb_device_txt"></textarea>
                                             </li>
                                         </ul>
@@ -326,17 +337,25 @@
 
 
 <script>
-const requestType = document.getElementById("type_requests");
+
+const requestType = document.getElementById("type_request");
+const displayRType = document.getElementById("type_request_display");
 var element = document.getElementById('request_type');
 
-requestType.addEventListener("change", function() {
-    console.log(requestType.value);
-    if (requestType.value == "repair" || requestType.value == "upgrade") {
-        element.style.display = 'none';
-    } else {
-        element.style.display = 'block';
-    }
-});
+
+console.log(requestType.value);
+if (requestType.value == "repair") {
+    element.style.display = 'none';
+    displayRType.value = 'Repair';
+} 
+else if(requestType.value == "upgrade"){
+    element.style.display = 'none';
+    displayRType.value = 'Upgrade';
+}
+else if(requestType.value == "other") {
+    displayRType.value = 'Other';
+    element.style.display = 'block';
+}
 
 // function checkRequest(val) {
 //   var element = document.getElementById('request_type');

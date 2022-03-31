@@ -12,6 +12,7 @@
     <!-- My styles for this template -->
     <link href="../style.css" rel="stylesheet">
     <script src="../script.js" defer></script>
+    <?php include('../functions.php');?>
 
 
 </head>

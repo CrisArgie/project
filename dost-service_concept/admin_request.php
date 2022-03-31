@@ -148,7 +148,12 @@
                   <div class="row">
                     <div class="p-0 col-xl-12 col-md-6 col-sm-4 d-flex justify-content-center">
                       <a href="admin_add_request.php" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
-                        <div class="text-1"> Add Request </div>
+                        <div class="text-1"> + Repair Request </div>
+                      </a>
+                    </div>
+                    <div class="p-0 col-xl-12 col-md-6 col-sm-4 d-flex justify-content-center">
+                      <a href="admin_add_ict_job.php" class="wf-1 ctn-btn d-flex justify-content-center mb-2"> 
+                        <div class="text-1"> + ICT job Request </div>
                       </a>
                     </div>
                     <div class="p-0 col-xl-12 col-md-6 col-sm-4 d-flex justify-content-center">
