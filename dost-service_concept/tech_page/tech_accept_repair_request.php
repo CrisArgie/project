@@ -143,7 +143,7 @@
                                     <div class="d-flex flex-row g-2 justify-content-end">
                                         <label for=""> Date: </label>
                                         <input type="text" readonly tabindex="-1"
-                                        value="<?php echo date("m-d-Y")?>"
+                                        value=""
                                         class="w-100">	
                                     </div>
               			        </div>

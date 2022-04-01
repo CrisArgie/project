@@ -53,14 +53,14 @@
         <aside class="sidebar open" data-slider>
 <!-- Sidebar top menu-->
             <div class="top-sidebar">
-            <div class="sidebar-list">
-                <div class="sidebar-list-item">
-                <a href="user_home.php" class="sidebar-link">
-                    <img class="sidebar-icon" src="icons/png-files/home.png">
-                    <div class="hidden-sidebar">Home</div>
-                </a>
-                </div>
-            </div>
+              <div class="sidebar-list">
+                  <div class="sidebar-list-item">
+                    <a href="user_home.php" class="sidebar-link">
+                        <img class="sidebar-icon" src="icons/png-files/home.png">
+                        <div class="hidden-sidebar">Home</div>
+                    </a>
+                  </div>
+              </div>
             </div>
 
             
@@ -125,7 +125,7 @@
         <main class="content">
           <div class="content-menu">
 <!-- Leftside menus -->
-            <a href="user_view_request.php" class="return-icon">
+            <a onclick="window.history.back()" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
 <!-- Middleside menus -->
@@ -135,14 +135,14 @@
                   <div class="row justify-content-between p-0">
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-3">
-              				  <label> No.: </label>
-              				  <input type="text" name="" disabled class="w-100">	
+              				  <label for=""> No.: </label>
+              				  <input type="text" value="" value="" readonly tabindex="-1" class="w-100">	
                       </div>
               			</div>
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-2 justify-content-end">
-              				  <label> Date: </label>
-              				  <input type="text" name="" disabled class="w-100">	
+              				  <label for=""> Date: </label>
+              				  <input type="text" value="" readonly tabindex="-1" class="w-100">	
                       </div>
               			</div>
                   </div>
@@ -154,34 +154,38 @@
                   <div class="row mn-10 mt-1">
 	    				      <ul class="col-xl-6 col-lg-12 pr-3 pl-3 mb-0 w-100">
                       <li class="mb-2">
-                        <label>Desciption of Property Type:</label>
-                        <input type="text" name="" class="w-100">
+                        <label for="">Desciption of Property Type:</label>
+                        <input type="text" name="" id="" value="" class="w-100">
                       </li>
                       <li class="mb-2">
-                        <label>Serial/Engine No.:</label>
-                        <input type="text" name="" class="w-100">
+                        <label for="">Serial/Engine No.:</label>
+                        <input type="text" name="" id="" value="" class="w-100">
                       </li>
                       <li class="mb-2">
-                        <label>Acquisition Date:</label>
-                        <input type="date" name="" class="w-100">
+                        <label for="data_AD">Acquisition Date (<i>Current input date</i>) :</label>
+                        <div class="p-0 m-0 d-flex justify-content-between g-2">
+                          <input type="text" value="sample: 04/04/2022" id="output_data_AD" readonly tabindex="-1" class="disabling-input w-100">
+                          <input type="date" name="data_AD" id="data_AD" class="w-100">
+                        </div>
+                        
                       </li>
                       <li class="mb-2">
-                        <label>Location:</label>
-                        <input type="text" name="" class="w-100">
+                        <label for="">Location:</label>
+                        <input type="text" name="" id="" value="" class="w-100">
                       </li>
                     </ul>
                     <ul class="col-xl-6 col-lg-12 pr-3 pl-3 m-0 w-100">
                       <li class="mb-2">
-                        <label> Brand Model: </label>
-                        <input type="text" name="" class="w-100">
+                        <label for=""> Brand Model: </label>
+                        <input type="text" name="" id="" value="" class="w-100">
                       </li>
                       <li class="mb-2">
-                        <label>Property No.:</label>
-                        <input type="text" name="" class="w-100">
+                        <label for="">Property No.:</label>
+                        <input type="text" name="" id="" value="" class="w-100">
                       </li>
                       <li class="mb-2">
-                        <label> Acquisition Cost: </label>
-                        <input type="text" name="" placeholder="ex. 2440 - (Php: 2,440.00)" class="w-100">
+                        <label for=""> Acquisition Cost: </label>
+                        <input type="text" name="" id="" value="" class="w-100">
                       </li>
                     </ul>            			
             	    </div>
@@ -195,7 +199,8 @@
                           <h3 class="p-0 f-w-normal"> Problem Encountered: </h3>
                         </div>
                         <div class="col-xl-8 border-box-1 border-radius-1 p-0">
-                          <textarea class="textarea-k"></textarea>
+                          <label for="" hidden></label>
+                          <textarea name="" id="" value="" class="textarea-k"></textarea>
                         </div>
                       </div>
                     </div>
@@ -205,7 +210,8 @@
                           <h3 class="p-0 f-w-normal"> Corrective Action Performed: </h3>
                         </div>
                         <div class="col-xl-8 border-box-1 border-radius-1 p-0">
-                          <textarea class="textarea-k"></textarea>
+                          <label for="" hidden></label>
+                          <textarea name="" id="" value="" class="textarea-k"></textarea>
                         </div>
                       </div>
                     </div>
@@ -232,8 +238,6 @@
           </div>
         </main>
     </div>
-
-
 
     
 </body>

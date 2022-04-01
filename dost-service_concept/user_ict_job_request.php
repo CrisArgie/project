@@ -124,7 +124,7 @@
         <main class="content">
           <form class="content-menu" action="results.html" method="GET" enctype="multipart/form-data">
 <!-- Leftside menus -->
-            <a href="user_request.php" class="return-icon">
+            <a onclick="window.history.back()" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
 <!-- Middleside menus -->
@@ -138,14 +138,14 @@
                   <div class="row justify-content-between pr-2 pl-2">
                   <div class="col-xl-9 col-lg-12 p-0"> 
                     <label for="datetime_request"> Date/Time of Request: </label> 
-                    <input class="col-xl-6 col-lg-12 disabling-input" tabindex="-1" type="text" readonly
+                    <input class="col-xl-6 col-lg-12" tabindex="-1" type="text" readonly
                     name="datetime_request"
                     id="datetime_request"
                     value="<?php echo date('m-d-Y H:i');?>"> 
                   </div>
                   <div class="d-flex justify-content-end col-xl-3 col-lg-12  ml-auto p-0">
                     <label for="req_no"> Request No.: </label> 
-                    <input class="col-xl-6 col-lg-12 disabling-input" tabindex="-1" type="text" readonly
+                    <input class="col-xl-6 col-lg-12" tabindex="-1" type="text" readonly
                     name="req_no"
                     id="req_no"
                     value="" >
@@ -162,14 +162,14 @@
                       <ul class="p-0 mb-2 row">
                         <li class="mt-2 col-xl-12">
                           <label for="end_user"> End User: </label>
-                          <input class="w-100 text-capitalize disabling-input" tabindex="-1" type="text" readonly
+                          <input class="w-100 text-capitalize" tabindex="-1" type="text" readonly
                           name="end_user"
                           id="end_user"
                           value=""> <!-- Value collected from database -->
                         </li>
                         <li class="mt-2 col-xl-12">
                           <label for="divsecunit"> Division/Section/Unit: </label>
-                          <input class="w-100 disabling-input" tabindex="-1" type="text" readonly
+                          <input class="w-100" tabindex="-1" type="text" readonly
                           name="divsecunit"
                           id="divsecunit"
                           value=""> <!-- Value collected from database -->
@@ -186,29 +186,18 @@
                       <h3> TYPE OF REQUEST </h3>
                       <ul class="p-0 row">
                         <li class="mt-2 col-xl-6">
-                          <input type="radio" onclick="chckboxFunc(this)" checked
-                          name="type_request"
-                          id="type_request"
-                          value="Repair">
+                          <input type="radio" data-input-radio name="type_request" id="type_request" value="Repair">
                           <label for="type_request"> Repair </label>
                         </li>
                         <li class="mt-2 col-xl-6">
-                          <input type="radio" onclick="chckboxFunc(this)" 
-                          name="type_request"
-                          id="type_request"
-                          value="Upgrade">
+                          <input type="radio" data-input-radio name="type_request" id="type_request" value="Upgrade">
                           <label for="type_request"> Upgrade </label>
                         </li>
                         <li class="mt-2 col-xl-12">
                           <!-- <label for="other" hidden></label> -->
-                          <input type="radio" onclick="chckboxFunc(this)"
-                          name="type_request"
-                          id="type_request"
-                          value="Other">
+                          <input type="radio" data-input-radio name="type_request" id="type_request" value="Other">
                           <label for="type_request">Other:</label>
-                          <input class="w-100 display-none" type="text" 
-                          name="other_req_type" 
-                          id="other_req_type"> <!-- hidden text -->
+                          <input class="w-100" type="text" name="other_req_type" style="display: none;" id="other_req_type"> <!-- hidden text -->
                         </li>
                       </ul>
                     </div>
@@ -374,7 +363,7 @@
             <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
               <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
               <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
-              <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
+              <button type="reset" class="ctn-btn"> <img src="icons/png-files/eraser.png"> </button> 
               <button type="submit" class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
             </div>
           </form>

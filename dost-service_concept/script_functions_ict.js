@@ -1,12 +1,18 @@
-function chckboxFunc(cbox) {
-    var text = document.getElementById("other_req_type");
+const radioBtn = document.querySelectorAll('[data-input-radio]');
 
-    if (cbox.value == "Other") {
+for (const radioButton of radioBtn) {
+    radioButton.addEventListener('change', showSelected);
+}
+
+function showSelected(e) {
+    const text = document.getElementById("other_req_type");
+    if (e.target.checked == true && e.target.defaultValue === 'Other') {
         text.style.display = "block";
-    } else {
+    } else if (e.target.checked == true && e.target.defaultValue === 'Upgrade' || (e.target.checked == true && e.target.defaultValue === 'Repair')) {
         text.style.display = "none";
     }
 }
+
 
 
 const realFileBtn = document.getElementById("real-file");

@@ -134,20 +134,13 @@
                       <div class="col-xl-4 col-lg-12 mb-1">
                         <div class="d-flex flex-row g-3">
                           <label for="pre_repair_no"> No.: </label>
-                          <input type="text" readonly tabindex="-1"
-                          name="pre_repair_no"  
-                          id="pre_repair_no"
-                          class="w-100">	
+                          <input type="text" readonly tabindex="-1" name="pre_repair_no" id="pre_repair_no" value="" class="w-100">	
                         </div>
                       </div>
                       <div class="col-xl-4 col-lg-12 mb-1">
                         <div class="d-flex flex-row g-2 justify-content-end">
                           <label for="pre_repair_date"> Date: </label>
-                          <input type="text" readonly tabindex="-1" 
-                          name="pre_repair_date"
-                          id="pre_repair_date"
-                          value="<?php echo date('m-d-Y');?>"
-                          class="w-100">	
+                          <input type="text" readonly tabindex="-1" name="pre_repair_date" id="pre_repair_date" value="<?php echo date('m-d-Y');?>" class="w-100">	
                         </div>
                       </div>
                     </div>
@@ -166,7 +159,7 @@
                           </div>
                           <div class="folder-page">
                             <div class="text-2 pt-3 pl-2 pr-2">
-                              <a href="tech_post_repair.php" class="text-gray-700"> POST REPAIR   REPORT </a>
+                              <a class="disabling-input text-gray-700"> POST REPAIR   REPORT </a>
                             </div>
                           </div>
                         </div>
@@ -175,41 +168,33 @@
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
                                 <label class="col-xl-4 p-0 m-auto">Description of Property Type:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1"
-                                value="">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" value="">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label class="col-xl-4 p-0 m-auto">Serial/Engine No.:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1"
-                                value="">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" value="">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label class="col-xl-4 p-0 m-auto">Acquisition Date:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1"
-                                value="">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" value="">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label for="latest_repair_date" class="col-xl-4 p-0 m-auto">Date of Latest Repair:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="date" 
-                                name="latest_repair_date" 
-                                id="latest_repair_date">
+                                <input class="col-xl-8 mt-2 mb-2" type="date" name="latest_repair_date" id="latest_repair_date">
                               </li>
                             </ul>
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
                                 <label class="col-xl-4 p-0 m-auto">Brand Model:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1"
-                                value="">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" value="">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label class="col-xl-4 p-0 m-auto">Property No.:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1"
-                                value="">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" value="">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label class="col-xl-4 p-0 m-auto">Acquisition Cost:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1"
-                                value="">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" value="">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label for="latest_repair_mature" class="col-xl-4 p-0 m-auto">Mature of Latest Repair:</label>
@@ -227,9 +212,7 @@
                             <div class="col-xl-6 pr-0 mb-1">
                               <div class="border-box-1 border-radius-1 btn-rightside">
                                 <label for="pre_repair_defects" hidden></label>
-                                <textarea class="textarea-h w-100 pt-1 pr-2 pl-2" placeholder="DEFECTS/COMPLAINTS"
-                                name="pre_repair_defects"
-                                id="pre_repair_defects"></textarea>
+                                <textarea class="textarea-h w-100 pt-1 pr-2 pl-2" placeholder="DEFECTS/COMPLAINTS" name="pre_repair_defects" id="pre_repair_defects"></textarea>
                                 <div class="mb-2">
                                   <button > <img class="txt-editor-icon" src="../icons/png-files/bold.png"> </button> 
                                   <button > <img class="txt-editor-icon" src="../icons/png-files/italic.png"> </button>
@@ -242,9 +225,7 @@
                             <div class="col-xl-6 pl-0 mb-1">
                               <div class="border-box-1 border-radius-1 btn-rightside">
                                 <label for="pre_repair_assesssment" hidden></label>
-                                <textarea class="textarea-h w-100 pt-1 pr-2 pl-2" placeholder="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE"
-                                name="pre_repair_assesssment"
-                                id="pre_repair_assesssment"></textarea>
+                                <textarea class="textarea-h w-100 pt-1 pr-2 pl-2" placeholder="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE" name="pre_repair_assesssment" id="pre_repair_assesssment"></textarea>
                                 <div class="mb-2">
                                   <button > <img class="txt-editor-icon" src="../icons/png-files/bold.png"> </button> 
                                   <button > <img class="txt-editor-icon" src="../icons/png-files/italic.png"> </button>
@@ -263,14 +244,14 @@
               </div>
               <div class="content-right d-flex flex-column align-items-center justify-content-between p-0 pt-2 pb-3">
                   <div class="content-btn-btm">
-                      <a href="tech_request.php" class="return-icon">
+                      <a onclick="window.history.back()" class="return-icon">
                           <img src="../icons/png-files/chevron-left.png">
                       </a>
                   </div>
                   <div class="content-btn-btm">
                       <button button class="p-2 ctn-btn w-100"> <img src="../icons/png-files/save.png"> </button>
                       
-                      <a href="" class="d-flex justify-content-center p-2 ctn-btn w-100"> Need Post Inspection </a>
+                      <a href="tech_post_repair.php" class="d-flex justify-content-center p-2 ctn-btn w-100"> Need Post Inspection </a>
                       
                       <button class="p-2 ctn-btn w-100"> <div class="text-1"> Print </div> </button>
                       <button type="submit" class="d-flex justify-content-center p-2 ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button> 

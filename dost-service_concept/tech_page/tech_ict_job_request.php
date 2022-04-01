@@ -136,15 +136,11 @@
                             <div class="row justify-content-between pr-2 pl-2">
                                 <div class="col-xl-9 col-lg-12 p-0"> 
                                     <label> Date/Time of Request: </label> 
-                                    <input class="col-xl-6 col-lg-12" type="text" 
-                                    readonly tabindex="-1"
-                                    value="<?php echo date('m-d-Y H:i');?>">
+                                    <input class="col-xl-6 col-lg-12" type="text" readonly tabindex="-1" value="">
                                 </div>
                                 <div class="col-xl-3 col-lg-12  ml-auto p-0">
                                     <label> Request No.: </label> 
-                                    <input class="col-xl-6 col-lg-12" type="text" 
-                                    readonly tabindex="-1"
-                                    value="">
+                                    <input class="col-xl-6 col-lg-12" type="text" readonly tabindex="-1" value="">
                                 </div>
                             </div>
                         </div>
@@ -320,8 +316,8 @@
                     </div> <!-- end ctn-container -->
                 </div>
                 <div class="content-right d-flex flex-column align-items-center justify-content-between p-0 pt-2 pb-3">
-                    <div class="content-btn-btm pt-2">
-                        <a href="tech_request.php" class="return-icon">
+                    <div class="content-btn-btm">
+                        <a onclick="window.history.back()" class="return-icon">
                             <img src="../icons/png-files/chevron-left.png">
                         </a>
                     </div>
@@ -336,57 +332,7 @@
     </div>
 
 
-<script>
-
-const requestType = document.getElementById("type_request");
-const displayRType = document.getElementById("type_request_display");
-var element = document.getElementById('request_type');
-
-
-console.log(requestType.value);
-if (requestType.value == "repair") {
-    element.style.display = 'none';
-    displayRType.value = 'Repair';
-} 
-else if(requestType.value == "upgrade"){
-    element.style.display = 'none';
-    displayRType.value = 'Upgrade';
-}
-else if(requestType.value == "other") {
-    displayRType.value = 'Other';
-    element.style.display = 'block';
-}
-
-// function checkRequest(val) {
-//   var element = document.getElementById('request_type');
-//   if (val == 'other'){
-//     element.style.display = 'block';
-//   }
-//   else if(val=='repair' || val=='upgrade')
-//   {
-//     element.style.display = 'none';
-//   }
-// }
-
-
-// function getText() {
-//     var text = document.getElementById("textareabox").value;
-//     alert(text);
-// }
-
-function setTextValue(txtAns){
-    if(txtAns == "\\software checked"){
-        document.getElementById("software_programs_txt").value = '';
-    }
-    else if(txtAns == "\\hardware checked"){
-        document.getElementById("other_hardware_txt").value = '';
-    }
-    else if(txtAns == "\\usb checked"){
-        document.getElementById("usb_device_txt").value = ''; 
-    }
-}
-
-</script>
+<script type="text/javascript" src="../afterscript.js" defer onload="ict_job_request()"></script>
 
 </body>
 </html>

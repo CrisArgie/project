@@ -257,14 +257,33 @@
                 <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
                     <button class="ctn-btn"> <img src="../icons/png-files/save.png"> </button> 
                     <button button class="ctn-btn"> <img src="../icons/png-files/printer.png"> </button>
-                    <button class="ctn-btn"> <img src="../icons/png-files/trash-can.png"> </button> 
-                    <button type="submit" class="ctn-btn"> <img src="../icons/png-files/telegram-original.png"> </button>
+                    <button type="reset" class="ctn-btn"> <img src="../icons/png-files/eraser.png"> </button> 
+                    <button type="button" data-hover-target="#hoverbox" class="ctn-btn"> <img src="../icons/png-files/telegram-original.png"> </button>
+                    
+                    <div class="hoverbox" id="hoverbox">
+                        <div class="hover-header">
+                            <h4 class="mb-0 text-1">Request to User</h4>
+                            <button data-close-button type="button" class="close-button mr-3">&times;</button>
+                        </div>
+                        <div class="hover-body">
+                            <label for="" class="ml-4 mr-4">User/Owner name:</label> 
+                            <div class="ml-4 mr-4 mb-2 mt-2">
+                                <select class="w-100 text-5 text-capitalize" name="end_user" id="end_user">
+                                    <option value="{'id':'1', 'email':'benio@gmail.com'}">Joel Benio</option>
+                                    <option value="{'id':'2', 'email':'samm@gmail.com'}">May Samm</option>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-end mb-2 ml-4 mr-4">
+                                <button type="submit"> Submit </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </main>
     </div>
 
-
+<script type="text/javascript" src="../afterscript.js" defer onload="hoverFunc()"></script>
 
 </body>
 </html>

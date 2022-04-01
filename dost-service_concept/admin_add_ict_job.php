@@ -134,16 +134,16 @@
                         </div>
                         <div class="main-container">
                             <div class="row justify-content-between pr-2 pl-2">
-                                <div class="col-xl-9 col-lg-12 p-0"> 
+                                <div class="col-xl-8 col-lg-12 mb-1 p-0"> 
                                     <label for="datetime_request"> Date/Time of Request: </label> 
                                     <input class="col-xl-6 col-lg-12" tabindex="-1" type="text" readonly
                                     name="datetime_request"
                                     id="datetime_request"
                                     value="<?php echo date('m-d-Y H:i');?>"> 
                                 </div>
-                                <div class="d-flex justify-content-end col-xl-3 col-lg-12  ml-auto p-0">
-                                    <label for="req_no"> Request No.: </label> 
-                                    <input class="col-xl-6 col-lg-12" tabindex="-1" type="text" readonly name="req_no" id="req_no" value="">
+                                <div class="col-xl-4 col-lg-12 mb-1 p-0">
+                                    <label class="p-0 col-lg-12" for="req_no"> Request No.: </label> 
+                                    <input class="col-xl-8 col-lg-12" tabindex="-1" type="text" readonly name="req_no" id="req_no" value="">
                                 </div>
                             </div>
                         </div>
@@ -155,11 +155,11 @@
                                     <ul class="p-0 mb-2 row">
                                         <li class="mt-2 col-xl-12">
                                             <label for="end_user"> End User: </label>
-                                            <input class="w-100 text-capitalize" type="text" name="end_user" id="end_user" placeholder="ex. First name then Last name">
+                                            <input class="w-100 text-capitalize" type="text" name="end_user" id="end_user" placeholder="ex. Benio Grams">
                                         </li>
                                         <li class="mt-2 col-xl-12">
                                             <label for="divsecunit"> Division/Section/Unit: </label>
-                                            <input class="w-100" type="text" name="divsecunit" id="divsecunit" placeholder="ex. System Support Division 4">
+                                            <input class="w-100" readonly tabindex="-1" type="text" name="divsecunit" id="divsecunit" placeholder="ex. System Support Division 4">
                                         </li>
                                         <li class="mt-2 col-xl-12">
                                             <label for="equipt_property_no"> Equipment Property No.: </label>
@@ -171,27 +171,18 @@
                                     <h3> TYPE OF REQUEST </h3>
                                     <ul class="p-0 row">
                                         <li class="mt-2 col-xl-6">
-                                            <input type="radio" onclick="chckboxFunc(this)" checked
-                                            name="type_request"
-                                            id="type_request"
-                                            value="Repair">
+                                            <input type="radio" data-input-radio name="type_request" id="type_request" value="Repair">
                                             <label for="type_request"> Repair </label>
                                         </li>
                                         <li class="mt-2 col-xl-6">
-                                            <input type="radio" onclick="chckboxFunc(this)" 
-                                            name="type_request"
-                                            id="type_request"
-                                            value="Upgrade">
+                                            <input type="radio" data-input-radio name="type_request" id="type_request" value="Upgrade">
                                             <label for="type_request"> Upgrade </label>
                                         </li>
                                         <li class="mt-2 col-xl-12">
                                             <!-- <label for="other" hidden></label> -->
-                                            <input type="radio" onclick="chckboxFunc(this)"
-                                            name="type_request"
-                                            id="type_request"
-                                            value="Other">
+                                            <input type="radio" data-input-radio name="type_request" id="type_request" value="Other">
                                             <label for="type_request">Other:</label>
-                                            <input class="w-100 display-none" type="text" 
+                                            <input class="w-100" style="display: none;" type="text" 
                                             name="other_req_type" 
                                             id="other_req_type"> <!-- hidden text -->
                                         </li>
@@ -354,14 +345,34 @@
                 <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
                     <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
                     <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
-                    <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
-                    <button type="submit" class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
+                    <button type="reset" class="ctn-btn"> <img src="icons/png-files/eraser.png"> </button> 
+                    <button type="button" data-hover-target="#hoverbox" class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
+                    
+                    <div class="hoverbox" id="hoverbox">
+                        <div class="hover-header">
+                            <h4 class="mb-0 text-1">Request to User</h4>
+                            <button data-close-button type="button" class="close-button mr-3">&times;</button>
+                        </div>
+                        <div class="hover-body">
+                            <label for="" class="ml-4 mr-4">User/Owner name:</label> 
+                            <div class="ml-4 mr-4 mb-2 mt-2">
+                                <select class="w-100 text-5 text-capitalize" name="end_user" id="end_user">
+                                    <option value="{'id':'1', 'email':'benio@gmail.com'}">Joel Benio</option>
+                                    <option value="{'id':'2', 'email':'samm@gmail.com'}">May Samm</option>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-end mb-2 ml-4 mr-4">
+                                <button type="submit"> Submit </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </main>
     </div>
 
 <script type="text/javascript" src="script_functions_ict.js"></script>
+<script type="text/javascript" src="afterscript.js" defer onload="hoverFunc()"></script>
 
 </body>
 </html>

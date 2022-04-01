@@ -125,7 +125,7 @@
             </div>
         </aside>
         <main class="content">
-            <div class="content-menu">
+            <form class="content-menu" action="results.html" method="GET" enctype="multipart/form-data">
                 <div class="content-table">
             	    <div class="ctn-container"> 
             		    <div class="main-container mt-4">
@@ -189,7 +189,8 @@
   	    				        <div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
   	        				        <h3 class="p-0 f-w-normal"> Problem Encountered: </h3>
                                     <div class="btn-leftside mb-2">
-    	        				        <textarea class="textarea-h" placeholder="Type here..."></textarea>
+                                        <label for="problem_encountered" hidden></label>
+    	        				        <textarea name="problem_encountered" id="problem_encountered" class="textarea-h" placeholder="Type here..."></textarea>
                                         <div class="mb-2">
                                             <button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
                                             <button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
@@ -202,7 +203,8 @@
   	    				        <div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
   	        				        <h3 class="p-0 f-w-normal"> Corrective Action Performed: </h3>
                                     <div class="btn-rightside mb-2">
-    	        				        <textarea class="textarea-h" placeholder="Type here..."></textarea>
+                                        <label for="corrective_action_performed" hidden></label>
+    	        				        <textarea name="corrective_action_performed" id="corrective_action_performed" class="textarea-h" placeholder="Type here..."></textarea>
                                         <div class="mb-2">
                                             <button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
                                             <button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
@@ -218,15 +220,34 @@
                 </div>
                 <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
                     <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
-                    <button button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
-                    <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
-                    <button class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
+                    <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
+                    <button type="reset" class="ctn-btn"> <img src="icons/png-files/eraser.png"> </button> 
+                    <button type="button" data-hover-target="#hoverbox" class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
+
+                    <div class="hoverbox" id="hoverbox">
+                        <div class="hover-header">
+                            <h4 class="mb-0 text-1">Request to User</h4>
+                            <button data-close-button type="button" class="close-button mr-3">&times;</button>
+                        </div>
+                        <div class="hover-body">
+                            <label for="" class="ml-4 mr-4">User/Owner name:</label> 
+                            <div class="ml-4 mr-4 mb-2 mt-2">
+                                <select class="w-100 text-5 text-capitalize" name="end_user" id="end_user">
+                                    <option value="{'id':'1', 'email':'benio@gmail.com'}">Joel Benio</option>
+                                    <option value="{'id':'2', 'email':'samm@gmail.com'}">May Samm</option>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-end mb-2 ml-4 mr-4">
+                                <button type="submit"> Submit </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </form>
         </main>
     </div>
 
-
+<script type="text/javascript" src="afterscript.js" defer onload="hoverFunc()"></script>
 
 </body>
 </html>

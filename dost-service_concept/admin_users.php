@@ -450,7 +450,7 @@
 
 <script type="text/javascript" src="scripts/chart-js/charts-1.js"></script>
 <script type="text/javascript" src="scripts/datatable-js/admin-datatable-2.js"></script>
-<script type="text/javascript" src="afterscript.js"></script>
+<script type="text/javascript" src="afterscript.js" defer onload="modalFunc()"></script>
 
 </body>
 </html>

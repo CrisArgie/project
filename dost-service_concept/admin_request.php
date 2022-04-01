@@ -140,7 +140,7 @@
             </div>
         </aside>
         <main class="content">
-        <div class="content-menu flex-column">
+          <div class="content-menu flex-column">
             <div class="main-container ">
               <div class="row">
                 <div class="col-xl-12 mb-3 mt-3"> <h2> Request Monitoring </h2> </div>

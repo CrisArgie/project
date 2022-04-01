@@ -125,7 +125,7 @@
         <main class="content">
           <div class="content-menu">
 <!-- Leftside menus -->
-            <a href="user_view_request.php" class="return-icon">
+            <a onclick="window.history.back()" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
 <!-- Middleside menus -->
@@ -137,10 +137,12 @@
                 <div class="main-container">
                   <div class="row justify-content-between pr-2 pl-2">
                   <div class="col-xl-9 col-lg-12 p-0"> 
-                    <label> Date/Time of Request: </label> <input class="col-xl-6 col-lg-12" type="text" name="" disabled>
+                    <label for="datetime_request"> Date/Time of Request: </label> 
+                    <input class="col-xl-6 col-lg-12" tabindex="-1" type="text" readonly name="datetime_request" id="datetime_request" value="">
                   </div>
                   <div class="col-xl-3 col-lg-12  ml-auto p-0">
-                    <label> Request No.: </label> <input class="col-xl-6 col-lg-12" type="text" name="" disabled>
+                    <label class="p-0 col-lg-12" for="req_no"> Request No.: </label> 
+                    <input class="col-xl-8 col-lg-12" tabindex="-1" type="text" readonly name="req_no" id="req_no" value="" >
                   </div>
                   </div>
                 </div>
@@ -151,18 +153,21 @@
                     <div class="col-xl-12 p-0">
                       <div class="main-container">
                         <ul class="p-0 mb-2 row">
-                          <li class="mt-2 col-xl-6">
-                            <label> End User: </label>
-                            <input class="w-100" type="text" name="">
-                          </li>
-                          <li class="mt-2 col-xl-6">
-                            <label> Division/Section/Unit: </label>
-                            <input class="w-100" type="text" name="">
-                          </li>
-                          <li class="mt-2 col-xl-6">
-                            <label> Equipment Property No.: </label>
-                            <input class="w-100" type="text" name="">
-                          </li>
+                            <li class="mt-2 col-xl-6">
+                                <label> End User: </label>
+                                <input class="w-100" type="text" readonly tabindex="-1"
+                                value="">
+                            </li>
+                            <li class="mt-2 col-xl-6">
+                                <label> Division/Section/Unit: </label>
+                                <input class="w-100" type="text" readonly tabindex="-1"
+                                value="">
+                            </li>
+                            <li class="mt-2 col-xl-6">
+                                <label> Equipment Property No.: </label>
+                                <input class="w-100" type="text" readonly tabindex="-1"
+                                value="">
+                            </li>
                         </ul>
                       </div>
                     </div>
@@ -177,66 +182,101 @@
                         <div class="row ml-3 mr-3">
                           <ul class="col-6 p-0 m-0">
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> Cables </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="cables" class="disabling-input">
+                                <label> Cables </label>
                             </li>
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> Keyboard </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="keyboard" class="disabling-input">
+                                <label> Keyboard </label>
                             </li>
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> Mouse </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="mouse" class="disabling-input">
+                                <label> Mouse </label>
                             </li>
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> Printer </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="printer" class="disabling-input">
+                                <label> Printer </label>
                             </li>
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> Internet </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="internet" class="disabling-input">
+                                <label> Internet </label>
                             </li>
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> CD/DVD Drive </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="cd_dvd_drive" class="disabling-input">
+                                <label> CD/DVD Drive </label>
                             </li>
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> Memory </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="memory" class="disabling-input">
+                                <label> Memory </label>
                             </li>
                             <li class="mt-1 mb-1">
-                              <input type="checkbox" name="">
-                              <label> Network </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="Network" class="disabling-input">
+                                <label> Network </label>
                             </li>
                           </ul>
                           <ul class="col-6 p-0 m-0">
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> Power Supply </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="power_supply" class="disabling-input">
+                                <label> Power Supply </label>
                             </li>
                             <li class="mt-1 mb-1"> 
-                              <input type="checkbox" name="">
-                              <label> Hard Drive </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="hard_drive" class="disabling-input">
+                                <label> Hard Drive </label>
                             </li>
                             <li class="mt-1 mb-1">
-                              <input type="checkbox" name="">
-                              <label> Monitor </label>
+                                <input type="checkbox" readonly tabindex="-1"
+                                id="monitor" class="disabling-input">
+                                <label> Monitor </label>
                             </li>
                             <li class="mt-1 mb-1">
-                              <h4 class="p-0 mt-2"> Type of Request</h4>
-                              <label for="request_type"></label>
-                              <select name="request_type" onChange='checkRequest(this.value);' class="w-100">
-                                <option value="repair">Repair</option>
-                                <option value="upgrade">Upgrade</option>
-                                <option value="other">Other</option>
-                              </select>
-                              <input type="text" name="request_type" id="request_type" class="w-100 mt-1 display-none">
+                                <h4 class="p-0 mt-2"> Type of Request</h4>
+                                <input readonly tabindex="-1"
+                                id="type_request_display" 
+                                class="disabling-input w-100">
+                                <input id="type_request" 
+                                value="repair" hidden> <!-- From getting value from database -->
+                                <input type="text" readonly
+                                name="request_type"
+                                value=""
+                                id="request_type" class="w-100 mt-1 display-none">
                             </li>
                           </ul>
                         </div>
                         <div class="col-xl-12">
                           <div class="border-box-1 pl-2 pr-2 pb-2 ml-2 mr-2 textarea-bg d-flex flex-column align-items-end">
-                            <textarea class="textarea-k" placeholder="Attached file or image"></textarea>
+                            <div class="textarea-k overflow-auto-y d-flex">
+                                <div class="d-flex flex-column align-content-center m-1">
+                                    <div class="d-flex justify-content-center">
+                                        <img class="textarea-files" src="icons/png-files/folder.png">
+                                    </div>
+                                    <span>filename.png</span>
+                                </div>
+                                <div class="d-flex flex-column align-content-center m-1">
+                                    <div class="d-flex justify-content-center">
+                                        <img class="textarea-files" src="icons/png-files/folder.png">
+                                    </div>
+                                    <span>filename.docx</span>
+                                </div>
+                                <div class="d-flex flex-column align-content-center m-1">
+                                    <div class="d-flex justify-content-center">
+                                        <img class="textarea-files" src="icons/png-files/folder.png">
+                                    </div>
+                                    <span>filename.ppt</span>
+                                </div>
+                                <div class="d-flex flex-column align-content-center m-1">
+                                    <span>No Attach or Upload files.</span>
+                                </div>
+                            </div>
                             <img src="icons/png-files/download.png" class="menu-icon"> 
                           </div>
                         </div>
@@ -244,19 +284,19 @@
                       <div class="col-xl-6">
                         <ul class="p-0 m-0">
                           <li class="mt-1 mb-1">
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" readonly tabindex="-1" class="disabling-input" id="software_programs">
                               <label> Software Programs (list): </label>
-                              <textarea name="" id="" class="w-100" rows="2"></textarea>
+                              <textarea readonly tabindex="-1" class="textarea-u" rows="2" id="software_programs_txt" value=""></textarea>
                           </li>
                           <li class="mt-1 mb-1">
-                            <input type="checkbox" name="" id="">
-                              <label> Other Hardware: </label>
-                              <textarea name="" id="" class="w-100" rows="2"></textarea>
+                            <input type="checkbox" readonly tabindex="-1" class="disabling-input" id="other_hardware">
+                            <label> Other Hardware: </label>
+                            <textarea readonly tabindex="-1" class="textarea-u" rows="2" id="other_hardware_txt" value=""></textarea>
                           </li>
                           <li class="mt-1 mb-1">
-                            <input type="checkbox" name="" id="">
-                              <label> USB Device: </label>
-                              <textarea name="" id="" class="w-100" rows="2"></textarea>
+                            <input type="checkbox" readonly tabindex="-1" class="disabling-input" id="usb_device">
+                            <label> USB Device: </label>
+                            <textarea readonly tabindex="-1" class="textarea-u" rows="2" id="usb_device_txt"></textarea> 
                           </li>
                           <li class="mt-4 mb-2 col-xl-12 d-flex justify-content-end g-2 p-0">
                             <button class="ctn-btn p-1 row"> 
@@ -279,18 +319,7 @@
         </main>
     </div>
 
-<script>
-function checkRequest(val) {
-  var element = document.getElementById('request_type');
-  if (val == 'other'){
-    element.style.display = 'block';
-  }
-  else if(val=='repair' || val=='upgrade')
-  {
-    element.style.display = 'none';
-  }
-}
-</script>
-    
+<script type="text/javascript" src="afterscript.js" defer onload="ict_job_request()"></script>
+
 </body>
 </html>

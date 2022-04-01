@@ -125,7 +125,7 @@
             </div>
         </aside>
         <main class="content">
-            <div class="content-menu">
+            <form class="content-menu" action="results.html" method="" enctype="multipart/form-data">
                 <div class="content-table">
             	    <div class="ctn-container"> 
             		    <div class="main-container mt-4">
@@ -133,13 +133,13 @@
               			        <div class="col-xl-4 col-lg-12">
                                     <div class="d-flex flex-row g-3">
               				            <label> No.: </label>
-              				            <input type="text" name="" disabled class="w-100">	
+              				            <input type="text" value="" readonly tabindex="-1" class="w-100">	
                                     </div>
               			        </div>
               			        <div class="col-xl-4 col-lg-12">
                                     <div class="d-flex flex-row g-2 justify-content-end">
                                         <label> Date: </label>
-                                        <input type="text" name="" disabled class="w-100">	
+                                        <input type="text" value="" readonly tabindex="-1" class="w-100">	
                                     </div>
               			        </div>
                             </div>
@@ -152,33 +152,33 @@
                                 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 mb-0 w-100">
                                     <li class="mb-2">
                                         <label>Desciption of Property Type:</label>
-                                        <input type="text" name="" class="w-100">
+                                        <input type="text" value="" class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label>Serial/Engine No.:</label>
-                                        <input type="text" name="" class="w-100">
+                                        <input type="text" value="" class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label>Acquisition Date:</label>
-                                        <input type="date" name="" class="w-100">
+                                        <input type="text" value="" class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label>Location:</label>
-                                        <input type="text" name="" class="w-100">
+                                        <input type="text" value="" class="w-100">
                                     </li>
                                 </ul>
                                 <ul class="col-xl-6 col-lg-12 pr-3 pl-3 m-0 w-100">
                                     <li class="mb-2">
                                         <label> Brand Model: </label>
-                                        <input type="text" name="" class="w-100">
+                                        <input type="text" value="" class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label>Property No.:</label>
-                                        <input type="text" name="" class="w-100">
+                                        <input type="text" value="" class="w-100">
                                     </li>
                                     <li class="mb-2">
                                         <label> Acquisition Cost: </label>
-                                        <input type="text" name="" placeholder="ex. 2440 - (Php: 2,440.00)" class="w-100">
+                                        <input type="text" value="" class="w-100">
                                     </li>
                                 </ul>            			
                         	</div>
@@ -189,7 +189,8 @@
   	    				        <div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
   	        				        <h3 class="p-0 f-w-normal"> Problem Encountered: </h3>
                                     <div class="btn-leftside mb-2">
-    	        				        <textarea class="textarea-h" placeholder="Type here..."></textarea>
+                                        <label for="problem_encountered" hidden></label>
+    	        				        <textarea class="textarea-h" name="problem_encountered" id="problem_encountered" placeholder="Type here..."></textarea>
                                         <div class="mb-2">
                                             <button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
                                             <button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
@@ -202,7 +203,8 @@
   	    				        <div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
   	        				        <h3 class="p-0 f-w-normal"> Corrective Action Performed: </h3>
                                     <div class="btn-rightside mb-2">
-    	        				        <textarea class="textarea-h" placeholder="Type here..."></textarea>
+                                        <label for="corrective_action_performed"></label>
+    	        				        <textarea class="textarea-h" name="corrective_action_performed" id="corrective_action_performed" placeholder="Type here..."></textarea>
                                         <div class="mb-2">
                                             <button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
                                             <button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
@@ -216,19 +218,19 @@
                         </div>
             	    </div>
                 </div>
-                <div class="content-btn d-flex flex-column justify-content-between align-items-center w-auto pb-3 g-4">
-                    <div class="content-btn-btm mt-2">
+                <div class="content-right d-flex flex-column align-items-center justify-content-between p-0 pt-2 pb-3">
+                    <div class="content-btn-btm">
                         <a onclick="window.history.back()" class="return-icon">
                             <img src="icons/png-files/chevron-left.png">
                         </a>
                     </div>
                     <div class="content-btn-btm">
                         <button button class="p-2 ctn-btn w-100"> <img src="icons/png-files/printer.png"> <div class="text-1"> Print </div> </button>
-                        <button class="p-2 ctn-btn w-100"> <div class="text-1"> Done </div> </button>
-                        <a class="d-flex justify-content-center p-2 ctn-btn bg-success w-100"> <div class="text-1"> Save </div> </a>
+                        <button class="p-2 ctn-btn w-100"> <div class="text-1"> Save </div> </button>
+                        <button type="submit" class="d-flex justify-content-center p-2 ctn-btn bg-success w-100"> <div class="text-1"> Done </div> </button>
                     </div> 
                 </div>
-            </div>
+            </form>
         </main>
     </div>
 

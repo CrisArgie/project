@@ -122,7 +122,7 @@
         <main class="content">
           <div class="content-menu">
 <!-- Leftside menus -->
-            <a href="user_view_request.php" class="return-icon">
+            <a onclick="window.history.back()" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
 <!-- Middleside menus -->
@@ -133,13 +133,13 @@
               			<div class="col-xl-4 col-lg-12 mb-1">
                       <div class="d-flex flex-row g-3">
               				  <label> No.: </label>
-              				  <input type="text" name="" disabled class="w-100">	
+              				  <input type="text" name="" class="w-100">	
                       </div>
               			</div>
               			<div class="col-xl-4 col-lg-12 mb-1">
                       <div class="d-flex flex-row g-2 justify-content-end">
               				  <label> Date: </label>
-              				  <input type="text" name="" disabled class="w-100">	
+              				  <input type="text" name="" class="w-100">	
                       </div>
               			</div>
                   </div>

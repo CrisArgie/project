@@ -134,17 +134,13 @@
                       <div class="col-xl-4 col-lg-12 mb-1">
                         <div class="d-flex flex-row g-3">
                           <label for="post_repair_no"> No.: </label>
-                          <input type="text" readonly tabindex="-1"
-                          name="post_repair_no" 
-                          id="post_repair_no" class="w-100">	
+                          <input type="text" readonly tabindex="-1" name="post_repair_no" id="post_repair_no" class="w-100">	
                         </div>
                       </div>
                       <div class="col-xl-4 col-lg-12 mb-1">
                         <div class="d-flex flex-row g-2 justify-content-end">
                           <label for="post_repair_date"> Date: </label>
-                          <input type="text" readonly tabindex="-1"
-                          name="post_repair_date" value="<?php echo date('m-d-Y');?>"
-                          id="post_repair_date" class="w-100">	
+                          <input type="text" readonly tabindex="-1" name="post_repair_date" value="<?php echo date('m-d-Y');?>" id="post_repair_date" class="w-100">	
                         </div>
                       </div>
                     </div>
@@ -158,7 +154,7 @@
                         <div class="folder-header d-flex flex-row">
                           <div class="folder-page mr-1">
                             <div class="text-2 pt-3 pl-2 pr-2">
-                              <a href="tech_pre_repair.php" class="text-gray-700"> PRE-REPAIR REPORT </a>
+                              <a class="disabling-input text-gray-700"> PRE-REPAIR REPORT </a>
                             </div>
                           </div>
                           <div class="folder-page show">
@@ -172,47 +168,33 @@
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
                                 <label for="repair_shop" class="col-xl-4 p-0 m-auto">Repair Shop/Supplier:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" 
-                                name="repair_shop" 
-                                id="repair_shop">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" name="repair_shop" id="repair_shop">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label for="jp_order_no" class="col-xl-4 p-0 m-auto">Job Order/P.O No.:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" 
-                                name="jp_order_no" 
-                                id="jp_order_no">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" name="jp_order_no" id="jp_order_no">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label for="invoice_no" class="col-xl-4 p-0 m-auto">Invoice No.:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" 
-                                name="invoice_no" 
-                                id="invoice_no">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" name="invoice_no" id="invoice_no">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label for="amtjp_order_no" class="col-xl-4 p-0 m-auto">Amt/J.O./P.O. No.:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" 
-                                name="amtjp_order_no" 
-                                id="amtjp_order_no">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" name="amtjp_order_no" id="amtjp_order_no">
                               </li>
                             </ul>
                             <ul class="col-xl-6 p-2 m-0">
                               <li class="row mt-2 mb-2">
                                 <label for="repair_shop_date" class="col-xl-4 p-0 m-auto">Date:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="date" 
-                                name="repair_shop_date" 
-                                id="repair_shop_date">
+                                <input class="col-xl-8 mt-2 mb-2" type="date" name="repair_shop_date" id="repair_shop_date">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label for="jp_order_date" class="col-xl-4 p-0 m-auto">Date:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="date" 
-                                name="jp_order_date" 
-                                id="jp_order_date">
+                                <input class="col-xl-8 mt-2 mb-2" type="date" name="jp_order_date" id="jp_order_date">
                               </li>
                               <li class="row mt-2 mb-2">
                                 <label for="payable_acc" class="col-xl-4 p-0 m-auto">Payable Account:</label>
-                                <input class="col-xl-8 mt-2 mb-2" type="text" 
-                                name="payable_acc" 
-                                id="payable_acc">
+                                <input class="col-xl-8 mt-2 mb-2" type="text" name="payable_acc" id="payable_acc">
                               </li>
                             </ul>
                           </div>
@@ -221,9 +203,7 @@
                             <div class="col-xl-12 mt-3">
                               <div class="bg-gray-100 pl-2 pr-2 pt-3 pb-1">
                                 <label for="findings_recomm" hidden></label>
-                                <textarea class="textarea-o border-box-none w-100 p-2" placeholder="FINDINGS/RECOMMENDATIONS"
-                                name="findings_recomm"
-                                id="findings_recomm"></textarea>
+                                <textarea class="textarea-o border-box-none w-100 p-2" placeholder="FINDINGS/RECOMMENDATIONS" name="findings_recomm" id="findings_recomm"></textarea>
                                 <div class="mb-2">
                                   <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/bold.png"> </button> 
                                   <button class="btn-brdr border-box-none bg-gray-100"> <img class="txt-editor-icon" src="../icons/png-files/italic.png"> </button>
@@ -242,7 +222,7 @@
               </div>
               <div class="content-right d-flex flex-column align-items-center justify-content-between p-0 pt-2 pb-3">
                   <div class="content-btn-btm">
-                      <a href="tech_request.php" class="return-icon">
+                      <a onclick="window.history.back()" class="return-icon">
                           <img src="../icons/png-files/chevron-left.png">
                       </a>
                   </div>

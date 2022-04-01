@@ -122,7 +122,7 @@
         <main class="content">
           <div class="content-menu">
 <!-- Leftside menus -->
-            <a href="user_view_request.php" class="return-icon">
+            <a onclick="window.history.back()" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
 <!-- Middleside menus -->

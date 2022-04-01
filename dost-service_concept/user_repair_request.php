@@ -51,16 +51,16 @@
     <div class="container">
         <aside class="sidebar open" data-slider>
 <!-- Sidebar top menu-->
-            <div class="top-sidebar">
+          <div class="top-sidebar">
             <div class="sidebar-list">
-                <div class="sidebar-list-item">
+              <div class="sidebar-list-item">
                 <a href="user_home.php" class="sidebar-link">
                     <img class="sidebar-icon" src="icons/png-files/home.png">
                     <div class="hidden-sidebar">Home</div>
                 </a>
-                </div>
+              </div>
             </div>
-            </div>
+          </div>
 
             
             <hr class="sidebar-linebreak">
@@ -125,7 +125,7 @@
           <form class="content-menu" action="results.html" method="GET" enctype="multipart/form-data"> <!-- start form -->
 
 <!-- Leftside menus -->
-          	<a href="user_request.php" class="return-icon">
+          	<a onclick="window.history.back()" class="return-icon">
               <img src="icons/png-files/chevron-left.png">
             </a>
 <!-- Middleside menus -->
@@ -141,7 +141,7 @@
               				  <input type="text" tabindex="-1"
                         name="id_no"
                         id="id_no" 
-                        value="" readonly class="disabling-input w-100">	
+                        value="" readonly class="w-100">	
                       </div>
               			</div>
               			<div class="col-xl-4 col-lg-12">
@@ -150,7 +150,7 @@
               				  <input type="text" tabindex="-1"
                         name="date_requested"
                         id="date_requested" 
-                        value="<?php echo date('m-d-Y'); ?>" readonly class="disabling-input w-100">	
+                        value="<?php echo date('m-d-Y'); ?>" readonly class="w-100">	
                       </div>
               			</div>
                   </div>
@@ -257,7 +257,7 @@
             <div class="content-btn d-flex flex-column justify-content-end align-items-center w-auto pb-3 g-4">
               <button class="ctn-btn"> <img src="icons/png-files/save.png"> </button> 
               <button class="ctn-btn"> <img src="icons/png-files/printer.png"> </button>
-              <button class="ctn-btn"> <img src="icons/png-files/trash-can.png"> </button> 
+              <button type="reset" class="ctn-btn"> <img src="icons/png-files/eraser.png"> </button> 
               <button type="submit" class="ctn-btn"> <img src="icons/png-files/telegram-original.png"> </button>
             </div>
 
