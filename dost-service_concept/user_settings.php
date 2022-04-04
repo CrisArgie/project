@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>DOST Service Request - Home</title>
+    <title>DOST Service Request - Settings</title>
 
     <!-- My styles for this template -->
     <link href="style.css" rel="stylesheet">

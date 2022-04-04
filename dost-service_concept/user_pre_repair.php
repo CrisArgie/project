@@ -133,13 +133,13 @@
               			<div class="col-xl-4 col-lg-12 mb-1">
                       <div class="d-flex flex-row g-3">
               				  <label> No.: </label>
-              				  <input type="text" name="" class="w-100">	
+              				  <input type="text" id="user_pre_no" readonly tabindex="-1" class="w-100">	
                       </div>
               			</div>
               			<div class="col-xl-4 col-lg-12 mb-1">
                       <div class="d-flex flex-row g-2 justify-content-end">
               				  <label> Date: </label>
-              				  <input type="text" name="" class="w-100">	
+              				  <input type="text" id="user_pre_date" readonly tabindex="-1" class="w-100">	
                       </div>
               			</div>
                   </div>
@@ -162,37 +162,37 @@
                           <ul class="col-xl-6 p-2 m-0">
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Description of Property Type:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" id="dscrpt_property_type" readonly tabindex="-1">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Serial/Engine No.:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" id="serial_engine_no" readonly tabindex="-1">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Acquisition Date:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" id="acquisition_date" readonly tabindex="-1">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Date of Latest Repair:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" id="date_latest_repair" readonly tabindex="-1">
                             </li>
                           </ul>
                           <ul class="col-xl-6 p-2 m-0">
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Brand Model:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" id="brand_model" readonly tabindex="-1">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Property No.:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" id="property_no" readonly tabindex="-1">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Acquisition Cost:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" id="acquisition_cost" readonly tabindex="-1">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Mature of Latest Repair:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" id="mature_latest_repair" readonly tabindex="-1">
                             </li>
                           </ul>
                         </div>
@@ -212,7 +212,7 @@
                           <h4 class="p-0 f-w-normal"> DEFECTS/COMPLAINTS: </h4>
                         </div>
                         <div class="col-xl-8 border-box-1 border-radius-1 p-0">
-                          <textarea class="textarea-k"></textarea>
+                          <textarea class="textarea-k" id="defects_complaints" readonly tabindex="-1"></textarea>
                         </div>
                       </div>
                     </div>
@@ -222,7 +222,7 @@
                           <h4 class="p-0 f-w-normal"> PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE: </h4>
                         </div>
                         <div class="col-xl-8 border-box-1 border-radius-1 p-0">
-                          <textarea class="textarea-k"></textarea>
+                          <textarea class="textarea-k" id="pre_repair_assessment" readonly tabindex="-1"></textarea>
                         </div>
                       </div>
                     </div>
@@ -234,11 +234,11 @@
                       <div class="text-1 pl-1 m-auto">
                         Save
                       </div> <img src="icons/png-files/save.png" class="ml-1 mr-1 p-0"> </button>  -->
-                    <button class="ctn-btn d-flex p-1"> 
+                    <button type="button" id="" class="ctn-btn d-flex p-1"> 
                       <div class="text-1 pl-1 m-auto">
                         Generate Report
                       </div> <img src="icons/png-files/printer.png" class="ml-1 mr-1 p-0"> </button> 
-                    <button class="ctn-btn d-flex p-1"> 
+                    <button type="button" id="" class="ctn-btn d-flex p-1"> 
                       <div class="text-1 pl-1 m-auto">
                         Download
                       </div> <img src="icons/png-files/download.png" class="ml-1 mr-1 p-0"> </button> 

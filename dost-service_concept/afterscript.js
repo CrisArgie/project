@@ -125,3 +125,62 @@ function ict_job_request() {
         }
     }
 }
+
+
+
+function aboutReadFunc(page) {
+    const listElement = document.getElementById('faqBox')
+    const paginationElement = document.getElementById('pagination');
+
+    let curr_page = 0;
+    let rows = 5;
+
+    if (page == 1) {
+        fetch("faq_script.json")
+            .then(response => response.json())
+            .then(data => {
+                let numberFaqsData = data.faqs.length
+
+                let start = rows * curr_page
+                let end = start + rows
+                let paginatedItems = data.faqs.slice(start, end)
+
+                console.log(data.faqs)
+
+                for (let x = 0; x < paginatedItems.length; x++) {
+
+                    y = x + 1;
+                    // console.log(paginatedItems[x]);
+                    document.getElementById('faqBox').innerHTML += ' <div class="faq border-bottom-dark mt-2 mb-2"><input type="checkbox" id="' + "faq" + y + '" class="checkbox"><label class="faq-label mt-2 mb-2" for="' + "faq" + y + '"> ' + paginatedItems[x].question + ' </label><div class="faq-content mb-3 w-90">' + paginatedItems[x].answer + '</div></div> ';
+                }
+
+                fk_page = curr_page + 1
+                let totalPage = Math.ceil(numberFaqsData / 5)
+                paginationElement.innerHTML = fk_page + "/" + totalPage;
+            })
+    } else {
+        fetch("../faq_script.json")
+            .then(response => response.json())
+            .then(data => {
+                let numberFaqsData = data.faqs.length
+
+                let start = rows * curr_page
+                let end = start + rows
+                let paginatedItems = data.faqs.slice(start, end)
+
+                console.log(data.faqs)
+
+                for (let x = 0; x < paginatedItems.length; x++) {
+
+                    y = x + 1;
+                    // console.log(paginatedItems[x]);
+                    document.getElementById('faqBox').innerHTML += ' <div class="faq border-bottom-dark mt-2 mb-2"><input type="checkbox" id="' + "faq" + y + '" class="checkbox"><label class="faq-label mt-2 mb-2" for="' + "faq" + y + '"> ' + paginatedItems[x].question + ' </label><div class="faq-content mb-3 w-90">' + paginatedItems[x].answer + '</div></div> ';
+                }
+
+                fk_page = curr_page + 1
+                let totalPage = Math.ceil(numberFaqsData / 5)
+                paginationElement.innerHTML = fk_page + "/" + totalPage;
+            })
+    }
+
+}

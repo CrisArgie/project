@@ -144,29 +144,31 @@
               <div class="row ">
                 <div class="col-xl-12 p-0">
                   <h2 class="p-0 mr-2 ml-2 mt-2 mb-3"> FAQ (Frequent Asked Questions) </h2>
-                  <div class="faq-box mr-4 ml-4 pl-1 pr-1">
-                    <div class="faq border-bottom-dark mt-2 mb-2">
-                      <input type="checkbox" id="faq1" class="checkbox">
-                      <label class="faq-label mt-2 mb-2" for="faq1">Accordion using CSS only?</label>
-                      <div class="faq-content mb-3 w-90">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae inventore voluptates corrupti illum quod itaque quia delectus blanditiis laboriosam iure.
-                      </div>
+                  
+                  <div style="height: 45vh; overflow: auto;">
+                    <div id="faqBox" class="faq-box mr-4 ml-4 pl-1 pr-1">
+                      <script type="text/javascript" src="../afterscript.js" defer onload="aboutReadFunc(2)"></script>
                     </div>
-                    <div class="faq border-bottom-dark mt-2 mb-2">
-                      <input type="checkbox" id="faq2" class="checkbox">
-                      <label class="faq-label mt-2 mb-2" for="faq2">Accordion using CSS only?</label>
-                      <div class="faq-content mb-3 w-90">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae inventore voluptates corrupti illum quod itaque quia delectus blanditiis laboriosam iure. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam facilis sit, at laborum maiores recusandae ut vitae nobis blanditiis quae!
-                      </div>
-                    </div>
-                    <div class="faq border-bottom-dark mt-2 mb-2">
-                      <input type="checkbox" id="faq3" class="checkbox">
-                      <label class="faq-label mt-2 mb-2" for="faq3">Accordion using CSS only?</label>
-                      <div class="faq-content mb-3 w-90">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae inventore voluptates corrupti illum quod itaque quia delectus blanditiis laboriosam iure. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit assumenda nobis eos esse impedit tempore, fugiat quam praesentium numquam ducimus, quisquam sapiente, ex sunt dicta aliquam voluptate vitae in ullam dolore laudantium illo mollitia exercitationem! Praesentium optio facere ipsum obcaecati.
-                      </div>
+                    <div>  
+                      <ul class="d-flex align-content-center justify-content-end g-2 pl-4 pr-4 m-0">
+                        <li>
+                          <button class="abt-btn d-flex align-content-center justify-content-center p-1">
+                            <img class="logo-1" src="../icons/png-files/arrow-left-circle.png">
+                          </button>  
+                        </li>
+                        <li class="mt-auto mb-auto">
+                          <h5 class="fw-normal p-0 m-0" id="pagination"></h5>  
+                        </li>
+                        <li> 
+                          <button class="abt-btn d-flex align-content-center justify-content-center p-1">
+                            <img class="logo-1" src="../icons/png-files/arrow-right-circle.png">  
+                          </button>
+                        </li>
+                      </ul>
                     </div>
                   </div>
+                  
+
                 </div>
               </div>
             </div>

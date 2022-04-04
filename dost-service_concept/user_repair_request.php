@@ -223,13 +223,13 @@
     	        				<textarea class="textarea-h" 
                       name="problem_encountered"
                       id="problem_encountered" placeholder="Type here..."></textarea>
-    	        				<div class="mb-2">
+    	        				<!-- <div class="mb-2">
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/underline.png"> </button>
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/list.png"> </button>
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/eraser.png"> </button>
-    	        				</div>
+    	        				</div> -->
                     </div>
   	    				</div>
   	    				<div class="col-xl-6 col-lg-12 pl-3 pr-3 m-0 w-100">
@@ -239,13 +239,13 @@
     	        				<textarea class="textarea-h"
                       name="corrective_action_performed"
                       id="corrective_action_performed" placeholder="Type here..."></textarea>
-    	        				<div class="mb-2">
+    	        				<!-- <div class="mb-2">
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/bold.png"> </button> 
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/italic.png"> </button>
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/underline.png"> </button>
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/list.png"> </button>
       	    						<button > <img class="txt-editor-icon" src="icons/png-files/eraser.png"> </button>
-    	        				</div>
+    	        				</div> -->
                     </div>
   	    				</div>
           		</div>

@@ -782,11 +782,23 @@ a.link:hover {
     filter: saturate(100%) contrast(100%) brightness(100%) invert(90%) sepia(100%) hue-rotate(180deg) drop-shadow(0 0 10px white);
 }
 
+.logo-1 {
+    width: 40px;
+    height: 40px;
+    filter: saturate(100%) contrast(100%) brightness(100%) invert(90%) sepia(100%) hue-rotate(180deg);
+}
 
-/* Start Tech style */
+.abt-btn {
+    background-color: var(--color2);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
 
-
-/* End Tech style */
+.abt-btn:hover {
+    box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, .5);
+}
 
 
 /*Start admin style*/

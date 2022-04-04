@@ -133,13 +133,13 @@
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-3">
               				  <label> No.: </label>
-              				  <input type="text" name="" disabled class="w-100">	
+              				  <input type="text" id="user_post_no" readonly tabindex="-1" class="w-100">	
                       </div>
               			</div>
               			<div class="col-xl-4 col-lg-12">
                       <div class="d-flex flex-row g-2 justify-content-end">
               				  <label> Date: </label>
-              				  <input type="text" name="" disabled class="w-100">	
+              				  <input type="text" id="user_post_date" readonly tabindex="-1" class="w-100">	
                       </div>
               			</div>
                   </div>
@@ -162,33 +162,33 @@
                           <ul class="col-xl-6 p-2 m-0">
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Repair Shop/Supplier:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" id="repair_shop">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Job Order/P.O. No.:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" id="job_order">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Invoice No.:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" id="invoice_no">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Amt/J.O./P.O. No.:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" id="amtjp_no">
                             </li>
                           </ul>
                           <ul class="col-xl-6 p-2 m-0">
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Date:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" id="repair_shop_date">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Date:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" id="job_order_date">
                             </li>
                             <li class="row mt-2 mb-2">
                               <label class="col-xl-4 p-0 m-auto">Payable Account:</label>
-                              <input class="col-xl-8 mt-2 mb-2" type="text" name="" id="">
+                              <input class="col-xl-8 mt-2 mb-2" type="text" readonly tabindex="-1" id="payable_account">
                             </li>
                           </ul>
                         </div>
@@ -196,7 +196,7 @@
                         <div class="main-container">
                           <div class="row">
                             <div class="col-xl-12 mt-3">
-                              <textarea class="textarea-l w-100 p-2" placeholder="FINDINGS/RECOMMENDATIONS"></textarea>
+                              <textarea class="textarea-l w-100 p-2" readonly tabindex="-1" id="findings_recomm" placeholder="FINDINGS/RECOMMENDATIONS"></textarea>
                             </div>
                           </div>
                         </div>
