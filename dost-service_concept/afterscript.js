@@ -85,8 +85,6 @@ function ict_job_request() {
     const displayRType = document.getElementById("type_request_display");
     var element = document.getElementById('request_type');
 
-
-    // console.log(requestType.value);
     if (requestType.value == "repair") {
         element.style.display = 'none';
         displayRType.value = 'Repair';
@@ -97,23 +95,6 @@ function ict_job_request() {
         displayRType.value = 'Other';
         element.style.display = 'block';
     }
-
-    // function checkRequest(val) {
-    //   var element = document.getElementById('request_type');
-    //   if (val == 'other'){
-    //     element.style.display = 'block';
-    //   }
-    //   else if(val=='repair' || val=='upgrade')
-    //   {
-    //     element.style.display = 'none';
-    //   }
-    // }
-
-
-    // function getText() {
-    //     var text = document.getElementById("textareabox").value;
-    //     alert(text);
-    // }
 
     function setTextValue(txtAns) {
         if (txtAns == "\\software checked") {
@@ -126,61 +107,159 @@ function ict_job_request() {
     }
 }
 
+function accordionFunc(page) {
 
-
-function aboutReadFunc(page) {
     const listElement = document.getElementById('faqBox')
-    const paginationElement = document.getElementById('pagination');
+    const paginationElement = document.getElementById('pagination')
+    const leftElement = document.getElementById('leftBtn')
+    const rightElement = document.getElementById('rightBtn')
 
-    let curr_page = 0;
-    let rows = 5;
+    const faqDataElement = document.getElementById('faqData')
+    const faqDeleteElement = document.getElementById('faqDeleteBtn')
 
-    if (page == 1) {
-        fetch("faq_script.json")
-            .then(response => response.json())
-            .then(data => {
-                let numberFaqsData = data.faqs.length
-
-                let start = rows * curr_page
-                let end = start + rows
-                let paginatedItems = data.faqs.slice(start, end)
-
-                console.log(data.faqs)
-
-                for (let x = 0; x < paginatedItems.length; x++) {
-
-                    y = x + 1;
-                    // console.log(paginatedItems[x]);
-                    document.getElementById('faqBox').innerHTML += ' <div class="faq border-bottom-dark mt-2 mb-2"><input type="checkbox" id="' + "faq" + y + '" class="checkbox"><label class="faq-label mt-2 mb-2" for="' + "faq" + y + '"> ' + paginatedItems[x].question + ' </label><div class="faq-content mb-3 w-90">' + paginatedItems[x].answer + '</div></div> ';
-                }
-
-                fk_page = curr_page + 1
-                let totalPage = Math.ceil(numberFaqsData / 5)
-                paginationElement.innerHTML = fk_page + "/" + totalPage;
-            })
-    } else {
+    if (page === 1) {
         fetch("../faq_script.json")
             .then(response => response.json())
             .then(data => {
-                let numberFaqsData = data.faqs.length
 
-                let start = rows * curr_page
-                let end = start + rows
-                let paginatedItems = data.faqs.slice(start, end)
+                let rows = 5;
+                let curr_page = 1;
 
-                console.log(data.faqs)
+                function DisplayList(items, wrapper, rows_per_page, page) {
+                    wrapper.innerHTML = "";
+                    page--;
 
-                for (let x = 0; x < paginatedItems.length; x++) {
+                    let start = rows_per_page * page;
+                    let end = start + rows_per_page;
 
-                    y = x + 1;
-                    // console.log(paginatedItems[x]);
-                    document.getElementById('faqBox').innerHTML += ' <div class="faq border-bottom-dark mt-2 mb-2"><input type="checkbox" id="' + "faq" + y + '" class="checkbox"><label class="faq-label mt-2 mb-2" for="' + "faq" + y + '"> ' + paginatedItems[x].question + ' </label><div class="faq-content mb-3 w-90">' + paginatedItems[x].answer + '</div></div> ';
+                    let paginatedItems = items.faqs.slice(start, end);
+
+                    for (let i = 0; i < paginatedItems.length; i++) {
+                        let item = paginatedItems[i]
+                        let y = i + 1;
+                        wrapper.innerHTML += ' <div class="faq border-bottom-dark mt-2 mb-2"><input type="checkbox" id="' + "faq" + y + '" class="checkbox"><label class="faq-label mt-2 mb-2" for="' + "faq" + y + '"> ' + item.question + ' </label><div class="faq-content mb-3 w-90">' + item.answer + '</div></div> ';
+                    }
                 }
 
-                fk_page = curr_page + 1
-                let totalPage = Math.ceil(numberFaqsData / 5)
-                paginationElement.innerHTML = fk_page + "/" + totalPage;
+                function SetupPagination(items, wrapper, rows_per_page) {
+
+                    let page_count = Math.ceil(items.faqs.length / rows_per_page);
+                    wrapper.innerText = curr_page + "/" + page_count
+
+                    leftElement.addEventListener('click', function() {
+                        if (curr_page != 1) {
+                            curr_page -= 1
+                            wrapper.innerText = curr_page + "/" + page_count
+                            PaginationButton(curr_page, data);
+                        } else {
+                            alert('This the last page.')
+                        }
+                    })
+                    rightElement.addEventListener('click', function() {
+                        if (curr_page != page_count) {
+                            curr_page += 1
+                            wrapper.innerText = curr_page + "/" + page_count
+                            PaginationButton(curr_page, data);
+                        } else {
+                            alert('This the last page.')
+                        }
+                    })
+                }
+
+                function PaginationButton(page, items) {
+                    curr_page = page;
+                    DisplayList(items, listElement, rows, curr_page);
+                }
+
+                DisplayList(data, listElement, rows, curr_page);
+                SetupPagination(data, paginationElement, rows);
+            })
+    } else if (page === 0) {
+        fetch("faq_script.json")
+            .then(response => response.json())
+            .then(data => {
+
+                let rows = 5;
+                let curr_page = 1;
+
+                function DisplayList(items, wrapper, rows_per_page, page) {
+                    wrapper.innerHTML = "";
+                    page--;
+
+                    let start = rows_per_page * page;
+                    let end = start + rows_per_page;
+
+                    let paginatedItems = items.faqs.slice(start, end);
+
+                    for (let i = 0; i < paginatedItems.length; i++) {
+                        let item = paginatedItems[i]
+                        let y = i + 1;
+                        wrapper.innerHTML += ' <div class="faq border-bottom-dark mt-2 mb-2"><input type="checkbox" id="' + "faq" + y + '" class="checkbox"><label class="faq-label mt-2 mb-2" for="' + "faq" + y + '"> ' + item.question + ' </label><div class="faq-content mb-3 w-90">' + item.answer + '</div></div> ';
+                    }
+                }
+
+                function SetupPagination(items, wrapper, rows_per_page) {
+
+                    let page_count = Math.ceil(items.faqs.length / rows_per_page);
+                    wrapper.innerText = curr_page + "/" + page_count
+
+                    leftElement.addEventListener('click', function() {
+                        if (curr_page != 1) {
+                            curr_page -= 1
+                            wrapper.innerText = curr_page + "/" + page_count
+                            PaginationButton(curr_page, data);
+                        } else {
+                            alert('This the last page.')
+                        }
+                    })
+                    rightElement.addEventListener('click', function() {
+                        if (curr_page != page_count) {
+                            curr_page += 1
+                            wrapper.innerText = curr_page + "/" + page_count
+                            PaginationButton(curr_page, data);
+                        } else {
+                            alert('This the last page.')
+                        }
+                    })
+                }
+
+                function PaginationButton(page, items) {
+                    curr_page = page;
+                    DisplayList(items, listElement, rows, curr_page);
+                }
+
+                let x = 0
+                let y = 0
+                    // Modal Delete FAQ
+                faqDeleteElement.addEventListener('click', function() {
+                    let datas = faqDataElement.value
+                        // console.log(data.faqs)
+                    for (let x = 0; x < data.faqs.length; x++) {
+                        // console.log(data.faqs[x].question)
+                        if (data.faqs[x].question == datas) {
+                            var result = confirm("Are you sure to delete this question?")
+                            if (result === true) {
+                                delete data.faqs[x].question.splice
+                                delete data.faqs[x].answer.splice
+                                alert("Deletion Success!")
+                                    // window.location.reload();
+                            }
+                            console.log(data.faqs)
+                        }
+                    }
+                })
+
+                for (let x = 0; x < data.faqs.length; x++) {
+
+                    let faqItem = document.createElement('option')
+                    faqItem.value = data.faqs[x].question
+                    faqItem.innerText = data.faqs[x].question
+
+                    faqDataElement.appendChild(faqItem);
+                }
+
+                DisplayList(data, listElement, rows, curr_page);
+                SetupPagination(data, paginationElement, rows);
             })
     }
-
 }

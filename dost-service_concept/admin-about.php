@@ -142,41 +142,92 @@
             <hr class="ctn-linebreak mt-3">
             <div class="main-container">
               <div class="row ">
-                <div class="col-xl-12 p-0">
+                  
+                <div class="col-xl-12 d-flex justify-content-between">
                   <h2 class="p-0 mr-2 ml-2 mt-2 mb-3"> FAQ (Frequent Asked Questions) </h2>
-                  
-                  <div style="height: 45vh; overflow: auto;">
-                    <div id="faqBox" class="faq-box mr-4 ml-4 pl-1 pr-1">
-                      <script type="text/javascript" src="afterscript.js" defer onload="aboutReadFunc(1)"></script>
-                    </div>
-                    <div>  
-                      <ul class="d-flex align-content-center justify-content-end g-2 pl-4 pr-4 m-0">
-                        <li>
-                          <button class="abt-btn d-flex align-content-center justify-content-center p-1">
-                            <img class="logo-1" src="icons/png-files/arrow-left-circle.png">
-                          </button>  
-                        </li>
-                        <li class="mt-auto mb-auto">
-                          <h5 class="fw-normal p-0 m-0" id="pagination"></h5>  
-                        </li>
-                        <li> 
-                          <button class="abt-btn d-flex align-content-center justify-content-center p-1">
-                            <img class="logo-1" src="icons/png-files/arrow-right-circle.png">  
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
+                  <div class="d-flex g-2 mb-auto mt-auto">
+                    <button type="button" class="wf-3 p-2 ctn-btn d-flex justify-content-center" data-modal-target="#faqModal"> 
+                      <div class="text-1"> Add FAQ </div> 
+                    </button>
+                    <button type="button" class="wf-4 bg-danger p-2 ctn-btn d-flex justify-content-center" data-modal-target="#faqDltModal"> 
+                      <div class="text-1"> Delete FAQ </div> 
+                    </button>
                   </div>
-                  
                 </div>
+                
+                <div class="col-xl-12 pb-2">
+                  <div id="faqBox" class="faq-box mr-4 ml-4 pl-1 pr-1"></div>
+                  <div class="d-flex g-2 justify-content-end align-items-center">
+                    <button class="abt-btn d-flex align-items-center p-1" type="button" id="leftBtn"><img class="logo-1" src="icons/png-files/arrow-left-circle.png" alt="left.png"></button>
+                    <div id="pagination"></div>
+                    <button class="abt-btn d-flex align-items-center p-1" type="button" id="rightBtn"><img class="logo-1" src="icons/png-files/arrow-right-circle.png" alt="right.png"></button>
+                  </div>
+                </div>
+                  
               </div>
             </div>
           </div>
         </main>
+        <div class="modal" id="faqModal">
+          <div class="modal-header">
+            <div class="title">Frequent Asked Question Information Setting</div>
+            <button data-close-button class="close-button">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form action="" id="faqForm"  enctype="multipart/form-data">
+              <ul class="row mb-0 ml-5 mr-5 pt-4 pb-4 pl-0 pr-0">
+                <li class="col-xl-12 p-2 g-1 d-flex flex-column">
+                  <label for="question">Question: </label>
+                  <input type="text" id="question" name="question">
+                </li>
+                <li class="col-xl-12 p-2 g-1 d-flex flex-column mb-3">
+                  <label for="answer" class="w-100">Answer: </label>
+                  <textarea id="answer" name="answer" style="width:358px; height:235px; resize:none;"></textarea>
+                </li>
+                <li class="col-xl-12 p-2 g-2 d-flex justify-content-end">
+                  <button type="reset" class="ctn-btn p-2"> <div class="text-1"> Reset </div></button>
+                  <button type="submit" class="ctn-btn p-2"> <div class="text-1"> Submit </div></button>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+        <div class="modal" id="faqDltModal">
+          <div class="modal-header bg-danger">
+            <div class="title">Frequent Asked Question Delete Setting</div>
+            <button data-close-button class="close-button">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form action="" enctype="multipart/form-data">
+              <ul class="row mb-0 ml-5 mr-5 pt-4 pb-4 pl-0 pr-0">
+                <li class="col-xl-12 p-2 g-2 d-flex flex-column">
+                  <label for="faqData">Select what to remove:</label>
+                  <select name="faqData" id="faqData"></select>
+                </li>
+                <li class="col-xl-12 p-2 g-2 d-flex justify-content-end">
+                  <button type="reset" class="ctn-btn p-2"> <div class="text-1"> Reset </div></button>
+                  <button type="button" id="faqDeleteBtn" class="bg-danger ctn-btn p-2"> <div class="text-1"> Delete </div></button>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+      <div id="overlay"></div>
     </div>
 
 
+<script type="text/javascript" src="afterscript.js" defer onload="modalFunc()"></script>
+<script type="text/javascript" src="afterscript.js" defer onload="accordionFunc(0)"></script>
+<script>
+const faqFormElement = document.querySelector('#faqForm');
+if(faqFormElement){
+  faqFormElement.addEventListener("submit", function(e){
+    // submitForm(e, this)
+    console.log(e)
+  });
+}
+</script>
 
-    
+
 </body>
 </html>

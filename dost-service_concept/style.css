@@ -1048,6 +1048,14 @@ a.link:hover {
     width: 30vmin !important;
 }
 
+.wf-3 {
+    width: 100px !important;
+}
+
+.wf-4 {
+    width: 130px !important;
+}
+
 .text-2 {
     font-size: 18px;
 }
@@ -1180,6 +1188,7 @@ a.link:hover {
     pointer-events: all;
 }
 
+.modal-body textarea,
 .modal-body select,
 .modal-body input {
     transform: translate(2px);

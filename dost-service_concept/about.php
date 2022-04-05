@@ -135,32 +135,15 @@
             <hr class="ctn-linebreak mt-3">
             <div class="main-container">
               <div class="row ">
-                <div class="col-xl-12 p-0">
+                <div class="col-xl-12">
                   <h2 class="p-0 mr-2 ml-2 mt-2 mb-3"> FAQ (Frequent Asked Questions) </h2>
-                  
-                  <div style="height: 45vh; overflow: auto;">
-                    <div id="faqBox" class="faq-box mr-4 ml-4 pl-1 pr-1">
-                      <script type="text/javascript" src="afterscript.js" defer onload="aboutReadFunc(1)"></script>
-                    </div>
-                    <div>  
-                      <ul class="d-flex align-content-center justify-content-end g-2 pl-4 pr-4 m-0">
-                        <li>
-                          <button class="abt-btn d-flex align-content-center justify-content-center p-1">
-                            <img class="logo-1" src="icons/png-files/arrow-left-circle.png">
-                          </button>  
-                        </li>
-                        <li class="mt-auto mb-auto">
-                          <h5 class="fw-normal p-0 m-0" id="pagination"></h5>  
-                        </li>
-                        <li> 
-                          <button class="abt-btn d-flex align-content-center justify-content-center p-1">
-                            <img class="logo-1" src="icons/png-files/arrow-right-circle.png">  
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
+                </div>
+                <div class="col-xl-12 overflow-auto" style="height: 45vh;">
+                <div id="faqBox" class="faq-box mr-4 ml-4 pl-1 pr-1"></div>
+                  <div class="d-flex g-2 justify-content-end align-items-center">
+                    <button class="abt-btn d-flex align-items-center p-1" type="button" id="leftBtn"><img class="logo-1" src="icons/png-files/arrow-left-circle.png" alt="left.png"></button>
+                    <div id="pagination"></div>
+                    <button class="abt-btn d-flex align-items-center p-1" type="button" id="rightBtn"><img class="logo-1" src="icons/png-files/arrow-right-circle.png" alt="right.png"></button>
                 </div>
               </div>
             </div>
@@ -169,7 +152,7 @@
     </div>
 
 
-
+<script type="text/javascript" src="afterscript.js" defer onload="accordionFunc(0)"></script>
     
 </body>
 </html>
