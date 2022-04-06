@@ -213,7 +213,7 @@
 
 
 <script type="text/javascript" src="../afterscript.js" defer onload="modalFunc()"></script>
-<script type="text/javascript" src="../afterscript.js" defer onload="accordionFunc(1)"></script>
+<script type="text/javascript" src="../afterscript.js" defer onload="accordionFunc(0, 1)"></script>
 <script>
 const faqFormElement = document.querySelector('#faqForm');
 if(faqFormElement){

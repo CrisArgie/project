@@ -152,7 +152,7 @@
     </div>
 
 
-<script type="text/javascript" src="afterscript.js" defer onload="accordionFunc(0)"></script>
+<script type="text/javascript" src="afterscript.js" defer onload="accordionFunc(0,0)"></script>
     
 </body>
 </html>
