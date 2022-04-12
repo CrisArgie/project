@@ -19,6 +19,7 @@
             <ul class="p-0 m-0 h-100 d-flex justify-content-around">
                 <li class="d-flex align-items-center">
                     <h3> <a> HOME </a> </h3>
+                    
                 </li>
                 <li class="d-flex align-items-center">
                     <h3> <a> ABOUT </a> </h3>
@@ -27,7 +28,7 @@
                     <h3> <a> CONTACT </a> </h3>
                 </li>
                 <li class="d-flex align-items-center ">
-                    <h3> <a href="sign-in.php" class="text-none text-gray-100"> SIGN IN </a> </h3>
+                    <h3> <a href="/login" class="text-none text-gray-100"> SIGN IN </a> </h3>
                 </li>
             </ul>
         </div>

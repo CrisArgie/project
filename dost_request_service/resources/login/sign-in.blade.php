@@ -17,7 +17,7 @@
     <div class="" style="height:100vh; weight:100%; ">
         <div class="row h-100 w-100 justify-content-center">
             <div class="h-50 d-flex justify-content-center m-auto">
-                <section class="row w-30 bg-gray-100 border-radius-1">
+                <section class="row col-xl-4 col-md-5 col-sm-6 bg-gray-100 border-radius-1">
                     <div class="col-xl-12 p-2">
                         <ul class="d-flex flex-column justify-content-around m-0 p-0 h-100">
                             <li class="d-flex justify-content-center">
@@ -36,7 +36,7 @@
                                             <a href="" class="text-1 text-none"> Continue with Google </a> </h4>
                                     </li>
                                     <li class="d-flex justify-content-center">
-                                        <h5 class="f-w-normal"> <a href="log-in.php" class="text-none text-4"> Sign up with email instead </a> </h5>
+                                        <h5 class="f-w-normal"> <a href="/login" class="text-none text-4"> Sign up with email instead </a> </h5>
                                     </li>
                                 </ul>
                             </li>

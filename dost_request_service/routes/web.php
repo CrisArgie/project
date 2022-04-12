@@ -15,14 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-// Route::get('/', [PostController::class, 'index']);
-
-// Route::resource('/', PostController::class);
-
-// Route::get('/frontend', function(){
-//     return "Heelo World";
-// });
-
+Route::get('/login', function () {
+    return view('log-in');
+});

@@ -27,7 +27,7 @@
         <section class="" style="position: relative; width: 50%; float: right; height: 100vh; z-index: 11">
             <div class="h-100 d-flex justify-content-start">
                 <div class="d-flex align-items-center">
-                    <form class="w-60 h-50" action="results.html" method="GET" enctype="multipart/form-data">
+                    <form class="col-xl-8 col-lg-10 col-md-11 pl-0 pr-0 h-50" action="results.html" method="GET" enctype="multipart/form-data">
                         <ul class="row p-2 pt-4 pb-4 m-0 g-2 h-100 bg-gray-200 border-radius-1 my-shadow">
                             <li class="col-xl-12 d-flex align-items-center justify-content-center">
                                 <div class="w-auto m-auto">
@@ -39,7 +39,7 @@
                                     <div class="col-xl-12">
                                         <div class="d-flex justify-content-center">
                                             <h5 class="f-w-normal m-0"> 
-                                                Don't have an account? <a href="registration.php" class="text-none text-4"> Sign up here </a> 
+                                                Don't have an account? <a href="/login" class="text-none text-4"> Sign up here </a> 
                                             </h5>
                                         </div>
                                     </div>

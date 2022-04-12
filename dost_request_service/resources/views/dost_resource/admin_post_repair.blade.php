@@ -86,7 +86,7 @@
             <hr class="sidebar-linebreak">
               <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="admin_about.php" class="sidebar-link-top">
+                    <a href="admin-about.php" class="sidebar-link-top">
                     <img class="sidebar-icon" src="icons/png-files/information.png">
                     <div class="hidden-sidebar">About</div>
                     </a>
