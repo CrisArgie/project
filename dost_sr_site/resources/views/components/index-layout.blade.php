@@ -43,12 +43,18 @@
 
     {{ $slot }}
 
-    <footer class="p-5 bg-gray-400">
-        <div class="row m-0">
+    <footer class="mt-3 p-5 bg-gray-500">
+        <div class="row m-0 g-2">
             <div class="col-xl-12 mb-4">
+                <div class="d-flex justify-content-center mb-2">
+                    <img src="img/DOST_log.png" style="width: 10rem;" alt="DOST-XIII.svg">
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                    
+                    <h3 class="text-hard-black"> Stay in touch with the service that you requested! </h4>
+                </div>
                 <div class="d-flex justify-content-center">
-                    <h3 class="text-dark"> Stay in touch with the service that you requested! </h4>
-
+                    <h6 class="text-dark"> Looking at your request that never been easy </h6>
                 </div>
             </div>
             <div class="col-xl-12 p-0">

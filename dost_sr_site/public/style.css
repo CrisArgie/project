@@ -66,6 +66,14 @@ body {
     gap: 3rem !important;
 }
 
+.text-light-blue {
+    color: var(--color2) !important;
+}
+
+.text-hard-black {
+    color: var(--dark-gray) !important;
+}
+
 h1,
 h2,
 h3,
