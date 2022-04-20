@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Users extends Model
 {
     use HasFactory;
+
+    public function divisions()
+    {
+        return $this->hasMany(Divisions::class);
+    }
 }

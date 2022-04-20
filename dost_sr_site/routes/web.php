@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', [MainController::class, 'fnIndex']);
+Route::get('/log-in', [MainController::class, 'fnLogin']);
+Route::get('/registration', [MainController::class, 'fnRegistration']);
+
+Route::get('/users', function () {
+    return view('dashboard');
 });
