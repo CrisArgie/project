@@ -14,6 +14,8 @@
                         </div>
                     </div>
                     <form class="row" method="POST" enctype="multipart/form-data">
+                        @csrf
+
                         <ul class="row g-3 m-0 p-0">
                             <li class="col-xl-12">
                                 <div class="d-flex justify-content-center">
@@ -21,9 +23,9 @@
                                         <label class="text-hard-black"> Name: </label>
                                         <div class="d-flex g-1">
                                             <label for="registrationFname" hidden></label>
-                                            <input type="text" name="registrationFname" id="registrationFname" class="border-radius-1 w-100 p-2 text-capitalize" placeholder="First Name" required>
+                                            <input type="text" name="registrationFname" id="registrationFname" class="border-radius-1 w-100 p-2 text-capitalize" placeholder="First Name">
                                             <label for="registrationLname" hidden></label>
-                                            <input type="text" name="registrationLname" id="registrationLname" class="border-radius-1 w-100 p-2 text-capitalize" placeholder="Last Name" required>
+                                            <input type="text" name="registrationLname" id="registrationLname" class="border-radius-1 w-100 p-2 text-capitalize" placeholder="Last Name" >
                                         </div>
                                     </div>
                                 </div>
@@ -32,7 +34,7 @@
                                 <div class="d-flex justify-content-center">
                                     <div class="d-flex flex-column w-100">
                                         <label class="text-hard-black" for="reqistrationEmail"> Email: </label>
-                                        <input type="text" name="reqistrationEmail" id="reqistrationEmail" class="border-radius-1 w-100 p-2" required>
+                                        <input type="text" name="reqistrationEmail" id="reqistrationEmail" class="border-radius-1 w-100 p-2" >
                                     </div>
                                 </div>
                             </li>
@@ -41,12 +43,12 @@
                                     <div class="d-flex flex-column g-1 w-100">
                                         <label class="text-hard-black"> Password: </label>
                                         <div class="d-flex align-items-center g-2">
-                                            <input type="password" id="registrationPass" class="border-radius-1 w-100 p-2" required>
+                                            <input type="password" id="registrationPass" class="border-radius-1 w-100 p-2" >
                                             <input type="checkbox" id="chkBoxp1">
                                         </div>
                                         <label class="text-hard-black" for="password"> Re-enter Password: </label>
                                         <div class="d-flex align-items-center g-2">
-                                            <input type="password" name="registrationRepass" id="registrationRepass" class="border-radius-1 w-100 p-2" required>
+                                            <input type="password" name="registrationRepass" id="registrationRepass" class="border-radius-1 w-100 p-2" >
                                             <input type="checkbox" id="chkBoxp2">
                                         </div>
                                     </div>
@@ -69,6 +71,7 @@
                                 </div>
                             </li>
                         </ul>
+
                     </form>
                 </div>
             </div>    

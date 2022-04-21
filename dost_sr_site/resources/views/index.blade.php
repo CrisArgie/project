@@ -12,7 +12,7 @@
                 <h3> <a> CONTACT </a> </h3>
             </li>
             <li class="d-flex align-items-center ">
-                <a href="log-in" class="text-none text-gray-100 p-2 attr-link border-radius-1">
+                <a href="login" class="text-none text-gray-100 p-2 attr-link border-radius-1">
                     <h3>  SIGN IN </h3>
                 </a> 
             </li>

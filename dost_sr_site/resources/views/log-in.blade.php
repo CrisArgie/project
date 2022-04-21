@@ -26,7 +26,7 @@
                                     <div class="col-xl-12"> --}}
                                         <div class="m-auto">
                                             <h6 class="text-hard-black m-0"> 
-                                                Don't have an account? <a href="registration" class="text-none text-4"> Sign up here </a> 
+                                                Don't have an account? <a href="/register" class="text-none text-4"> Sign up here </a> 
                                             </h6>
                                         </div>
                                     {{-- </div> --}}
@@ -49,9 +49,9 @@
                             <li class="col-xl-12 d-flex justify-content-center">
                                 <div class="row w-100">
                                     <div class="col-xl-12 d-flex flex-column justify-content-center align-items-center g-1">
-                                        <input type="text" name="signinEmail" id="signinEmail" class="w-75 p-2 border-radius-1" placeholder="Email" required>
+                                        <input type="text" name="signinEmail" id="signinEmail" class="w-75 p-2 border-radius-1" placeholder="Email" >
                                         <div class="d-flex align-items-center g-2 w-75">
-                                            <input type="password" name="signinPwd" id="signinPwd" class="w-100 p-2 border-radius-1" placeholder="Password" required>
+                                            <input type="password" name="signinPwd" id="signinPwd" class="w-100 p-2 border-radius-1" placeholder="Password" >
                                             <input type="checkbox" id="pwdChkbox">
                                         </div>
                                     </div>

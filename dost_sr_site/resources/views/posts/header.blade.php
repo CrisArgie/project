@@ -1,10 +1,8 @@
-<!-- Header Page  -->
-<header class="header">
-<!-- Left menu buttons -->
-    <div class="left-menu">
+<nav class="position-relative d-flex d-inline-block">
+
+    {{-- <div class="left-menu">
         <img class="menu-logo-item" src="img/DOST_log.png">
     </div>
-<!-- Right menu buttons -->
     <div class="right-menu" >        
         <div class="dropdown" data-dropdown-menu>
             <button class="menu-profile-btn">
@@ -20,5 +18,5 @@
                 </a>
             </div>
         </div>
-    </div>
-</header>
+    </div> --}}
+</nav>
