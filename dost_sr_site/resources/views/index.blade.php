@@ -1,26 +1,50 @@
 <x-index-layout>
 
-    <nav class="index-header-menu">
-        <ul class="p-0 m-0 h-100 d-flex justify-content-around">
-            <li class="d-flex align-items-center">
-                <h3> <a> HOME </a> </h3>
-            </li>
-            <li class="d-flex align-items-center">
-                <h3> <a> ABOUT </a> </h3>
-            </li>
-            <li class="d-flex align-items-center">
-                <h3> <a> CONTACT </a> </h3>
-            </li>
-            <li class="d-flex align-items-center ">
-                <a href="login" class="text-none text-gray-100 p-2 attr-link border-radius-1">
-                    <h3>  SIGN IN </h3>
-                </a> 
-            </li>
-        </ul>
+    <nav class="index-header-menu px-4">
+        <div class="d-flex" style="left: 0;">
+            <a href="#home" class="text-none text-gray-100 p-2 attr-link border-radius-1"> 
+                <h6> HOME </h6> 
+            </a>
+            <a href="#about" class="text-none text-gray-100 p-2 attr-link border-radius-1"> 
+                <h6> ABOUT </h6> 
+            </a>
+            <a href="#contact" class="text-none text-gray-100 p-2 attr-link border-radius-1"> 
+                <h6> CONTACT </h6> 
+            </a>
+        </div>
+        <div class="d-flex align-items-center" style="right: 0;">
+            @auth
+                <span href="/register" class="text-none text-gray-100 p-2 attr-link border-radius-1">
+                    <h6>  Welcome, {{ auth()->user()->first_name }} </h6>
+                </span>
+
+                <form   method="POST" 
+                        action="/logout"
+                        class="m-auto d-flex"
+                >
+                    @csrf
+
+                    <button type="submit" 
+                            class="text-xs font-weight-bold button-style-2 text-primary mx-2"
+                    >
+                        Log out
+                    </button>
+                </form>
+            @else
+                <a href="/register" class="text-none text-gray-100 p-2 attr-link border-radius-1">
+                    <h6>  REGISTER </h6>
+                </a>
+
+                <a href="/login" class="text-none text-gray-100 p-2 attr-link border-radius-1">
+                    <h6>  LOG IN </h6>
+                </a>    
+            @endauth
+        </div>
+
     </nav>
     
     <main class="home-container">
-        <div class="main-container p-4">
+        <div id="home" class="main-container p-4">
             <div class="d-flex justify-content-center">
                 <div class="row g-3 p-4 bg-white border-radius-1 border-shadow-1">
                     <div class="w-100 d-flex justify-content-center">
@@ -33,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="main-container p-4">
+        <div id="about" class="main-container p-4">
             <div class="row justify-content-center g-2">
                 <div class="d-flex align-items-center flex-column bg-white border-radius-1 border-shadow-1 p-4">
                     <h4 class="text-light-blue mb-3"> <b> About </b> </h4>
@@ -41,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="main-container p-4">
+        <div id="contact" class="main-container p-4">
             <div class="row justify-content-center g-2">
                 <div class="d-flex align-items-center flex-column bg-white border-radius-1 border-shadow-1 p-4" style="width: 63rem;">
                     <h4 class="text-light-blue mb-3"> <b> Contact </b> </h4>
@@ -73,4 +97,16 @@
         </div>
     </footer>
 
+    <x-flash/>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
 </x-index-layout>

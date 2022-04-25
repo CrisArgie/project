@@ -49,10 +49,21 @@
                             <li class="col-xl-12 d-flex justify-content-center">
                                 <div class="row w-100">
                                     <div class="col-xl-12 d-flex flex-column justify-content-center align-items-center g-1">
-                                        <input type="text" name="signinEmail" id="signinEmail" class="w-75 p-2 border-radius-1" placeholder="Email" >
+                                        <input  type="text" 
+                                                name="signinEmail" 
+                                                id="signinEmail" 
+                                                class="w-75 p-2 border-radius-1" 
+                                                placeholder="Email" 
+                                        >
                                         <div class="d-flex align-items-center g-2 w-75">
-                                            <input type="password" name="signinPwd" id="signinPwd" class="w-100 p-2 border-radius-1" placeholder="Password" >
-                                            <input type="checkbox" id="pwdChkbox">
+                                            <input  type="password" 
+                                                    name="signinPwd" 
+                                                    id="signinPwd" 
+                                                    class="w-100 p-2 border-radius-1" placeholder="Password" 
+                                            >
+                                            <input  type="checkbox" 
+                                                    id="pwdChkbox"
+                                            >
                                         </div>
                                     </div>
                                 </div>
@@ -72,4 +83,17 @@
             </div>
         </section>
     </main>
+
+<script>
+    chkboxPasswordElement = document.getElementById('pwdChkbox');
+    textPasswordElement = document.getElementById('signinPwd');
+
+    chkboxPasswordElement.onclick = function() {
+        if(chkboxPasswordElement.checked){
+            textPasswordElement.setAttribute('type', 'text')
+        } else {
+            textPasswordElement.setAttribute('type', 'password')
+        }
+    }
+</script>
 </x-index-layout>

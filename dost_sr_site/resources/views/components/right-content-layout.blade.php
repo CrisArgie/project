@@ -22,6 +22,9 @@
     <link href="style.css" rel="stylesheet">
     {{-- <script src="script.js" defer></script> --}}
 
+    {{-- Alpine js --}}
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <!-- High Charts style -->
     {{-- <link rel="stylesheet" type="text/css" href="css/chart.css"> --}}
 

@@ -29,6 +29,9 @@ body {
 }
 
 .index-header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .4);
     background-color: var(--color2);
     color: var(--low-light-gray);
@@ -75,8 +78,17 @@ body {
     cursor: pointer;
 }
 
+.button-style-2 {
+    border: none;
+    border-radius: 1vmin;
+}
+
 .button-style-1:hover {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
+}
+
+.button-style-2:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
 }
 
 .text-1 {
@@ -89,6 +101,16 @@ body {
 .attr-link:hover {
     background-color: var(--color1);
     box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+}
+
+.flash-msg-1 {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--color2);
+    color: white;
+    padding: .5rem 1.5rem;
+    border-radius: 0.35rem;
 }
 
 .text-none {
@@ -123,9 +145,10 @@ body {
     color: var(--dark-gray) !important;
 }
 
-li {
+
+/* li {
     list-style: none;
-}
+} */
 
 h1,
 h2,

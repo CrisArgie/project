@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -17,32 +20,27 @@ class RegisterController extends Controller
     {
         // return request()->all(); // checker
 
-        // $validator = Validator::make($request->all(), [
-        //     'user_type'     => ['required', 'max:255'],
-        //     'first_name'    => ['required', 'max:255'],
-        //     'last_name'     => ['required', 'max:255'],
-        //     'email'         => ['required', 'email', 'max:255'],
-        //     'password'      => ['required', 'min:7', 'max:255'],
-        // ]);
- 
-        // if ($validator->fails()) {
-        //     return redirect('/register')
-        //                 ->withErrors($validator)
-        //                 ->withInput();
-        // }
-
-        // $validated = $validator->validated();
-
-        $attributes = request()->validate([
-            'user_type'     => ['required', 'max:255'],
+        $validator = Validator::make($request->all(), [
             'first_name'    => ['required', 'max:255'],
             'last_name'     => ['required', 'max:255'],
-            'email'         => ['required', 'email', 'max:255'],
+            'email'         => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
             'password'      => ['required', 'min:7', 'max:255'],
         ]);
  
-        Users::create($attributes);
+        if ($validator->fails()) {
+            return redirect('/register')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
-        return redirect('/login');
+        $validated = $validator->validated();
+
+        $user = Users::create($validated);
+
+        Auth::login($user);
+        // auth()->login($users);
+
+        // session()->flash('success', 'Your Account has been created.');
+        return redirect('/')->with('success', 'Your Account has been created.');
     }
 }
