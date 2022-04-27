@@ -1,75 +1,67 @@
-<aside class="sidebar-menu" id="accordionSidebar">
-    {{-- top sidebar --}}
-    <div class="sidebar-menu-items my-1">
-        {{-- button --}}
-        <button class="button-style-2">
-            <img class="sidebar-icon" src="../icons/svg-files/chevron-left.svg" >
-        </button>
+<aside class="sidebar open" data-slider>
+
+    <div class="admin-top-sidebar">
+        <div class="sidebar-list">
+            <button class="button-style-2" data-menu-icon-btn>
+                <img class="sidebar-icon image-chevron">
+            </button>
+        </div>
+        
+        <hr class="hr-linebreak">
+        
+        <div class="sidebar-list">
+            <div class="sidebar-list-item">
+                <a href="" class="sidebar-link active">
+                    <img class="sidebar-icon" src="../icons/svg-files/archive.svg">
+                    <div class="hidden-sidebar">Dashboard</div>
+                </a>
+            </div>
+        </div>
+    </div>            
+    <hr class="hr-linebreak">
+    <div class="middle-sidebar">
+        <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+                <a href="" class="sidebar-link">
+                    <img class="sidebar-icon" src="../icons/svg-files/users.svg">
+                    <div class="hidden-sidebar">Users</div>
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a href="" class="sidebar-link">
+                    <img class="sidebar-icon" src="../icons/svg-files/add-files.svg">
+                    <div class="hidden-sidebar">Requests</div>
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a href="" class="sidebar-link">
+                    <img class="sidebar-icon" src="../icons/svg-files/information.svg">
+                    <div class="hidden-sidebar">About</div>
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="sidebar-menu-items my-1">
-        <a>
-            <img class="sidebar-icon" src="../icons/svg-files/archive.svg" >
-            Dashboard
-        </a>
+
+    <hr class="hr-linebreak">
+
+    <div class="bottom-sidebar">
+
+        <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+                <a href="#" class="sidebar-link">
+                    <img class="sidebar-icon" src="../icons/svg-files/envelope.svg">
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                    <a href="#" class="sidebar-link">
+                    <img class="sidebar-icon" src="../icons/svg-files/world.svg">
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a href="#" class="sidebar-link">
+                    <img class="sidebar-icon" src="../icons/svg-files/facebook-oval.svg">
+                </a>
+            </li>
+        </ul>
     </div>
-    {{-- middle sidebar --}}
-    <ul class="list-unstyled flex-grow-1 g-2">
-        <li>
-            <a href="">
-                <img class="sidebar-icon" src="../icons/svg-files/users.svg" style=" width:34px; height:34px;">
-                Users
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <img class="sidebar-icon" src="../icons/svg-files/add-files.svg" >
-                Requests
-            </a>
-        </li>
-    </ul>
-    {{-- bottom sidebar --}}
-    <ul class="list-unstyled g-2">
-        <li>
-            <a href="">
-                <img class="sidebar-icon" src="../icons/svg-files/information.svg" >
-                About
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <img class="sidebar-icon" src="../icons/svg-files/cog.svg" >
-                Settings
-            </a>
-        </li>
-        <li>
-            <form   method="POST" 
-                    action="/logout"
-                    class=""
-            >
-                @csrf
-                
-                <button type="submit" 
-                        class="button-style-3"
-                >
-                    <img class="sidebar-icon" src="../icons/svg-files/exit.svg" >        
-                    Log out
-                </button>
-            </form>
-        </li>
-        <li>
-            <a class="sidebar-menu-items" href="">
-                <img class="sidebar-icon" src="../icons/svg-files/envelope.svg" alt="" >
-            </a>
-        </li>
-        <li>
-            <a class="sidebar-menu-items" href="">
-                <img class="sidebar-icon" src="../icons/svg-files/world.svg" alt="" >
-            </a>
-        </li>
-        <li>
-            <a class="sidebar-menu-items" href="">
-                <img class="sidebar-icon" src="../icons/svg-files/facebook-oval.svg" alt="" >
-            </a>
-        </li>
-    </ul>
 </aside>

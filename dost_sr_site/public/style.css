@@ -75,12 +75,29 @@ body {
     display: flex;
 }
 
-.sidebar-menu {
+.hr-linebreak {
+    content: "";
+    width: 95%;
+    height: 1px;
+    background-color: var(--light-gray);
+    transform: translate(0%, 0%);
+}
+
+
+/* START SIDEBAR */
+
+.sidebar {
+    min-height: 0;
+}
+
+.sidebar {
     position: sticky;
     flex-shrink: 0;
     overflow: hidden;
-    width: 14rem;
-    height: calc(100vh - 70px);
+    width: 4rem !important;
+    top: 0;
+    left: 0;
+    height: calc(100vh - 70px) !important;
     border-right: 1px solid var(--light-gray);
     display: flex;
     flex-direction: column;
@@ -88,24 +105,194 @@ body {
     align-items: center;
     justify-content: stretch;
     transition: width var(--animation-duration) var(--animation-timing-curve);
-    top: var(--header-height);
-    left: 0;
     background-color: var(--color1);
     z-index: 1;
 }
 
-.sidebar-menu-items {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    padding: 0 1em;
-    color: white;
-    opacity: 80%;
+.sidebar.open .image-chevron {
+    background-image: url('../icons/svg-files/chevron-left.svg');
 }
 
-.sidebar-menu-items:hover {
+.image-chevron {
+    background-image: url('../icons/svg-files/chevron-right.svg');
+}
+
+.sidebar.open {
+    width: 14rem !important;
+}
+
+.sidebar.open .hidden-sidebar {
+    height: auto;
+    opacity: 1;
+}
+
+.sidebar .hidden-sidebar {
+    opacity: 0;
+    overflow-x: hidden;
+    transition: opacity var(--animation-duration) var(--animation-timing-curve);
+}
+
+.sidebar .channel-logo {
+    display: block;
+    width: 30px;
+    height: 30px;
+    transition: var(--animation-duration) var(--animation-timing-curve);
+}
+
+.middle-sidebar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-grow: 1;
+    margin: 1rem 0;
+}
+
+.admin-top-sidebar,
+.top-sidebar,
+.middle-sidebar,
+.bottom-sidebar {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    top: var(--header-height);
+}
+
+.sidebar-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-list .hidden-sidebar {
+    margin-left: 1.5rem;
+    white-space: nowrap;
+}
+
+.top-sidebar .sidebar-link {
+    display: flex;
+    width: auto;
+    padding: .5rem 0;
+    color: var(--lightest-gray);
+    text-decoration: none;
+    align-items: center;
+    padding-left: 25px;
+    opacity: 50%;
+}
+
+.admin-top-sidebar .sidebar-link,
+.middle-sidebar .sidebar-link {
+    display: flex;
+    width: auto;
+    padding: .5rem 0;
+    color: var(--lightest-gray);
+    text-decoration: none;
+    align-items: center;
+    padding-left: 14px;
+    opacity: 50%;
+}
+
+.bottom-sidebar .sidebar-link {
+    display: flex;
+    width: auto;
+    padding: .5rem 0;
+    color: var(--lightest-gray);
+    text-decoration: none;
+    align-items: center;
+    opacity: 50%;
+    justify-content: center;
+}
+
+.bottom-sidebar .sidebar-link-top {
+    display: flex;
+    width: auto;
+    padding: .5rem 0;
+    color: var(--lightest-gray);
+    text-decoration: none;
+    align-items: center;
+    padding-left: 25px;
+    opacity: 50%;
+    overflow-x: hidden;
+}
+
+.sidebar-link-top:hover {
     opacity: 100%;
+}
+
+.sidebar-link:hover {
+    opacity: 100%;
+}
+
+.sidebar-list-item {
+    position: relative;
+    width: 100%;
+    fill: var(--light-gray);
+}
+
+.sidebar-list-item .active {
+    opacity: 100%;
+}
+
+.vertical-line-mark:before {
+    content: "";
+    width: 40%;
+    height: 1px;
+    top: 20px;
+    background: var(--light-gray);
+    transform: translate(-105%, 0%);
+    position: absolute;
+}
+
+.vertical-line-mark:after {
+    content: "";
+    width: 40%;
+    height: 1px;
+    top: 20px;
+    background: var(--light-gray);
+    transform: translate(5%, 0%);
+    position: absolute;
+}
+
+.your-channel {
+    color: var(--dark-gray);
+    font-size: .75rem;
+    font-weight: bold;
+    margin-bottom: .15rem;
+    margin-top: .5rem;
+}
+
+.channel-name {
+    color: var(--medium-gray);
+    font-size: .75rem;
+}
+
+.sidebar .top-sidebar {
+    transition: height var(--animation-duration) var(--animation-timing-curve);
+}
+
+.sidebar.open .top-sidebar {
+    height: 45px;
+}
+
+.sidebar .top-sidebar .hidden-sidebar {
+    width: 100%;
+}
+
+.sidebar .admin-top-sidebar {
+    transition: height var(--animation-duration) var(--animation-timing-curve);
+}
+
+.sidebar.open .admin-top-sidebar {
+    height: 16vh;
+}
+
+.sidebar .admin-top-sidebar .hidden-sidebar {
+    width: 100%;
 }
 
 .sidebar-icon {
@@ -113,6 +300,9 @@ body {
     height: 34px;
     filter: saturate(100%) contrast(100%) brightness(100%) invert(90%) sepia(100%) hue-rotate(180deg);
 }
+
+
+/* END SIDEBAR */
 
 .button-style-1 {
     background-color: var(--color2);

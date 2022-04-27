@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ict_forms', function (Blueprint $table) {
+        Schema::create('area_requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->timestamps();
-            $table->foreignId('type_of_request_id');
-            $table->text('type_request_description');
-            $table->string('status');
+            $table->foreignId('ict_form_id');
+            $table->foreignId('area_of_request_id');
+            $table->text('has_description');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ict_forms');
+        Schema::dropIfExists('area_requests');
     }
 };

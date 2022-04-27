@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Area_of_requests extends Model
 {
     use HasFactory;
+    
+    public $timestamps = false;
 }

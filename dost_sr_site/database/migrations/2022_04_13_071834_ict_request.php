@@ -14,11 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ict_request', function (Blueprint $table) {
-            $table->foreignId('ict_job_id');
-            $table->foreignId('user_id');
+            $table->foreignId('ict_form_id');
             $table->foreignId('equipment_id');
-            $table->foreignId('image_id');
-            $table->foreignId('document_id');
+            $table->foreignId('image_id')->nullable();
+            $table->foreignId('document_id')->nullable();
         });
     }
 

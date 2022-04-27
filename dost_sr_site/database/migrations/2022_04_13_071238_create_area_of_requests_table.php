@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('area_of_requests', function (Blueprint $table) {
             $table->id();
             $table->string('request_title');
-            $table->timestamps();
         });
     }
 
