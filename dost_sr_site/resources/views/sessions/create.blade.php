@@ -1,7 +1,7 @@
 <x-index-layout>
     <div class="min-vh-100 min-vw-100" style="background-color: var(--color1);">
         
-        <div class="container">
+        <div class="container justify-content-center m-auto">
             <div class="row justify-content-center">
                 <div class="col-xl-10 col-lg-12 col-md-9">
                     <div class="card o-hidden border-0 shadow-lg my-5">
@@ -27,6 +27,7 @@
                                                 <input  type="email" 
                                                         id="email"
                                                         name="email"
+                                                        value="{{ old('email') }}"
                                                         class="form-control"
                                                         aria-describedby="emailHelp"
                                                         placeholder="Enter Email Address..."

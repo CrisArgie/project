@@ -26,16 +26,14 @@ class DatabaseSeeder extends Seeder
         //     'division_address'  => 'Brgy X, x City, XXXX'
         // ]);
         
-        $mypassword = bcrypt('HelloWorld');
 
-
-        Users::create([
-            'user_type'     => 'admin',
-            'first_name'    => 'Cris Argie',
-            'last_name'     => 'Ecleo',
-            'email'         => 'crisrgcleo@gmail.com',
-            'password'      => $mypassword,
-        ]);
+        // Users::create([
+        //     'user_type'     => 'admin',
+        //     'first_name'    => 'Cris Argie',
+        //     'last_name'     => 'Ecleo',
+        //     'email'         => 'crisrgcleo@gmail.com',
+        //     'password'      => 'Helloworld',
+        // ]);
         
         Type_of_requests::create([
             'request_title' => 'Repair'

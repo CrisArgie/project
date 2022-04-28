@@ -329,6 +329,26 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
 }
 
+.initial-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    background-color: beige;
+    color: var(--dark-gray);
+}
+
+.initial-profile:hover {
+    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+    animation: slidebg 5s cubic-bezier(0.13, -0.16, 0.55, 0.22) infinite;
+}
+
+@keyframes slidebg {
+    to {
+        background-position: 20vw;
+    }
+}
+
 .text-1 {
     font-weight: bold;
     font-size: 18px;
@@ -349,6 +369,10 @@ body {
     color: white;
     padding: .5rem 1.5rem;
     border-radius: 0.35rem;
+}
+
+.justify-content-evenly {
+    justify-content: space-evenly !important;
 }
 
 .text-none {

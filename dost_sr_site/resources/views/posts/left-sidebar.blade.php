@@ -11,7 +11,7 @@
         
         <div class="sidebar-list">
             <div class="sidebar-list-item">
-                <a href="" class="sidebar-link active">
+                <a href="/admin/dashboard" class="sidebar-link {{ (request()->is('admin/dashboard')) ? 'active' : '' }}">
                     <img class="sidebar-icon" src="../icons/svg-files/archive.svg">
                     <div class="hidden-sidebar">Dashboard</div>
                 </a>
@@ -22,13 +22,13 @@
     <div class="middle-sidebar">
         <ul class="sidebar-list">
             <li class="sidebar-list-item">
-                <a href="" class="sidebar-link">
+                <a href="/admin/users" class="sidebar-link {{ (request()->is('admin/users')) ? 'active' : '' }}">
                     <img class="sidebar-icon" src="../icons/svg-files/users.svg">
                     <div class="hidden-sidebar">Users</div>
                 </a>
             </li>
             <li class="sidebar-list-item">
-                <a href="" class="sidebar-link">
+                <a href="/admin/requests" class="sidebar-link">
                     <img class="sidebar-icon" src="../icons/svg-files/add-files.svg">
                     <div class="hidden-sidebar">Requests</div>
                 </a>

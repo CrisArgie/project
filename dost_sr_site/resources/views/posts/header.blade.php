@@ -15,10 +15,17 @@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{-- <span class="mr-2 d-none d-lg-inline text-gray-600 small">Welcome, {{ auth()->user()->first_name }}</span> --}}
-                    <span class="mr-2 d-none d-lg-inline text-white small">Welcome, FIRST_NAME</span>
-                    <img class="img-profile rounded-circle"
-                        src="../img/undraw_profile.svg">
+                    <span class="mr-2 d-none d-lg-inline text-white small">Welcome, {{ auth()->user()->first_name }}</span>
+                    <span id="lastName" hidden>{{ auth()->user()->last_name }}</span>
+
+                    {{-- <span class="mr-2 d-none d-lg-inline text-white small">Welcome, FIRST_NAME</span> --}}
+
+                    <span   id="profileLastName"
+                            class="img-profile rounded-circle initial-profile"
+                    ></span>
+
+                    {{-- <img class="img-profile rounded-circle"
+                        src="../img/undraw_profile.svg"> --}}
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -64,5 +71,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
+
+    <script>
+        var lastNameElement = document.getElementById('lastName').innerHTML
+        var initialElement = lastNameElement.charAt(0)
+        document.getElementById('profileLastName').innerHTML = initialElement
+    </script>
     
 </nav>

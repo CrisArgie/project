@@ -1,4 +1,4 @@
-<main class="container-fluid py-3">
+<x-main>
     <div class="d-sm-flex align-items-center justify-content-start mb-4">
         <h1 class="h3 mb-0 text-dark font-weight-bolder">Primary Monitoring</h1>
     </div>
@@ -49,14 +49,14 @@
             <div class="row h-100">
                 <div class="col-xl-12  mb-2">
                     <div class="card border-left-success shadow h-100 py-2">
-                        <div class="card-body">
+                        <div class="card-body" style="height: 65vh;">
                             <div class="row mx-0 h-100 align-items-center">
                                 <div class="col-xl-2 h-100 px-0">
-                                    <div class="row mx-0 flex-column align-items-center g-5">
+                                    <div class="row mx-0 flex-column align-items-center justify-content-between h-100">
                                         <div class="h6 text-uppercase">
                                             Total number of request by reports per year
                                         </div>
-                                        <img class="w-25 h-25" src="../icons/svg-files/bubble.svg">
+                                        <img width="64" height="64" src="../icons/svg-files/bar-chart.svg">
                                     </div>
                                 </div>
                                 <div class="col-xl-10 h-100 px-0">
@@ -75,7 +75,7 @@
                 <h1 class="h3 mb-0 text-dark font-weight-bolder">User and Request Monitoring</h1>
             </div>
         </div>
-        <div class="col-xl-6">
+        <div class="col-xl-4 col-md-6">
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -97,13 +97,13 @@
                 </div>
 
                 <div class="card-body">
-                    <ul class="row justify-content-start g-5 list-unstyled mx-0">
-                        <li>
+                    <ul class="row justify-content-evenly g-5 list-unstyled mr-0">
+                        <li class="d-flex flex-column g-4">
                             <div>Completed:</div>
                             <div>In-progress:</div>
                             <div>New:</div>
                         </li>
-                        <li>
+                        <li class="d-flex flex-column g-4">
                             <div>Assigned:</div>
                             <div>Pending:</div>
                         </li>
@@ -111,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-6">
+        <div class="col-xl-8 col-md-6">
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -133,6 +133,16 @@
                 </div>
 
                 <div class="card-body">
+                    <ul class="row justify-content-start g-5 list-unstyled mx-0">
+                        <li class="d-flex flex-column ml-4 g-4">
+                            <div>Completed:</div>
+                            <div>Pending:</div>
+                            <div>Request:</div>
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
                     {{-- <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
                         <canvas id="myAreaChart" style="display: block; height: 320px; width: 782px;" width="977" height="400" class="chartjs-render-monitor"></canvas>
                     </div> --}}
@@ -140,4 +150,4 @@
             </div>
         </div>
     </div>
-</main>
+</x-main>

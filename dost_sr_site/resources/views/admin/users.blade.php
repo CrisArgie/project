@@ -6,7 +6,7 @@
         <section class="content-position">
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
     
-            @include('posts.dashboard') {{-- RIGHT CONTENT WRAPPER --}}
+            @include('posts.users') {{-- RIGHT CONTENT WRAPPER --}}
         </section>
     </main>
 

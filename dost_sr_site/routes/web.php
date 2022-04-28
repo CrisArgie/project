@@ -3,11 +3,17 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'show']);
-Route::get('admin/dashboard', [AdminController::class, 'show']);
+
+
+Route::get('/admin/dashboard', [AdminController::class, 'show'])->middleware('admin');
+Route::get('/admin/users', [UsersController::class, 'show'])->middleware('admin');
+Route::get('/admin/requests', [RequestsController::class, 'show'])->middleware('admin');
 
 
 // LOGIN PAGE 
