@@ -329,6 +329,18 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
 }
 
+.card .card-header[data-toggle=collapse].collapsed::after {
+    content: '	\002B' !important;
+    color: var(--color2);
+    font-size: 32px;
+}
+
+.card .card-header[data-toggle=collapse]::after {
+    content: '\2212' !important;
+    color: var(--color2);
+    font-size: 32px;
+}
+
 .initial-profile {
     display: flex;
     justify-content: center;

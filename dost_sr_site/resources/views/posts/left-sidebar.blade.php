@@ -28,13 +28,13 @@
                 </a>
             </li>
             <li class="sidebar-list-item">
-                <a href="/admin/requests" class="sidebar-link">
+                <a href="/admin/requests" class="sidebar-link {{ (request()->is('admin/requests')) ? 'active' : '' }}">
                     <img class="sidebar-icon" src="../icons/svg-files/add-files.svg">
                     <div class="hidden-sidebar">Requests</div>
                 </a>
             </li>
             <li class="sidebar-list-item">
-                <a href="" class="sidebar-link">
+                <a href="/admin/abouts" class="sidebar-link {{ (request()->is('admin/abouts')) ? 'active' : '' }}">
                     <img class="sidebar-icon" src="../icons/svg-files/information.svg">
                     <div class="hidden-sidebar">About</div>
                 </a>

@@ -11,7 +11,7 @@
                     </button>
                 </div>
                 <div class="col-xl-12 col-md-4 col-sm-12 my-2">
-                    <button class="rounded btn btn-secondary w-100">
+                    <button class="rounded btn btn-primary w-100">
                         + ICT job Request
                     </button>
                 </div>
