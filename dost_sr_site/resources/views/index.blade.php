@@ -14,18 +14,18 @@
         </div>
         <div class="d-flex align-items-center" style="right: 0;">
             @auth
-                <span href="/register" class="text-none text-gray-100 p-2 attr-link border-radius-1">
-                    <h6>  Welcome, {{ auth()->user()->first_name }} </h6>
-                </span>
-
                 <form   method="POST" 
                         action="/logout"
                         class="m-auto d-flex"
                 >
                     @csrf
 
+                    <span href="/register" class="d-flex align-items-center mx-2">
+                        <h6>  Welcome, {{ auth()->user()->first_name }} </h6>
+                    </span>
+
                     <button type="submit" 
-                            class="text-xs font-weight-bold button-style-2 text-primary mx-2"
+                            class="btn-link-1 border-radius-1"
                     >
                         Log out
                     </button>
@@ -61,7 +61,7 @@
             <div class="row justify-content-center g-2">
                 <div class="d-flex align-items-center flex-column bg-white border-radius-1 border-shadow-1 p-4">
                     <h4 class="text-light-blue mb-3"> <b> About </b> </h4>
-                    <img src="img/flowchart-drawio.svg" style="width: 60rem" alt="request-flowchart.svg">
+                    <img src="img/flowchart-request.svg" style="width: 60rem" alt="request-flowchart.svg">
                 </div>
             </div>
         </div>
@@ -88,11 +88,11 @@
                     <h6 class="text-dark"> Looking at your request that never been easy </h6>
                 </div>
             </div>
-            <div class="col-xl-12 p-0">
+            {{-- <div class="col-xl-12 p-0">
                 <div class="d-flex justify-content-center">
                     <input placeholder="Email"> 
                     <button> SUBSCRIBE </button>
-                </div>
+                </div> --}}
             </div>
         </div>
     </footer>

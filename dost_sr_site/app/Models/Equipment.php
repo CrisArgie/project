@@ -9,5 +9,6 @@ class Equipment extends Model
 {
     use HasFactory;
 
+    
     public $timestamps = false;
 }

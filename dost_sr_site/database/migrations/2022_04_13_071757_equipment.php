@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('equipment', function (Blueprint $table) {
             $table->id();
             $table->string('serial_no')->unique();
-            $table->integer('property_no')->unique();
+            $table->string('property_no')->unique();
             $table->string('brand_model');
         });
     }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Repair_request extends Model
+class RepairRequest extends Model
 {
     use HasFactory;
 }

@@ -29,10 +29,17 @@ class SessionsController extends Controller
             ]);            
         }
 
-
         // redirect with a success flash message
         session()->regenerate();
-        return redirect('admin/dashboard')->with('success', 'Welcome Back!');
+        
+        if(request()->user()->user_type == "customer"){
+            return redirect('/')->with('success', 'Welcome Back!');
+        }
+        else if(request()->user()->user_type == "admin")
+        {
+            return redirect('admin/dashboard')->with('success', 'Welcome Back!');
+        }
+
     }
 
     public function destroy()

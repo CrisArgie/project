@@ -21,8 +21,8 @@ return new class extends Migration
             $table->text('location');
             $table->date('acquisition_date');
             $table->integer('acquisition_cost');
-            $table->text('problem_encountered');
-            $table->text('corrective_action_performed');
+            $table->text('problem_encountered')->nullable();
+            $table->text('corrective_action_performed')->nullable();
             $table->timestamps();
             $table->foreignId('user_id');
             $table->foreignId('equipment_id');

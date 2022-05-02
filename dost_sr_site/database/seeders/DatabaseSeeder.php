@@ -6,10 +6,12 @@ namespace Database\Seeders;
 
 use App\Models\Area_of_requests;
 use App\Models\Divisions;
+use App\Models\Equipment;
+use App\Models\IctForms;
+use App\Models\IctRequest;
 use App\Models\Type_of_requests;
 use App\Models\Users;
 use Illuminate\Database\Seeder;
-
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,16 +27,18 @@ class DatabaseSeeder extends Seeder
         //     'division_name'     => '1st Division',
         //     'division_address'  => 'Brgy X, x City, XXXX'
         // ]);
-        
 
-        // Users::create([
-        //     'user_type'     => 'admin',
-        //     'first_name'    => 'Cris Argie',
-        //     'last_name'     => 'Ecleo',
-        //     'email'         => 'crisrgcleo@gmail.com',
-        //     'password'      => 'Helloworld',
-        // ]);
-        
+
+        Users::factory()->create([
+            'user_type' => 'admin',
+            'first_name' => 'Cris Argie',
+            'last_name' => 'Ecleo',
+            'email' => 'crisrgcleo@gmail.com',
+            'password' => 'HelloWorld',
+        ]);
+
+
+
         Type_of_requests::create([
             'request_title' => 'Repair'
         ]);
@@ -87,5 +91,12 @@ class DatabaseSeeder extends Seeder
         Area_of_requests::create([
             'request_title' => 'USB Device'
         ]);
+
+        Users::factory(5)->create();
+        Equipment::factory(10)->create();
+
+        IctForms::factory(4)->create();
+
+        IctRequest::factory(4)->create();
     }
 }
