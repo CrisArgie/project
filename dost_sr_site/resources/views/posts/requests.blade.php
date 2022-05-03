@@ -74,22 +74,22 @@
             <div class="card-body">
                 <div class="row mx-0">
                     <div class="col-xl-3 my-2">
-                        <a href="/repair-request" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/admin/requests/repair-request" class="rounded btn btn-primary w-100 text-uppercase">
                             Repair Request
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="/ict-request" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/admin/requests/ict-request" class="rounded btn btn-primary w-100 text-uppercase">
                             ICT job Request
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="pre-request" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/admin/requests/pre-inspection" class="rounded btn btn-primary w-100 text-uppercase">
                             Pre-repair Request
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="post-request" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/admin/requests/post-inspection" class="rounded btn btn-primary w-100 text-uppercase">
                             Post repair Request
                         </a>
                     </div>

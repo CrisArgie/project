@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Area_of_requests extends Model
+class PostInspections extends Model
 {
     use HasFactory;
-    
-    public $timestamps = false;
 }

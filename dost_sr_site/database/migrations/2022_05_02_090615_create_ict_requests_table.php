@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ict_request', function (Blueprint $table) {
+        Schema::create('ict_requests', function (Blueprint $table) {
             $table->foreignId('ict_form_id');
             $table->foreignId('equipment_id');
             $table->foreignId('image_id')->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ict_request');
+        Schema::dropIfExists('ict_requests');
     }
 };

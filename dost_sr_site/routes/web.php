@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RepairRequestsController;
 use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UsersController;
@@ -18,7 +19,7 @@ Route::get('/admin/requests', [RequestsController::class, 'show'])->middleware('
 Route::get('/admin/abouts', [AboutsController::class, 'show'])->middleware('admin');
 
 
-// LOGIN PAGE 
+// LOGIN PAGE
 Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('/sessions', [SessionsController::class, 'store'])->middleware('guest');
 
@@ -31,3 +32,5 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 
+// REQUESTS
+Route::get('/admin/requests/repair-request', [RepairRequestsController::class, 'show'])->middleware('admin');

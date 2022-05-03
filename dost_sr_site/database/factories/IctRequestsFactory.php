@@ -2,16 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Documents;
 use App\Models\Equipment;
 use App\Models\IctForms;
-use App\Models\Images;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\IctRequest>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\IctRequests>
  */
-class IctRequestFactory extends Factory
+class IctRequestsFactory extends Factory
 {
     /**
      * Define the model's default state.

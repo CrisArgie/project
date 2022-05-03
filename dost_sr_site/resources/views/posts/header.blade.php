@@ -4,7 +4,7 @@
         {{-- <img class="menu-logo-item" src="../img/DOST_log.png"> --}}
         <a class="sidebar-brand d-flex align-items-center justify-content-center text-decoration-none" href="dashboard">
             <div class="sidebar-brand-icon mx-3">
-                <img class="" src="../img/DOST_log.png" style="width: 24px; height: 24px;">
+                <img class="" src="/img/DOST_log.png" style="width: 24px; height: 24px;">
             </div>
             <div class="text-white" style=""> DOST CARAGA </div>
         </a>
@@ -43,13 +43,13 @@
                         Activity Log
                     </a> --}}
                     <div class="dropdown-divider"></div>
-                    <form   method="POST" 
+                    <form   method="POST"
                             action="/logout"
                             class=""
                     >
                         @csrf
-                        
-                        <button type="submit" 
+
+                        <button type="submit"
                                 class="dropdown-item button-style-2"
                         >
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -63,19 +63,19 @@
     </nav>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
 
     <script>
         var lastNameElement = document.getElementById('lastName').innerHTML
         var initialElement = lastNameElement.charAt(0)
         document.getElementById('profileLastName').innerHTML = initialElement
     </script>
-    
+
 </nav>

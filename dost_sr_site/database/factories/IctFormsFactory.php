@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Type_of_requests;
+use App\Models\TypeOfRequests;
 use App\Models\Users;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,7 +20,7 @@ class IctFormsFactory extends Factory
      */
     public function definition()
     {
-        $varId = Type_of_requests::all()->random()->id;
+        $varId = TypeOfRequests::all()->random()->id;
         $sentence1 = 'none';
         if($varId == '3') {
             $sentence1 = $this->faker->sentence;

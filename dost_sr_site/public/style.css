@@ -304,6 +304,10 @@ body {
 
 /* END SIDEBAR */
 
+.bg-heading-color-1 {
+    background-color: var(--color2) !important;
+}
+
 .button-style-1 {
     background-color: var(--color2);
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
@@ -396,6 +400,11 @@ body {
     border-radius: 0.35rem;
 }
 
+.input-design-1 {
+    border: 2px solid var(--light-gray) !important;
+    border-radius: 0.2rem !important;
+}
+
 .justify-content-evenly {
     justify-content: space-evenly !important;
 }
@@ -453,3 +462,11 @@ h6 {
 .border-shadow-1 {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4) !important;
 }
+
+.disabling-input {
+    pointer-events: none !important;
+}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 1200px) {}
