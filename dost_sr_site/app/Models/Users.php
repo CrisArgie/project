@@ -3,20 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Users extends Authenticatable
 {
     use HasFactory;
-
-    // protected $fillable = [
-    //     'user_type',
-    //     'first_name',
-    //     'last_name',
-    //     'email',
-    //     'password',
-    // ];
 
     protected $attributes = [
         'user_type' => 'customer'
@@ -29,14 +20,25 @@ class Users extends Authenticatable
     ];
 
 
-    // mutator
+    // MUTATOR
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
     }
 
+    //RELATIONSHIPS
+    public function ictforms()
+    {
+        return $this->hasMany(IctForms::class);
+    }
+
+    public function repairrequest()
+    {
+        return $this->hasMany(RepairRequest::class);
+    }
+
     public function divisions()
     {
-        return $this->hasMany(Divisions::class);
+        return $this->belongsto(Divisions::class);
     }
 }

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('problem_encountered')->nullable();
             $table->text('corrective_action_performed')->nullable();
             $table->timestamps();
-            $table->foreignId('user_id');
+            $table->foreignId('users_id');
             $table->foreignId('equipment_id');
             $table->string('status');
         });

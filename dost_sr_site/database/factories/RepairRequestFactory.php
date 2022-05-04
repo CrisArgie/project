@@ -25,7 +25,7 @@ class RepairRequestFactory extends Factory
             'location'                      => $this->faker->address,
             'acquisition_date'              => $this->faker->date,
             'acquisition_cost'              => '10000',
-            'user_id'                       => Users::factory(),
+            'users_id'                      => Users::factory(),
             'equipment_id'                  => Equipment::factory(),
             'status'                        => 'in-progress',
         ];

@@ -26,8 +26,8 @@ class IctFormsFactory extends Factory
             $sentence1 = $this->faker->sentence;
         }else ;
         return [
-            'user_id' => Users::all()->random()->id,
-            'type_of_request_id' => $varId,
+            'users_id' => Users::all()->random()->id,
+            'type_of_requests_id' => $varId,
             'type_request_description' => $sentence1,
             'status'                    => 'in-progress',
         ];

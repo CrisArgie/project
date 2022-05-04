@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('payable_account');
             $table->text('recommendation');
             $table->timestamps();
-            $table->foreignId('pre_request_id');
+            $table->foreignId('pre_repair_inspections_id');
             $table->string('status');
         });
     }

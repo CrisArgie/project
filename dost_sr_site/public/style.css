@@ -304,6 +304,10 @@ body {
 
 /* END SIDEBAR */
 
+.icon-white {
+    filter: saturate(100%) contrast(100%) brightness(100%) invert(90%) sepia(100%) hue-rotate(180deg);
+}
+
 .bg-heading-color-1 {
     background-color: var(--color2) !important;
 }

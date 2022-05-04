@@ -11,11 +11,9 @@ class IctRequests extends Model
 
 
     public $timestamps = false;
-    // ict_job_id
-    // equipment_id
-    // image_id
-    // document_id
-    public function ictforms()
+
+
+    public function ict_forms()
     {
         return $this->hasMany(IctForms::class);
     }

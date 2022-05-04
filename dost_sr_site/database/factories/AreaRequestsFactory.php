@@ -25,8 +25,8 @@ class AreaRequestsFactory extends Factory
             $hasArea = $this->faker->paragraph;
         } else { $hasArea = ''; }
         return [
-            'ict_form_id'           => $ictId,
-            'area_of_request_id'    => $areaId,
+            'ict_forms_id'           => $ictId,
+            'area_of_requests_id'    => $areaId,
             'has_description'       => $hasArea,
         ];
     }

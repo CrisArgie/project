@@ -10,4 +10,10 @@ class TypeOfRequests extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+
+    public function ictforms()
+    {
+        return $this->hasMany(IctForms::class);
+    }
 }

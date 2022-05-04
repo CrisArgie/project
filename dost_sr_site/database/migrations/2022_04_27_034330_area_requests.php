@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('area_requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ict_form_id');
-            $table->foreignId('area_of_request_id');
+            $table->foreignId('ict_forms_id');
+            $table->foreignId('area_of_requests_id');
             $table->text('has_description');
         });
     }

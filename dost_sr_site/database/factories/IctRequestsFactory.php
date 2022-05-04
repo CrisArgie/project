@@ -23,7 +23,7 @@ class IctRequestsFactory extends Factory
 
         if($ictId != null && $eqptId != null){
             return [
-                'ict_form_id' => $ictId,
+                'ict_forms_id' => $ictId,
                 'equipment_id' => $eqptId,
             ];
         }

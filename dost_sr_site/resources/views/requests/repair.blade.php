@@ -87,42 +87,62 @@
                                             </div>
                                         </section>
                                     </div>
-                                    <hr class="text-gray-900">
+                                    <hr class="mb-2">
                                     <div class="row mx-0">
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-6 mt-2">
                                             <div class="d-flex flex-column">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Problem Encountered:</label>
-                                                <textarea class="input-design-1" name="" id="" cols="30" rows="8" placeholder="Type here..."></textarea>
+                                                <textarea class="input-design-1" name="" id="" cols="30" rows="7.5" placeholder="Type here..."></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6">
-                                            <div class="d-flex flex-column">
+                                        <div class="col-xl-6 mt-2">
+                                            <div class="d-flex flex-column ">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Corrective Action Performed:</label>
-                                                <textarea class="input-design-1" name="" id="" cols="30" rows="8" placeholder="Type here..."></textarea>
+                                                <textarea class="input-design-1" name="" id="" cols="30" rows="7.5" placeholder="Type here..."></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
-                        <section class="col-xl-1 py-2">
+                        <section class="col-xl-1 pt-4 px-0">
                             <div class="row mx-0 h-100">
-                                <div class="col-xl-12 col-md-4 p-0">
+                                <div class="col-xl-12 col-md-4 px-0 p-1">
                                     <div class="d-flex justify-content-center">
                                         <button type="button" onclick="window.history.back()"
-                                            class="btn btn-warning btn-circle">
-                                            <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
-                                                alt="Return to Previous page">
+                                            class="btn btn-danger">
+                                            <img    src="/icons/svg-files/chevron-left.svg" width="16" height="16"
+                                                    alt="Return to Previous page"
+                                                    class="icon-white"
+                                            >
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-xl-12 col-md-8 p-0">
+                                <div class="col-xl-auto col-md-8 p-0">
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
-                                        <button>print</button>
-                                        <button>save</button>
-                                        <button>done</button>
+                                        <div class="row mx-0">
+                                            <div class="col-xl-12 col-md-4 p-1">
+                                                <button class="btn btn-primary text-capitalize w-100">
+                                                    <div class="row mx-0 justify-content-center align-content-center">
+                                                        <img    src="/icons/svg-files/printer.svg"
+                                                                width="24"
+                                                                height="24"
+                                                                alt="Printer.svg"
+                                                                class="icon-white col-xl-12 col-md-4 p-0"
+                                                        >
+                                                        <div class="col-xl-12 col-md-8 px-1">print</div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                            <div class="col-xl-12 col-md-4 p-1">
+                                                <button class="btn btn-primary text-capitalize w-100">save</button>
+                                            </div>
+                                            <div class="col-xl-12 col-md-4 p-1">
+                                                <button class="btn btn-success text-capitalize w-100">done</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

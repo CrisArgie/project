@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('mature_of_latest_repair');
             $table->text('pre_repair_assessment_done');
             $table->timestamps();
-            $table->foreignId('request_id');
+            $table->foreignId('repair_requests_id');
             $table->string('status');
         });
     }
