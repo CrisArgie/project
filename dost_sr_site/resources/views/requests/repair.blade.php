@@ -6,6 +6,11 @@
         <section class="content-position">
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
 
+
+            @php
+                $post = $repair_request->first()
+            @endphp
+
             <x-main>
                 <form action="" method="" enctype="multipart/form-data">
                     <div class="row mx-0">
@@ -18,7 +23,7 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         No.: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
+                                                    <input value="{{ $post->request_no }}" type="text" class="input-design-1" readonly
                                                         tabindex="-1">
                                                 </div>
                                             </div>

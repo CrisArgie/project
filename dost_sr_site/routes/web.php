@@ -4,6 +4,8 @@ use App\Http\Controllers\AboutsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ICTRequestsController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PostInspectionsController;
+use App\Http\Controllers\PreInspectionsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RepairRequestsController;
 use App\Http\Controllers\RequestsController;
@@ -36,6 +38,9 @@ Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth
 // REQUESTS
 Route::get('/admin/requests/repair-request', [RepairRequestsController::class, 'show'])->middleware('admin');
 Route::get('/admin/requests/ict-request', [ICTRequestsController::class, 'show'])->middleware('admin');
+Route::get('/admin/requests/pre-inspection', [PreInspectionsController::class, 'show'])->middleware('admin');
+Route::get('/admin/requests/post-inspection', [PostInspectionsController::class, 'show'])->middleware('admin');
+
 
 
 

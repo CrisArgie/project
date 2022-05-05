@@ -14,40 +14,28 @@
 
         @if (Auth::user()->user_type == 'admin')
             <div class="mx-2 mb-3">
-                <button class="btn btn-primary font-weight-bold text-uppercase">Add FAQ</button>
-                <button class="btn btn-danger font-weight-bold text-uppercase">Delete FAQ</button>
-            </div>            
+                <button type="button" class="btn btn-primary font-weight-bold text-uppercase"
+                    data-modal-target="#faqModal">
+                    Add FAQ
+                </button>
+                <button type="button" class="btn btn-danger font-weight-bold text-uppercase"
+                    data-modal-target="#faqDltModal">
+                    Delete FAQ
+                </button>
+            </div>
         @endif
 
     </div>
-    <section style="height: 70vh">
-        <div class="card rounded-0 shadow-none border-bottom-dark mb-4 animated--grow-in">
-            <!-- Card Header - Accordion -->
-            <a href="#collapseCard1" class="d-block card-header py-3 collapsed bg-gray-200" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCard1">
-                <h6 class="m-0 font-weight-bold text-gray-600">Collapsable Card Example</h6>
-            </a>
-            <!-- Card Content - Collapse -->
-            <div class="collapse" id="collapseCard1" style="">
-                <div class="card-body  animated--grow-in">
-                    This is a collapsable card example using Bootstrap's built in collapse
-                    functionality. <strong>Click on the card header</strong> to see the card body
-                    collapse and expand!
+    <section class="h-auto">
+        <div x-data="{ comments: JSON.parse(localStorage.getItem('faqsComments')) }">
+            <template x-for="comment1 in comments">
+                <div class="card rounded-0 shadow-none border-bottom-dark mb-2 animated--grow-in">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-gray-600" x-text="comment1.question"></h6>
+                    </div>
+                    <div class="card-body  animated--grow-in" x-text="comment1.answer"> </div>
                 </div>
-            </div>
-        </div>
-        <div class="card rounded-0 shadow-none border-bottom-dark mb-4 animated--grow-in">
-            <!-- Card Header - Accordion -->
-            <a href="#collapseCardExample" class="d-block card-header py-3 collapsed bg-gray-200" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
-                <h6 class="m-0 font-weight-bold text-gray-600">Collapsable Card Example</h6>
-            </a>
-            <!-- Card Content - Collapse -->
-            <div class="collapse" id="collapseCardExample" style="">
-                <div class="card-body  animated--grow-in">
-                    This is a collapsable card example using Bootstrap's built in collapse
-                    functionality. <strong>Click on the card header</strong> to see the card body
-                    collapse and expand!
-                </div>
-            </div>
+            </template>
         </div>
     </section>
 </x-main>

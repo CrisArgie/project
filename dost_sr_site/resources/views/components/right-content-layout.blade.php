@@ -66,6 +66,7 @@ document.addEventListener("click", e => {
     })
 })
 </script>
+
 {{-- <script type="text/javascript" src="scripts/chart-js/charts.js"></script> --}}
 </body>
 </html>
