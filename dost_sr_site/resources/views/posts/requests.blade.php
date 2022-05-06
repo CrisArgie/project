@@ -6,19 +6,19 @@
         <div class="col-xl-2 col-md-12 mb-2">
             <div class="row mx-0 align-items-center">
                 <div class="col-xl-12 col-md-4 col-sm-12 my-2">
-                    <button class="rounded btn btn-primary w-100">
+                    <a href="/admin/requests/request-for-repair" class="rounded btn btn-primary w-100">
                         + Repair Request
-                    </button>
+                    </a>
                 </div>
                 <div class="col-xl-12 col-md-4 col-sm-12 my-2">
-                    <button class="rounded btn btn-primary w-100">
+                    <a href="" class="rounded btn btn-primary w-100">
                         + ICT job Request
-                    </button>
+                    </a>
                 </div>
                 <div class="col-xl-12 col-md-4 col-sm-12 my-2">
-                    <button class="rounded btn btn-primary w-100">
+                    <a href="" class="rounded btn btn-primary w-100">
                         Generate Report
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

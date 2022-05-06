@@ -15,13 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'show']);
 
-
-Route::get('/admin/dashboard', [AdminController::class, 'show'])->middleware('admin');
-Route::get('/admin/users', [UsersController::class, 'show'])->middleware('admin');
-Route::get('/admin/requests', [RequestsController::class, 'show'])->middleware('admin');
-Route::get('/admin/abouts', [AboutsController::class, 'show'])->middleware('admin');
-
-
 // LOGIN PAGE
 Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('/sessions', [SessionsController::class, 'store'])->middleware('guest');
@@ -34,17 +27,21 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 // LOGOUT
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-
 // REQUESTS
+Route::get('/{name}/requests/request-for-repair', [RepairRequestsController::class, 'index']);
+
+
+
+// REQUESTS FOR ADMIN
 Route::get('/admin/requests/repair-request', [RepairRequestsController::class, 'show'])->middleware('admin');
 Route::get('/admin/requests/ict-request', [ICTRequestsController::class, 'show'])->middleware('admin');
 Route::get('/admin/requests/pre-inspection', [PreInspectionsController::class, 'show'])->middleware('admin');
 Route::get('/admin/requests/post-inspection', [PostInspectionsController::class, 'show'])->middleware('admin');
 
-
-
-
-
+Route::get('/admin/dashboard', [AdminController::class, 'show'])->middleware('admin');
+Route::get('/admin/requests', [RequestsController::class, 'show'])->middleware('admin');
+Route::get('/admin/abouts', [AboutsController::class, 'show'])->middleware('admin');
+Route::get('/admin/users', [UsersController::class, 'show'])->middleware('admin');
 
 
 

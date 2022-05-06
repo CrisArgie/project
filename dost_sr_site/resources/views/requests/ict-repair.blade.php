@@ -170,7 +170,7 @@
                                             <div class="row align-items-center mx-0 mb-3">
                                                 <input type="checkbox" name="" id="">
                                                 <label for="" class="mb-0 mx-2 text-gray-900 text-capitalize"> USB Device: </label>
-                                                <div class="col-xl-12">
+                                                    <div class="col-xl-12">
                                                     <textarea class="input-design-1" name="" id="" rows="4" style="width: 100%"></textarea>
                                                 </div>
                                             </div>

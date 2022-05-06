@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller
-{ 
+{
 
     public function create()
     {
@@ -26,19 +26,21 @@ class SessionsController extends Controller
             // auth failed
             throw ValidationException::withMessages([
                 'email' => 'Your provided credentials could not be verified.'
-            ]);            
+            ]);
         }
 
         // redirect with a success flash message
         session()->regenerate();
-        
-        if(request()->user()->user_type == "customer"){
-            return redirect('/')->with('success', 'Welcome Back!');
-        }
-        else if(request()->user()->user_type == "admin")
-        {
-            return redirect('admin/dashboard')->with('success', 'Welcome Back!');
-        }
+
+        return redirect(auth()->user()->user_type.'/dashboard')->with('success', 'Welcome Back!');
+
+        // if(request()->user()->user_type == "customer"){
+        //     return redirect('users/user')->with('success', 'Welcome Back!');
+        // }
+        // else if(request()->user()->user_type == "admin")
+        // {
+        //     return redirect('admin/dashboard')->with('success', 'Welcome Back!');
+        // }
 
     }
 

@@ -33,7 +33,7 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         Date: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
+                                                    <input value="{{ $post->date_requested }}" type="text" class="input-design-1" readonly
                                                         tabindex="-1">
                                                 </div>
                                             </div>
@@ -51,25 +51,25 @@
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Desciption of Property Type:</label>
-                                                <input value="" type="text" class="input-design-1 w-100" readonly
+                                                <input value="{{ $post->description_of_property_type }}" type="text" class="input-design-1 w-100" readonly
                                                     tabindex="-1">
                                             </div>
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Serial/Engine No.:</label>
-                                                <input value="" type="text" class="input-design-1 w-100" readonly
+                                                <input value="{{ $post->equipment->serial_no }}" type="text" class="input-design-1 w-100" readonly
                                                     tabindex="-1">
                                             </div>
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Acquisition Date:</label>
-                                                <input value="" type="text" class="input-design-1 w-100" readonly
+                                                <input value="{{ $post->acquisition_date }}" type="text" class="input-design-1 w-100" readonly
                                                     tabindex="-1">
                                             </div>
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Location:</label>
-                                                <input value="" type="text" class="input-design-1 w-100" readonly
+                                                <input value="{{ $post->location }}" type="text" class="input-design-1 w-100" readonly
                                                     tabindex="-1">
                                             </div>
                                         </section>
@@ -77,17 +77,17 @@
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Brand Model:</label>
-                                                <input type="text" class="input-design-1 w-100" readonly tabindex="-1">
+                                                <input value="{{ $post->equipment->brand_model }}" type="text" class="input-design-1 w-100" readonly tabindex="-1">
                                             </div>
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Property No.:</label>
-                                                <input type="text" class="input-design-1 w-100" readonly tabindex="-1">
+                                                <input value="{{ $post->equipment->property_no }}" type="text" class="input-design-1 w-100" readonly tabindex="-1">
                                             </div>
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Acquisition Cost:</label>
-                                                <input value="" type="text" class="input-design-1 w-100" readonly
+                                                <input value="{{ $post->acquisition_cost }}" type="text" class="input-design-1 w-100" readonly
                                                     tabindex="-1">
                                             </div>
                                         </section>
@@ -96,16 +96,16 @@
                                     <div class="row mx-0">
                                         <div class="col-xl-6 mt-2">
                                             <div class="d-flex flex-column">
-                                                <label for="" class="mb-0 text-gray-900 text-capitalize">
+                                                <label for="problem_encountered" class="mb-0 text-gray-900 text-capitalize">
                                                     Problem Encountered:</label>
-                                                <textarea class="input-design-1" name="" id="" cols="30" rows="7.5" placeholder="Type here..."></textarea>
+                                                <textarea class="input-design-1" name="problem_encountered" id="problem_encountered" cols="30" rows="7.5" placeholder="Type here..."></textarea>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 mt-2">
                                             <div class="d-flex flex-column ">
-                                                <label for="" class="mb-0 text-gray-900 text-capitalize">
+                                                <label for="corrective_action_performed" class="mb-0 text-gray-900 text-capitalize">
                                                     Corrective Action Performed:</label>
-                                                <textarea class="input-design-1" name="" id="" cols="30" rows="7.5" placeholder="Type here..."></textarea>
+                                                <textarea class="input-design-1" name="corrective_action_performed" id="corrective_action_performed" cols="30" rows="7.5" placeholder="Type here..."></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100">
+                                                <button type="button" class="btn btn-primary text-capitalize w-100">
                                                     <div class="row mx-0 justify-content-center align-content-center">
                                                         <img    src="/icons/svg-files/printer.svg"
                                                                 width="24"
@@ -142,10 +142,10 @@
                                                 </button>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100">save</button>
+                                                <button type="button" class="btn btn-primary text-capitalize w-100">save</button>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-success text-capitalize w-100">done</button>
+                                                <button type="submit" class="btn btn-success text-capitalize w-100">done</button>
                                             </div>
                                         </div>
                                     </div>
