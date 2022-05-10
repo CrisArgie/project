@@ -32,7 +32,7 @@ class SessionsController extends Controller
         // redirect with a success flash message
         session()->regenerate();
 
-        return redirect(auth()->user()->user_type.'/dashboard')->with('success', 'Welcome Back!');
+        return redirect('/dashboard')->with('success', 'Welcome Back!');
 
         // if(request()->user()->user_type == "customer"){
         //     return redirect('users/user')->with('success', 'Welcome Back!');

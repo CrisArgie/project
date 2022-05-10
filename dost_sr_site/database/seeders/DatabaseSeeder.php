@@ -10,6 +10,8 @@ use App\Models\Divisions;
 use App\Models\Equipment;
 use App\Models\IctForms;
 use App\Models\IctRequests;
+use App\Models\PostRepairInspections;
+use App\Models\PreRepairInspections;
 use App\Models\RepairRequest;
 use App\Models\TypeOfRequests;
 use App\Models\Users;
@@ -103,6 +105,9 @@ class DatabaseSeeder extends Seeder
         IctRequests::factory(20)->create();
         AreaRequests::factory(15)->create();
 
+        PreRepairInspections::factory(5)->create();
+
+        PostRepairInspections::factory(5)->create();
 
     }
 }

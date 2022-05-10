@@ -19,7 +19,7 @@ class RepairRequestFactory extends Factory
     public function definition()
     {
         return [
-            'date_requested'                => now(),
+            'date_requested'                => date('Y-m-d'),
             'request_no'                    => random_int(1000, 99999),
             'description_of_property_type'  => $this->faker->paragraph,
             'location'                      => $this->faker->address,
@@ -27,7 +27,7 @@ class RepairRequestFactory extends Factory
             'acquisition_cost'              => '10000',
             'users_id'                      => Users::factory(),
             'equipment_id'                  => Equipment::factory(),
-            'status'                        => 'in-progress',
+            'status'                        => 'pending',
         ];
     }
 }

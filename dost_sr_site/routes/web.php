@@ -27,21 +27,28 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 // LOGOUT
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-// REQUESTS
-Route::get('/{name}/requests/request-for-repair', [RepairRequestsController::class, 'index']);
+// REQUESTS REPAIR
+Route::get('/requests/repair-request/{id}', [RepairRequestsController::class, 'index'])->middleware('auth');
+Route::get('/request-for-repair', [RepairRequestsController::class, 'show'])->middleware('auth');
+Route::post('/request-for-repair', [RepairRequestsController::class, 'create'])->middleware('auth');
+Route::patch('/requests/repair-request/{id}', [RepairRequestsController::class, 'update'])->middleware('auth');
+
+
+// REQUEST ICT
+Route::get('/requests/repair-ict-request', [ICTRequestsController::class, 'index'])->middleware('auth');
+Route::get('/request-for-ict-job', [ICTRequestsController::class, 'show'])->middleware('auth');
+Route::post('/request-for-ict-job', [ICTRequestsController::class, 'create'])->middleware('auth');
 
 
 
 // REQUESTS FOR ADMIN
-Route::get('/admin/requests/repair-request', [RepairRequestsController::class, 'show'])->middleware('admin');
-Route::get('/admin/requests/ict-request', [ICTRequestsController::class, 'show'])->middleware('admin');
-Route::get('/admin/requests/pre-inspection', [PreInspectionsController::class, 'show'])->middleware('admin');
-Route::get('/admin/requests/post-inspection', [PostInspectionsController::class, 'show'])->middleware('admin');
+Route::get('/requests/pre-inspection', [PreInspectionsController::class, 'show'])->middleware('admin');
+Route::get('/requests/post-inspection', [PostInspectionsController::class, 'show'])->middleware('admin');
 
-Route::get('/admin/dashboard', [AdminController::class, 'show'])->middleware('admin');
-Route::get('/admin/requests', [RequestsController::class, 'show'])->middleware('admin');
-Route::get('/admin/abouts', [AboutsController::class, 'show'])->middleware('admin');
-Route::get('/admin/users', [UsersController::class, 'show'])->middleware('admin');
+Route::get('/dashboard', [AdminController::class, 'show'])->middleware('admin');
+Route::get('/requests', [RequestsController::class, 'show'])->middleware('admin');
+Route::get('/abouts', [AboutsController::class, 'show'])->middleware('admin');
+Route::get('/users', [UsersController::class, 'show'])->middleware('admin');
 
 
 

@@ -6,12 +6,12 @@
         <div class="col-xl-2 col-md-12 mb-2">
             <div class="row mx-0 align-items-center">
                 <div class="col-xl-12 col-md-4 col-sm-12 my-2">
-                    <a href="/admin/requests/request-for-repair" class="rounded btn btn-primary w-100">
+                    <a href="/request-for-repair" class="rounded btn btn-primary w-100">
                         + Repair Request
                     </a>
                 </div>
                 <div class="col-xl-12 col-md-4 col-sm-12 my-2">
-                    <a href="" class="rounded btn btn-primary w-100">
+                    <a href="/request-for-ict-job" class="rounded btn btn-primary w-100">
                         + ICT job Request
                     </a>
                 </div>
@@ -71,25 +71,30 @@
                 </h6>
             </div>
 
+            @php
+                $repair_requests = $repair_request->where('status', 'pending');
+            @endphp
+
             <div class="card-body">
                 <div class="row mx-0">
                     <div class="col-xl-3 my-2">
-                        <a href="/admin/requests/repair-request" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/requests/repair-request/{{ $repair_requests->first()->users_id }}"
+                            class="rounded btn btn-primary w-100 text-uppercase">
                             Repair Request
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="/admin/requests/ict-request" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/requests/repair-ict-request" class="rounded btn btn-primary w-100 text-uppercase">
                             ICT job Request
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="/admin/requests/pre-inspection" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/requests/pre-inspection" class="rounded btn btn-primary w-100 text-uppercase">
                             Pre-repair Request
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="/admin/requests/post-inspection" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/requests/post-inspection" class="rounded btn btn-primary w-100 text-uppercase">
                             Post repair Request
                         </a>
                     </div>
@@ -103,13 +108,15 @@
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
-                        Table
+                        Repair Request Data Table
                     </h6>
                     <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Requests Menu:</div>
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
@@ -120,6 +127,96 @@
                 </div>
 
                 <div class="card-body" style="min-height: 80vh;">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>No.</th>
+                                    <th>Brand Model</th>
+                                    <th>Status</th>
+                                    <th>Property No.</th>
+                                    <th>Serial No.</th>
+                                    <th>Date Requested</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($repair_request as $each_request)
+                                    <tr>
+                                        <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
+                                        <td> {{ $each_request->id }} </td>
+                                        <td> {{ $each_request->equipment->brand_model }} </td>
+                                        <td> {{ $each_request->status }} </td>
+                                        <td> {{ $each_request->equipment->property_no }} </td>
+                                        <td> {{ $each_request->equipment->serial_no }} </td>
+                                        <td> {{ $each_request->date_requested }} </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-xl-12">
+            <div class="card shadow mb-4">
+
+
+
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
+                        ICT Job Request Data Table
+                    </h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Requests Menu:</div>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body" style="min-height: 80vh;">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>No.</th>
+                                    <th>Repair Shop</th>
+                                    <th>Status</th>
+                                    <th>Property No.</th>
+                                    <th>Brand Model</th>
+                                    <th>Type of Request</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @foreach ($repair_request as $each_request)
+                                    <tr>
+                                        <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
+                                        <td> {{ $each_request->id }} </td>
+                                        <td> {{ $each_request->equipment->brand_model }} </td>
+                                        <td> {{ $each_request->status }} </td>
+                                        <td> {{ $each_request->equipment->property_no }} </td>
+                                        <td> {{ $each_request->equipment->serial_no }} </td>
+                                        <td> {{ $each_request->date_requested }} </td>
+                                    </tr>
+                                @endforeach --}}
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
 
             </div>
@@ -131,13 +228,15 @@
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
-                        Table
+                        Pre-repair Inspection Data Table
                     </h6>
                     <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Requests Menu:</div>
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
@@ -148,34 +247,34 @@
                 </div>
 
                 <div class="card-body" style="min-height: 80vh;">
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="row mb-2">
-        <div class="col-xl-12">
-            <div class="card shadow mb-4">
-
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
-                        Table
-                    </h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Requests Menu:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>No.</th>
+                                    <th>Brand Model</th>
+                                    <th>Status</th>
+                                    <th>Date Requested</th>
+                                    <th>Date of Latest Repair</th>
+                                    <th>Mature of Latest Repair</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @foreach ($repair_request as $each_request)
+                                    <tr>
+                                        <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
+                                        <td> {{ $each_request->id }} </td>
+                                        <td> {{ $each_request->equipment->brand_model }} </td>
+                                        <td> {{ $each_request->status }} </td>
+                                        <td> {{ $each_request->equipment->property_no }} </td>
+                                        <td> {{ $each_request->equipment->serial_no }} </td>
+                                        <td> {{ $each_request->date_requested }} </td>
+                                    </tr>
+                                @endforeach --}}
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-
-                <div class="card-body" style="min-height: 80vh;">
                 </div>
 
             </div>
@@ -187,13 +286,15 @@
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
-                        Table
+                        Post-repair inspection data Table
                     </h6>
                     <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Requests Menu:</div>
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
@@ -204,9 +305,38 @@
                 </div>
 
                 <div class="card-body" style="min-height: 80vh;">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>No.</th>
+                                    <th>Repair Shop</th>
+                                    <th>Status</th>
+                                    <th>Job Order</th>
+                                    <th>Invoice No.</th>
+                                    <th>Amt/J.O./P.O. No.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @foreach ($repair_request as $each_request)
+                                    <tr>
+                                        <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
+                                        <td> {{ $each_request->id }} </td>
+                                        <td> {{ $each_request->equipment->brand_model }} </td>
+                                        <td> {{ $each_request->status }} </td>
+                                        <td> {{ $each_request->equipment->property_no }} </td>
+                                        <td> {{ $each_request->equipment->serial_no }} </td>
+                                        <td> {{ $each_request->date_requested }} </td>
+                                    </tr>
+                                @endforeach --}}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
+
 </x-main>

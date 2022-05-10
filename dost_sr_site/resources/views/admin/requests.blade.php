@@ -5,10 +5,11 @@
         {{-- CONTENT - BODY --}}
         <section class="content-position">
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
-    
+
             @include('posts.requests') {{-- RIGHT CONTENT WRAPPER --}}
         </section>
     </main>
 
-    <x-flash/>
+    <x-flash />
 </x-right-content-layout>
+

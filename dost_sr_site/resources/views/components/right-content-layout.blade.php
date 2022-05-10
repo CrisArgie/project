@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +30,9 @@
     <!-- High Charts style -->
     {{-- <link rel="stylesheet" type="text/css" href="css/chart.css"> --}}
 
+    <!-- Datatable -->
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
     <!-- High Charts scripts -->
     <script src="/charts/highcharts.js"></script>
     <script src="/charts/modules/exporting.js"></script>
@@ -36,37 +40,59 @@
     <script src="/charts/modules/accessibility.js"></script>
 
 </head>
+
 <body>
 
     {{ $slot }}
 
-{{-- SCRIPTS --}}
-<script>
-const menuIconButton = document.querySelector("[data-menu-icon-btn]")
-const sidebar = document.querySelector("[data-slider]")
+    <x-loading></x-loading>
+
+    {{-- SCRIPTS --}}
+    <script>
+        $(window).on("load", function() {
+            $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    <script>
+        const menuIconButton = document.querySelector("[data-menu-icon-btn]")
+        const sidebar = document.querySelector("[data-slider]")
 
 
-menuIconButton.addEventListener("click", () => {
-    sidebar.classList.toggle("open")
-})
+        menuIconButton.addEventListener("click", () => {
+            sidebar.classList.toggle("open")
+        })
 
-document.addEventListener("click", e => {
-    const isDropdownButton = e.target.matches("[data-dropdown-button]")
-    if (!isDropdownButton && e.target.closest("[data-dropdown-menu]") != null) return
+        document.addEventListener("click", e => {
+            const isDropdownButton = e.target.matches("[data-dropdown-button]")
+            if (!isDropdownButton && e.target.closest("[data-dropdown-menu]") != null) return
 
-    let currentDropdown
-    if (isDropdownButton) {
-        currentDropdown = e.target.closest("[data-dropdown-menu]")
-        currentDropdown.classList.toggle("active")
-    }
+            let currentDropdown
+            if (isDropdownButton) {
+                currentDropdown = e.target.closest("[data-dropdown-menu]")
+                currentDropdown.classList.toggle("active")
+            }
 
-    document.querySelectorAll("[data-dropdown-menu].active").forEach(dropdown => {
-        if (dropdown === currentDropdown) return
-        dropdown.classList.remove("active")
-    })
-})
-</script>
+            document.querySelectorAll("[data-dropdown-menu].active").forEach(dropdown => {
+                if (dropdown === currentDropdown) return
+                dropdown.classList.remove("active")
+            })
+        })
+    </script>
 
-{{-- <script type="text/javascript" src="scripts/chart-js/charts.js"></script> --}}
+    {{-- <script type="text/javascript" src="scripts/chart-js/charts.js"></script> --}}
 </body>
+
 </html>

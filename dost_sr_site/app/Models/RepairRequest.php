@@ -9,6 +9,10 @@ class RepairRequest extends Model
 {
     use HasFactory;
 
+    // public $timestamps = true;
+
+    protected $guarded = [];
+
     public function users()
     {
         return $this->belongsTo(Users::class);
@@ -17,5 +21,10 @@ class RepairRequest extends Model
     public function equipment()
     {
         return $this->belongsTo(Equipment::class);
+    }
+
+    public function prerepairinspections()
+    {
+        return $this->belongsTo(PreInspections::class);
     }
 }
