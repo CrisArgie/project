@@ -182,11 +182,19 @@ body {
 }
 
 .sidebar.open .image-chevron {
-    background-image: url('../icons/svg-files/chevron-left.svg');
+    background-image: url('/icons/svg-files/chevron-left.svg');
 }
 
 .image-chevron {
-    background-image: url('../icons/svg-files/chevron-right.svg');
+    background-image: url('/icons/svg-files/chevron-right.svg');
+}
+
+.img-chev-down:after {
+    padding-right: 0.7rem;
+    font-weight: 900;
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    color: #d1d3e2;
 }
 
 .sidebar.open {
@@ -453,6 +461,20 @@ body {
 
 /* END MODAL */
 
+.btn-link-2 {
+    background-color: var(--white);
+}
+
+.btn-link-2::after {
+    content: '\261B';
+    display: flex;
+    justify-content: end;
+}
+
+.btn-link-2:hover {
+    background-color: rgb(0, 173, 234, .30);
+}
+
 .text-ssm {
     font-size: 1rem;
 }
@@ -597,6 +619,10 @@ body {
 
 .text-hard-black {
     color: var(--dark-gray) !important;
+}
+
+.btn-hover-1:hover {
+    background-color: var(--color2);
 }
 
 

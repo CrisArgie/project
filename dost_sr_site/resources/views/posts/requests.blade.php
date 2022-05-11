@@ -11,7 +11,7 @@
                     </a>
                 </div>
                 <div class="col-xl-12 col-md-4 col-sm-12 my-2">
-                    <a href="/request-for-ict-job" class="rounded btn btn-primary w-100">
+                    <a href="/request-ict-user" class="rounded btn btn-primary w-100">
                         + ICT job Request
                     </a>
                 </div>

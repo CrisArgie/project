@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
         //     'division_address'  => 'Brgy X, x City, XXXX'
         // ]);
 
+        Divisions::factory(15)->create();
+
 
         Users::factory()->create([
             'user_type' => 'admin',

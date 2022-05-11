@@ -29,10 +29,12 @@
                                         <div class="col-xl-auto col-sm-12 mb-2">
                                             <div style="width: 375px">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <label class="mb-0 text-capitalize text-gray-900">
+                                                    <label for="date_requested"
+                                                        class="mb-0 text-capitalize text-gray-900">
                                                         Date/Time of Request: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
-                                                        tabindex="-1">
+                                                    <input value="{{ now() }}" id="date_requested"
+                                                        name="date_requested" type="text" class="input-design-1"
+                                                        readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -41,8 +43,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         Request No.: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
-                                                        tabindex="-1">
+                                                    <input value="{{ $ictforms->last()->id + 1 . date('Ymd') }}"
+                                                        type="text" class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -53,53 +55,60 @@
                                             <div class="text-uppercase text-gray-900 font-weight-bold"> Client
                                                 Information</div>
                                             <div class="mb-2">
-                                                <label for="" class="mb-0 text-gray-600 text-capitalize h6">
+                                                <label for="users_id" class="mb-0 text-gray-800 text-capitalize h6">
                                                     End User:</label>
-                                                <input value="" type="text" class="input-design-1 w-100 h6 mb-0"
-                                                    required>
+                                                <input value="{{ $user->id }}" id="users_id" name="users_id" hidden
+                                                    type="text" required>
+                                                <input value="{{ $user->first_name . ' ' . $user->last_name }}"
+                                                    type="text" class="input-design-1 w-100 h6 mb-0" readonly
+                                                    tabindex="-1">
                                             </div>
                                             <div class="mb-2">
-                                                <label for="" class="mb-0 text-gray-600 text-capitalize h6">
-                                                    Equipment Property No.:</label>
-                                                <input value="" type="text" class="input-design-1 w-100 h6 mb-0"
-                                                    required>
-                                            </div>
-                                            <div class="mb-2">
-                                                <label for="" class="mb-0 text-gray-600 text-capitalize h6">
+                                                <label class="mb-0 text-gray-600 text-capitalize h6">
                                                     Division/Section/Unit:</label>
-                                                <input value="" type="text" class="input-design-1 w-100 h6 mb-0"
-                                                    required>
+                                                <input value="{{ $user->divisions_id }}" type="text" hidden>
+                                                <input type="text"
+                                                    value="{{ $user->divisions->division_number . ' - ' . $user->divisions->division_name }}"
+                                                    class="input-design-1 w-100 h6 mb-0" readonly tabindex="-1">
+                                            </div>
+                                            <div class="mb-2">
+                                                <label for="property_no" class="mb-0 text-gray-600 text-capitalize h6">
+                                                    Equipment Property No.:</label>
+                                                <input value="" id="property_no" name="property_no" type="text"
+                                                    class="input-design-1 w-100 h6 mb-0" required>
                                             </div>
                                         </section>
                                         <section class="col-xl-6">
                                             <div class="text-gray-900 font-weight-bold text-uppercase">
                                                 Type Of Request:
                                             </div>
+                                            <label for="type_of_requests_id" class="m-0" hidden></label>
                                             <div class="d-flex flex-column justify-content-between g-5">
                                                 <div class="row mx-0">
                                                     <div class="col-xl-6 p-0">
                                                         <div class="d-flex align-items-center g-1">
-                                                            <input type="checkbox" name="" id="">
+                                                            <input type="checkbox" value="1" name="type_of_requests_id" id="type_of_requests_id">
                                                             <label class="mb-0 text-gray-600 text-capitalize"
                                                                 for="">Repair</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6 p-0">
                                                         <div class="d-flex align-items-center g-1">
-                                                            <input type="checkbox" name="" id="">
+                                                            <input type="checkbox" value="2" name="type_of_requests_id" id="type_of_requests_id">
                                                             <label class="mb-0 text-gray-600 text-capitalize"
                                                                 for="">Upgrade</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12 p-0">
-                                                        <div class="d-flex g-1 flex-column" x-data="{ open: false }">
+                                                        <div class="d-flex flex-column" x-data="{ open: false }">
                                                             <div class="d-flex align-items-center g-1">
-                                                                <input type="checkbox" name="" id=""
+                                                                <input type="checkbox" value="3" name="type_of_requests_id" id="type_of_requests_id"
                                                                     class="input-design-1" x-on:click="open = ! open">
                                                                 <label class="mb-0 text-gray-600 text-capitalize"
                                                                     for="">Other</label>
                                                             </div>
-                                                            <input type="text" name="" id=""
+                                                            <label for="type_request_description" class="m-0"></label>
+                                                            <input type="text" name="type_request_description" id="type_request_description"
                                                                 class="input-design-1 w-100" x-cloak x-show="open">
                                                         </div>
                                                     </div>
@@ -131,70 +140,71 @@
                                             (Check all that apply)
                                         </div>
                                     </div>
+                                    <label for="area_of_requests_id" hidden class="m-0"></label>
                                     <div class="row mx-0 mb-1 g-2" style="padding-left: 12px; padding-right: 12px;">
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Cable</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Keyboard</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Mouse</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Printer</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Internet</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">CD/DVD Drive</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Memory</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Network</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Power Supply</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Hard Drive</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                             <label for="" class="mb-0">Monitor</label>
                                         </div>
                                     </div>
                                     <div class="row mx-0">
                                         <div class="col-xl-4">
                                             <div class="d-flex align-items-center g-1 mb-1">
-                                                <input type="checkbox" name="" id="">
+                                                <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                                 <label for="" class="mb-0">Software Programs (list):</label>
                                             </div>
                                             <textarea name="" id="" rows="10" class="input-design-1 w-100 " placeholder="Type here..."></textarea>
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="d-flex align-items-center g-1 mb-1">
-                                                <input type="checkbox" name="" id="">
+                                                <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                                 <label for="" class="mb-0">Other Hardware:</label>
                                             </div>
                                             <textarea name="" id="" rows="10" class="input-design-1 w-100 " placeholder="Type here..."></textarea>
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="d-flex align-items-center g-1 mb-1">
-                                                <input type="checkbox" name="" id="">
+                                                <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
                                                 <label for="" class="mb-0">USB Device:</label>
                                             </div>
                                             <textarea name="" id="" rows="10" class="input-design-1 w-100 " placeholder="Type here..."></textarea>
@@ -220,7 +230,8 @@
                                                 <button class="btn btn-primary text-capitalize w-100">
                                                     <div class="row mx-0 justify-content-center align-content-center">
                                                         <img src="/icons/svg-files/printer.svg" width="24" height="24"
-                                                            alt="Printer.svg" class="icon-white col-xl-12 col-md-4 p-0">
+                                                            alt="Printer.svg"
+                                                            class="icon-white col-xl-12 col-md-4 p-0">
                                                         <div class="col-xl-12 col-md-8 px-1">print</div>
                                                     </div>
                                                 </button>
@@ -243,6 +254,5 @@
     </main>
 
     <x-flash />
-
 
 </x-right-content-layout>

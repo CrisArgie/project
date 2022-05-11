@@ -33,10 +33,11 @@ Route::get('/request-for-repair', [RepairRequestsController::class, 'show'])->mi
 Route::post('/request-for-repair', [RepairRequestsController::class, 'create'])->middleware('auth');
 Route::patch('/requests/repair-request/{id}', [RepairRequestsController::class, 'update'])->middleware('auth');
 
+Route::get('/request-ict-user', [ICTRequestsController::class, 'ictRequest'])->middleware('auth');
 
 // REQUEST ICT
 Route::get('/requests/repair-ict-request', [ICTRequestsController::class, 'index'])->middleware('auth');
-Route::get('/request-for-ict-job', [ICTRequestsController::class, 'show'])->middleware('auth');
+Route::get('/request-for-ict-job/{id}', [ICTRequestsController::class, 'show'])->middleware('auth');
 Route::post('/request-for-ict-job', [ICTRequestsController::class, 'create'])->middleware('auth');
 
 

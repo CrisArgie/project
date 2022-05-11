@@ -11,8 +11,8 @@ class Divisions extends Model
 
     protected $guarded = [];
 
-    public function division()
+    public function divisions()
     {
-        return $this->belongsTo(Users::class);
+        return $this->hasMany(Users::class);
     }
 }

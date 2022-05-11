@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Divisions;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class UsersFactory extends Factory
             'last_name'     => $this->faker->lastName(),
             'email'         => $this->faker->unique()->email,
             'password'      => $this->faker->password(),
+            'divisions_id'  => Divisions::all()->random()->id,
         ];
     }
 }

@@ -173,7 +173,7 @@
                                 <div class="col-xl-auto col-md-8 w-100 p-0">
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
-                                            @if (auth()->user()->user_type == ('admin' || 'technician'))
+                                            @if ((auth()->user()->user_type == 'admin') || (auth()->user()->user_type == 'technician'))
                                                 <div class="col-xl-12 col-md-4 p-1">
                                                     <button type="button" class="btn btn-primary w-100">
                                                         <img src="/icons/svg-files/save.svg" width="26" height="26"
