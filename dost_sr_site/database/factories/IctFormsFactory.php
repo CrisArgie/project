@@ -31,7 +31,7 @@ class IctFormsFactory extends Factory
             'users_id' => Users::all()->random()->id,
             'type_of_requests_id' => $varId,
             'type_request_description' => $sentence1,
-            'status'                    => 'in-progress',
+            'status'                    => 'pending',
         ];
     }
 }

@@ -12,7 +12,7 @@
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
 
             <x-main>
-                <form action="/request-for-ict-job" method="POST" enctype="multipart/form-data">
+                <form action="/request-for-ict-job/create" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mx-0">
                         <section class="col-xl-11">
@@ -41,10 +41,11 @@
                                         <div class="col-xl-auto col-sm-12 mb-2">
                                             <div style="width: 305px">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <label class="mb-0 text-capitalize text-gray-900">
+                                                    <label class="mb-0 text-capitalize text-gray-900" for="request_no">
                                                         Request No.: </label>
-                                                    <input value="{{ $ictforms->last()->id + 1 . date('Ymd') }}"
-                                                        type="text" class="input-design-1" readonly tabindex="-1">
+                                                    <input value="{{ $ictforms->last()->id + 1 . $user->id . '-' . date('Y-md') }}"
+                                                        type="text" id="request_no" name="request_no"
+                                                        class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -74,7 +75,7 @@
                                             <div class="mb-2">
                                                 <label for="property_no" class="mb-0 text-gray-600 text-capitalize h6">
                                                     Equipment Property No.:</label>
-                                                <input value="" id="property_no" name="property_no" type="text"
+                                                <input value="{{ old('property_no') }}" id="property_no" name="property_no" type="text"
                                                     class="input-design-1 w-100 h6 mb-0" required>
                                             </div>
                                         </section>
@@ -87,14 +88,16 @@
                                                 <div class="row mx-0">
                                                     <div class="col-xl-6 p-0">
                                                         <div class="d-flex align-items-center g-1">
-                                                            <input type="checkbox" value="1" name="type_of_requests_id" id="type_of_requests_id">
+                                                            <input type="radio" value="1" name="type_of_requests_id"
+                                                                id="type_of_requests_id">
                                                             <label class="mb-0 text-gray-600 text-capitalize"
                                                                 for="">Repair</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6 p-0">
                                                         <div class="d-flex align-items-center g-1">
-                                                            <input type="checkbox" value="2" name="type_of_requests_id" id="type_of_requests_id">
+                                                            <input type="radio" value="2" name="type_of_requests_id"
+                                                                id="type_of_requests_id">
                                                             <label class="mb-0 text-gray-600 text-capitalize"
                                                                 for="">Upgrade</label>
                                                         </div>
@@ -102,20 +105,23 @@
                                                     <div class="col-xl-12 p-0">
                                                         <div class="d-flex flex-column" x-data="{ open: false }">
                                                             <div class="d-flex align-items-center g-1">
-                                                                <input type="checkbox" value="3" name="type_of_requests_id" id="type_of_requests_id"
-                                                                    class="input-design-1" x-on:click="open = ! open">
+                                                                <input type="radio" value="3" name="type_of_requests_id"
+                                                                    id="type_of_requests_id" class="input-design-1"
+                                                                    x-on:click="open = ! open">
                                                                 <label class="mb-0 text-gray-600 text-capitalize"
                                                                     for="">Other</label>
                                                             </div>
-                                                            <label for="type_request_description" class="m-0"></label>
-                                                            <input type="text" name="type_request_description" id="type_request_description"
+                                                            <label for="type_request_description"
+                                                                class="m-0"></label>
+                                                            <input type="text" name="type_request_description"
+                                                                id="type_request_description"
                                                                 class="input-design-1 w-100" x-cloak x-show="open">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row flex-column mx-0 align-items-end">
-                                                    <div class="row mx-0">
-                                                        <button class="btn btn-info btn-icon-split">
+                                                    {{-- <div class="row mx-0">
+                                                        <button class="btn btn-info btn-icon-split" type="button" x-model="show">
                                                             <span class="icon text-white-50">
                                                                 <img src="/icons/svg-files/upload.svg" alt="upload.png"
                                                                     width="16" height="16" class="icon-white">
@@ -124,9 +130,26 @@
                                                         </button>
                                                     </div>
                                                     <div class="row mx-0">
-                                                        <p class="text-xs text-gray-600 m-0">No file upload, yet.</p>
+                                                        <p class="text-xs text-gray-600 m-0" x-text="text">No file upload, yet.</p>
+                                                    </div> --}}
+                                                    <div class="row mx-0">
+                                                        <label for="path_imgs"
+                                                            class="text-capitalize text-xs text-gray-700 mb-0">Images:
+                                                        </label>
+                                                        <input type="file" multiple="" id="path_imgs[]"
+                                                            name="path_imgs[]"
+                                                            class="input-design-1 text-gray-600 text-xs"
+                                                            accept="image/x-png,image/gif,image/jpeg,image/jpg">
+
                                                     </div>
-                                                    <input type="file" hidden>
+                                                    <div class="row mx-0">
+                                                        <label for="path_docs"
+                                                            class="text-capitalize text-xs text-gray-700 mb-0">documents:
+                                                        </label>
+                                                        <input type="file" id="path_docs" name="path_docs"
+                                                            class="input-design-1 text-gray-600 text-xs"
+                                                            accept=".pdf,.doc,.ppt,.docx">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </section>
@@ -140,76 +163,93 @@
                                             (Check all that apply)
                                         </div>
                                     </div>
-                                    <label for="area_of_requests_id" hidden class="m-0"></label>
+
                                     <div class="row mx-0 mb-1 g-2" style="padding-left: 12px; padding-right: 12px;">
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Cable</label>
+                                            <input type="checkbox" name="cable" id="cable" value="1">
+                                            <label for="cable" class="mb-0">Cable</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Keyboard</label>
+                                            <input type="checkbox" name="keyboard" id="keyboard" value="2">
+                                            <label for="keyboard" class="mb-0">Keyboard</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Mouse</label>
+                                            <input type="checkbox" name="mouse" id="mouse" value="3">
+                                            <label for="mouse" class="mb-0">Mouse</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Printer</label>
+                                            <input type="checkbox" name="printer" id="printer" value="4">
+                                            <label for="printer" class="mb-0">Printer</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Internet</label>
+                                            <input type="checkbox" name="internet" id="internet" value="5">
+                                            <label for="internet" class="mb-0">Internet</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">CD/DVD Drive</label>
+                                            <input type="checkbox" name="cddrive" id="cddrive" value="6">
+                                            <label for="cddrive" class="mb-0">CD/DVD Drive</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Memory</label>
+                                            <input type="checkbox" name="memory" id="memory" value="7">
+                                            <label for="memory" class="mb-0">Memory</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Network</label>
+                                            <input type="checkbox" name="network" id="network" value="8">
+                                            <label for="network" class="mb-0">Network</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Power Supply</label>
+                                            <input type="checkbox" name="powersupply" id="powersupply" value="9">
+                                            <label for="powersupply" class="mb-0">Power Supply</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Hard Drive</label>
+                                            <input type="checkbox" name="hardrive" id="hardrive" value="10">
+                                            <label for="hardrive" class="mb-0">Hard Drive</label>
                                         </div>
                                         <div class="d-flex align-items-center g-1">
-                                            <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                            <label for="" class="mb-0">Monitor</label>
+                                            <input type="checkbox" name="monitor" id="monitor" value="11">
+                                            <label for="monitor" class="mb-0">Monitor</label>
                                         </div>
                                     </div>
                                     <div class="row mx-0">
-                                        <div class="col-xl-4">
+                                        <div class="col-xl-4" x-data="{ open: false }">
                                             <div class="d-flex align-items-center g-1 mb-1">
-                                                <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                                <label for="" class="mb-0">Software Programs (list):</label>
+                                                <input type="checkbox" name="software_programs" id="software_programs"
+                                                    value="12" x-on:click="open = ! open">
+                                                <label for="software_programs" class="mb-0">Software
+                                                    Programs (list):</label>
                                             </div>
-                                            <textarea name="" id="" rows="10" class="input-design-1 w-100 " placeholder="Type here..."></textarea>
+                                            <label for="SF_description" hidden></label>
+                                            <textarea name="SF_description" id="SF_description" rows="10" class="input-design-1 w-100 " placeholder="Type here..."
+                                                :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
                                         </div>
-                                        <div class="col-xl-4">
+                                        <div class="col-xl-4" x-data="{ open: false }">
                                             <div class="d-flex align-items-center g-1 mb-1">
-                                                <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                                <label for="" class="mb-0">Other Hardware:</label>
+                                                <input type="checkbox" name="other_hardware" id="other_hardware"
+                                                    value="13" x-on:click="open = ! open">
+                                                <label for="other_hardware" class="mb-0">Other
+                                                    Hardware:</label>
                                             </div>
-                                            <textarea name="" id="" rows="10" class="input-design-1 w-100 " placeholder="Type here..."></textarea>
+                                            <label for="OH_description" hidden></label>
+                                            <textarea name="OH_description" id="OH_description" rows="10" class="input-design-1 w-100 " placeholder="Type here..."
+                                                :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
                                         </div>
-                                        <div class="col-xl-4">
+                                        <div class="col-xl-4" x-data="{ open: false }">
                                             <div class="d-flex align-items-center g-1 mb-1">
-                                                <input type="checkbox" name="area_of_requests_id" id="area_of_requests_id" value="">
-                                                <label for="" class="mb-0">USB Device:</label>
+                                                <input type="checkbox" name="usb_device" id="usb_device" value="14"
+                                                    x-on:click="open = ! open">
+                                                <label for="usb_device" class="mb-0">USB
+                                                    Device:</label>
                                             </div>
-                                            <textarea name="" id="" rows="10" class="input-design-1 w-100 " placeholder="Type here..."></textarea>
+                                            <label for="UD_description" hidden></label>
+                                            <textarea name="UD_description" id="UD_description" rows="10" class="input-design-1 w-100 " placeholder="Type here..."
+                                                :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
                                         </div>
                                     </div>
+                                    @foreach ($errors->all() as $error)
+                                        <div class="row mx-0 g-2">
+                                            <p class="text-danger text-xs">{{ $error }}</p>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </section>
@@ -223,25 +263,38 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-xl-auto col-md-8 p-0">
+                                <div class="col-xl-auto col-md-8 w-100 p-0">
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
-                                            <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100">
-                                                    <div class="row mx-0 justify-content-center align-content-center">
-                                                        <img src="/icons/svg-files/printer.svg" width="24" height="24"
-                                                            alt="Printer.svg"
-                                                            class="icon-white col-xl-12 col-md-4 p-0">
-                                                        <div class="col-xl-12 col-md-8 px-1">print</div>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                            <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100">save</button>
-                                            </div>
-                                            <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-success text-capitalize w-100">done</button>
-                                            </div>
+
+                                            @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
+                                                <div class="col-xl-12 col-md-4 p-1">
+                                                    <button type="button" class="btn btn-primary w-100">
+                                                        <img src="/icons/svg-files/save.svg" width="26" height="26"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" alt="Save.png">
+                                                    </button>
+                                                </div>
+                                                {{-- <div class="col-xl-12 col-md-4 p-1">
+                                                        <button type="button" class="btn btn-primary w-100">
+                                                            <img src="printer?" width="26" height="26"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" alt="">
+                                                        </button>
+                                                    </div> --}}
+                                                <div class="col-xl-12 col-md-4 p-1">
+                                                    <button type="reset" class="btn btn-primary w-100">
+                                                        <img src="/icons/svg-files/eraser.svg" width="26" height="26"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" alt="Reset.png">
+                                                    </button>
+                                                </div>
+                                                <div class="col-xl-12 col-md-4 p-1">
+                                                    <button type="submit" class="btn btn-primary w-100">
+                                                        <img src="/icons/svg-files/telegram.svg" width="26" height="26"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" alt="Send.svg">
+                                                    </button>
+                                                </div>
+                                            @else
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>

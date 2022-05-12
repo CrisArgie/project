@@ -25,7 +25,7 @@
                                                     <label for="request_no" class="mb-0 text-capitalize text-gray-900">
                                                         No.: </label>
                                                     <input name="request_no" id="request_no"
-                                                        value="{{ date('Y') + $repair_request->last()->id + 1 }}" readonly
+                                                        value="{{ date('Y-md') . $repair_request->last()->id + 1 }}" readonly
                                                         tabindex="-1" type="text" class="input-design-1" required>
                                                 </div>
                                                 @error('request_no')

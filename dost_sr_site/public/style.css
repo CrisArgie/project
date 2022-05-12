@@ -434,6 +434,15 @@ body {
     padding: 10px 15px;
 }
 
+.disabled {
+    pointer-events: none;
+    background-color: rgb(240, 240, 240, 0.90);
+}
+
+.required {
+    pointer-events: visible;
+}
+
 #overlay {
     position: fixed;
     opacity: 0;

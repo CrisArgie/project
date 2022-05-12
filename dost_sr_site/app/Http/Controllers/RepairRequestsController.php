@@ -65,7 +65,7 @@ class RepairRequestsController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect('/requests')->with('success', 'Your Request has been created.');
+        return redirect('/requests')->with('success', 'Your Repair Request has been created.');
         // return back()->with('success', 'Post Updated!');
     }
 

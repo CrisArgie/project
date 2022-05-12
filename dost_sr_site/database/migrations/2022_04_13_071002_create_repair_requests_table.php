@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('repair_requests', function (Blueprint $table) {
             $table->id();
             $table->date('date_requested');
-            $table->integer('request_no');
+            $table->string('request_no');
             $table->text('description_of_property_type');
             $table->text('location');
             $table->date('acquisition_date');
-            $table->integer('acquisition_cost');
+            $table->string('acquisition_cost');
             $table->text('problem_encountered')->nullable();
             $table->text('corrective_action_performed')->nullable();
             $table->timestamps();

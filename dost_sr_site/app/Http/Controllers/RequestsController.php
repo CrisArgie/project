@@ -10,10 +10,13 @@ use App\Models\RepairRequest;
 
 class RequestsController extends Controller
 {
-    public function show(RepairRequest $repair_request, IctForms $ictforns, PreRepairInspections $prerepairinspections, PostRepairInspections $postrepairinspections)
+    public function show(RepairRequest $repair_request, IctForms $ictforms, PreRepairInspections $prerepairinspections, PostRepairInspections $postrepairinspections)
     {
         return view('admin.requests', [
-            'repair_request' => $repair_request->all()
+            'repair_request' => $repair_request->all(),
+            'repair_ict' => $ictforms->all(),
+            'pre_repair' => $prerepairinspections->all(),
+            'post_repair' => $postrepairinspections->all(),
         ]);
     }
 }

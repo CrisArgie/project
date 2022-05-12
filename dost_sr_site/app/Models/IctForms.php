@@ -9,6 +9,16 @@ class IctForms extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+    protected $fillable = [
+        'date_requested',
+        'request_no',
+        'users_id',
+        'type_of_requests_id',
+        'type_request_description',
+        'status',
+    ];
+
     public function users()
     {
         return $this->belongsto(Users::class);

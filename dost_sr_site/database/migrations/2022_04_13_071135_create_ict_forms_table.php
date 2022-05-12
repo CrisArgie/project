@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ict_forms', function (Blueprint $table) {
             $table->id();
             $table->dateTime('date_requested');
-            $table->bigInteger('request_no');
+            $table->string('request_no');
             $table->foreignId('users_id');
             $table->timestamps();
             $table->foreignId('type_of_requests_id');

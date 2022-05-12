@@ -25,8 +25,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         Date/Time of Request: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
-                                                        tabindex="-1">
+                                                    <input value="{{ $repair_ictform->date_requested }}" type="text"
+                                                        class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -35,8 +35,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         Request No.: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
-                                                        tabindex="-1">
+                                                    <input value="{{ $repair_ictform->request_no }}" type="text"
+                                                        class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -51,26 +51,29 @@
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     End User:</label>
-                                                <input type="text" class="input-design-1 w-100" readonly tabindex="-1">
+                                                <input type="text"
+                                                    value="{{ $repair_ictform->users->first_name . ' ' . $repair_ictform->users->last_name }}"
+                                                    class="input-design-1 w-100" readonly tabindex="-1">
                                             </div>
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Equipment Property No.:</label>
-                                                <input value="" type="text" class="input-design-1 w-100" readonly
-                                                    tabindex="-1">
+                                                <input value="{{ $equipment->property_no }}" type="text"
+                                                    class="input-design-1 w-100" readonly tabindex="-1">
                                             </div>
                                         </section>
                                         <section class="col-xl-6">
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Division/Section/Unit:</label>
-                                                <input type="text" class="input-design-1 w-100" readonly tabindex="-1">
+                                                <input type="text" class="input-design-1 w-100" readonly tabindex="-1"
+                                                    value="{{ $division->division_number . ' - ' . $division->division_name }}">
                                             </div>
                                         </section>
                                     </div>
                                     <hr class="my-4">
                                     <div class="row mx-0">
-                                        <div class="col-xl-12 mb-2">
+                                        <div class="col-xl-12 mb-3">
                                             <div class="row g-2 mx-0">
                                                 <div class="text-gray-900 font-weight-bold h5 text-uppercase">
                                                     Area of Request
@@ -80,99 +83,49 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6">
-
+                                        <div class="col-xl-12">
                                             <div class="row mx-0 mb-4">
-                                                <div class="col-xl-6">
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Cable</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Keyboard</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Mouse</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Printer</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Internet</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">CD/DVD Drive</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Memory</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Network</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6">
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Power Supply</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Hard Drive</label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center g-2">
-                                                        <input type="checkbox">
-                                                        <label for="" class="mb-0 text-gray-900 text-capitalize">Monitor</label>
-                                                    </div>
-                                                    <div class="d-flex flex-column g-1 my-2">
-                                                        <div
-                                                            class="mb-0 h6 text-gray-900 font-weight-bold text-capitalize">
-                                                            Type Of Request:</div>
-                                                        <input type="text" class="input-design-1" readonly
-                                                            tabindex="-1">
-                                                        <input type="text" class="input-design-1" readonly tabindex="-1"
-                                                            value="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mx-0 mb-3">
-                                                <div class="col-xl-12">
-                                                    <div class="card rounded-0 border-dark">
-                                                        <div class="card-body" style="height: 210px">
+                                                @foreach ($repair_ictform->arearequests as $eachAR)
+                                                    @if ($arName = $area_request->where('id', $eachAR->area_of_requests_id)->first())
+                                                        @if ($arName->id > 11)
+                                                            <div class="col-xl-6">
+                                                                <div class="card mb-4 py-1 border-left-info">
+                                                                    <div class="card-body">
+                                                                        <div class="row mx-0 mb-2">
+                                                                            <label for=""
+                                                                                class="m-0">{{ $arName->request_title }}</label>
+                                                                            <input type="checkbox" name="" id=""
+                                                                                class="input-design-1 position-absolute"
+                                                                                style="right: 0.5em; bottom: 0.5em; width:20px; height:20px; pointer-events: none;" checked tabindex="-1">
+                                                                        </div>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                                        <div class="row mx-0 px-4">
+                                                                            @if ($eachAR->has_description != null)
+                                                                                <textarea class="input-design-1 w-100">{{ $eachAR->has_description }}</textarea>
+                                                                            @endif
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @else
+                                                            <div class="col-xl-3">
+                                                                <div class="card mb-4 py-1 border-left-info">
+                                                                    <div class="card-body">
+                                                                        <label
+                                                                            class="m-0">{{ $arName->request_title }}</label>
+                                                                        <input type="checkbox"
+                                                                            class="input-design-1 position-absolute"
+                                                                            style="right: 0.5em; bottom: 0.5em; width:20px; height:20px;" checked tabindex="-1" style="pointer-events: none;">
 
-                                        </div>
-                                        <div class="col-xl-6 px-4 mb-3">
-                                            <div class="row align-items-center mx-0 mb-3">
-                                                <input type="checkbox" name="" id="">
-                                                <label for="" class="mb-0 mx-2 text-gray-900 text-capitalize"> Software Programs (list): </label>
-                                                <div class="col-xl-12">
-                                                    <textarea class="input-design-1" name="" id="" rows="4" style="width: 100%"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="row align-items-center mx-0 mb-3">
-                                                <input type="checkbox" name="" id="">
-                                                <label for="" class="mb-0 mx-2 text-gray-900 text-capitalize"> Other Hardware: </label>
-                                                <div class="col-xl-12">
-                                                    <textarea class="input-design-1" name="" id="" rows="4" style="width: 100%"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="row align-items-center mx-0 mb-3">
-                                                <input type="checkbox" name="" id="">
-                                                <label for="" class="mb-0 mx-2 text-gray-900 text-capitalize"> USB Device: </label>
-                                                    <div class="col-xl-12">
-                                                    <textarea class="input-design-1" name="" id="" rows="4" style="width: 100%"></textarea>
-                                                </div>
+                                                                        @if ($eachAR->has_description != null)
+                                                                            <textarea class="input-design-1 m-0 w-100">{{ $eachAR->has_description }}</textarea>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    @endif
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -204,8 +157,11 @@
                                             <div class="col-xl-12 col-md-4 p-1">
                                                 <button class="btn btn-primary text-capitalize w-100">save</button>
                                             </div>
+                                            <div class="col-xl-12 col-md-4 p-1 mb-2">
+                                                <a href="" class="btn btn-info text-capitalize w-100 text-xs">Need Repair - Request</a>
+                                            </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-success text-capitalize w-100">done</button>
+                                                <button type="submit" class="btn btn-success text-capitalize w-100">done</button>
                                             </div>
                                         </div>
                                     </div>

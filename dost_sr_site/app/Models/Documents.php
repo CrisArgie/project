@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Documents extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+    protected $fillable = [
+        'path_name',
+    ];
 }
