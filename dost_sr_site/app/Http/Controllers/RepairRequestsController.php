@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Equipment;
+use App\Models\PreRepairInspections;
 use App\Models\RepairRequest;
 use App\Models\Users;
 use Illuminate\Http\Request;
@@ -82,6 +83,11 @@ class RepairRequestsController extends Controller
                 'corrective_action_performed' => $request->corrective_action_performed,
                 'status' => 'in-progress',
             ]);
+
+        PreRepairInspections::create([
+            'repair_requests_id' => $request->id,
+            'status' => 'pending',
+        ]);
 
         return back()->with('success', 'Repair Request Updated');
     }

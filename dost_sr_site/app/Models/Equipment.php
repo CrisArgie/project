@@ -9,6 +9,11 @@ class Equipment extends Model
 {
     use HasFactory;
 
-    
+
     public $timestamps = false;
+
+    public function ictrequest()
+    {
+        return $this->hasMany(IctRequests::class);
+    }
 }

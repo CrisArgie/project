@@ -84,19 +84,35 @@
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="/requests/repair-ict-request/{{ $repair_ict->where('status', 'pending')->first()->request_no }}" class="rounded btn btn-primary w-100 text-uppercase">
+                        <a href="/requests/repair-ict-request/{{ $repair_ict->where('status', 'pending')->first()->request_no }}"
+                            class="rounded btn btn-primary w-100 text-uppercase">
                             ICT job Request
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="/requests/pre-inspection" class="rounded btn btn-primary w-100 text-uppercase">
-                            Pre-repair Request
-                        </a>
+                        @if (!$pre_repair->where('status', 'pending')->isEmpty())
+                            <a href="/requests/pre-inspection/{{ $pre_repair->where('status', 'pending')->first()->repair_requests_id }}"
+                                class="rounded btn btn-primary w-100 text-uppercase">
+                                Pre-repair Request
+                            </a>
+                        @else
+                            <a href="/requests/" class="rounded btn btn-primary w-100 text-uppercase">
+                                No pending report
+                            </a>
+                        @endif
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="/requests/post-inspection" class="rounded btn btn-primary w-100 text-uppercase">
-                            Post repair Request
-                        </a>
+                        @if (!$post_repair->where('status', 'pending')->isEmpty())
+                            <a href="/requests/post-inspection/{{ $post_repair->where('status', 'pending')->first()->pre_repair_inspections_id }}"
+                                class="rounded btn btn-primary w-100 text-uppercase">
+                                Post repair Request
+                            </a>
+                        @else
+                            <a href="/requests/"
+                                class="rounded btn btn-primary w-100 text-uppercase">
+                                No pending report
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

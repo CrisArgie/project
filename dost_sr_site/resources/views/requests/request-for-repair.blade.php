@@ -200,7 +200,7 @@
                                                             class="icon-white col-xl-12 col-md-4 p-0" alt="Send.svg">
                                                     </button>
                                                     <div x-show="open" x-cloak class="modal active"
-                                                        style="width: 380px">
+                                                        style="width: 465px">
                                                         <div class="card">
                                                             <div class="card-header"
                                                                 style="background-color: var(--color2)">
@@ -219,14 +219,17 @@
                                                                         <div class="h6 text-gray-900"> User/Owner name:
                                                                         </div>
                                                                         <label for="users_id" hidden></label>
-                                                                        <select name="users_id" id="users_id"
-                                                                            class="input-design-1 overflow-auto">
+                                                                        <span class="p-0 text-xs text-gray-600">Select only one user</span>
+                                                                        <div class="d-flex">
+                                                                            <select name="users_id" id="users_id" size="8"
+                                                                            class="input-design-1 w-100">
                                                                             @foreach ($users as $user)
                                                                                 <option class="overflow-auto"
                                                                                     value="{{ $user->id }}">
-                                                                                    {{ $user->email }}</option>
+                                                                                    {{ $user->first_name . ': ' . $user->email }}</option>
                                                                             @endforeach
                                                                         </select>
+                                                                        </div>
                                                                     </div>
                                                                     @error('users_id')
                                                                         <p class="mb-0 text-danger text-xs">

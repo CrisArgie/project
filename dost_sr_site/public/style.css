@@ -470,6 +470,14 @@ body {
 
 /* END MODAL */
 
+.hover-1 {
+    opacity: 65%;
+}
+
+.hover-1:hover {
+    opacity: 100%;
+}
+
 .btn-link-2 {
     background-color: var(--white);
 }

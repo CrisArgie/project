@@ -7,7 +7,11 @@
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
 
             <x-main>
-                <form action="" method="" enctype="multipart/form-data">
+                <form action="/requests/pre-inspection/{{ $prerepairId }}" method="POST"
+                    enctype="multipart/form-data">
+                    @method('PATCH')
+                    @csrf
+
                     <div class="row mx-0">
                         <section class="col-xl-11">
                             <div class="card">
@@ -18,8 +22,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         No.: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
-                                                        tabindex="-1">
+                                                    <input value="{{ $repairInfo->first()->request_no }}" type="text"
+                                                        class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -28,8 +32,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         Date: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
-                                                        tabindex="-1">
+                                                    <input value="{{ $repairInfo->first()->date_requested }}" type="text"
+                                                        class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -61,43 +65,75 @@
                                             <section class="row mx-0">
                                                 <ul class="col-xl-6 px-2 m-0">
                                                     <li class="row my-1 mx-0">
-                                                        <label class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Description of Property
+                                                        <label
+                                                            class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Description
+                                                            of Property
                                                             Type:</label>
-                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text" value="">
+                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text"
+                                                            value="{{ $repairInfo->first()->description_of_property_type }}"
+                                                            readonly tabindex="-1">
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Serial/Engine No.:</label>
-                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text" value="">
+                                                        <label
+                                                            class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Serial/Engine
+                                                            No.:</label>
+                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text"
+                                                            value="{{ $repairInfo->first()->equipment->serial_no }}" readonly
+                                                            tabindex="-1">
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Acquisition Date:</label>
-                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text" value="">
+                                                        <label
+                                                            class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Acquisition
+                                                            Date:</label>
+                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text"
+                                                            value="{{ $repairInfo->first()->acquisition_date }}" readonly
+                                                            tabindex="-1">
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label for="latest_repair_date" class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Date
+                                                        <label for="latest_repair_date"
+                                                            class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Date
                                                             of Latest Repair:</label>
                                                         <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="date"
-                                                            name="latest_repair_date" id="latest_repair_date">
+                                                            name="latest_repair_date" id="latest_repair_date" required>
+                                                        @error('latest_repair_date')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                 </ul>
                                                 <ul class="col-xl-6 px-2 m-0">
                                                     <li class="row my-1 mx-0">
-                                                        <label class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Brand Model:</label>
-                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text" value="">
+                                                        <label class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Brand
+                                                            Model:</label>
+                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text"
+                                                            value="{{ $repairInfo->equipment->brand_model }}" readonly
+                                                            tabindex="-1">
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Property No.:</label>
-                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text" value="">
+                                                        <label
+                                                            class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Property
+                                                            No.:</label>
+                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text"
+                                                            value="{{ $repairInfo->first()->equipment->property_no }}" readonly
+                                                            tabindex="-1">
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Acquisition Cost:</label>
-                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text" value="">
+                                                        <label
+                                                            class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Acquisition
+                                                            Cost:</label>
+                                                        <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text"
+                                                            value="{{ $repairInfo->first()->acquisition_cost }}" readonly
+                                                            tabindex="-1">
                                                     </li>
                                                     <li class="row my-1 mx-0">
                                                         <label for="latest_repair_mature"
-                                                            class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Mature of Latest Repair:</label>
+                                                            class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Mature of
+                                                            Latest Repair:</label>
                                                         <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="date"
-                                                            name="latest_repair_mature" id="latest_repair_mature">
+                                                            name="latest_repair_mature" id="latest_repair_mature"
+                                                            required>
+                                                        @error('latest_repair_mature')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                 </ul>
                                             </section>
@@ -111,10 +147,22 @@
                                                 <div class="col-xl-12">
                                                     <div class="row mx-0">
                                                         <div class="col-xl-6 px-0">
-                                                            <textarea class="input-design-1 text-ssm" name="" id="" style="width: 100%; height: 200px;" placeholder="DEFECTS/COMPLAINTS"></textarea>
+                                                            <label for="detail_of_defects" hidden></label>
+                                                            <textarea class="input-design-1 text-ssm" name="detail_of_defects" id="detail_of_defects"
+                                                                style="width: 100%; height: 200px;" required
+                                                                placeholder="DEFECTS/COMPLAINTS"></textarea>
+                                                            @error('detail_of_defects')
+                                                                <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                            @enderror
                                                         </div>
                                                         <div class="col-xl-6 px-0">
-                                                            <textarea class="input-design-1 text-ssm" name="" id="" style="width: 100%; height: 200px;" placeholder="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE"></textarea>
+                                                            <label for="pre_repair_assessment_done" hidden></label>
+                                                            <textarea class="input-design-1 text-ssm" name="pre_repair_assessment_done" id="pre_repair_assessment_done"
+                                                                style="width: 100%; height: 200px;" required
+                                                                placeholder="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE"></textarea>
+                                                            @error('pre_repair_assessment_done')
+                                                                <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -147,13 +195,14 @@
                                                 </button>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100 text-xs">Need post inspection</button>
+                                                <a href="" class="btn btn-primary text-capitalize w-100 text-xs">Need post
+                                                    inspection</a>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
                                                 <button class="btn btn-primary text-capitalize w-100">save</button>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-success text-capitalize w-100">done</button>
+                                                <button type="submit" class="btn btn-success text-capitalize w-100">done</button>
                                             </div>
                                         </div>
                                     </div>

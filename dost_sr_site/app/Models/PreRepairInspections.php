@@ -9,6 +9,17 @@ class PreRepairInspections extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+    protected $fillable = [
+        'repair_requests_id',
+        'status',
+        'detail_of_defects',
+        'date_of_latest_repair',
+        'mature_of_latest_repair',
+        'pre_repair_assessment_done',
+    ];
+
     public function repairrequests()
     {
         return $this->hasMany(RepairRequest::class);

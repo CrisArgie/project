@@ -23,7 +23,7 @@ class PreRepairInspectionsFactory extends Factory
             'mature_of_latest_repair'   =>  $this->faker->date,
             'pre_repair_assessment_done'    => $this->faker->paragraph,
             'repair_requests_id'    =>  RepairRequest::all()->random()->id,
-            'status'    =>  'pending',
+            'status'    =>  'in-progress',
         ];
     }
 }

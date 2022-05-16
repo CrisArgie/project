@@ -20,16 +20,16 @@ class IctRequests extends Model
 
     public function equipment()
     {
-        return $this->hasMany(Equipment::class);
+        return $this->belongsTo(Equipment::class);
     }
 
-    public function imagesfile()
+    public function images()
     {
-        return $this->hasMany(Images::class);
+        return $this->belongsTo(Images::class);
     }
 
-    public function documentfile()
+    public function documents()
     {
-        return $this->hasMany(Documents::class);
+        return $this->belongsTo(Documents::class);
     }
 }

@@ -13,4 +13,9 @@ class Documents extends Model
     protected $fillable = [
         'path_name',
     ];
+
+    public function ictrequest()
+    {
+        return $this->hasMany(IctRequests::class);
+    }
 }

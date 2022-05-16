@@ -19,12 +19,11 @@ class ICTRequestsController extends Controller
     public function index(Request $request, IctForms $ictform)
     {
         $requestform1 = $ictform->where('request_no', $request->id)->first();
-        $equipID = $requestform1->ictrequests->first()->equipment_id;
+        $equipID = IctRequests::all()->where('ict_forms_id', $requestform1->id);
         $divisionsID = $requestform1->users->divisions_id;
-        // dd($requestform1->arearequests);
         return view('requests.ict-repair', [
             'repair_ictform' => $requestform1,
-            'equipment' => Equipment::all()->where('id', $equipID)->first(),
+            'ictrequests' => $equipID,
             'division' => Divisions::all()->where('id', $divisionsID)->first(),
             'area_request' => AreaOfRequests::all(),
         ]);
@@ -45,11 +44,33 @@ class ICTRequestsController extends Controller
         ]);
     }
 
+    public function update(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'AreaRequest' => ['required', 'array', 'distinct'],
+                'request_no' => ['required', 'alpha_dash', 'String']
+            ],
+            [
+                'AreaRequest.required' => 'Area of Request must be checked if done',
+            ]
+        );
+
+        IctForms::where('request_no', $request->request_no)
+            ->update([
+                'status' => 'done',
+            ]);
+
+        return redirect('/requests')->with('success', 'Request: ' . $request->request_no . ' - done.');
+    }
+
     public function create(Request $requests)
     {
         $countImages = 0;
         $images = array();
         $requests_for_area = array();
+        // dd($requests->file('path_imgs')->store('images'));
 
         if ($requests->cable != null) {
             $requests_for_area[] = $requests->cable;
@@ -94,22 +115,28 @@ class ICTRequestsController extends Controller
             $requests_for_area[] = $requests->usb_device;
         }
 
+
+
         $this->validate($requests, [
             'type_of_requests_id' => ['required'],
             'users_id' => ['required'],
             'property_no' => ['required', Rule::unique('equipment', 'property_no'), 'regex:/^\S*$/u', 'max:255'],
         ]);
 
+        if ($requests_for_area == null) {
+            return back()->with('fail', 'Check all that apply, Area of Request!');
+        }
+
         if ($requests->file('path_imgs') != null) {
             $files = $requests->file('path_imgs');
             foreach ($files as $file) {
                 $countImages++;
-                array_push($images, $file->store('images'));
+                array_push($images, $file->store('images', 'public'));
             }
         }
 
         if ($requests->file('path_docs') != null) {
-            $document = $requests->file('path_docs')->store('documents');
+            $document = $requests->file('path_docs')->store('documents', 'public');
             $docID = Documents::create([
                 'path_name' => $document,
             ])->id;

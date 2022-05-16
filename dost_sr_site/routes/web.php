@@ -12,6 +12,7 @@ use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/', [MainController::class, 'show']);
 
@@ -33,11 +34,12 @@ Route::patch('/requests/repair-request/{id}', [RepairRequestsController::class, 
 
 Route::get('/request-for-repair', [RepairRequestsController::class, 'show'])->middleware('auth');
 Route::post('/request-for-repair', [RepairRequestsController::class, 'create'])->middleware('auth');
-
 Route::get('/request-ict-user', [ICTRequestsController::class, 'ictRequest'])->middleware('auth');
 
 // REQUEST ICT
 Route::get('/requests/repair-ict-request/{id}', [ICTRequestsController::class, 'index'])->middleware('auth');
+Route::patch('/requests/repair-ict-request/{id}', [ICTRequestsController::class, 'update'])->middleware('auth');
+
 
 Route::get('/request-for-ict-job/{id}', [ICTRequestsController::class, 'show'])->middleware('auth');
 Route::post('/request-for-ict-job/create', [ICTRequestsController::class, 'create'])->middleware('auth');
@@ -45,14 +47,15 @@ Route::post('/request-for-ict-job/create', [ICTRequestsController::class, 'creat
 
 
 // REQUESTS FOR ADMIN
-Route::get('/requests/pre-inspection', [PreInspectionsController::class, 'show'])->middleware('admin');
-Route::get('/requests/post-inspection', [PostInspectionsController::class, 'show'])->middleware('admin');
+Route::get('/requests/pre-inspection/{id}', [PreInspectionsController::class, 'show'])->middleware('admin');
+Route::patch('/requests/pre-inspection/{id}', [PreInspectionsController::class, 'update'])->middleware('admin');
+
+Route::get('/requests/post-inspection/{id}', [PostInspectionsController::class, 'show'])->middleware('admin');
 
 Route::get('/dashboard', [AdminController::class, 'show'])->middleware('admin');
 Route::get('/requests', [RequestsController::class, 'show'])->middleware('admin');
 Route::get('/abouts', [AboutsController::class, 'show'])->middleware('admin');
 Route::get('/users', [UsersController::class, 'show'])->middleware('admin');
-
 
 
 
