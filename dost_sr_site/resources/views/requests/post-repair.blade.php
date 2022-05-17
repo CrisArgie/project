@@ -8,6 +8,9 @@
 
             <x-main>
                 <form action="" method="" enctype="multipart/form-data">
+                    @method('PATCH')
+                    @csrf
+
                     <div class="row mx-0">
                         <section class="col-xl-11">
                             <div class="card">

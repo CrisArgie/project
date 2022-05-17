@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class PostRepairInspections extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'repair_shop',
+        'repair_shop_date',
+        'invoice_no',
+        'job_order_no',
+        'job_order_date',
+        'amt_no',
+        'payable_account',
+        'recommendation',
+        'pre_repair_inspections_id',
+        'status',
+    ];
 
     public function pre_repair_inspections()
     {

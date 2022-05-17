@@ -89,6 +89,6 @@ class RepairRequestsController extends Controller
             'status' => 'pending',
         ]);
 
-        return back()->with('success', 'Repair Request Updated');
+        return redirect('/requests')->with('success', 'Repair Request Updated');
     }
 }

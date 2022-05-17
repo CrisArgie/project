@@ -48,7 +48,9 @@ Route::post('/request-for-ict-job/create', [ICTRequestsController::class, 'creat
 
 // REQUESTS FOR ADMIN
 Route::get('/requests/pre-inspection/{id}', [PreInspectionsController::class, 'show'])->middleware('admin');
-Route::patch('/requests/pre-inspection/{id}', [PreInspectionsController::class, 'update'])->middleware('admin');
+Route::patch('/requests/pre-inspection/{id}/{rrId}', [PreInspectionsController::class, 'update'])->middleware('admin');
+
+Route::get('/requests/need-post-inspection/{id}/{rrId}', [PostInspectionsController::class, 'create'])->middleware('admin');
 
 Route::get('/requests/post-inspection/{id}', [PostInspectionsController::class, 'show'])->middleware('admin');
 

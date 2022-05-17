@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->dateTime('date_requested');
             $table->string('request_no');
-            $table->foreignId('users_id');
+            $table->foreignId('users_id')->unsigned();
             $table->timestamps();
-            $table->foreignId('type_of_requests_id');
+            $table->foreignId('type_of_requests_id')->unsigned();
             $table->text('type_request_description')->nullable();
             $table->string('status');
         });

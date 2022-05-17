@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PreRepairInspections extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
-
     protected $fillable = [
         'repair_requests_id',
         'status',
@@ -20,9 +18,9 @@ class PreRepairInspections extends Model
         'pre_repair_assessment_done',
     ];
 
-    public function repairrequests()
+    public function repair_requests()
     {
-        return $this->hasMany(RepairRequest::class);
+        return $this->belongsTo(RepairRequest::class);
     }
 
     public function post_repair_inspections()

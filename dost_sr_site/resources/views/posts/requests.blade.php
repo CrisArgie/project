@@ -84,10 +84,17 @@
                         </a>
                     </div>
                     <div class="col-xl-3 my-2">
-                        <a href="/requests/repair-ict-request/{{ $repair_ict->where('status', 'pending')->first()->request_no }}"
-                            class="rounded btn btn-primary w-100 text-uppercase">
-                            ICT job Request
-                        </a>
+                        @if (!$repair_ict->where('status', 'pending')->isEmpty())
+                            <a href="/requests/repair-ict-request/{{ $repair_ict->where('status', 'pending')->first()->request_no }}"
+                                class="rounded btn btn-primary w-100 text-uppercase">
+                                ICT job Request
+                            </a>
+                        @else
+                            <a href=""
+                                class="rounded btn btn-primary w-100 text-uppercase">
+                                No pending report
+                            </a>
+                        @endif
                     </div>
                     <div class="col-xl-3 my-2">
                         @if (!$pre_repair->where('status', 'pending')->isEmpty())
@@ -96,7 +103,7 @@
                                 Pre-repair Request
                             </a>
                         @else
-                            <a href="/requests/" class="rounded btn btn-primary w-100 text-uppercase">
+                            <a href="" class="rounded btn btn-primary w-100 text-uppercase">
                                 No pending report
                             </a>
                         @endif
@@ -108,8 +115,7 @@
                                 Post repair Request
                             </a>
                         @else
-                            <a href="/requests/"
-                                class="rounded btn btn-primary w-100 text-uppercase">
+                            <a href="/requests/" class="rounded btn btn-primary w-100 text-uppercase">
                                 No pending report
                             </a>
                         @endif

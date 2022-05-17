@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('post_repair_inspections', function (Blueprint $table) {
             $table->id();
-            $table->string('repair_shop');
-            $table->date('repair_shop_date');
-            $table->integer('invoice_no');
-            $table->integer('job_order_no');
-            $table->date('job_order_date');
-            $table->integer('amt_no');
-            $table->text('payable_account');
-            $table->text('recommendation');
+            $table->string('repair_shop')->nullable();
+            $table->date('repair_shop_date')->nullable();
+            $table->integer('invoice_no')->nullable();
+            $table->integer('job_order_no')->nullable();
+            $table->date('job_order_date')->nullable();
+            $table->integer('amt_no')->nullable();
+            $table->text('payable_account')->nullable();
+            $table->text('recommendation')->nullable();
             $table->timestamps();
-            $table->foreignId('pre_repair_inspections_id');
+            $table->foreignId('pre_repair_inspections_id')->unsigned();
             $table->string('status');
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class SessionsController extends Controller
 {
@@ -17,7 +18,7 @@ class SessionsController extends Controller
         // validate the request
         $attributes = request()->validate([
             'email' => ['required', 'email'],
-            'password' => ['required'],
+            'password' => ['required', 'min:7'],
         ]);
 
         // attempt to authenticate and log in the user
@@ -25,7 +26,8 @@ class SessionsController extends Controller
         if(! auth()->attempt($attributes)){
             // auth failed
             throw ValidationException::withMessages([
-                'email' => 'Your provided credentials could not be verified.'
+                'email' => 'Your provided credentials could not be verified.',
+                'password' => 'Error! Invalid password.'
             ]);
         }
 
