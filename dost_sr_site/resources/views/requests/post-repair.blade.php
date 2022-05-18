@@ -7,7 +7,8 @@
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
 
             <x-main>
-                <form action="" method="" enctype="multipart/form-data">
+                <form action="/requests/post-inspection/{{ $rrId->id }}" method="POST"
+                    enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
 
@@ -21,8 +22,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         No.: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
-                                                        tabindex="-1">
+                                                    <input value="{{ $rrId->repair_requests->request_no }}"
+                                                        type="text" class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -31,8 +32,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         Date: </label>
-                                                    <input value="" type="text" class="input-design-1" readonly
-                                                        tabindex="-1">
+                                                    <input value="{{ $rrId->repair_requests->date_requested }}"
+                                                        type="text" class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
                                         </div>
@@ -59,65 +60,162 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="col-xl-12 border border-dark px-2 py-3 bg-white"
                                             style="z-index: 50">
                                             <section class="row mx-0">
                                                 <ul class="col-xl-6 px-2 m-0">
                                                     <li class="row my-1 mx-0">
-                                                        <label class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Repair
+                                                        <label for="repair_shop"
+                                                            class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Repair
                                                             Shop/Supplier:</label>
-                                                        <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1" type="text"
-                                                            value="">
+                                                        @if ($rrId->post_repair_inspections->repair_shop != null)
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text"
+                                                                value="{{ $rrId->post_repair_inspections->repair_shop }}"
+                                                                name="repair_shop" id="repair_shop" required>
+                                                        @else
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text" value="{{ old('repair_shop') }}"
+                                                                name="repair_shop" id="repair_shop" required>
+                                                        @endif
+                                                        @error('repair_shop')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Job
+                                                        <label for="job_order_no"
+                                                            class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Job
                                                             Order/P.O.
                                                             No.:</label>
-                                                        <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1" type="text"
-                                                            value="">
+
+                                                        @if ($rrId->post_repair_inspections->job_order_no != null)
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text"
+                                                                value="{{ $rrId->post_repair_inspections->job_order_no }}"
+                                                                name="job_order_no" id="job_order_no" required>
+                                                        @else
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text" value="{{ old('job_order_no') }}"
+                                                                name="job_order_no" id="job_order_no" required>
+                                                        @endif
+                                                        @error('job_order_no')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label
+                                                        <label for="invoice_no"
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Invoice
                                                             No.:</label>
-                                                        <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1" type="text"
-                                                            value="">
+
+                                                        @if ($rrId->post_repair_inspections->invoice_no != null)
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text"
+                                                                value="{{ $rrId->post_repair_inspections->invoice_no }}"
+                                                                name="invoice_no" id="invoice_no" required>
+                                                        @else
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text" value="{{ old('invoice_no') }}"
+                                                                name="invoice_no" id="invoice_no" required>
+                                                        @endif
+                                                        @error('invoice_no')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label for="latest_repair_date"
+                                                        <label for="amt_no"
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Amt/J.O./P.O.
                                                             No.:</label>
-                                                        <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1" type="text"
-                                                            name="latest_repair_date" id="latest_repair_date">
+
+                                                        @if ($rrId->post_repair_inspections->amt_no != null)
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text"
+                                                                value="{{ $rrId->post_repair_inspections->amt_no }}"
+                                                                name="amt_no" id="amt_no" required>
+                                                        @else
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text" value="{{ old('amt_no') }}" name="amt_no"
+                                                                id="amt_no" required>
+                                                        @endif
+                                                        @error('amt_no')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                 </ul>
                                                 <ul class="col-xl-6 px-2 m-0">
                                                     <li class="row my-1 mx-0">
-                                                        <label
+                                                        <label for="repair_shop_date"
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Date:</label>
-                                                        <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1" type="date"
-                                                            value="">
+
+                                                        @if ($rrId->post_repair_inspections->repair_shop_date != null)
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="date"
+                                                                value="{{ $rrId->post_repair_inspections->repair_shop_date }}"
+                                                                name="repair_shop_date" id="repair_shop_date" required>
+                                                        @else
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="date" value="{{ old('repair_shop_date') }}"
+                                                                name="repair_shop_date" id="repair_shop_date" required>
+                                                        @endif
+                                                        @error('repair_shop_date')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label
+                                                        <label for="job_order_date"
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Date:</label>
-                                                        <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1" type="date"
-                                                            value="">
+
+                                                        @if ($rrId->post_repair_inspections->job_order_date != null)
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="date"
+                                                                value="{{ $rrId->post_repair_inspections->job_order_date }}"
+                                                                name="job_order_date" id="job_order_date" required>
+                                                        @else
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="date" value="{{ old('job_order_date') }}"
+                                                                name="job_order_date" id="job_order_date" required>
+                                                        @endif
+                                                        @error('job_order_date')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                     <li class="row my-1 mx-0">
-                                                        <label
+                                                        <label for="payable_account"
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Payable
                                                             Account:</label>
-                                                        <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1" type="text"
-                                                            value="">
+
+                                                        @if ($rrId->post_repair_inspections->payable_account != null)
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text"
+                                                                value="{{ $rrId->post_repair_inspections->payable_account }}"
+                                                                name="payable_account" id="payable_account" required>
+                                                        @else
+                                                            <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
+                                                                type="text" value="{{ old('payable_account') }}"
+                                                                name="payable_account" id="payable_account" required>
+                                                        @endif
+                                                        @error('payable_account')
+                                                            <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                        @enderror
                                                     </li>
                                                 </ul>
                                             </section>
                                             <hr>
                                             <section class="row mx-0">
                                                 <div class="col-xl-12">
-                                                    <textarea class="input-design-1 text-ssm" name="" id="" style="width: 100%; height: 224px;"
-                                                        placeholder="FINDINGS/RECOMMENDATIONS"></textarea>
+                                                    <label for="recommendation" hidden></label>
+                                                    @if ($rrId->post_repair_inspections->recommendation != null)
+                                                        <textarea class="input-design-1 text-ssm" name="recommendation" id="recommendation" style="width: 100%; height: 224px;"
+                                                            placeholder="FINDINGS/RECOMMENDATIONS"
+                                                            required>{{ $rrId->post_repair_inspections->recommendation }}</textarea>
+                                                    @else
+                                                        <textarea class="input-design-1 text-ssm" name="recommendation" id="recommendation" style="width: 100%; height: 224px;"
+                                                            placeholder="FINDINGS/RECOMMENDATIONS" required></textarea>
+                                                    @endif
+
+                                                    @error('recommendation')
+                                                        <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </section>
                                         </div>
@@ -139,7 +237,8 @@
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100">
+                                                <button type="submit" name="action" value="print"
+                                                    class="btn btn-primary text-capitalize w-100">
                                                     <div class="row mx-0 justify-content-center align-content-center">
                                                         <img src="/icons/svg-files/printer.svg" width="24" height="24"
                                                             alt="Printer.svg" class="icon-white col-xl-12 col-md-4 p-0">
@@ -148,10 +247,12 @@
                                                 </button>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100">save</button>
+                                                <button type="submit" name="action" value="save"
+                                                    class="btn btn-primary text-capitalize w-100">save</button>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-success text-capitalize w-100">done</button>
+                                                <button type="submit" name="action" value="done"
+                                                    class="btn btn-success text-capitalize w-100">done</button>
                                             </div>
                                         </div>
                                     </div>

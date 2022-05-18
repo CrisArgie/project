@@ -69,8 +69,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
-    // 'timezone' => 'Asia/Manila GMT/UTC + 8:00' ,
+    // 'timezone' => 'UTC',
+    'timezone' => 'Asia/Manila' ,
 
 
     /*

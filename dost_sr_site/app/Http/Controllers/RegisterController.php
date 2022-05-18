@@ -16,7 +16,7 @@ class RegisterController extends Controller
         return view('registration.create');
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
     {
         // return request()->all(); // checker
 
@@ -26,7 +26,7 @@ class RegisterController extends Controller
             'email'         => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
             'password'      => ['required', 'min:7', 'max:255'],
         ]);
- 
+
         if ($validator->fails()) {
             return redirect('/register')
                         ->withErrors($validator)
@@ -41,6 +41,6 @@ class RegisterController extends Controller
         // auth()->login($users);
 
         // session()->flash('success', 'Your Account has been created.');
-        return redirect('/')->with('success', 'Your Account has been created.');
+        return redirect('/home')->with('success', 'Your Account has been created.');
     }
 }

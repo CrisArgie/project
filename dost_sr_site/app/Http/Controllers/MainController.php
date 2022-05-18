@@ -10,4 +10,10 @@ class MainController extends Controller
     {
         return view('index');
     }
+
+    public function index()
+    {
+        dd('profile => '. request());
+        // return view('')
+    }
 }

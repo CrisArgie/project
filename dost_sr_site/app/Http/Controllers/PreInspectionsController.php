@@ -26,7 +26,7 @@ class PreInspectionsController extends Controller
         switch(request()->input('action'))
         {
             case 'print':
-                dd('print => '. $requests->rrId . ' - '. $requests->id);
+                dd( 'print' );
 
                 break;
 
@@ -41,6 +41,10 @@ class PreInspectionsController extends Controller
             case 'done':
                 $status = 'done';
                 $this->uploadToDB($requests, $status);
+                RepairRequest::where('id', $requests->id)->where('status', 'in-progress')->update([
+                    'status' => $status,
+                ]);
+
                 return redirect('/requests')->with('success', 'Pre-Repair Inspection Request: Done.');
 
                 break;

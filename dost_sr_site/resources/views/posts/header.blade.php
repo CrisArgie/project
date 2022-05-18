@@ -17,7 +17,8 @@
                 {{-- <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> --}}
                 <button class="nav-link bg-color-transparent border-none" type="button" x-on:click="open = ! open"">
-                    <span class="mr-2 d-none d-lg-inline text-white">Welcome, {{ auth()->user()->first_name }}</span>
+                    <span class="  mr-2 d-none d-lg-inline text-white">Welcome,
+                    {{ auth()->user()->first_name }}</span>
                     <span id="lastName" hidden>{{ auth()->user()->last_name }}</span>
 
                     {{-- <span class="mr-2 d-none d-lg-inline text-white small">Welcome, FIRST_NAME</span> --}}
@@ -28,20 +29,24 @@
                         src="../img/undraw_profile.svg"> --}}
                 </button>
                 <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in display-block" x-cloak x-show="open">
-                    <a class="dropdown-item" href="#">
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in display-block" x-cloak
+                    x-show="open">
+
+                    <a class="dropdown-item" href="/profile">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <div class="dropdown-divider"></div>
+
+                    {{-- <a class="dropdown-item" href="#">
                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                         Settings
-                    </a>
+                    </a> --}}
                     {{-- <a class="dropdown-item" href="#">
                         <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                         Activity Log
                     </a> --}}
-                    <div class="dropdown-divider"></div>
+
                     <form method="POST" action="/logout" class="">
                         @csrf
 

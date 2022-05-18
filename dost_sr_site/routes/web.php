@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ICTRequestsController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostInspectionsController;
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 Route::get('/', [MainController::class, 'show']);
+Route::get('/profile', [MainController::class, 'index'])->middleware('auth');
+
 
 // LOGIN PAGE
 Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
@@ -51,8 +54,9 @@ Route::get('/requests/pre-inspection/{id}', [PreInspectionsController::class, 's
 Route::patch('/requests/pre-inspection/{id}/{rrId}', [PreInspectionsController::class, 'update'])->middleware('admin');
 
 Route::get('/requests/need-post-inspection/{id}/{rrId}', [PostInspectionsController::class, 'create'])->middleware('admin');
-
 Route::get('/requests/post-inspection/{id}', [PostInspectionsController::class, 'show'])->middleware('admin');
+Route::patch('/requests/post-inspection/{id}', [PostInspectionsController::class, 'update'])->middleware('admin');
+
 
 Route::get('/dashboard', [AdminController::class, 'show'])->middleware('admin');
 Route::get('/requests', [RequestsController::class, 'show'])->middleware('admin');
@@ -60,6 +64,8 @@ Route::get('/abouts', [AboutsController::class, 'show'])->middleware('admin');
 Route::get('/users', [UsersController::class, 'show'])->middleware('admin');
 
 
+Route::get('/home', [CustomerController::class, 'index'])->middleware('auth');
+Route::get('/requests', [RequestsController::class, 'index'])->middleware('auth');
 
 
 

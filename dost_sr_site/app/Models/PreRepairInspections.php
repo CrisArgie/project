@@ -25,6 +25,6 @@ class PreRepairInspections extends Model
 
     public function post_repair_inspections()
     {
-        return $this->hasOne(PostInspections::class);
+        return $this->hasOne(PostRepairInspections::class, 'pre_repair_inspections_id');
     }
 }

@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('repair_shop')->nullable();
             $table->date('repair_shop_date')->nullable();
-            $table->integer('invoice_no')->nullable();
-            $table->integer('job_order_no')->nullable();
+            $table->string('invoice_no')->nullable();
+            $table->string('job_order_no')->nullable();
             $table->date('job_order_date')->nullable();
-            $table->integer('amt_no')->nullable();
+            $table->string('amt_no')->nullable();
             $table->text('payable_account')->nullable();
             $table->text('recommendation')->nullable();
             $table->timestamps();
