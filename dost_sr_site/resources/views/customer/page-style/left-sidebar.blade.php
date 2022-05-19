@@ -22,19 +22,19 @@
     <div class="middle-sidebar">
         <ul class="sidebar-list">
             <li class="sidebar-list-item">
-                <a href="" class="sidebar-link {{ (request()->is('')) ? 'active' : '' }}">
+                <a href="/customer/request" class="sidebar-link {{ (request()->is('customer/request')) ? 'active' : '' }}">
                     <img class="sidebar-icon" src="/icons/svg-files/add-files.svg">
                     <div class="hidden-sidebar text-capitalize">Request</div>
                 </a>
             </li>
             <li class="sidebar-list-item">
-                <a href="" class="sidebar-link {{ (request()->is('')) ? 'active' : '' }}">
+                <a href="/view/requests" class="sidebar-link {{ (request()->is('view/requests')) ? 'active' : '' }}">
                     <img class="sidebar-icon" src="/icons/svg-files/agenda.svg">
                     <div class="hidden-sidebar">View Requests</div>
                 </a>
             </li>
             <li class="sidebar-list-item">
-                <a href="" class="sidebar-link {{ (request()->is('')) ? 'active' : '' }}">
+                <a href="/abouts" class="sidebar-link {{ (request()->is('abouts')) ? 'active' : '' }}">
                     <img class="sidebar-icon" src="/icons/svg-files/information.svg">
                     <div class="hidden-sidebar">About</div>
                 </a>

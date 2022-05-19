@@ -9,7 +9,11 @@
 
         {{-- CONTENT - BODY --}}
         <section class="content-position">
-            @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
+            @if (auth()->user()->user_type == 'admin')
+                @include('posts.left-sidebar') {{-- Admin LEFT SIDEBAR --}}
+            @else
+                @include('customer.page-style.left-sidebar') {{-- Customer LEFT SIDEBAR --}}
+            @endif
 
             <x-main>
                 <form action="/request-for-ict-job/create" method="POST" enctype="multipart/form-data">
@@ -32,7 +36,7 @@
                                                     <label for="date_requested"
                                                         class="mb-0 text-capitalize text-gray-900">
                                                         Date/Time of Request: </label>
-                                                    <input value="{{ now() }}" id="date_requested"
+                                                    <input value="{{ date('Y-m-d h:i') }}" id="date_requested"
                                                         name="date_requested" type="text" class="input-design-1"
                                                         readonly tabindex="-1">
                                                 </div>
@@ -43,7 +47,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900" for="request_no">
                                                         Request No.: </label>
-                                                    <input value="{{ $ictforms->last()->id + 1 . $user->id . '-' . date('Y-md') }}"
+                                                    <input
+                                                        value="{{ $ictforms->last()->id + 1 . $user->id . '-' . date('Y-md') }}"
                                                         type="text" id="request_no" name="request_no"
                                                         class="input-design-1" readonly tabindex="-1">
                                                 </div>
@@ -75,8 +80,9 @@
                                             <div class="mb-2">
                                                 <label for="property_no" class="mb-0 text-gray-600 text-capitalize h6">
                                                     Equipment Property No.:</label>
-                                                <input value="{{ old('property_no') }}" id="property_no" name="property_no" type="text"
-                                                    class="input-design-1 w-100 h6 mb-0" required>
+                                                <input value="{{ old('property_no') }}" id="property_no"
+                                                    name="property_no" type="text" class="input-design-1 w-100 h6 mb-0"
+                                                    required>
                                             </div>
                                         </section>
                                         <section class="col-xl-6">
@@ -85,11 +91,12 @@
                                             </div>
                                             <label for="type_of_requests_id" class="m-0" hidden></label>
                                             <div class="d-flex flex-column justify-content-between g-5">
-                                                <div class="row mx-0">
+                                                <div class="row mx-0" x-data="{ open: false }">
                                                     <div class="col-xl-6 p-0">
                                                         <div class="d-flex align-items-center g-1">
                                                             <input type="radio" value="1" name="type_of_requests_id"
-                                                                id="type_of_requests_id">
+                                                                id="type_of_requests_id"
+                                                                x-on:click="open = false">
                                                             <label class="mb-0 text-gray-600 text-capitalize"
                                                                 for="">Repair</label>
                                                         </div>
@@ -97,17 +104,17 @@
                                                     <div class="col-xl-6 p-0">
                                                         <div class="d-flex align-items-center g-1">
                                                             <input type="radio" value="2" name="type_of_requests_id"
-                                                                id="type_of_requests_id">
+                                                                id="type_of_requests_id" x-on:click="open = false">
                                                             <label class="mb-0 text-gray-600 text-capitalize"
                                                                 for="">Upgrade</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12 p-0">
-                                                        <div class="d-flex flex-column" x-data="{ open: false }">
+                                                        <div class="d-flex flex-column">
                                                             <div class="d-flex align-items-center g-1">
                                                                 <input type="radio" value="3" name="type_of_requests_id"
                                                                     id="type_of_requests_id" class="input-design-1"
-                                                                    x-on:click="open = ! open">
+                                                                    x-on:click="open = true">
                                                                 <label class="mb-0 text-gray-600 text-capitalize"
                                                                     for="">Other</label>
                                                             </div>
@@ -257,10 +264,19 @@
                             <div class="row mx-0 h-100">
                                 <div class="col-xl-12 col-md-4 px-0 pt-1">
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" onclick="window.history.back()" class="btn btn-danger">
-                                            <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
-                                                alt="Return to Previous page" class="icon-white">
-                                        </button>
+                                        @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
+                                            <a href="/requests" class="btn btn-danger">
+                                                <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
+                                                    alt="Return to Previous page" class="icon-white">
+                                            </a>
+                                        @else
+                                            <a href="/customer/request" class="btn btn-danger">
+                                                <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
+                                                    alt="Return to Previous page" class="icon-white">
+                                            </a>
+                                        @endif
+
+
                                     </div>
                                 </div>
                                 <div class="col-xl-auto col-md-8 w-100 p-0">
@@ -293,8 +309,39 @@
                                                     </button>
                                                 </div>
                                             @else
+                                                <div class="col-xl-12 col-md-4 p-1">
+                                                    <button type="submit" name="action" value="print"
+                                                        class="btn btn-primary text-capitalize w-100">
+                                                        <img src="/icons/svg-files/printer.svg" alt="printer"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" width="24"
+                                                            height="24">
+                                                        <div class="text-xs text-gray-100 text-uppercase opacity-80">
+                                                            print
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-xl-12 col-md-4 p-1">
+                                                    <button type="reset" class="btn btn-warning text-capitalize w-100">
+                                                        <img src="/icons/svg-files/eraser.svg" alt="reset"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" width="24"
+                                                            height="24">
+                                                        <div class="text-xs text-gray-100 text-uppercase opacity-80">
+                                                            reset
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-xl-12 col-md-4 p-1">
+                                                    <button type="submit" name="action" value="submit"
+                                                        class="btn btn-success text-capitalize w-100">
+                                                        <img src="/icons/svg-files/telegram.svg" alt="send"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" width="24"
+                                                            height="24">
+                                                        <div class="text-xs text-gray-100 text-uppercase opacity-80">
+                                                            submit
+                                                        </div>
+                                                    </button>
+                                                </div>
                                             @endif
-
                                         </div>
                                     </div>
                                 </div>

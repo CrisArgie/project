@@ -9,7 +9,13 @@
 
         {{-- CONTENT - BODY --}}
         <section class="content-position">
-            @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
+            @if (auth()->user()->user_type == 'admin')
+                @include('posts.left-sidebar') {{-- Admin LEFT SIDEBAR --}}
+            @else
+                @include('customer.page-style.left-sidebar') {{-- Customer LEFT SIDEBAR --}}
+            @endif
+
+
 
             <x-main>
                 <form action="/request-for-repair" method="POST" enctype="multipart/form-data">
@@ -25,8 +31,9 @@
                                                     <label for="request_no" class="mb-0 text-capitalize text-gray-900">
                                                         No.: </label>
                                                     <input name="request_no" id="request_no"
-                                                        value="{{ date('Y-md') . $repair_request->last()->id + 1 }}" readonly
-                                                        tabindex="-1" type="text" class="input-design-1" required>
+                                                        value="{{ date('Y-md') . $repair_request->last()->id + 1 }}"
+                                                        readonly tabindex="-1" type="text" class="input-design-1"
+                                                        required>
                                                 </div>
                                                 @error('request_no')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
@@ -144,7 +151,7 @@
                                                     class="mb-0 text-gray-900 text-capitalize">
                                                     Problem Encountered:</label>
                                                 <textarea class="input-design-1" name="problem_encountered" id="problem_encountered" cols="30" rows="8"
-                                                    placeholder="Type here..." readonly tabindex="-1"></textarea>
+                                                    placeholder="Type here..."></textarea>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 mt-2">
@@ -153,7 +160,7 @@
                                                     class="mb-0 text-gray-900 text-capitalize">
                                                     Corrective Action Performed:</label>
                                                 <textarea class="input-design-1" name="corrective_action_performed" id="corrective_action_performed" cols="30" rows="8"
-                                                    placeholder="Type here..." readonly tabindex="-1"></textarea>
+                                                    placeholder="Type here..."></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -164,18 +171,26 @@
                             <div class="row mx-0 h-100">
                                 <div class="col-xl-12 col-md-4 px-0 p-1">
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" onclick="window.history.back()" class="btn btn-danger">
-                                            <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
-                                                alt="Return to Previous page" class="icon-white">
-                                        </button>
+                                        @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
+                                            <a href="/requests" class="btn btn-danger">
+                                                <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
+                                                    alt="Return to Previous page" class="icon-white">
+                                            </a>
+                                        @else
+                                            <a href="/customer/request" class="btn btn-danger">
+                                                <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
+                                                    alt="Return to Previous page" class="icon-white">
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-xl-auto col-md-8 w-100 p-0">
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
-                                            @if ((auth()->user()->user_type == 'admin') || (auth()->user()->user_type == 'technician'))
+                                            @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
                                                 <div class="col-xl-12 col-md-4 p-1">
-                                                    <button type="button" class="btn btn-primary w-100">
+                                                    <button type="submit" name="action" value="save"
+                                                        class="btn btn-primary w-100">
                                                         <img src="/icons/svg-files/save.svg" width="26" height="26"
                                                             class="icon-white col-xl-12 col-md-4 p-0" alt="Save.png">
                                                     </button>
@@ -219,16 +234,18 @@
                                                                         <div class="h6 text-gray-900"> User/Owner name:
                                                                         </div>
                                                                         <label for="users_id" hidden></label>
-                                                                        <span class="p-0 text-xs text-gray-600">Select only one user</span>
+                                                                        <span class="p-0 text-xs text-gray-600">Select
+                                                                            only one user</span>
                                                                         <div class="d-flex">
-                                                                            <select name="users_id" id="users_id" size="8"
-                                                                            class="input-design-1 w-100">
-                                                                            @foreach ($users as $user)
-                                                                                <option class="overflow-auto"
-                                                                                    value="{{ $user->id }}">
-                                                                                    {{ $user->first_name . ': ' . $user->email }}</option>
-                                                                            @endforeach
-                                                                        </select>
+                                                                            <select name="users_id" id="users_id"
+                                                                                size="8" class="input-design-1 w-100">
+                                                                                @foreach ($users as $user)
+                                                                                    <option class="overflow-auto"
+                                                                                        value="{{ $user->id }}">
+                                                                                        {{ $user->first_name . ': ' . $user->email }}
+                                                                                    </option>
+                                                                                @endforeach
+                                                                            </select>
                                                                         </div>
                                                                     </div>
                                                                     @error('users_id')
@@ -236,7 +253,8 @@
                                                                             {{ $message }}</p>
                                                                     @enderror
                                                                     <div class="col-xl-12 mt-3">
-                                                                        <button type="submit"
+                                                                        <button type="submit" name="action"
+                                                                            value="submit"
                                                                             class="btn btn-primary float-right">
                                                                             Submit
                                                                         </button>
@@ -247,21 +265,52 @@
                                                     </div>
                                                 </div>
                                             @else
-                                                {{-- TO BE EDITED FOR CUSTOMER --}}
+                                                {{-- FOR CUSTOMER --}}
+                                                <input type="text" name="users_id" id="users_id"
+                                                    value="{{ auth()->user()->id }}" hidden>
+
+                                                {{-- <div class="col-xl-12 col-md-4 p-1">
+                                                    <button type="submit" name="action" value="save"
+                                                        class="btn btn-primary text-capitalize w-100">
+                                                        <img src="/icons/svg-files/save.svg" alt="save"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" width="24"
+                                                            height="24">
+                                                        <div class="text-xs text-gray-100 text-uppercase opacity-80">
+                                                            save
+                                                        </div>
+                                                    </button>
+                                                </div> --}}
                                                 <div class="col-xl-12 col-md-4 p-1">
-                                                    <button type="button" class="btn btn-primary text-capitalize w-100">
-                                                        <div
-                                                            class="row mx-0 justify-content-center align-content-center">
-                                                            <img src="/icons/svg-files/printer.svg" width="24"
-                                                                height="24" alt="Printer.svg"
-                                                                class="icon-white col-xl-12 col-md-4 p-0">
-                                                            <div class="col-xl-12 col-md-8 px-1">print</div>
+                                                    <button type="submit" name="action" value="print"
+                                                        class="btn btn-primary text-capitalize w-100">
+                                                        <img src="/icons/svg-files/printer.svg" alt="printer"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" width="24"
+                                                            height="24">
+                                                        <div class="text-xs text-gray-100 text-uppercase opacity-80">
+                                                            print
                                                         </div>
                                                     </button>
                                                 </div>
                                                 <div class="col-xl-12 col-md-4 p-1">
-                                                    <button type="button"
-                                                        class="btn btn-primary text-capitalize w-100">save</button>
+                                                    <button type="reset" class="btn btn-warning text-capitalize w-100">
+                                                        <img src="/icons/svg-files/eraser.svg" alt="reset"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" width="24"
+                                                            height="24">
+                                                        <div class="text-xs text-gray-100 text-uppercase opacity-80">
+                                                            reset
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-xl-12 col-md-4 p-1">
+                                                    <button type="submit" name="action" value="submit"
+                                                        class="btn btn-success text-capitalize w-100">
+                                                        <img src="/icons/svg-files/telegram.svg" alt="send"
+                                                            class="icon-white col-xl-12 col-md-4 p-0" width="24"
+                                                            height="24">
+                                                        <div class="text-xs text-gray-100 text-uppercase opacity-80">
+                                                            submit
+                                                        </div>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </div>

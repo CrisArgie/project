@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DivisionsController;
 use App\Http\Controllers\ICTRequestsController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostInspectionsController;
@@ -32,20 +33,15 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 // REQUESTS REPAIR
-Route::get('/requests/repair-request/{id}', [RepairRequestsController::class, 'index'])->middleware('auth');
-Route::patch('/requests/repair-request/{id}', [RepairRequestsController::class, 'update'])->middleware('auth');
+Route::get('/requests/repair-request/{id}', [RepairRequestsController::class, 'index'])->middleware('admin');
+Route::patch('/requests/repair-request/{id}', [RepairRequestsController::class, 'update'])->middleware('admin');
 
-Route::get('/request-for-repair', [RepairRequestsController::class, 'show'])->middleware('auth');
-Route::post('/request-for-repair', [RepairRequestsController::class, 'create'])->middleware('auth');
-Route::get('/request-ict-user', [ICTRequestsController::class, 'ictRequest'])->middleware('auth');
 
 // REQUEST ICT
 Route::get('/requests/repair-ict-request/{id}', [ICTRequestsController::class, 'index'])->middleware('auth');
 Route::patch('/requests/repair-ict-request/{id}', [ICTRequestsController::class, 'update'])->middleware('auth');
+Route::get('/request-ict-user', [ICTRequestsController::class, 'ictRequest'])->middleware('admin');
 
-
-Route::get('/request-for-ict-job/{id}', [ICTRequestsController::class, 'show'])->middleware('auth');
-Route::post('/request-for-ict-job/create', [ICTRequestsController::class, 'create'])->middleware('auth');
 
 
 
@@ -60,14 +56,26 @@ Route::patch('/requests/post-inspection/{id}', [PostInspectionsController::class
 
 Route::get('/dashboard', [AdminController::class, 'show'])->middleware('admin');
 Route::get('/requests', [RequestsController::class, 'show'])->middleware('admin');
-Route::get('/abouts', [AboutsController::class, 'show'])->middleware('admin');
 Route::get('/users', [UsersController::class, 'show'])->middleware('admin');
 
 
+// NEUTRAL AREA
+Route::get('/request-for-repair', [RepairRequestsController::class, 'show'])->middleware('auth');
+Route::post('/request-for-repair', [RepairRequestsController::class, 'create'])->middleware('auth');
+
+Route::get('/request-for-ict-job/{id}', [ICTRequestsController::class, 'show'])->middleware('auth');
+Route::post('/request-for-ict-job/create', [ICTRequestsController::class, 'create'])->middleware('auth');
+
+Route::get('/abouts', [AboutsController::class, 'show'])->middleware('auth');
+
+
+// CUSTOMER
 Route::get('/home', [CustomerController::class, 'index'])->middleware('auth');
-Route::get('/requests', [RequestsController::class, 'index'])->middleware('auth');
+Route::patch('/home/{id}/update', [DivisionsController::class, 'update'])->middleware('auth');
 
 
+Route::get('/customer/request', [RequestsController::class, 'index'])->middleware('auth');
+Route::get('/view/requests', [RequestsController::class, 'viewRequest'])->middleware('auth');
 
 
 

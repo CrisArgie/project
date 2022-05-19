@@ -32,41 +32,49 @@ class RepairRequestsController extends Controller
 
     public function create(Request $request)
     {
+        switch ($request->action) {
+                // case 'save':
+                //     $status = 'pending';
+                //     $attributes = $this->validateInput($request);
+                //     dd($attributes);
+                //     if()
+                //     {}
+                //     return back()->with('success', 'Your Repair Request has been updated.');
+                //     break;
 
-        $this->validate($request, [
-            'request_no' => ['required'],
-            'date_requested' => ['required', 'date'],
-            'description_of_property_type' => ['required'],
-            'serial_no' => ['required', Rule::unique('equipment', 'serial_no')],
-            'acquisition_date' => ['required', 'date'],
-            'location' => ['required'],
-            'brand_model' => ['required'],
-            'property_no' => ['required', Rule::unique('equipment', 'property_no')],
-            'acquisition_cost' => ['required'],
-            'users_id' => ['required'],
-        ]);
+            case 'submit':
+                $status = 'in-progress';
 
+                $attributes = $this->validateInput($request);
+                // dd('action => ' . $request->action);
 
+                $equipmentID = Equipment::insertGetId([
+                    'serial_no' => $request->serial_no,
+                    'property_no' => $request->property_no,
+                    'brand_model' => $request->brand_model,
+                ]);
 
-        $equipmentID = Equipment::insertGetId([
-            'serial_no' => $request->serial_no,
-            'property_no' => $request->property_no,
-            'brand_model' => $request->brand_model,
-        ]);
+                RepairRequest::create([
+                    'date_requested' => $request->date_requested,
+                    'request_no' => $request->request_no,
+                    'description_of_property_type' => $request->description_of_property_type,
+                    'location' => $request->location,
+                    'acquisition_date' => $request->acquisition_date,
+                    'acquisition_cost' => $request->acquisition_cost,
+                    'users_id' => $request->users_id,
+                    'equipment_id' => $equipmentID,
+                    'status' => 'pending',
+                ]);
 
-        RepairRequest::create([
-            'date_requested' => $request->date_requested,
-            'request_no' => $request->request_no,
-            'description_of_property_type' => $request->description_of_property_type,
-            'location' => $request->location,
-            'acquisition_date' => $request->acquisition_date,
-            'acquisition_cost' => $request->acquisition_cost,
-            'users_id' => $request->users_id,
-            'equipment_id' => $equipmentID,
-            'status' => 'pending',
-        ]);
+                return back()->with('success', 'Your Repair Request has been created.');
+                break;
 
-        return redirect('/requests')->with('success', 'Your Repair Request has been created.');
+            case 'print':
+                dd('action => ' . $request->action);
+
+                break;
+        }
+        // return redirect('/requests')->with('success', 'Your Repair Request has been created.');
         // return back()->with('success', 'Post Updated!');
     }
 
@@ -90,5 +98,31 @@ class RepairRequestsController extends Controller
         ]);
 
         return redirect('/requests')->with('success', 'Repair Request Updated');
+    }
+
+    public function validateInput($request)
+    {
+        $todayDate = date('Y-m-d');
+
+        return $this->validate(
+            $request,
+            [
+                'request_no' => ['required'],
+                'date_requested' => ['required', 'date'],
+                'description_of_property_type' => ['required'],
+                'serial_no' => ['required', Rule::unique('equipment', 'serial_no')],
+                'acquisition_date' => ['required', 'date', 'after_or_equal:' . $todayDate],
+                'location' => ['required'],
+                'brand_model' => ['required'],
+                'property_no' => ['required', Rule::unique('equipment', 'property_no')],
+                'acquisition_cost' => ['required'],
+                'users_id' => ['required'],
+                'corrective_action_performed' => ['nullable'],
+                'problem_encountered' => ['nullable'],
+            ],
+            [
+                'acquisition_date.after_or_equal' => 'The date must be equal or greater than ' . $todayDate . '.',
+            ]
+        );
     }
 }

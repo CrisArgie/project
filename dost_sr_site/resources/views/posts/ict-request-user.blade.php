@@ -22,6 +22,7 @@
 
                         <div class="input-design-1 overflow-auto w-auto" style="height: 400px" x-show="open" x-cloak>
                             @foreach ($users as $user)
+                                @if (!$user->divisions == null)
                                 <a href="/request-for-ict-job/{{ $user->id }}"
                                     class="d-flex flex-column mb-2 p-2 btn-link-2 text-decoration-none">
                                     <div class="text-gray-800">
@@ -31,6 +32,7 @@
                                         {{ $user->divisions->division_name . ' - ' . $user->divisions->division_number }}
                                     </span>
                                 </a>
+                                @endif
                             @endforeach
                         </div>
                     </div>

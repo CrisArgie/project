@@ -443,6 +443,8 @@ body {
     pointer-events: visible;
 }
 
+.font-italic {}
+
 #overlay {
     position: fixed;
     opacity: 0;
@@ -494,6 +496,14 @@ body {
 
 .text-ssm {
     font-size: 1rem;
+}
+
+.opacity-50 {
+    opacity: 50% !important;
+}
+
+.opacity-80 {
+    opacity: 80% !important;
 }
 
 .icon-white {
