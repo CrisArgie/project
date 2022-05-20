@@ -14,6 +14,11 @@ class Equipment extends Model
 
     public function ictrequest()
     {
-        return $this->hasMany(IctRequests::class);
+        return $this->hasMany(IctRequests::class, 'ict_forms_id', 'id');
+    }
+
+    public function repairrequest()
+    {
+        return $this->hasMany(RepairRequest::class, 'equipment_id', 'id');
     }
 }

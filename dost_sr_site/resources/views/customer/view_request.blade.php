@@ -22,7 +22,7 @@
                             <span class="text">Generate Report</span>
                         </button>
 
-                        <button class="btn btn-primary">
+                        <button class="btn btn-info">
                             Add Request
                         </button>
                     </div>
@@ -38,7 +38,9 @@
                                     <div class="row no-gutters align-items-center">
                                         <span class="col-xl-5 col-md-12 mr-2 text-gray-800">Total of Repair
                                             Request:</span>
-                                        <span class="col-auto text-lg">5</span>
+                                        <span class="col-auto text-lg">
+                                            {{ $user->repairrequest->whereIn('status', ['pending', 'in-progress'])->count() }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +49,9 @@
                                     <div class="row no-gutters align-items-center">
                                         <span class="col-xl-5 col-md-12 mr-2 text-gray-800">Total of ICT Job
                                             Request:</span>
-                                        <span class="col-auto text-lg">5</span>
+                                        <span class="col-auto text-lg">
+                                            {{ $user->ictforms->whereIn('status', ['pending', 'in-progress'])->count() }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +60,9 @@
                                     <div class="row no-gutters align-items-center">
                                         <span class="col-xl-5 col-md-12 mr-2 text-gray-800">Total of Pending
                                             Request:</span>
-                                        <span class="col-auto text-lg">5</span>
+                                        <span class="col-auto text-lg">
+                                            {{ $user->ictforms->where('status', 'pending')->count() + $user->repairrequest->where('status', 'pending')->count() }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +81,7 @@
                                     <thead>
                                         <tr role="row">
                                             <th tabindex="0" class="text-capitalize">
-                                                No.
+                                                Request No.
                                             </th>
                                             <th tabindex="0" class="text-capitalize">
                                                 Action
@@ -101,16 +107,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (!$repairrequest->get()->isEmpty())
-                                            @foreach ($repairrequest->get() as $request)
-                                                <tr>
+                                        @if (!$user->repairrequest->isEmpty())
+                                            @foreach ($user->repairrequest as $request)
+                                                <tr class="text-dark">
                                                     <td>
-                                                        {{ $request->request_no }}
+                                                        <a href="">
+                                                            {{ $request->request_no }}
+                                                        </a>
                                                     </td>
-                                                    <td>
-                                                        <button type="button"></button>
+                                                    <td class="d-flex justify-content-center text-white">
+                                                        @if ($request->status == 'done')
+                                                            <button type="button"
+                                                                class="btn btn-success text-uppercase">
+                                                                Done
+                                                            </button>
+                                                        @elseif ($request->status == 'pending')
+                                                            <button type="button"
+                                                                class="btn btn-info text-uppercase">
+                                                                View
+                                                            </button>
+
+                                                        @else
+                                                            <button type="button" class="btn btn-danger text-uppercase">
+                                                                Cancel
+                                                            </button>
+                                                        @endif
                                                     </td>
-                                                    <td>
+                                                    <td class="text-uppercase">
                                                         {{ $request->status }}
                                                     </td>
                                                     <td>
@@ -150,7 +173,7 @@
                                     <thead>
                                         <tr role="row">
                                             <th tabindex="0" class="text-capitalize">
-                                                No.
+                                                Request No.
                                             </th>
                                             <th tabindex="0" class="text-capitalize">
                                                 Action
@@ -162,13 +185,10 @@
                                                 Requested
                                             </th>
                                             <th tabindex="0" class="text-capitalize">
-                                                Needed
+                                                Type of Requests
                                             </th>
                                             <th tabindex="0" class="text-capitalize">
-                                                Brand/Model
-                                            </th>
-                                            <th tabindex="0" class="text-capitalize">
-                                                Type of Request
+                                                Total of Area of Request
                                             </th>
                                             <th tabindex="0" class="text-capitalize">
                                                 Property No.
@@ -176,16 +196,51 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                        </tr>
+                                        @if (!$user->ictforms->isEmpty())
+                                            @foreach ($user->ictforms as $request)
+                                            <tr class="text-dark">
+                                                <td>
+                                                    <a href="">{{ $request->request_no }}</a>
+                                                </td>
+                                                <td>
+                                                    @if ($request->status == 'done')
+                                                            <button type="button"
+                                                                class="btn btn-success text-uppercase">
+                                                                Done
+                                                            </button>
+                                                        @elseif ($request->status == 'pending')
+                                                            <button type="button"
+                                                                class="btn btn-info text-uppercase">
+                                                                View
+                                                            </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-danger text-uppercase">
+                                                                Cancel
+                                                            </button>
+                                                        @endif
+                                                </td>
+                                                <td class="text-uppercase">
+                                                    {{ $request->status }}
+                                                </td>
+                                                <td>
+                                                    {{ $request->date_requested }}
+                                                </td>
+                                                <td>
+                                                    {{ $request->type_of_requests->request_title }}
+                                                </td>
+                                                <td>
+                                                    {{ $areaconjunction->where('ict_forms_id', $request->id)->count() }}
+                                                </td>
+                                                <td>
+                                                    {{-- @dd() --}}
+                                                    {{ $request->ict_requests->first()->equipment->property_no }}
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

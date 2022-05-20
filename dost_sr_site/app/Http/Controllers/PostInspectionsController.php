@@ -12,23 +12,23 @@ class PostInspectionsController extends Controller
     public function show(PreRepairInspections $preRI, Request $request)
     {
         // dd($request->id);
-        // dd($preRI->where('id', $request->id)->where('status', 'in-progress')->first());
-
+        $preRID = $preRI->where('id', $request->id)->where('status', 'in-progress')->get();
+        // dd($preRID);
         return view('requests.post-repair', [
-            'rrId' => $preRI->where('id', $request->id)->where('status', 'in-progress')->first(),
+            'prId' => $preRID,
         ]);
     }
 
     public function create(Request $request)
     {
-        // dd('need post inspection => ' . $request->id );
+        // dd('need post inspection => ' . $request->rrId );
 
         PostRepairInspections::create([
-            'pre_repair_inspections_id' => $request->id,
+            'pre_repair_inspections_id' => $request->rrId,
             'status' => 'pending',
         ]);
 
-        return redirect('/requests/post-inspection/' . $request->id)->with('success', 'Post Created');
+        return redirect('/requests')->with('success', 'Post Created');
     }
 
     public function update(PostRepairInspections $post)
@@ -87,7 +87,7 @@ class PostInspectionsController extends Controller
 
                 $post->where('pre_repair_inspections_id', request()->id)->where('status', 'pending')->update($attributes);
 
-                return back()->with('success', 'Post Repair Inspection Request: Saved Pending.');
+                return redirect('/requests')->with('success', 'Post Repair Inspection Request: Saved Pending.');
 
                 break;
             case 'print':

@@ -78,10 +78,19 @@
             <div class="card-body">
                 <div class="row mx-0">
                     <div class="col-xl-3 my-2">
-                        <a href="/requests/repair-request/{{ $repair_requests->where('status', 'pending')->first()->request_no }}"
-                            class="rounded btn btn-primary w-100 text-uppercase">
-                            Repair Request
-                        </a>
+                        @if (!$repair_requests->where('status', 'pending')->isEmpty())
+                            <a href="/requests/repair-request/{{ $repair_requests->where('status', 'pending')->first()->request_no }}"
+                                class="rounded btn btn-primary w-100 text-uppercase">
+                                Repair Request
+                            </a>
+                        @else
+                            <a href=""
+                                class="rounded btn btn-primary w-100 text-uppercase">
+                                No pending report
+                            </a>
+                        @endif
+
+
                     </div>
                     <div class="col-xl-3 my-2">
                         @if (!$repair_ict->where('status', 'pending')->isEmpty())

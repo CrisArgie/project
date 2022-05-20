@@ -14,6 +14,6 @@ class TypeOfRequests extends Model
 
     public function ictforms()
     {
-        return $this->hasMany(IctForms::class);
+        return $this->hasMany(IctForms::class, 'type_of_requests_id', 'id');
     }
 }

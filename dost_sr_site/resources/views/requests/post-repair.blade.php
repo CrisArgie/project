@@ -2,12 +2,13 @@
     <main class="d-flex flex-column">
         @include('posts.header') {{-- HEADER --}}
 
+{{-- @dd($prId->first()->postrepairinspections->repair_shop) --}}
         {{-- CONTENT - BODY --}}
         <section class="content-position">
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
 
             <x-main>
-                <form action="/requests/post-inspection/{{ $rrId->id }}" method="POST"
+                <form action="/requests/post-inspection/{{ $prId->first()->id }}" method="POST"
                     enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
@@ -22,7 +23,7 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         No.: </label>
-                                                    <input value="{{ $rrId->repair_requests->request_no }}"
+                                                    <input value="{{ $prId->first()->repair_requests->request_no }}"
                                                         type="text" class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
@@ -32,7 +33,7 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         Date: </label>
-                                                    <input value="{{ $rrId->repair_requests->date_requested }}"
+                                                    <input value="{{ $prId->first()->repair_requests->date_requested }}"
                                                         type="text" class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
@@ -69,10 +70,10 @@
                                                         <label for="repair_shop"
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Repair
                                                             Shop/Supplier:</label>
-                                                        @if ($rrId->post_repair_inspections->repair_shop != null)
+                                                        @if ($prId->first()->postrepairinspections->repair_shop != null)
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
                                                                 type="text"
-                                                                value="{{ $rrId->post_repair_inspections->repair_shop }}"
+                                                                value="{{ $prId->first()->postrepairinspections->repair_shop }}"
                                                                 name="repair_shop" id="repair_shop" required>
                                                         @else
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
@@ -89,10 +90,10 @@
                                                             Order/P.O.
                                                             No.:</label>
 
-                                                        @if ($rrId->post_repair_inspections->job_order_no != null)
+                                                        @if ($prId->first()->postrepairinspections->job_order_no != null)
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
                                                                 type="text"
-                                                                value="{{ $rrId->post_repair_inspections->job_order_no }}"
+                                                                value="{{ $prId->first()->postrepairinspections->job_order_no }}"
                                                                 name="job_order_no" id="job_order_no" required>
                                                         @else
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
@@ -108,10 +109,10 @@
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Invoice
                                                             No.:</label>
 
-                                                        @if ($rrId->post_repair_inspections->invoice_no != null)
+                                                        @if ($prId->first()->postrepairinspections->invoice_no != null)
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
                                                                 type="text"
-                                                                value="{{ $rrId->post_repair_inspections->invoice_no }}"
+                                                                value="{{ $prId->first()->postrepairinspections->invoice_no }}"
                                                                 name="invoice_no" id="invoice_no" required>
                                                         @else
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
@@ -127,10 +128,10 @@
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Amt/J.O./P.O.
                                                             No.:</label>
 
-                                                        @if ($rrId->post_repair_inspections->amt_no != null)
+                                                        @if ($prId->first()->postrepairinspections->amt_no != null)
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
                                                                 type="text"
-                                                                value="{{ $rrId->post_repair_inspections->amt_no }}"
+                                                                value="{{ $prId->first()->postrepairinspections->amt_no }}"
                                                                 name="amt_no" id="amt_no" required>
                                                         @else
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
@@ -147,10 +148,10 @@
                                                         <label for="repair_shop_date"
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Date:</label>
 
-                                                        @if ($rrId->post_repair_inspections->repair_shop_date != null)
+                                                        @if ($prId->first()->postrepairinspections->repair_shop_date != null)
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
                                                                 type="date"
-                                                                value="{{ $rrId->post_repair_inspections->repair_shop_date }}"
+                                                                value="{{ $prId->first()->postrepairinspections->repair_shop_date }}"
                                                                 name="repair_shop_date" id="repair_shop_date" required>
                                                         @else
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
@@ -165,10 +166,10 @@
                                                         <label for="job_order_date"
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Date:</label>
 
-                                                        @if ($rrId->post_repair_inspections->job_order_date != null)
+                                                        @if ($prId->first()->postrepairinspections->job_order_date != null)
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
                                                                 type="date"
-                                                                value="{{ $rrId->post_repair_inspections->job_order_date }}"
+                                                                value="{{ $prId->first()->postrepairinspections->job_order_date }}"
                                                                 name="job_order_date" id="job_order_date" required>
                                                         @else
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
@@ -184,10 +185,10 @@
                                                             class="col-xl-4 p-0 m-auto text-gray-900 text-ssm">Payable
                                                             Account:</label>
 
-                                                        @if ($rrId->post_repair_inspections->payable_account != null)
+                                                        @if ($prId->first()->postrepairinspections->payable_account != null)
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
                                                                 type="text"
-                                                                value="{{ $rrId->post_repair_inspections->payable_account }}"
+                                                                value="{{ $prId->first()->postrepairinspections->payable_account }}"
                                                                 name="payable_account" id="payable_account" required>
                                                         @else
                                                             <input class="col-xl-8 p-0 mt-1 mb-1 input-design-1"
@@ -204,10 +205,10 @@
                                             <section class="row mx-0">
                                                 <div class="col-xl-12">
                                                     <label for="recommendation" hidden></label>
-                                                    @if ($rrId->post_repair_inspections->recommendation != null)
+                                                    @if ($prId->first()->postrepairinspections->recommendation != null)
                                                         <textarea class="input-design-1 text-ssm" name="recommendation" id="recommendation" style="width: 100%; height: 224px;"
                                                             placeholder="FINDINGS/RECOMMENDATIONS"
-                                                            required>{{ $rrId->post_repair_inspections->recommendation }}</textarea>
+                                                            required>{{ $prId->first()->postrepairinspections->recommendation }}</textarea>
                                                     @else
                                                         <textarea class="input-design-1 text-ssm" name="recommendation" id="recommendation" style="width: 100%; height: 224px;"
                                                             placeholder="FINDINGS/RECOMMENDATIONS" required></textarea>

@@ -32,7 +32,7 @@
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in display-block" x-cloak
                     x-show="open">
 
-                    <a class="dropdown-item" href="/profile">
+                    <a class="dropdown-item" href="/profile/{{ auth()->user()->id }}">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
                     </a>

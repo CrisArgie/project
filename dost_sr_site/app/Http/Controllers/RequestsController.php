@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AreaRequests;
 use App\Models\IctForms;
+use App\Models\IctRequests;
 use App\Models\PostRepairInspections;
 use App\Models\PreRepairInspections;
 use App\Models\RepairRequest;
+use App\Models\Users;
 use Illuminate\Support\Facades\Auth;
 
 // use Illuminate\Http\Request;
@@ -14,6 +17,7 @@ class RequestsController extends Controller
 {
     public function show(RepairRequest $repair_request, IctForms $ictforms, PreRepairInspections $prerepairinspections, PostRepairInspections $postrepairinspections)
     {
+        // dd($prerepairinspections->all()->where('status', 'pending')->first());
         return view('admin.requests', [
             'repair_request' => $repair_request->all(),
             'repair_ict' => $ictforms->all(),
@@ -27,13 +31,17 @@ class RequestsController extends Controller
         return view('customer.requests');
     }
 
-    public function viewRequest(RepairRequest $rrequest, IctForms $irequest)
+    public function viewRequest(IctRequests $iirequest, Users $users)
     {
-        $id = Auth::id();
+        $user = $users->where('id', auth()->user()->id)->first();
+        $areaID = AreaRequests::all();
 
         return view('customer.view_request', [
-            'repairrequest' => $rrequest->where('users_id', $id),
-            'ictrequest' => $irequest->where('users_id', $id),
+            // 'repairrequest' => $rrequest->where('users_id', $id),
+            // 'ictrequest' => $irequest->where('users_id', $id),
+            'user' => $user,
+            'ictconjunction' => $iirequest,
+            'areaconjunction' => $areaID,
         ]);
     }
 }

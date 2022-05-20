@@ -23,6 +23,6 @@ class PostRepairInspections extends Model
 
     public function pre_repair_inspections()
     {
-        return $this->belongsTo(PostInspections::class);
+        return $this->belongsTo(PreRepairInspections::class);
     }
 }

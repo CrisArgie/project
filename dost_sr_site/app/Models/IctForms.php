@@ -31,11 +31,11 @@ class IctForms extends Model
 
     public function arearequests()
     {
-        return $this->hasMany(AreaRequests::class);
+        return $this->hasMany(AreaRequests::class, 'ict_forms_id', 'id');
     }
 
-    public function ictrequests()
+    public function ict_requests()
     {
-        return $this->hasMany(IctRequests::class);
+        return $this->hasMany(IctRequests::class, 'ict_forms_id', 'id');
     }
 }

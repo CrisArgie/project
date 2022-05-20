@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 Route::get('/', [MainController::class, 'show']);
-Route::get('/profile', [MainController::class, 'index'])->middleware('auth');
+Route::get('/profile/{id}', [MainController::class, 'index'])->middleware('auth');
+Route::patch('/profile/update', [MainController::class, 'update'])->middleware('auth');
 
 
 // LOGIN PAGE

@@ -443,8 +443,6 @@ body {
     pointer-events: visible;
 }
 
-.font-italic {}
-
 #overlay {
     position: fixed;
     opacity: 0;

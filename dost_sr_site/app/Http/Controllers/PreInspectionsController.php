@@ -53,7 +53,7 @@ class PreInspectionsController extends Controller
                 $status = 'pending';
                 $this->uploadToDB($requests, $status);
                 // return redirect('/requests/pre-inspection/'. $requests->id)->with('success', 'Pre Inspection Request: Saved Pending.');
-                return back()->with('success', 'Pre-Repair Inspection Request: Saved Pending.');
+                return redirect('/requests')->with('success', 'Pre-Repair Inspection Request: Saved Pending.');
 
 
                 break;

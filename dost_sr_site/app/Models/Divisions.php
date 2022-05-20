@@ -13,6 +13,6 @@ class Divisions extends Model
 
     public function divisions()
     {
-        return $this->hasMany(Users::class);
+        return $this->hasMany(Users::class, 'divisions_id', 'id');
     }
 }

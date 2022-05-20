@@ -21,7 +21,7 @@
                                 <div class="col-xl-9 mb-2">
                                     <div class="card rounded-0 shadow">
                                         <div class="card-body" style="height: 240px; overflow-y:auto;">
-                                            @if (!$repair->isEmpty() || !$ict->isEmpty())
+                                            @if (!$user->repairrequest->isEmpty() || !$user->ictforms->isEmpty())
                                                 <div class="table-responsive">
                                                     <div class="row mx-0">
                                                         <div class="col-sm-12">
@@ -31,28 +31,68 @@
                                                                 style="width: 100%;">
                                                                 <thead>
                                                                     <tr role="row">
-                                                                        <th style="width: 190.413px;">No.</th>
-                                                                        <th style="width: 190.413px;">Brand/Model</th>
-                                                                        <th style="width: 190.413px;">Status</th>
-                                                                        <th style="width: 309.112px;">Requested</th>
-                                                                        <th style="width: 137.025px;">Action</th>
+                                                                        <th style="width: 190.413px;">
+                                                                            No.
+                                                                        </th>
+                                                                        <th style="width: 190.413px;">
+                                                                            Property No.
+                                                                        </th>
+                                                                        <th style="width: 190.413px;">
+                                                                            Status
+                                                                        </th>
+                                                                        <th style="width: 309.112px;">
+                                                                            Requested
+                                                                        </th>
+                                                                        <th style="width: 137.025px;">
+                                                                            Action
+                                                                        </th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr class="odd">
-                                                                        <td class="sorting_1">Cara Stevens</td>
-                                                                        <td>Sales Assistant</td>
-                                                                        <td>New York</td>
-                                                                        <td>New York</td>
-                                                                        <td>New York</td>
-                                                                    </tr>
-                                                                    <tr class="even">
-                                                                        <td class="sorting_1">Cedric Kelly</td>
-                                                                        <td>Senior Javascript Developer</td>
-                                                                        <td>Edinburgh</td>
-                                                                        <td>Edinburgh</td>
-                                                                        <td>Edinburgh</td>
-                                                                    </tr>
+                                                                    @if (!$user->repairrequest->whereIn('status', ['pending', 'in-progress'])->isEmpty() || !$user->ictforms->whereIn('status', ['pending', 'in-progress'])->isEmpty())
+                                                                        @foreach ($user->repairrequest as $repair)
+                                                                            <tr>
+                                                                                <td>
+                                                                                    {{ $repair->request_no }}
+                                                                                </td>
+                                                                                <td>
+                                                                                    {{ $repair->equipment->property_no }}
+                                                                                </td>
+                                                                                <td>
+                                                                                    {{ $repair->status }}
+                                                                                </td>
+                                                                                <td>
+                                                                                    {{ $repair->date_requested }}
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a href="{{ $repair->id }}"
+                                                                                        class="btn btn-primary text-xs text-uppercase">View</a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                        @foreach ($user->ictforms as $repair)
+                                                                            <tr>
+                                                                                <td>
+                                                                                    {{ $repair->request_no }}
+                                                                                </td>
+                                                                                <td>
+                                                                                    {{ $repair->ict_requests->first()->equipment->property_no }}
+                                                                                </td>
+                                                                                <td>
+                                                                                    {{ $repair->status }}
+                                                                                </td>
+                                                                                <td>
+                                                                                    {{ $repair->date_requested }}
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a href="{{ $repair->id }}"
+                                                                                        class="btn btn-primary text-xs text-uppercase">View</a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    @else
+                                                                        <tr></tr>
+                                                                    @endif
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -77,11 +117,11 @@
                                                     <div class="col mr-2">
                                                         <div
                                                             class="text-sm font-weight-bold text-gray-700 text-uppercase mb-1">
-                                                            Total of Repair Request:
+                                                            Total of Repair Request (pending, in-progress):
                                                         </div>
                                                         <div
                                                             class="h5 mb-0 font-weight-bold text-gray-600 d-flex justify-content-end">
-                                                            5
+                                                            {{ $user->repairrequest->whereIn('status', ['pending', 'in-progress'])->count() }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,10 +134,10 @@
                                                     <div class="col mr-2">
                                                         <div
                                                             class="text-sm font-weight-bold text-gray-700 text-uppercase mb-1">
-                                                            Total of ICT Job Request:</div>
+                                                            Total of ICT Job Request (pending, in-progress):</div>
                                                         <div
                                                             class="h5 mb-0 font-weight-bold text-gray-600 d-flex justify-content-end">
-                                                            40
+                                                            {{ $user->ictforms->whereIn('status', ['pending', 'in-progress'])->count() }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -120,7 +160,7 @@
                                 </div>
                             </div>
                             <div class="row mx-0 mb-2 d-flex justify-content-center g-2">
-                                <a href="" class="col-xl-2 border-0 btn btn-primary">
+                                <a href="/request-for-repair" class="col-xl-2 border-0 btn btn-primary">
                                     Add Repair Request
 
                                     <div class="my-1">
@@ -129,16 +169,17 @@
                                     </div>
                                 </a>
                                 <a href="" class="col-xl-2 border-0 btn btn-primary">
-                                    View Request
+                                    Profile
 
                                     <div class="my-1">
-                                        <img src="/icons/svg-files/agenda.svg" alt="view-request" width="42" height="42"
+                                        <img src="/icons/svg-files/user.svg" alt="view-request" width="42" height="42"
                                             class="icon-white opacity-80">
                                     </div>
                                 </a>
                             </div>
                             <div class="row mx-0 mb-2 d-flex justify-content-center g-2">
-                                <a href="" class="col-xl-2 border-0 btn btn-primary">
+                                <a href="/request-for-ict-job/{{ auth()->user()->id }}"
+                                    class="col-xl-2 border-0 btn btn-primary">
                                     Add ICT Job Request
 
                                     <div class="my-1">
@@ -146,7 +187,7 @@
                                             height="42" class="icon-white opacity-80">
                                     </div>
                                 </a>
-                                <a href="" class="col-xl-2 border-0 btn btn-primary">
+                                <a href="/abouts" class="col-xl-2 border-0 btn btn-primary">
                                     About
 
                                     <div class="my-1">

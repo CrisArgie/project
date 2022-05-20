@@ -29,12 +29,12 @@ class Users extends Authenticatable
     //RELATIONSHIPS
     public function ictforms()
     {
-        return $this->hasMany(IctForms::class);
+        return $this->hasMany(IctForms::class, 'users_id', 'id');
     }
 
     public function repairrequest()
     {
-        return $this->hasMany(RepairRequest::class);
+        return $this->hasMany(RepairRequest::class, 'users_id', 'id');
     }
 
     public function divisions()

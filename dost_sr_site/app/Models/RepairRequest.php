@@ -25,7 +25,7 @@ class RepairRequest extends Model
 
     public function prerepairinspections()
     {
-        return $this->hasMany(PreRepairInspections::class, 'repair_requests_id');
+        return $this->hasMany(PreRepairInspections::class, 'repair_requests_id', 'id');
         // return $this->hasMany(PreRepairInspections::class);
 
     }

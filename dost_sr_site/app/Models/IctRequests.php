@@ -15,7 +15,7 @@ class IctRequests extends Model
 
     public function ict_forms()
     {
-        return $this->hasMany(IctForms::class);
+        return $this->belongsTo(IctForms::class);
     }
 
     public function equipment()
