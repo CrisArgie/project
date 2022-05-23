@@ -4,7 +4,11 @@
 
         {{-- CONTENT - BODY --}}
         <section class="content-position">
-            @include('customer.page-style.left-sidebar') {{-- LEFT SIDEBAR --}}
+            @if (auth()->user()->user_type == 'admin')
+                @include('posts.left-sidebar') {{-- Admin LEFT SIDEBAR --}}
+            @else
+                @include('customer.page-style.left-sidebar') {{-- Customer LEFT SIDEBAR --}}
+            @endif
 
             <x-main>
                 <div class="row mx-0 my-3 mx-2">
@@ -225,57 +229,62 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row mx-0">
-                    <div class="card w-100">
-                        <div class="card-body">
-                            <div class="row mx-0">
-                                <div class="col-xl-4">
-                                    <div class="d-flex">
-                                        <div class="text-gray-600 font-weight-bold text-capitalize">
-                                            Account Settings
+                @if (auth()->user()->user_type == 'customer')
+                    <div class="row mx-0">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <div class="row mx-0">
+                                    <div class="col-xl-4">
+                                        <div class="d-flex">
+                                            <div class="text-gray-600 font-weight-bold text-capitalize">
+                                                Account Settings
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                {{-- DELETE CLEAR HISTORY of REQUEST --}}
-                                <div class="col mt-4">
-                                    <form action="/profile/update" method="POST" enctype="multipart/form-data">
-                                        @method('PATCH')
-                                        @csrf
+                                    {{-- DELETE CLEAR HISTORY of REQUEST --}}
+                                    <div class="col mt-4">
+                                        <form action="/profile/update" method="POST" enctype="multipart/form-data">
+                                            @method('PATCH')
+                                            @csrf
 
-                                        {{-- <div class="d-flex flex-column mb-2">
+                                            {{-- <div class="d-flex flex-column mb-2">
                                         </div> --}}
 
-                                        <div class="d-flex flex-column" x-data="{ open: false }">
-                                            <div class="d-flex justify-content-start my-3">
-                                                <button type="button" class="btn btn-danger" x-on:click="open = ! open">
-                                                    Delete Account
-                                                </button>
-                                            </div>
-
-                                            <div class="py-2" x-cloak style="width: 300px; " x-show="open">
-                                                <label for="confimation_password">
-                                                    Enter Password to Confirm Deletion
-                                                </label>
-                                                <input type="password" name="confimation_password"
-                                                    id="confimation_password" class="input-design-1 w-100">
-                                                @error('confimation_password')
-                                                    <p class="mb-0 text-danger text-xs">{{ $message }}</p>
-                                                @enderror
-
-                                                <div class="d-flex justify-content-end my-3">
-                                                    <button type="submit" name="action" value="accout_delete"
-                                                        class="btn btn-primary">
-                                                        Confirm
+                                            <div class="d-flex flex-column" x-data="{ open: false }">
+                                                <div class="d-flex justify-content-start my-3">
+                                                    <button type="button" class="btn btn-danger"
+                                                        x-on:click="open = ! open">
+                                                        Delete Account
                                                     </button>
                                                 </div>
+
+                                                <div class="py-2" x-cloak style="width: 300px; "
+                                                    x-show="open">
+                                                    <label for="confimation_password">
+                                                        Enter Password to Confirm Deletion
+                                                    </label>
+                                                    <input type="password" name="confimation_password"
+                                                        id="confimation_password" class="input-design-1 w-100">
+                                                    @error('confimation_password')
+                                                        <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                                    @enderror
+
+                                                    <div class="d-flex justify-content-end my-3">
+                                                        <button type="submit" name="action" value="accout_delete"
+                                                            class="btn btn-primary">
+                                                            Confirm
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
+
             </x-main>
         </section>
     </main>

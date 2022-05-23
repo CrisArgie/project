@@ -91,7 +91,6 @@
                                                                             </tr>
                                                                         @endforeach
                                                                     @else
-                                                                        <tr></tr>
                                                                     @endif
                                                                 </tbody>
                                                             </table>
@@ -168,7 +167,7 @@
                                             height="42" class="icon-white opacity-80">
                                     </div>
                                 </a>
-                                <a href="" class="col-xl-2 border-0 btn btn-primary">
+                                <a href="/profile/{{ auth()->user()->id }}" class="col-xl-2 border-0 btn btn-primary">
                                     Profile
 
                                     <div class="my-1">

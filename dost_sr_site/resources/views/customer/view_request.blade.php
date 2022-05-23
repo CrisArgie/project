@@ -22,9 +22,9 @@
                             <span class="text">Generate Report</span>
                         </button>
 
-                        <button class="btn btn-info">
+                        <a href="/customer/request" class="btn btn-info">
                             Add Request
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="row mx-0 justify-content-between">
@@ -154,7 +154,6 @@
                                                 </tr>
                                             @endforeach
                                         @else
-                                            <tr></tr>
                                         @endif
                                     </tbody>
                                 </table>
@@ -238,8 +237,6 @@
                                             </tr>
                                             @endforeach
                                         @else
-                                            <tr>
-                                            </tr>
                                         @endif
                                     </tbody>
                                 </table>

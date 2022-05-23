@@ -3,12 +3,26 @@
         style="background-color: var(--color2); box-shadow: 0 1px 10px 0 rgb(0 0 0 / 40%);">
         <!-- Sidebar Toggle (Topbar) -->
         {{-- <img class="menu-logo-item" src="../img/DOST_log.png"> --}}
-        <a class="sidebar-brand d-flex align-items-center justify-content-center text-decoration-none" href="/dashboard">
-            <div class="sidebar-brand-icon mx-3">
-                <img class="" src="/img/DOST_log.png" style="width: 24px; height: 24px;">
-            </div>
-            <div class="text-white" style=""> DOST CARAGA </div>
-        </a>
+
+        @if (auth()->user()->user_type == 'customer')
+            <a class="sidebar-brand d-flex align-items-center justify-content-center text-decoration-none"
+                href="/home">
+                <div class="sidebar-brand-icon mx-3">
+                    <img class="" src="/img/DOST_log.png" style="width: 24px; height: 24px;">
+                </div>
+                <div class="text-white" style=""> DOST CARAGA </div>
+            </a>
+        @else
+            <a class="sidebar-brand d-flex align-items-center justify-content-center text-decoration-none"
+                href="/dashboard">
+                <div class="sidebar-brand-icon mx-3">
+                    <img class="" src="/img/DOST_log.png" style="width: 24px; height: 24px;">
+                </div>
+                <div class="text-white" style=""> DOST CARAGA </div>
+            </a>
+        @endif
+
+
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
@@ -16,9 +30,9 @@
             <li class="nav-item dropdown no-arrow" x-data="{ open: false }">
                 {{-- <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> --}}
-                <button class="nav-link bg-color-transparent border-none" type="button" x-on:click="open = ! open"">
+                <button class="nav-link bg-color-transparent border-none" type="button" x-on:click="open = ! open">
                     <span class="  mr-2 d-none d-lg-inline text-white">Welcome,
-                    {{ auth()->user()->first_name }}</span>
+                        {{ auth()->user()->first_name }}</span>
                     <span id="lastName" hidden>{{ auth()->user()->last_name }}</span>
 
                     {{-- <span class="mr-2 d-none d-lg-inline text-white small">Welcome, FIRST_NAME</span> --}}

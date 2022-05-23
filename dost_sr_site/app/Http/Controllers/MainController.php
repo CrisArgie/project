@@ -106,38 +106,52 @@ class MainController extends Controller
 
                     $repairReq = $user->first()->repairrequest->whereIn('status', ['pending', 'in-progress', 'done'])->all();
 
-                    foreach($repairReq as $reprq)
-                    {
+
+                    foreach ($repairReq as $reprq) {
                         $prerqs[] = $reprq->prerepairinspections->first();
                     }
-                    // dd($prerqs[0]->id);
 
-                    foreach($prerqs as $prerq)
-                    {
-                        $preIds[] = $prerq->id;
+                    if ($prerqs != null) {
+
+                        foreach ($prerqs as $prerq) {
+                            $preIds[] = $prerq->id;
+                        }
+
+                        foreach ($preIds as $preId) {
+                            $postID[]  = PostRepairInspections::all()->where('pre_repair_inspections_id', $preId);
+                        }
+
+
+                        if ($postID != null) {
+                            foreach ($postID as $eachPost) {
+                                if ($eachPost->first() != null) {
+                                    $eachPost->first()->update(['status' => 'deleted']);
+                                }
+                            }
+                        }
+
+                        foreach ($prerqs as $prerq) {
+                            $prerq->update(['status' => 'deleted']);
+                        }
+
+                        foreach ($repairReq as $reprq) {
+                            $reprq->update(['status' => 'deleted']);
+                        }
                     }
 
-                    foreach($preIds as $preId)
-                    {
-                        $postID[]  = PostRepairInspections::all()->where('pre_repair_inspections_id', $preId);
-                    }
 
-                    dd($postID[0]->first()->status);
 
                     $user->update([
                         'password' => 'deleted',
                         'remember_token' => $request->_token,
                     ]);
 
+                    if (!$user->first()->ictforms->whereIn('status', ['pending', 'in-progress', 'done'])->isEmpty()) {
+                        $user->first()->ictforms->whereIn('status', ['pending', 'in-progress', 'done'])->update([
+                            'status' => 'deleted',
+                        ]);
+                    }
 
-
-                    $user->first()->ictforms->whereIn('status', ['pending', 'in-progress', 'done'])->update([
-                        'status' => 'deleted',
-                    ]);
-
-                    // $user->first()->repairrequest->whereIn('status', ['pending', 'in-progress', 'done'])->update([
-                    //     'status' => 'deleted',
-                    // ]);
 
                     auth()->logout();
                     return redirect('/')->with('success', 'Thank you for using the site!');
@@ -145,6 +159,8 @@ class MainController extends Controller
                     throw ValidationException::withMessages([
                         'confimation_password' => 'Error! Incorrect password.'
                     ]);
+
+                    // return redirect('/')->with('fail', 'Error Encountered! Account deleted.');
                 }
 
                 break;

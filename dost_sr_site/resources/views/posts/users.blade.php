@@ -11,12 +11,12 @@
                     </button>
                 </div>
                 <div class="col-xl-12 col-md-4 col-sm-12">
-                    <button class="rounded btn btn-primary w-100">
+                    <button class="rounded btn btn-primary w-100" type="button" data-modal-target="#addUser">
                         Add User
                     </button>
                 </div>
                 <div class="col-xl-12 col-md-4 col-sm-12">
-                    <button class="rounded btn btn-primary w-100">
+                    <button class="rounded btn btn-primary w-100" type="button" data-modal-target="#addDiv">
                         Add Division
                     </button>
                 </div>
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-10 h-100 px-0">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -50,27 +50,61 @@
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">
-                        Table
+                    <h6 class="m-0 font-weight-bold text-gray-600 text-uppercase">
+                        User Data Table
                     </h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Requests Menu:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
+
                 </div>
 
                 <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>User Type</th>
+                                    <th>Division</th>
+                                    <th>Email</th>
+                                    <th>Division Address Assigned</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="" id="" value="{{ $user->id }}">
+                                        </td>
+                                        <td>
+                                            {{ $no++ }}
+                                        </td>
+                                        <td>
+                                            {{ $user->last_name . ', ' . $user->first_name }}
+                                        </td>
+                                        <td>
+                                            {{ $user->user_type }}
+                                        </td>
+                                        <td>
+                                            {{ $user->divisions->division_number }}
+                                        </td>
+                                        <td>
+                                            {{ $user->email }}
+                                        </td>
+                                        <td>
+                                            {{ $user->divisions->division_address }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
+
 </x-main>

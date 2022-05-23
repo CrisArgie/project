@@ -11,13 +11,15 @@
                             <div class="row flex-column no-gutters align-items-center">
                                 <div class="col">
                                     <div class="text-xs font-weight-bold text-black-50 text-uppercase mb-1">
-                                        Inprogress:
+                                        In-progress:
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <img class="w-25 h-25" src="../icons/svg-files/pencil-alt.svg">
-                                        <p class="h4 mb-0 font-weight-bold text-gray-800"> 4 </p>
+                                        <p class="h4 mb-0 font-weight-bold text-gray-800">
+                                            {{ $repairrequests->where('status', 'in-progress')->count() + $ictrequests->where('status', 'in-progres')->count() }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +38,9 @@
                                 <div class="col">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <img class="w-25 h-25" src="../icons/svg-files/bubble.svg">
-                                        <p class="h4 mb-0 font-weight-bold text-gray-800"> 4 </p>
+                                        <p class="h4 mb-0 font-weight-bold text-gray-800">
+                                            {{ $repairrequests->where('status', 'pending')->count() + $ictrequests->where('status', 'pending')->count() }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-10 h-100 px-0">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -81,31 +85,54 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Total number of request by status per month</h6>
 
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{-- <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Requests Menu:</div>
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
 
                 <div class="card-body">
-                    <ul class="row justify-content-evenly g-5 list-unstyled mr-0">
+                    <ul class="row mx-0 justify-content-start g-5 list-unstyled px-2">
                         <li class="d-flex flex-column g-4">
-                            <div>Completed:</div>
-                            <div>In-progress:</div>
-                            <div>New:</div>
-                        </li>
-                        <li class="d-flex flex-column g-4">
-                            <div>Assigned:</div>
-                            <div>Pending:</div>
+                            <div>
+                                Completed:
+                                <span class="text-gray-800">
+                                    {{ $repairperM->where('status', 'done')->count() + $ictperM->where('status', 'done')->count() }}
+                                </span>
+                            </div>
+                            <div>
+                                In-progress:
+                                <span class="text-gray-800">
+                                    {{ $repairperM->where('status', 'in-progress')->count() + $ictperM->where('status', 'in-progress')->count() }}
+                                </span>
+                            </div>
+                            {{-- <div>
+                                New:
+                                <span></span>
+                            </div> --}}
+                            {{-- <div>
+                                Assigned:
+                                <span>
+                                    {{ $repairperM->where('status', 'in-progress')->count() + $ictperM->where('status', 'in-progress')->count() }}
+                                </span>
+                            </div> --}}
+                            <div>
+                                Pending:
+                                <span class="text-gray-800">
+                                    {{ $repairperM->where('status', 'pending')->count() + $ictperM->where('status', 'pending')->count() }}
+                                </span>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -115,37 +142,104 @@
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Total number of user by division per month</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Total number of user by division per year</h6>
 
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{-- <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Users Menu:</div>
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
 
                 <div class="card-body">
-                    <ul class="row justify-content-start g-5 list-unstyled mx-0">
-                        <li class="d-flex flex-column ml-4 g-4">
-                            <div>Completed:</div>
-                            <div>Pending:</div>
-                            <div>Request:</div>
-                        </li>
-                        <li>
+                    <ul class="row justify-content-start list-unstyled mx-0">
+                        <li class="col-xl-2 d-flex flex-column g-4">
+                            <div>
+                                Completed:
+                                <span>
+                                    @php
+                                        $uniqueId = 0;
+                                    @endphp
+                                    @foreach ($allUser as $user)
+                                        @if ($user->repairrequest->first() == null)
+                                        @else
+                                            @if ($user->repairrequest->first()->status == 'done')
+                                                @php $uniqueId++; @endphp
+                                            @endif
+                                        @endif
+                                    @endforeach
 
+                                    @foreach ($allUser as $user)
+                                        @if ($user->ictforms->first() == null)
+                                        @else
+                                            @if ($user->ictforms->first()->status == 'done')
+                                                @php $uniqueId++; @endphp
+                                            @endif
+                                        @endif
+                                    @endforeach
+
+                                    {{ $uniqueId }}
+                                </span>
+                            </div>
+                            <div>
+                                Pending:
+                                <span>
+                                    @php
+                                        $uniqueICTId = 1;
+                                    @endphp
+                                    @foreach ($allUser as $user)
+                                        @if ($user->ictforms->first() == null)
+                                        @else
+                                            @if ($user->ictforms->first()->status == 'pending')
+                                                @php $uniqueICTId++; @endphp
+                                            @endif
+                                        @endif
+                                    @endforeach
+
+                                    @foreach ($allUser as $user)
+                                        @if ($user->repairrequest->first() == null)
+                                        @else
+                                            @if ($user->repairrequest->first()->status == 'pending')
+                                                @php $uniqueICTId++; @endphp
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                    {{ $uniqueICTId }}
+                                </span>
+                            </div>
+                            <div>
+                                Request:
+                                <span>
+                                    {{ $total_request }}
+                                </span>
+                            </div>
+                        </li>
+                        <li class="col-auto">
+                            <div class="chart-area">
+                                <div class="chartjs-size-monitor">
+                                    <div class="chartjs-size-monitor-expand">
+                                        <div class=""></div>
+                                    </div>
+                                    <div class="chartjs-size-monitor-shrink">
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                                <canvas id="myAreaChart" class="chartjs-render-monitor"></canvas>
+                                {{-- style="display: block; height: 320px; width: 782px;"
+                                    width="977" height="400" --}}
+                            </div>
                         </li>
                     </ul>
-                    {{-- <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                        <canvas id="myAreaChart" style="display: block; height: 320px; width: 782px;" width="977" height="400" class="chartjs-render-monitor"></canvas>
-                    </div> --}}
                 </div>
             </div>
         </div>
