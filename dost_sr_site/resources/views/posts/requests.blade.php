@@ -84,8 +84,7 @@
                                 Repair Request
                             </a>
                         @else
-                            <a href=""
-                                class="rounded btn btn-primary w-100 text-uppercase">
+                            <a href="" class="rounded btn btn-primary w-100 text-uppercase">
                                 No pending report
                             </a>
                         @endif
@@ -99,8 +98,7 @@
                                 ICT job Request
                             </a>
                         @else
-                            <a href=""
-                                class="rounded btn btn-primary w-100 text-uppercase">
+                            <a href="" class="rounded btn btn-primary w-100 text-uppercase">
                                 No pending report
                             </a>
                         @endif
@@ -141,19 +139,14 @@
                     <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
                         Repair Request Data Table
                     </h6>
-                    {{-- <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Requests Menu:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+
+                    {{-- <div>
+                        <button type="" name="" value="" class="btn btn-info">
+                            Edit
+                        </button>
+                        <button type="" name="" value="" class="btn btn-danger">
+                            Delete
+                        </button>
                     </div> --}}
                 </div>
 
@@ -163,7 +156,8 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>No.</th>
+                                    <th>ID.</th>
+                                    {{-- <th hidden>ID</th> --}}
                                     <th>Brand Model</th>
                                     <th>Status</th>
                                     <th>Property No.</th>
@@ -172,16 +166,23 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $no = 1
+                                @endphp
                                 @foreach ($repair_request as $each_request)
-                                    <tr>
-                                        <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
-                                        <td> {{ $each_request->id }} </td>
-                                        <td> {{ $each_request->equipment->brand_model }} </td>
-                                        <td> {{ $each_request->status }} </td>
-                                        <td> {{ $each_request->equipment->property_no }} </td>
-                                        <td> {{ $each_request->equipment->serial_no }} </td>
-                                        <td> {{ $each_request->date_requested }} </td>
-                                    </tr>
+                                    @if ($each_request->status == 'deleted')
+                                    @else
+                                        <tr>
+                                            <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
+                                            {{-- <td>{{ $no++ }}</td> --}}
+                                            <td> {{ $each_request->id }} </td>
+                                            <td> {{ $each_request->equipment->brand_model }} </td>
+                                            <td class="text-uppercase"> {{ $each_request->status }} </td>
+                                            <td> {{ $each_request->equipment->property_no }} </td>
+                                            <td> {{ $each_request->equipment->serial_no }} </td>
+                                            <td> {{ $each_request->date_requested }} </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -202,20 +203,6 @@
                     <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
                         ICT Job Request Data Table
                     </h6>
-                    {{-- <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Requests Menu:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <div class="card-body" style="min-height: 80vh;">
@@ -224,26 +211,30 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>No.</th>
-                                    <th>Repair Shop</th>
+                                    <th>Request No.</th>
+                                    <th>User Name</th>
                                     <th>Status</th>
-                                    <th>Property No.</th>
-                                    <th>Brand Model</th>
+                                    <th>Date Requested</th>
+                                    <th>Total area of request</th>
                                     <th>Type of Request</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($repair_request as $each_request)
-                                    <tr>
-                                        <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
-                                        <td> {{ $each_request->id }} </td>
-                                        <td> {{ $each_request->equipment->brand_model }} </td>
-                                        <td> {{ $each_request->status }} </td>
-                                        <td> {{ $each_request->equipment->property_no }} </td>
-                                        <td> {{ $each_request->equipment->serial_no }} </td>
-                                        <td> {{ $each_request->date_requested }} </td>
-                                    </tr>
-                                @endforeach --}}
+                                @foreach ($repair_ict as $each_request)
+                                    @if ($each_request->status == 'deleted')
+                                    @else
+                                        <tr>
+                                            <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
+                                            <td> {{ $each_request->request_no }} </td>
+                                            <td> {{ $each_request->users->first_name . ' ' . $each_request->users->last_name }}
+                                            </td>
+                                            <td class="text-uppercase"> {{ $each_request->status }} </td>
+                                            <td> {{ $each_request->date_requested }} </td>
+                                            <td> {{ $each_request->arearequests->count() }} </td>
+                                            <td> {{ $each_request->type_of_requests->request_title }} </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -261,20 +252,6 @@
                     <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
                         Pre-repair Inspection Data Table
                     </h6>
-                    {{-- <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Requests Menu:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <div class="card-body" style="min-height: 80vh;">
@@ -284,6 +261,7 @@
                                 <tr>
                                     <th></th>
                                     <th>No.</th>
+                                    {{-- <th hidden>ID</th> --}}
                                     <th>Brand Model</th>
                                     <th>Status</th>
                                     <th>Date Requested</th>
@@ -292,17 +270,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($repair_request as $each_request)
-                                    <tr>
-                                        <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
-                                        <td> {{ $each_request->id }} </td>
-                                        <td> {{ $each_request->equipment->brand_model }} </td>
-                                        <td> {{ $each_request->status }} </td>
-                                        <td> {{ $each_request->equipment->property_no }} </td>
-                                        <td> {{ $each_request->equipment->serial_no }} </td>
-                                        <td> {{ $each_request->date_requested }} </td>
-                                    </tr>
-                                @endforeach --}}
+                                {{-- @php
+                                    $no = 1
+                                @endphp --}}
+                                @foreach ($pre_repair as $each_request)
+                                    @if ($each_request->status == 'deleted')
+                                    @else
+                                        <tr>
+                                            <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
+                                            {{-- <td hidden>{{ $no++ }}</td> --}}
+                                            <td> {{ $each_request->id }} </td>
+                                            <td> {{ $each_request->repair_requests->equipment->brand_model }} </td>
+                                            <td class="text-uppercase"> {{ $each_request->status }} </td>
+                                            <td> {{ $each_request->created_at }} </td>
+                                            <td> {{ $each_request->date_of_latest_repair }} </td>
+                                            <td> {{ $each_request->mature_of_latest_repair }} </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -319,20 +304,6 @@
                     <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
                         Post-repair inspection data Table
                     </h6>
-                    {{-- <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Requests Menu:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <div class="card-body" style="min-height: 80vh;">
@@ -350,17 +321,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($repair_request as $each_request)
-                                    <tr>
-                                        <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
-                                        <td> {{ $each_request->id }} </td>
-                                        <td> {{ $each_request->equipment->brand_model }} </td>
-                                        <td> {{ $each_request->status }} </td>
-                                        <td> {{ $each_request->equipment->property_no }} </td>
-                                        <td> {{ $each_request->equipment->serial_no }} </td>
-                                        <td> {{ $each_request->date_requested }} </td>
-                                    </tr>
-                                @endforeach --}}
+                                @foreach ($post_repair as $each_request)
+                                    @if ($each_request->status == 'deleted')
+                                    @else
+                                        <tr>
+                                            <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
+                                            <td> {{ $each_request->id }} </td>
+                                            <td> {{ $each_request->repair_shop }} </td>
+                                            <td class="text-uppercase"> {{ $each_request->status }} </td>
+                                            <td> {{ $each_request->job_order_no }} </td>
+                                            <td> {{ $each_request->invoice_no }} </td>
+                                            <td> {{ $each_request->amt_no }} </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

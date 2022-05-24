@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Auth;
 
 class RequestsController extends Controller
 {
-    public function show(RepairRequest $repair_request, IctForms $ictforms, PreRepairInspections $prerepairinspections, PostRepairInspections $postrepairinspections)
+    public function show(RepairRequest $repair_request, IctForms $ictforms, PreRepairInspections $prerepairinspections, PostRepairInspections $postrepairinspections, IctRequests $iirequest)
     {
-        // dd($prerepairinspections->all()->where('status', 'pending')->first());
+
         return view('admin.requests', [
             'repair_request' => $repair_request->all(),
             'repair_ict' => $ictforms->all(),
@@ -37,8 +37,6 @@ class RequestsController extends Controller
         $areaID = AreaRequests::all();
 
         return view('customer.view_request', [
-            // 'repairrequest' => $rrequest->where('users_id', $id),
-            // 'ictrequest' => $irequest->where('users_id', $id),
             'user' => $user,
             'ictconjunction' => $iirequest,
             'areaconjunction' => $areaID,

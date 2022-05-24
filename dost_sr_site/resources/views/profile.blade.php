@@ -229,6 +229,69 @@
                     </div>
                 </div>
                 <hr>
+                {{-- change Division --}}
+                <div class="row mx-0">
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <div class="row mx-0">
+                                <div class="col-xl-4">
+                                    <div class="d-flex">
+                                        <div class="text-gray-600 font-weight-bold text-capitalize">
+                                            Division Information
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mt-4">
+                                    <form action="/profile/update" method="POST" enctype="multipart/form-data">
+                                        @method('PATCH')
+                                        @csrf
+
+                                        <div class="d-flex flex-column mb-2">
+                                            <label for="divisions_id" class="mb-0 text-gray-800 text-capitalize">
+                                                Current Division:
+                                            </label>
+                                            <div class="d-flex g-2 align-items-center mb-1">
+                                                <input type="text" readonly tabindex="-1" class="input-design-1"
+                                                    style="width: 550px"
+                                                    value="{{ $user->divisions->division_number . ' - ' . $user->divisions->division_name }}">
+                                            </div>
+                                            <div>
+                                                <div class="d-flex justify-content-between pl-3 pr-5" style="width: 550px">
+                                                    <div class="text-xs">No.</div>
+
+                                                    <div class="text-xs">Name</div>
+
+                                                    <div class="text-xs">Address</div>
+                                                </div>
+
+                                                <select name="divisions_id" id="divisions_id" class="input-design-1 overflow-auto"
+                                                    size="8" style="width: 550px" required>
+                                                    @foreach ($divisions as $division)
+                                                        <option value="{{ $division->id }}" class="my-2">
+                                                            {{ $division->division_number . ' - ' . $division->division_name . ' (' .$division->division_address . ')' }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @error('divisions_id')
+                                                <p class="mb-0 text-danger text-xs">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+
+                                        <div class="d-flex justify-content-end px-4 my-3">
+                                            <button type="submit" name="action" value="division_update"
+                                                class="btn btn-primary">
+                                                Update
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 @if (auth()->user()->user_type == 'customer')
                     <div class="row mx-0">
                         <div class="card w-100">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Divisions;
 use App\Models\PostRepairInspections;
 use App\Models\Users;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class MainController extends Controller
     {
         return view('profile', [
             'user' => $user->find(request()->id),
+            'divisions' => Divisions::all(),
         ]);
     }
 
@@ -163,6 +165,18 @@ class MainController extends Controller
                     // return redirect('/')->with('fail', 'Error Encountered! Account deleted.');
                 }
 
+                break;
+            case 'division_update':
+
+                $this->validate(request(), [
+                    'divisions_id' => ['required', 'integer'],
+                ]);
+
+                Users::find(request()->user()->id)->update([
+                    'divisions_id' => request()->divisions_id,
+                ]);
+
+                return back()->with('success', 'Divisions Updated');
                 break;
         }
     }

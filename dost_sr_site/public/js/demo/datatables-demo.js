@@ -3,13 +3,14 @@ $(document).ready(function() {
     $('table#dataTable').DataTable({
         "ordering": true,
         "order": [
-            [1, "asc"]
+            [3, "desc"]
         ],
         responsive: true,
         "pagingType": "full_numbers",
         "info": true,
+        stateSave: true,
         search: {
-            return: true
+            return: false
         }
     });
 });

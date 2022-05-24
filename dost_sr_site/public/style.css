@@ -676,6 +676,10 @@ h6 {
     pointer-events: none !important;
 }
 
+.pointer-events-none {
+    pointer-events: none !important;
+}
+
 
 /* @media (min-width: 768px) {}
 

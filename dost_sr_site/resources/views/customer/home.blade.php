@@ -1,12 +1,20 @@
 <x-right-content-layout>
-    <main class="d-flex flex-column">
+
+    <main>
         @include('posts.header') {{-- HEADER --}}
 
+
+        @if (auth()->user()->divisions_id == null)
+            <div class="pointer-events-none">
+            @else
+                <div>
+        @endif
         {{-- CONTENT - BODY --}}
         <section class="content-position">
-            @include('customer.page-style.left-sidebar') {{-- LEFT SIDEBAR --}}
 
+            @include('customer.page-style.left-sidebar') {{-- LEFT SIDEBAR --}}
             <x-main>
+
                 <div class="row mx-0 my-3">
                     <div class="card w-100">
                         <div class="card-body bg-heading-color-1">
@@ -167,7 +175,8 @@
                                             height="42" class="icon-white opacity-80">
                                     </div>
                                 </a>
-                                <a href="/profile/{{ auth()->user()->id }}" class="col-xl-2 border-0 btn btn-primary">
+                                <a href="/profile/{{ auth()->user()->id }}"
+                                    class="col-xl-2 border-0 btn btn-primary">
                                     Profile
 
                                     <div class="my-1">
@@ -200,6 +209,7 @@
                 </div>
             </x-main>
         </section>
+        </div>
     </main>
 
     @if (auth()->user()->divisions_id == null)
@@ -221,7 +231,7 @@
                             Divisions:
                         </label>
                         <div class="d-flex justify-content-center mb-4">
-                            <div class="overflow-auto input-design-1" style="height: 200px;">
+                            <div class="overflow-auto input-design-1" style="height: 360px;">
                                 <label for="divisions_id" hidden></label>
                                 @foreach ($divisions as $division)
                                     <label class="btn btn-info w-100">

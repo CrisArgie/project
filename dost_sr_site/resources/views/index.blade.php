@@ -2,29 +2,29 @@
 
     <nav class="index-header-menu px-4">
         <div class="d-flex" style="left: 0;">
-            <a href="#home" class="text-none text-gray-100 p-2 attr-link border-radius-1"> 
-                <h6> HOME </h6> 
+            <a href="#home" class="text-none text-gray-100 p-2 attr-link border-radius-1">
+                <h6> HOME </h6>
             </a>
-            <a href="#about" class="text-none text-gray-100 p-2 attr-link border-radius-1"> 
-                <h6> ABOUT </h6> 
+            <a href="#about" class="text-none text-gray-100 p-2 attr-link border-radius-1">
+                <h6> ABOUT </h6>
             </a>
-            <a href="#contact" class="text-none text-gray-100 p-2 attr-link border-radius-1"> 
-                <h6> CONTACT </h6> 
+            <a href="#contact" class="text-none text-gray-100 p-2 attr-link border-radius-1">
+                <h6> CONTACT </h6>
             </a>
         </div>
         <div class="d-flex align-items-center" style="right: 0;">
             @auth
-                <form   method="POST" 
+                <form   method="POST"
                         action="/logout"
                         class="m-auto d-flex"
                 >
                     @csrf
 
-                    <span href="/register" class="d-flex align-items-center mx-2">
+                    <a href="/home" class="d-flex align-items-center mx-2 text-white">
                         <h6>  Welcome, {{ auth()->user()->first_name }} </h6>
-                    </span>
+                    </a>
 
-                    <button type="submit" 
+                    <button type="submit"
                             class="btn-link-1 border-radius-1"
                     >
                         Log out
@@ -37,12 +37,12 @@
 
                 <a href="/login" class="text-none text-gray-100 p-2 attr-link border-radius-1">
                     <h6>  LOG IN </h6>
-                </a>    
+                </a>
             @endauth
         </div>
 
     </nav>
-    
+
     <main class="home-container">
         <div id="home" class="main-container p-4">
             <div class="d-flex justify-content-center">
@@ -81,7 +81,7 @@
                     <img src="img/DOST_log.png" style="width: 10rem;" alt="DOST-XIII.svg">
                 </div>
                 <div class="d-flex justify-content-center mb-3">
-                    
+
                     <h3 class="text-hard-black"> Stay in touch with the service that you requested! </h4>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -90,7 +90,7 @@
             </div>
             {{-- <div class="col-xl-12 p-0">
                 <div class="d-flex justify-content-center">
-                    <input placeholder="Email"> 
+                    <input placeholder="Email">
                     <button> SUBSCRIBE </button>
                 </div> --}}
             </div>
