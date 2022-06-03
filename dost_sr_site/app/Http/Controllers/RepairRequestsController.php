@@ -100,6 +100,78 @@ class RepairRequestsController extends Controller
         return redirect('/requests')->with('success', 'Repair Request Updated');
     }
 
+
+    public function edit()
+    {
+        // {name}/{action}/{no}
+
+        $user = Users::where('id', auth()->user()->id)->with('repairrequest', 'ictforms')->first();
+
+        // ddd();
+
+        switch (request()->name) {
+            case 'repair':
+                switch (request()->action) {
+                    case 'done':
+                        dd(request()->name, request()->action);
+
+                        break;
+                    case 'cancel':
+                        dd(request()->name, request()->action);
+
+                        break;
+                    case 'update':
+
+                        break;
+                    case 'repair':
+                        return view('requests.requests', [
+                            'requests' => request()->action,
+                            'user' => $user->repairrequest->where('request_no', request()->no)->first()
+                        ]);
+
+                        break;
+                    case 'pre-repair':
+                        return view('requests.requests', [
+                            'requests' => request()->action,
+                            'user' => $user->repairrequest->where('request_no', request()->no)->first()
+                        ]);
+
+                        break;
+                    case 'post-repair':
+                        return view('requests.requests', [
+                            'requests' => request()->action,
+                            'user' => $user->repairrequest->where('request_no', request()->no)->first()
+                        ]);
+
+                        break;
+                }
+                break;
+
+            case 'ict':
+                switch (request()->action) {
+                    case 'done':
+                        dd(request()->name, request()->action);
+
+                        break;
+                    case 'view':
+                        return view('requests.request-for-ict-job', [
+                            'requests' => request()->action,
+                            'user' => $user->ictforms->where('request_no', request()->no)->first()
+                        ]);
+
+                        break;
+                    case 'cancel':
+                        dd(request()->name, request()->action);
+
+                        break;
+                    case 'update':
+
+                        break;
+                }
+                break;
+        }
+    }
+
     public function validateInput($request)
     {
         $todayDate = date('Y-m-d');

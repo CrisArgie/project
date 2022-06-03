@@ -71,6 +71,11 @@ Route::post('/request-for-ict-job/create', [ICTRequestsController::class, 'creat
 Route::get('/abouts', [AboutsController::class, 'show'])->middleware('auth');
 
 
+
+Route::get('/request/{name}/{action}/{no}', [RepairRequestsController::class, 'edit'])->middleware('auth');
+
+
+
 // CUSTOMER
 Route::get('/home', [CustomerController::class, 'index'])->middleware('auth');
 Route::patch('/home/{id}/update', [DivisionsController::class, 'update'])->middleware('auth');
@@ -78,7 +83,7 @@ Route::patch('/home/{id}/update', [DivisionsController::class, 'update'])->middl
 
 Route::get('/customer/request', [RequestsController::class, 'index'])->middleware('auth');
 Route::get('/view/requests', [RequestsController::class, 'viewRequest'])->middleware('auth');
-
+Route::delete('/request/delete', [RequestsController::class, 'delete'])->middleware('auth');
 
 
 

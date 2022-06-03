@@ -14,29 +14,30 @@
         </div>
         <div class="d-flex align-items-center" style="right: 0;">
             @auth
-                <form   method="POST"
-                        action="/logout"
-                        class="m-auto d-flex"
-                >
+                <form method="POST" action="/logout" class="m-auto d-flex">
                     @csrf
 
-                    <a href="/home" class="d-flex align-items-center mx-2 text-white">
-                        <h6>  Welcome, {{ auth()->user()->first_name }} </h6>
-                    </a>
+                    @if (auth()->user()->user_type == 'customer')
+                        <a href="/home" class="d-flex align-items-center mx-2 text-white">
+                            <h6> Welcome, {{ auth()->user()->first_name }} </h6>
+                        </a>
+                    @else
+                        <a href="/dashboard" class="d-flex align-items-center mx-2 text-white">
+                            <h6> Welcome, {{ auth()->user()->first_name }} </h6>
+                        </a>
+                    @endif
 
-                    <button type="submit"
-                            class="btn-link-1 border-radius-1"
-                    >
+                    <button type="submit" class="btn-link-1 border-radius-1">
                         Log out
                     </button>
                 </form>
             @else
                 <a href="/register" class="text-none text-gray-100 p-2 attr-link border-radius-1">
-                    <h6>  REGISTER </h6>
+                    <h6> REGISTER </h6>
                 </a>
 
                 <a href="/login" class="text-none text-gray-100 p-2 attr-link border-radius-1">
-                    <h6>  LOG IN </h6>
+                    <h6> LOG IN </h6>
                 </a>
             @endauth
         </div>
@@ -51,7 +52,8 @@
                         <img src="img/undraw_posting_photo.svg" style="width: 35rem" alt="news-img.svg">
                     </div>
                     <div class="w-100 d-flex flex-column align-items-center">
-                        <h2 class="text-hard-black">Latest <b class="text-light-blue"> DOST Caraga </b> News (title) </h2>
+                        <h2 class="text-hard-black">Latest <b class="text-light-blue"> DOST Caraga </b> News (title)
+                        </h2>
                         <h4 class="text-hard-black">By John Doe</h4>
                     </div>
                 </div>
@@ -67,7 +69,8 @@
         </div>
         <div id="contact" class="main-container p-4">
             <div class="row justify-content-center g-2">
-                <div class="d-flex align-items-center flex-column bg-white border-radius-1 border-shadow-1 p-4" style="width: 63rem;">
+                <div class="d-flex align-items-center flex-column bg-white border-radius-1 border-shadow-1 p-4"
+                    style="width: 63rem;">
                     <h4 class="text-light-blue mb-3"> <b> Contact </b> </h4>
                 </div>
             </div>
@@ -93,20 +96,20 @@
                     <input placeholder="Email">
                     <button> SUBSCRIBE </button>
                 </div> --}}
-            </div>
+        </div>
         </div>
     </footer>
 
-    <x-flash/>
+    <x-flash />
 
-<script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
-    });
-});
-</script>
+    </script>
 </x-index-layout>

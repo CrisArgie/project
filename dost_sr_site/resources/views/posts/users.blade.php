@@ -29,14 +29,24 @@
                         <div class="card-body" style="height: 65vh;">
                             <div class="row mx-0 h-100 align-items-center">
                                 <div class="col-xl-2 h-100 px-0">
-                                    <div class="row mx-0 flex-column align-items-center justify-content-between h-100">
-                                        <div class="h6 text-uppercase">
+                                    <div class="d-flex flex-column align-items-center h-100">
+                                        <div class="row mx-0 h6 text-uppercase">
                                             Total of user per division
+                                        </div>
+                                        <div class="d-flex flex-column overflow-auto h-100" style="width: 165px;">
+                                            @if (!$divisions->isEmpty())
+
+                                            @endif
+                                            @foreach ($divisions as $division)
+                                                <span>Divisions {{ $div->where('id', $division->division)->first()->division_number . ': ' . $division->count }}</span>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-10 h-100 px-0">
-
+                                    <figure class="h-100 overflow-auto highcharts-figure pt-4 m-0">
+                                        <div id="admin-bar-per-users" class="admin-bar-1"></div>
+                                    </figure>
                                 </div>
                             </div>
                         </div>
@@ -107,4 +117,65 @@
         </div>
     </div>
 
+    <script>
+        let x = 0;
+        var uData = [];
+
+        @foreach ($eachroles as $roles)
+            uData[x] = ["{{ $roles->first()->user_type }}", {{ $roles->count() }}];
+            x++
+        @endforeach
+
+
+        window.chart = new Highcharts.chart({
+            chart: {
+                renderTo: 'admin-bar-per-users',
+                type: 'column'
+            },
+            title: {
+                text: 'Total number of User on each roles'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                type: 'category',
+                labels: {
+                    rotation: -45,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Population (Users)'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                pointFormat: 'Population in {{ date('Y') }}: <b>{point.y:f} user(s)</b>'
+            },
+            series: [{
+                name: 'Users',
+                data: uData,
+                dataLabels: {
+                    enabled: true,
+                    rotation: 360,
+                    color: '#FFFFFF',
+                    align: 'center',
+                    format: '{point.y:f}', // one decimal
+                    y: 10, // 10 pixels down from the top
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+    </script>
 </x-main>

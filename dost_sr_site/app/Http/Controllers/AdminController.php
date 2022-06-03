@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Divisions;
 use App\Models\IctForms;
+use App\Models\PostRepairInspections;
+use App\Models\PreRepairInspections;
 use App\Models\RepairRequest;
 use App\Models\Users;
 
@@ -21,6 +23,16 @@ class AdminController extends Controller
             $q->whereIn('status', ['in-progress', 'pending'])
         )->get();
 
+        $prerequest = PreRepairInspections::select('*')->where(
+            fn ($q) =>
+            $q->whereIn('status', ['in-progress', 'pending'])
+        )->get();
+
+        $postrequest = PostRepairInspections::select('*')->where(
+            fn ($q) =>
+            $q->whereIn('status', ['in-progress', 'pending'])
+        )->get();
+
         $requestperM = RepairRequest::select('*')->where(
             fn ($q) =>
             $q->whereIn('status', ['in-progress', 'pending', 'done'])
@@ -33,37 +45,32 @@ class AdminController extends Controller
                 ->where('date_requested', 'like', date('Y-m') . '%')
         )->get();
 
-        $rperY = RepairRequest::select('*')->where(
-            fn ($q) =>
-            $q->whereIn('status', ['in-progress', 'pending', 'done'])
-                ->where('date_requested', 'like', date('Y') . '%')
-        )->get();
-        $iperY = IctForms::select('*')->where(
-            fn ($q) =>
-            $q->whereIn('status', ['in-progress', 'pending', 'done'])
-                ->where('date_requested', 'like', date('Y') . '%')
-        )->get();
+        $divisions = Users::select(Users::raw('COUNT(*) as count'), Users::raw('divisions_id as division'))->whereIn('user_type', ['customer', 'technician'])->groupByRaw('division')->get();
 
-        $totalRequest = $rperY->whereIn('status', ['in-progress', 'pending', 'done'])->count() + $iperY->whereIn('status', ['in-progress', 'pending', 'done'])->count();
+        // $rperY = RepairRequest::select('status', 'date_requested')->get();
+        // $iperY = IctForms::select('status', 'date_requested')->get();
 
 
+        // $userperY = Users::select('*')->where(
+        //     fn ($q) =>
+        //     $q->whereIn('user_type', ['customer'])
+        //         ->where('created_at', 'like', date('Y') . '%')
+        // )->get();
 
-        $userperY = Users::select('*')->where(
-            fn ($q) =>
-            $q->whereIn('user_type', ['customer'])
-                ->where('created_at', 'like', date('Y') . '%')
-        )->get();
-
-        // dd($userperY);
+        // ddd();
 
 
         return view('admin.dashboard', [
+            'name' => Divisions::all(),
+            'post' => $postrequest,
+            'pre' => $prerequest,
             'ictrequests' => $ictrequest,
             'repairrequests' => $request,
             'repairperM' => $requestperM,
             'ictperM' => $ictrequestperM,
-            'allUser' => $userperY,
-            'total_request' => $totalRequest,
+            'div' => $divisions,
+            // 'allUser' => $userperY,
+            // 'total_request' => $totalRequest,
         ]);
     }
 }

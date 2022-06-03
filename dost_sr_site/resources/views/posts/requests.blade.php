@@ -28,15 +28,19 @@
                     <div class="card border-left-success shadow h-100">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-gray-800 text-uppercase">
-                                Total number of Brand per year
+                                Total number of Brand per year (Repair Request)
                             </h6>
                         </div>
-                        <div class="card-body" style="height: 45vh;">
-                            <div class="row mx-0">
-                                <div class="col-xl-12 px-0">
-                                    Pie-chart
-                                </div>
-                            </div>
+                        <div class="card-body" style="">
+                            @if ($equipment->isEmpty())
+                                <h6 class="m-0 font-weight-bold text-gray-500 text-uppercase">
+                                    No Request Data
+                                </h6>
+                            @else
+                                <figure class="highcharts-figure">
+                                    <div id="pie-chart" class=""></div>
+                                </figure>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -51,12 +55,10 @@
                                 Recent request per month, last 6 months
                             </h6>
                         </div>
-                        <div class="card-body" style="height: 45vh;">
-                            <div class="row mx-0">
-                                <div class="col-xl-12 px-0">
-                                    Bar-chart
-                                </div>
-                            </div>
+                        <div class="card-body" style="">
+                            <figure class="highcharts-figure">
+                                <div id="bar-chart-2" class=""></div>
+                            </figure>
                         </div>
                     </div>
                 </div>
@@ -167,7 +169,7 @@
                             </thead>
                             <tbody>
                                 @php
-                                    $no = 1
+                                    $no = 1;
                                 @endphp
                                 @foreach ($repair_request as $each_request)
                                     @if ($each_request->status == 'deleted')
@@ -344,4 +346,145 @@
         </div>
     </div>
 
+    <script>
+        var barData = [];
+        let x = 0;
+
+        @if ($equipment != null)
+            @foreach ($equipment as $eachEquip)
+                barData[x] = {
+                    name: "{{ $eachEquip->first()->brand_model }}",
+                    y: {{ $eachEquip->count() }},
+                    drilldown: x + 1,
+                };
+                x++
+            @endforeach
+        @endif
+
+        // console.log(barData);
+
+        // pie chart
+        Highcharts.chart('pie-chart', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: "Total number of brand per year"
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: barData
+            }]
+        });
+
+
+        var rbarData = [];
+        x = 0;
+
+
+        @if (!$RmonthBardata->isEmpty() || !$ImonthBardata->isEmpty())
+            @if (!$RmonthBardata->isEmpty())
+                @foreach ($RmonthBardata as $RmonthBardata)
+                    rbarData[x] = {
+                        name: "{{ $RmonthBardata->monthly }}",
+                        y: {{ $RmonthBardata->count }},
+                        drilldown: x + 1
+                    };
+                    x++;
+                @endforeach
+            @endif
+            @if (!$ImonthBardata->isEmpty())
+                for (y = 0; y < x; y++) {
+                    @foreach ($ImonthBardata as $Imonthdata)
+                        if (rbarData[y].name == "{{ $Imonthdata->monthly }}") {
+                            rbarData[y].y = rbarData[y].y + {{ $Imonthdata->count }}
+                        }
+                    @endforeach
+                }
+            @endif
+        @endif
+
+        var scData = [];
+
+        for (j = 0; j < 6; j++) {
+            scData[j] = rbarData[j];
+        }
+
+        console.log(scData);
+
+        // bar chart
+        Highcharts.chart('bar-chart-2', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            accessibility: {
+                announceNewData: {
+                    enabled: true
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total request'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:f}'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:f}</b> of total<br/>'
+            },
+
+            series: [{
+                name: "Request(s)",
+                colorByPoint: true,
+                data: scData,
+            }],
+        });
+    </script>
 </x-main>

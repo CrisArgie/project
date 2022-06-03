@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Equipment;
 use App\Models\TypeOfRequests;
 use App\Models\Users;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -21,6 +22,8 @@ class IctFormsFactory extends Factory
     public function definition()
     {
         $varId = TypeOfRequests::all()->random()->id;
+        $eqptId = Equipment::all()->random()->id;
+
         $sentence1 = 'none';
         if($varId == '3') {
             $sentence1 = $this->faker->sentence;
@@ -31,7 +34,8 @@ class IctFormsFactory extends Factory
             'users_id' => Users::all()->random()->id,
             'type_of_requests_id' => $varId,
             'type_request_description' => $sentence1,
-            'status'                    => 'pending',
+            'equipment_id' => $eqptId,
+            'status' => 'pending',
         ];
     }
 }

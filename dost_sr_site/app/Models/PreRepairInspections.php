@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class PreRepairInspections extends Model
 {
     use HasFactory;
+
+    protected $with = ['postrepairinspections'];
     protected $guarded = [];
     protected $fillable = [
         'repair_requests_id',

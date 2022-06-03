@@ -40,7 +40,8 @@
                                                     <label class="mb-0 text-capitalize text-gray-900" for="request_no">
                                                         Request No.: </label>
                                                     <input value="{{ $repair_ictform->request_no }}" type="text"
-                                                        class="input-design-1" readonly tabindex="-1" name="request_no" id="request_no">
+                                                        class="input-design-1" readonly tabindex="-1" name="request_no"
+                                                        id="request_no">
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +63,7 @@
                                             <div class="mb-2">
                                                 <label for="" class="mb-0 text-gray-900 text-capitalize">
                                                     Equipment Property No.:</label>
-                                                <input value="{{ $ictrequests->first()->equipment->property_no }}"
+                                                <input value="{{ $repair_ictform->equipment->property_no }}"
                                                     type="text" class="input-design-1 w-100" readonly tabindex="-1">
                                             </div>
                                         </section>
@@ -126,63 +127,68 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-8">
-                                            <div class="card">
-                                                <div class="card shadow border-bottom-info">
-                                                    <div class="card-header">
-                                                        @if ($ictrequests != null)
+
+                                        {{-- @dd(!$repair_ictform->ict_requests->isEmpty()) --}}
+
+                                        @if (!$repair_ictform->ict_requests->isEmpty())
+                                            <div class="col-xl-8">
+                                                <div class="card">
+                                                    <div class="card shadow border-bottom-info">
+                                                        <div class="card-header">
                                                             <div class="">
                                                                 Images & Documents
                                                             </div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="card-body">
-                                                        {{-- {!! $ictrequests->images->path_name !!} --}}
-                                                        <div class="d-flex g-2">
-                                                            <div class="overflow-auto"
-                                                                style="width: 649px; height: 270px;">
-                                                                @if ($ictrequests->first()->images_id != null)
-                                                                    @foreach ($ictrequests as $img)
-                                                                        <a href="{{ asset('storage/' . $img->images->path_name) }}"
-                                                                            target="_blank" class="hover-1"
-                                                                            style="color: transparent; text-decoration: none;">
-                                                                            <img src="{{ asset('storage/' . $img->images->path_name) }}"
-                                                                                style="max-width: 500px; min-width: 64px; min-height: 125px; max-height: 256px;"
-                                                                                alt="image.png">
-                                                                        </a>
-                                                                    @endforeach
-                                                                @else
-                                                                    <p class="m-0 text-xs text-danger">
-                                                                        No upload file(s).
-                                                                    </p>
-                                                                @endif
-                                                            </div>
-                                                            <div class="d-flex flex-column justify-content-between">
-                                                                @if ($ictrequests->first()->documents != null)
-                                                                    <a href="{{ asset('storage/' . $ictrequests->first()->documents->path_name) }}"
-                                                                        target="_blank"
-                                                                        class="d-flex flex-column m-0 text-xs text-primary hover-1">
-                                                                        <img src="/icons/svg-files/folder.svg"
-                                                                            alt="document.png" width="42" height="42">
-                                                                        File exist
-                                                                    </a>
-                                                                @else
-                                                                    <p class="m-0 text-xs text-danger">
-                                                                        No document file upload.
-                                                                    </p>
-                                                                @endif
 
-                                                                {{-- <a href="/download/{{ $ictrequests->first()->ict_forms_id }}"
-                                                                    class="btn btn-primary text-capitalize">download</a> --}}
-                                                            </div>
                                                         </div>
+                                                        <div class="card-body">
+                                                            {{-- {!! $ictrequests->images->path_name !!} --}}
+                                                            <div class="d-flex g-2">
+                                                                <div class="overflow-auto"
+                                                                    style="width: 649px; height: 270px;">
+                                                                    @if ($repair_ictform->ict_requests->first()->images_id != null)
+                                                                        @foreach ($repair_ictform->ict_requests as $img)
+                                                                            <a href="{{ asset('storage/' . $img->images->path_name) }}"
+                                                                                target="_blank" class="hover-1"
+                                                                                style="color: transparent; text-decoration: none;">
+                                                                                <img src="{{ asset('storage/' . $img->images->path_name) }}"
+                                                                                    style="max-width: 500px; min-width: 64px; min-height: 125px; max-height: 256px;"
+                                                                                    alt="image.png">
+                                                                            </a>
+                                                                        @endforeach
+                                                                    @else
+                                                                        <p class="m-0 text-xs text-danger">
+                                                                            No upload file(s).
+                                                                        </p>
+                                                                    @endif
+                                                                </div>
+                                                                <div class="d-flex flex-column justify-content-between">
+                                                                    @if ($repair_ictform->ict_requests->first()->documents == null)
+                                                                        <p class="m-0 text-xs text-danger">
+                                                                            No document file upload.
+                                                                        </p>
+                                                                    @else
+                                                                        <a href="{{ asset('storage/' . $repair_ictform->ict_requests->first()->documents->path_name) }}"
+                                                                            target="_blank"
+                                                                            class="d-flex flex-column m-0 text-xs text-primary hover-1">
+                                                                            <img src="/icons/svg-files/folder.svg"
+                                                                                alt="document.png" width="42"
+                                                                                height="42">
+                                                                            1 - File exist
+                                                                        </a>
+                                                                    @endif
 
-                                                        {{-- {{ $ictrequests->documents->path_name }} --}}
-                                                        {{-- <iframe src="{{ asset('storage/' . $ictrequests->documents->path_name) }}"></iframe> --}}
+                                                                    {{-- <a href="/download/{{ $ictrequests->first()->ict_forms_id }}"
+                                                                    class="btn btn-primary text-capitalize">download</a> --}}
+                                                                </div>
+                                                            </div>
+
+                                                            {{-- {{ $ictrequests->documents->path_name }} --}}
+                                                            {{-- <iframe src="{{ asset('storage/' . $ictrequests->documents->path_name) }}"></iframe> --}}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     </div>
                                     <hr class="my-4">
                                     <div class="row mx-0">
@@ -210,7 +216,8 @@
                                                                             <input type="checkbox" name="AreaRequest[]"
                                                                                 id="AreaRequest[]"
                                                                                 class="input-design-1 position-absolute"
-                                                                                style="right: 0.5em; bottom: 0.5em; width:20px; height:20px;" required>
+                                                                                style="right: 0.5em; bottom: 0.5em; width:20px; height:20px;"
+                                                                                required>
                                                                         </div>
 
                                                                         <div class="row mx-0 px-4">
@@ -226,7 +233,9 @@
                                                                 <div class="card mb-4 py-1 border-left-info">
                                                                     <div class="card-body">
                                                                         <label for="AreaRequest[]"
-                                                                            class="m-0">{{ $arName->request_title }}</label>
+                                                                            class="m-0">
+                                                                            {{ $arName->request_title }}
+                                                                        </label>
                                                                         <input type="checkbox" id="AreaRequest[]"
                                                                             name="AreaRequest[]" required
                                                                             class="input-design-1 position-absolute"
@@ -253,13 +262,13 @@
                             </div>
                         </section>
                         <section class="col-xl-1 pt-4 px-0">
-                            <div class="row mx-0 h-100">
+                            <div class="row mx-0 h-100 justify-content-center">
                                 <div class="col-xl-12 col-md-4 px-0 pt-1">
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" onclick="window.history.back()" class="btn btn-danger">
+                                        <a href="/requests" class="btn btn-danger">
                                             <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                 alt="Return to Previous page" class="icon-white">
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-xl-auto col-md-8 p-0">

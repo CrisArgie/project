@@ -30,10 +30,18 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label for="request_no" class="mb-0 text-capitalize text-gray-900">
                                                         No.: </label>
-                                                    <input name="request_no" id="request_no"
-                                                        value="{{ date('Y-md') . $repair_request->last()->id + 1 }}"
-                                                        readonly tabindex="-1" type="text" class="input-design-1"
-                                                        required>
+
+                                                    @if ($repair_request->last() == null)
+                                                        <input name="request_no" id="request_no"
+                                                            value="{{ 0 + 1 . 1 . '-' . date('Y-md') }}" readonly
+                                                            tabindex="-1" type="text" class="input-design-1" required>
+                                                    @else
+                                                        <input name="request_no" id="request_no"
+                                                            value="{{ $repair_request->last()->id + 1 . 1 . '-' . date('Y-md') }}"
+                                                            readonly tabindex="-1" type="text" class="input-design-1"
+                                                            required>
+                                                    @endif
+
                                                 </div>
                                                 @error('request_no')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
@@ -72,7 +80,8 @@
                                                 <input name="description_of_property_type"
                                                     id="description_of_property_type" type="text"
                                                     class="input-design-1 w-100" required
-                                                    value="{{ old('description_of_property_type') }}">
+                                                    value="{{ old('description_of_property_type') }}"
+                                                    placeholder="ex. CPU problem">
                                                 @error('description_of_property_type')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                 @enderror
@@ -82,7 +91,8 @@
                                                     Serial/Engine No.:</label>
                                                 <input name="serial_no" id="serial_no" type="text"
                                                     class="input-design-1 w-100" required
-                                                    value="{{ old('serial_no') }}">
+                                                    value="{{ old('serial_no') }}"
+                                                    placeholder="ex. 14D77D2498">
                                                 @error('serial_no')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                 @enderror
@@ -103,7 +113,8 @@
                                                     Location:</label>
                                                 <input name="location" id="location" type="text"
                                                     class="input-design-1 w-100" required
-                                                    value="{{ old('location') }}">
+                                                    value="{{ old('location') }}"
+                                                    placeholder="BARANGAY, CITY, PROVINCE, REGION">
                                                 @error('location')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                 @enderror
@@ -115,7 +126,8 @@
                                                     Brand Model:</label>
                                                 <input name="brand_model" id="brand_model" type="text"
                                                     class="input-design-1 w-100" required
-                                                    value="{{ old('brand_model') }}">
+                                                    value="{{ old('brand_model') }}"
+                                                    placeholder="ex. DELL, LENOVO, INTEL(s) or AMD(s)">
                                                 @error('brand_model')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                 @enderror
@@ -125,7 +137,8 @@
                                                     Property No.:</label>
                                                 <input name="property_no" id="property_no" type="text"
                                                     class="input-design-1 w-100" required
-                                                    value="{{ old('property_no') }}">
+                                                    value="{{ old('property_no') }}"
+                                                    placeholder="ex. JVJV212324XJ97WN">
                                                 @error('property_no')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                 @enderror
@@ -136,7 +149,8 @@
                                                     Acquisition Cost:</label>
                                                 <input name="acquisition_cost" id="acquisition_cost" type="text"
                                                     class="input-design-1 w-100" required
-                                                    value="{{ old('acquisition_cost') }}">
+                                                    value="{{ old('acquisition_cost') }}"
+                                                    placeholder="ex. 2440 - (PHP 2,440.00)">
                                                 @error('acquisition_cost')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                 @enderror
@@ -189,11 +203,11 @@
                                         <div class="row mx-0">
                                             @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
                                                 <div class="col-xl-12 col-md-4 p-1">
-                                                    <button type="submit" name="action" value="save"
+                                                    {{-- <button type="submit" name="action" value="save"
                                                         class="btn btn-primary w-100">
                                                         <img src="/icons/svg-files/save.svg" width="26" height="26"
                                                             class="icon-white col-xl-12 col-md-4 p-0" alt="Save.png">
-                                                    </button>
+                                                    </button> --}}
                                                 </div>
                                                 {{-- <div class="col-xl-12 col-md-4 p-1">
                                                     <button type="button" class="btn btn-primary w-100">

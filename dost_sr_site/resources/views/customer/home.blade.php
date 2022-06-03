@@ -60,16 +60,16 @@
                                                                     @if (!$user->repairrequest->whereIn('status', ['pending', 'in-progress'])->isEmpty() || !$user->ictforms->whereIn('status', ['pending', 'in-progress'])->isEmpty())
                                                                         @foreach ($user->repairrequest as $repair)
                                                                             <tr>
-                                                                                <td>
+                                                                                <td class="text-uppercase text-xs">
                                                                                     {{ $repair->request_no }}
                                                                                 </td>
-                                                                                <td>
+                                                                                <td class="text-uppercase text-xs">
                                                                                     {{ $repair->equipment->property_no }}
                                                                                 </td>
-                                                                                <td>
+                                                                                <td class="text-uppercase text-xs">
                                                                                     {{ $repair->status }}
                                                                                 </td>
-                                                                                <td>
+                                                                                <td class="text-uppercase text-xs">
                                                                                     {{ $repair->date_requested }}
                                                                                 </td>
                                                                                 <td>
@@ -80,21 +80,23 @@
                                                                         @endforeach
                                                                         @foreach ($user->ictforms as $repair)
                                                                             <tr>
-                                                                                <td>
+                                                                                <td class="text-xs">
                                                                                     {{ $repair->request_no }}
                                                                                 </td>
-                                                                                <td>
-                                                                                    {{ $repair->ict_requests->first()->equipment->property_no }}
+                                                                                <td class="text-uppercase text-xs">
+                                                                                    {{ $repair->equipment->property_no }}
                                                                                 </td>
-                                                                                <td>
+                                                                                <td class="text-uppercase text-xs">
                                                                                     {{ $repair->status }}
                                                                                 </td>
-                                                                                <td>
+                                                                                <td class="text-uppercase text-xs">
                                                                                     {{ $repair->date_requested }}
                                                                                 </td>
                                                                                 <td>
                                                                                     <a href="{{ $repair->id }}"
-                                                                                        class="btn btn-primary text-xs text-uppercase">View</a>
+                                                                                        class="btn btn-primary text-xs text-uppercase">
+                                                                                        View
+                                                                                    </a>
                                                                                 </td>
                                                                             </tr>
                                                                         @endforeach
@@ -141,7 +143,8 @@
                                                     <div class="col mr-2">
                                                         <div
                                                             class="text-sm font-weight-bold text-gray-700 text-uppercase mb-1">
-                                                            Total of ICT Job Request (pending, in-progress):</div>
+                                                            Total of ICT Job Request (pending, in-progress):
+                                                        </div>
                                                         <div
                                                             class="h5 mb-0 font-weight-bold text-gray-600 d-flex justify-content-end">
                                                             {{ $user->ictforms->whereIn('status', ['pending', 'in-progress'])->count() }}

@@ -9,18 +9,13 @@ class IctRequests extends Model
 {
     use HasFactory;
 
-
+    // protected $with = ['equipment', 'ict_forms', 'images', 'documents'];
     public $timestamps = false;
 
 
     public function ict_forms()
     {
         return $this->belongsTo(IctForms::class);
-    }
-
-    public function equipment()
-    {
-        return $this->belongsTo(Equipment::class);
     }
 
     public function images()

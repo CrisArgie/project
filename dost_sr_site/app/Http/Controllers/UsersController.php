@@ -5,21 +5,33 @@ namespace App\Http\Controllers;
 use App\Models\Divisions;
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
     public function show()
     {
-        $divisions = Divisions::all();
+        $divisions = Users::select(Users::raw('COUNT(*) as count'), Users::raw('divisions_id as division'))->whereIn('user_type', ['customer', 'technician'])->groupByRaw('division')->get();
+
+
         $userall = Users::select('*')->where(
             fn ($q) =>
             $q->whereIn('user_type', ['customer', 'technician'])
         )->get();
 
+        $groupedValue = $userall->groupBy('user_type');
+        $dupes = $groupedValue->filter(function (Collection $groups) {
+            return $groups->count() > 0;
+        });
+
+        // ddd($divisions);
+
         return view('admin.users', [
             'users' => $userall,
+            'div' => Divisions::all(),
             'divisions' => $divisions,
+            'eachroles' => $dupes,
         ]);
     }
 

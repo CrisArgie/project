@@ -10,6 +10,8 @@ class IctForms extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $with = ['ict_requests', 'arearequests', 'type_of_requests'];
+
     protected $fillable = [
         'date_requested',
         'request_no',
@@ -17,11 +19,17 @@ class IctForms extends Model
         'type_of_requests_id',
         'type_request_description',
         'status',
+        'equipment_id',
     ];
 
     public function users()
     {
         return $this->belongsto(Users::class);
+    }
+
+    public function equipment()
+    {
+        return $this->belongsTo(Equipment::class);
     }
 
     public function type_of_requests()

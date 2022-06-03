@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('ict_requests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ict_forms_id')->unsigned();
-            $table->foreignId('equipment_id')->unsigned();
             $table->foreignId('images_id')->nullable()->unsigned();
             $table->foreignId('documents_id')->nullable()->unsigned();
         });

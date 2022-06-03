@@ -111,26 +111,44 @@
                                             @foreach ($user->repairrequest as $request)
                                                 <tr class="text-dark">
                                                     <td>
-                                                        <a href="">
-                                                            {{ $request->request_no }}
-                                                        </a>
+                                                        @if ($request->status == 'pending')
+                                                            <a class=""
+                                                                href="/request/repair/repair/{{ $request->request_no }}">
+                                                                {{ $request->request_no }}
+                                                            </a>
+                                                        @elseif ($request->status == 'in-progress')
+                                                            @if ($request->prerepairinspections->first()->status == 'pending')
+                                                                <a class=""
+                                                                    href="/request/repair/pre-repair/{{ $request->request_no }}">
+                                                                    {{ $request->request_no }}
+                                                                </a>
+                                                            @elseif ($request->prerepairinspections->first()->status == 'in-progress')
+                                                                <a class=""
+                                                                    href="/request/repair/post-repair/{{ $request->request_no }}">
+                                                                    {{ $request->request_no }}
+                                                                </a>
+                                                            @endif
+                                                        @elseif ($request->status == 'done')
+                                                            <a class="pointer-events-none">
+                                                                {{ $request->request_no }}
+                                                            </a>
+                                                        @endif
                                                     </td>
                                                     <td class="d-flex justify-content-center text-white">
                                                         @if ($request->status == 'done')
-                                                            <button type="button"
+                                                            <a href="/request/repair/done/{{ $request->request_no }}"
                                                                 class="btn btn-success text-uppercase">
-                                                                Done
-                                                            </button>
+                                                                done
+                                                            </a>
                                                         @elseif ($request->status == 'pending')
-                                                            <button type="button"
-                                                                class="btn btn-info text-uppercase">
+                                                            <div class="pointer-events-none btn btn-secondary text-uppercase">
                                                                 View
-                                                            </button>
-
+                                                            </div>
                                                         @else
-                                                            <button type="button" class="btn btn-danger text-uppercase">
+                                                            <a href="/request/repair/cancel/{{ $request->request_no }}"
+                                                                class="btn btn-warning text-uppercase">
                                                                 Cancel
-                                                            </button>
+                                                            </a>
                                                         @endif
                                                     </td>
                                                     <td class="text-uppercase">
@@ -197,44 +215,46 @@
                                     <tbody>
                                         @if (!$user->ictforms->isEmpty())
                                             @foreach ($user->ictforms as $request)
-                                            <tr class="text-dark">
-                                                <td>
-                                                    <a href="">{{ $request->request_no }}</a>
-                                                </td>
-                                                <td>
-                                                    @if ($request->status == 'done')
-                                                            <button type="button"
+                                                <tr class="text-dark">
+                                                    <td>
+                                                        <a href="/request/ict/view/{{ $request->request_no }}">
+                                                            {{ $request->request_no }}
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        @if ($request->status == 'done')
+                                                            <a href="/request/ict/done/{{ $request->request_no }}"
                                                                 class="btn btn-success text-uppercase">
                                                                 Done
-                                                            </button>
+                                                            </a>
                                                         @elseif ($request->status == 'pending')
-                                                            <button type="button"
-                                                                class="btn btn-info text-uppercase">
+                                                            <div class="btn btn-secondary text-uppercase pointer-events-none">
                                                                 View
-                                                            </button>
+                                                            </div>
                                                         @else
-                                                            <button type="button" class="btn btn-danger text-uppercase">
+                                                            <a href="/request/ict/cancel/{{ $request->request_no }}"
+                                                                class="btn btn-danger text-uppercase">
                                                                 Cancel
-                                                            </button>
+                                                            </a>
                                                         @endif
-                                                </td>
-                                                <td class="text-uppercase">
-                                                    {{ $request->status }}
-                                                </td>
-                                                <td>
-                                                    {{ $request->date_requested }}
-                                                </td>
-                                                <td>
-                                                    {{ $request->type_of_requests->request_title }}
-                                                </td>
-                                                <td>
-                                                    {{ $areaconjunction->where('ict_forms_id', $request->id)->count() }}
-                                                </td>
-                                                <td>
-                                                    {{-- @dd() --}}
-                                                    {{ $request->ict_requests->first()->equipment->property_no }}
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td class="text-uppercase">
+                                                        {{ $request->status }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $request->date_requested }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $request->type_of_requests->request_title }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $areaconjunction->where('ict_forms_id', $request->id)->count() }}
+                                                    </td>
+                                                    <td>
+                                                        {{-- @dd() --}}
+                                                        {{ $request->equipment->property_no }}
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                         @else
                                         @endif

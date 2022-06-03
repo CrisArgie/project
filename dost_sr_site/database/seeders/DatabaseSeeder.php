@@ -99,17 +99,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Users::factory(5)->create();
-        Equipment::factory(10)->create();
+        // Equipment::factory(10)->create();
 
-        RepairRequest::factory(10)->create();
+        // RepairRequest::factory(10)->create();
 
-        IctForms::factory(10)->create();
-        IctRequests::factory(20)->create();
-        AreaRequests::factory(15)->create();
+        // IctForms::factory(10)->create();
+        // IctRequests::factory(20)->create();
+        // AreaRequests::factory(15)->create();
 
-        PreRepairInspections::factory(5)->create();
+        // PreRepairInspections::factory(5)->create();
 
-        PostRepairInspections::factory(5)->create();
+        // PostRepairInspections::factory(5)->create();
 
     }
 }

@@ -11,12 +11,11 @@ class Users extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
+    protected $with = ['repairrequest', 'ictforms', 'divisions'];
     protected $attributes = [
         'user_type' => 'customer'
     ];
-
     protected $guarded = [];
-
     protected $hidden = [
         'password',
     ];

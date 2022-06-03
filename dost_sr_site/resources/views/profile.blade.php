@@ -250,13 +250,18 @@
                                             <label for="divisions_id" class="mb-0 text-gray-800 text-capitalize">
                                                 Current Division:
                                             </label>
-                                            <div class="d-flex g-2 align-items-center mb-1">
-                                                <input type="text" readonly tabindex="-1" class="input-design-1"
-                                                    style="width: 550px"
-                                                    value="{{ $user->divisions->division_number . ' - ' . $user->divisions->division_name }}">
-                                            </div>
+
+                                            @if ($user->divisions != null)
+                                                <div class="d-flex g-2 align-items-center mb-1">
+                                                    <input type="text" readonly tabindex="-1" class="input-design-1"
+                                                        style="width: 550px"
+                                                        value="{{ $user->divisions->division_number . ' - ' . $user->divisions->division_name }}">
+                                                </div>
+                                            @endif
+
                                             <div>
-                                                <div class="d-flex justify-content-between pl-3 pr-5" style="width: 550px">
+                                                <div class="d-flex justify-content-between pl-3 pr-5"
+                                                    style="width: 550px">
                                                     <div class="text-xs">No.</div>
 
                                                     <div class="text-xs">Name</div>
@@ -264,11 +269,12 @@
                                                     <div class="text-xs">Address</div>
                                                 </div>
 
-                                                <select name="divisions_id" id="divisions_id" class="input-design-1 overflow-auto"
-                                                    size="8" style="width: 550px" required>
+                                                <select name="divisions_id" id="divisions_id"
+                                                    class="input-design-1 overflow-auto" size="8" style="width: 550px"
+                                                    required>
                                                     @foreach ($divisions as $division)
                                                         <option value="{{ $division->id }}" class="my-2">
-                                                            {{ $division->division_number . ' - ' . $division->division_name . ' (' .$division->division_address . ')' }}
+                                                            {{ $division->division_number . ' - ' . $division->division_name . ' (' . $division->division_address . ')' }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -351,6 +357,57 @@
             </x-main>
         </section>
     </main>
+
+    @if (auth()->user()->divisions_id == null)
+        <div id="overlay" style="opacity: 1;"></div>
+        <div class="modal active" id="divisionModal">
+
+            <form action="/home/{{ auth()->user()->id }}/update" method="POST" enctype="multipart/form-data">
+                @method('PATCH')
+                @csrf
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="text-uppercase text-gray-600 font-weight-bold">
+                            Set the Division you are assigned:
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <label class="h4 mt-3 text-capitalize font-weight-bold text-gray-900">
+                            Divisions:
+                        </label>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="overflow-auto input-design-1" style="height: 360px;">
+                                <label for="divisions_id" hidden></label>
+                                @foreach ($divisions as $division)
+                                    <label class="btn btn-info w-100">
+                                        <div class="h6 d-flex justify-content-start font-italic">
+                                            {{ $division->division_number }}
+                                        </div>
+                                        <div class="my-2 font-weight-bold">
+                                            {{ $division->division_name }}
+                                        </div>
+                                        <div class="text-xs d-flex justify-content-end">
+                                            {{ $division->division_address }}
+                                        </div>
+                                        <input type="radio" name="divisions_id" id="divisions_id"
+                                            value="{{ $division->id }}" class="d-flex">
+                                    </label>
+                                @endforeach
+
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end g-2">
+                            <button type="reset" class="text-xs text-uppercase btn btn-primary">reset</button>
+                            {{-- <button type="submit" name="action" value=""></button> --}}
+                            <button type="submit" name="action" value="submit"
+                                class="text-xs text-uppercase btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    @endif
 
     <x-flash />
 </x-right-content-layout>

@@ -10,8 +10,21 @@ class RepairRequest extends Model
     use HasFactory;
 
     // public $timestamps = true;
-
+    protected $fillable = [
+        'date_requested',
+        'request_no',
+        'description_of_property_type',
+        'location',
+        'acquisition_date',
+        'acquisition_cost',
+        'problem_encountered',
+        'corrective_action_performed',
+        'status',
+        'users_id',
+        'equipment_id'
+    ];
     protected $guarded = [];
+    protected $with = ['equipment', 'prerepairinspections'];
 
     public function users()
     {

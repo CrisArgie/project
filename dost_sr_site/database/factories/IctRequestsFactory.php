@@ -19,12 +19,10 @@ class IctRequestsFactory extends Factory
     public function definition()
     {
         $ictId = IctForms::all()->random()->id;
-        $eqptId = Equipment::all()->random()->id;
 
-        if($ictId != null && $eqptId != null){
+        if($ictId != null){
             return [
                 'ict_forms_id' => $ictId,
-                'equipment_id' => $eqptId,
             ];
         }
     }

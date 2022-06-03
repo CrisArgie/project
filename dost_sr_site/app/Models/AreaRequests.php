@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class AreaRequests extends Model
 {
     use HasFactory;
-
+    protected $with = ['area_of_requests'];
     public $timestamps = false;
 
     public function ictforms()
     {
-        return $this->hasMany(IctForms::class);
+        return $this->belongsTo(IctForms::class);
     }
 
-    public function areaofrequests()
+    public function area_of_requests()
     {
-        return $this->hasMany(AreaOfRequests::class);
+        return $this->belongsTo(AreaOfRequests::class, 'area_of_requests_id', 'id');
     }
 }
