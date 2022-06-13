@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class MustBeAdmin
+class IsTech
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,7 @@ class MustBeAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        // if (auth()->user()?->user_type != 'admin') {
-        //     abort(Response::HTTP_FORBIDDEN);
-        // }
-
-        if (!auth()->check() || !auth()->user()->user_type == 'admin') {
+        if (!auth()->check() || !auth()->user()->user_type == 'technician') {
             abort(Response::HTTP_FORBIDDEN);
         }
 

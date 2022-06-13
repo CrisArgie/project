@@ -11,8 +11,7 @@ class PostInspectionsController extends Controller
 {
     public function show(PreRepairInspections $preRI, Request $request)
     {
-        // dd($request->id);
-        $preRID = $preRI->where('id', $request->id)->where('status', 'in-progress')->get();
+        $preRID = $preRI->findOrFail($request->id)->where('status', 'in-progress')->get();
         // dd($preRID);
         return view('requests.post-repair', [
             'prId' => $preRID,

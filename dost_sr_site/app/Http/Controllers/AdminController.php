@@ -8,6 +8,7 @@ use App\Models\PostRepairInspections;
 use App\Models\PreRepairInspections;
 use App\Models\RepairRequest;
 use App\Models\Users;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -33,32 +34,17 @@ class AdminController extends Controller
             $q->whereIn('status', ['in-progress', 'pending'])
         )->get();
 
-        $requestperM = RepairRequest::select('*')->where(
-            fn ($q) =>
-            $q->whereIn('status', ['in-progress', 'pending', 'done'])
-                ->where('date_requested', 'like', date('Y-m') . '%')
-        )->get();
 
-        $ictrequestperM = IctForms::select('*')->where(
-            fn ($q) =>
-            $q->whereIn('status', ['in-progress', 'pending', 'done'])
-                ->where('date_requested', 'like', date('Y-m') . '%')
-        )->get();
+        $ictandrepair = DB::table(DB::raw('(SELECT date_requested, status FROM repair_requests
+        UNION ALL
+        SELECT date_requested, status FROM ict_forms) as t'))
+            ->select(DB::raw('DATE_FORMAT(date_requested,\'%m\') AS month'), DB::raw('SUM(CASE WHEN status = \'done\' THEN 1 ELSE 0 END) AS done'), DB::raw('SUM(CASE WHEN status = \'pending\' THEN 1 ELSE 0 END) AS pending'), DB::raw('SUM(CASE WHEN status = \'in-progress\' THEN 1 ELSE 0 END) AS inprogress'))
+            ->whereIn('status', ['in-progress', 'pending', 'done'])
+            ->where('date_requested', 'like', date('Y') . '%')
+            ->groupByRaw('month')
+            ->get();
 
         $divisions = Users::select(Users::raw('COUNT(*) as count'), Users::raw('divisions_id as division'))->whereIn('user_type', ['customer', 'technician'])->groupByRaw('division')->get();
-
-        // $rperY = RepairRequest::select('status', 'date_requested')->get();
-        // $iperY = IctForms::select('status', 'date_requested')->get();
-
-
-        // $userperY = Users::select('*')->where(
-        //     fn ($q) =>
-        //     $q->whereIn('user_type', ['customer'])
-        //         ->where('created_at', 'like', date('Y') . '%')
-        // )->get();
-
-        // ddd();
-
 
         return view('admin.dashboard', [
             'name' => Divisions::all(),
@@ -66,11 +52,68 @@ class AdminController extends Controller
             'pre' => $prerequest,
             'ictrequests' => $ictrequest,
             'repairrequests' => $request,
-            'repairperM' => $requestperM,
-            'ictperM' => $ictrequestperM,
+            'perMir' => $ictandrepair,
             'div' => $divisions,
-            // 'allUser' => $userperY,
-            // 'total_request' => $totalRequest,
         ]);
+    }
+
+
+
+    public function destroy()
+    {
+        switch (request()->action) {
+            case 'ict-delete':
+                if (request()->ict != null) {
+                    $ict = IctForms::where('request_no', request()->ict)->first();
+
+                    $ict->update(['status' => 'deleted']);
+                    $ict->delete();
+
+                    return back()->with('success', 'Deletion success.');
+                } else {
+                    return back()->with('fail', 'Deletion fail.');
+                }
+                break;
+            case 'repair-delete':
+                if (request()->repair != null) {
+                    $repair = RepairRequest::where('request_no', request()->repair)->first();
+
+                    $repair->update(['status' => 'deleted']);
+                    $repair->delete();
+
+                    return back()->with('success', 'Deletion success.');
+                } else {
+                    return back()->with('fail', 'Deletion fail.');
+                }
+                break;
+            case 'prerepair-delete':
+                if (request()->pre != null) {
+                    $pre = RepairRequest::findOrFail(request()->pre);
+                    // dd($pre);
+                    $pre->update(['status' => 'pending']);
+
+                    $pre->prerepairinspections->update(['status' => 'deleted']);
+                    $pre->prerepairinspections->delete();
+
+                    return back()->with('success', 'Deletion success.');
+                } else {
+                    return back()->with('fail', 'Deletion fail.');
+                }
+                break;
+            case 'postrepair-delete':
+                if (request()->post != null) {
+                    $post = PreRepairInspections::findOrFail(request()->post);
+                    // $post = PostRepairInspections::findOrFail(request()->post);
+                    $post->update(['status' => 'pending']);
+
+                    $post->postrepairinspections->update(['status' => 'deleted']);
+                    $post->postrepairinspections->delete();
+
+                    return back()->with('success', 'Deletion success.');
+                } else {
+                    return back()->with('fail', 'Deletion fail.');
+                }
+                break;
+        }
     }
 }

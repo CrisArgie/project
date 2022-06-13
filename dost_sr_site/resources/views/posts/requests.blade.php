@@ -56,9 +56,15 @@
                             </h6>
                         </div>
                         <div class="card-body" style="">
-                            <figure class="highcharts-figure">
-                                <div id="bar-chart-2" class=""></div>
-                            </figure>
+                            @if ($RmonthBardata->isEmpty() || $ImonthBardata->isEmpty())
+                                <h6 class="m-0 font-weight-bold text-gray-500 text-uppercase">
+                                    No Request Data
+                                </h6>
+                            @else
+                                <figure class="highcharts-figure">
+                                    <div id="bar-chart-2" class=""></div>
+                                </figure>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -86,7 +92,7 @@
                                 Repair Request
                             </a>
                         @else
-                            <a href="" class="rounded btn btn-primary w-100 text-uppercase">
+                            <a class="rounded btn btn-primary w-100 text-uppercase pointer-events-none">
                                 No pending report
                             </a>
                         @endif
@@ -94,13 +100,18 @@
 
                     </div>
                     <div class="col-xl-3 my-2">
-                        @if (!$repair_ict->where('status', 'pending')->isEmpty())
+                        @if (!$repair_ict->where('status', 'in-progress')->isEmpty())
+                            <a href="/requests/repair-ict-request/{{ $repair_ict->where('status', 'in-progress')->first()->request_no }}"
+                                class="rounded btn btn-primary w-100 text-uppercase">
+                                ICT job Request
+                            </a>
+                        @elseif (!$repair_ict->where('status', 'pending')->isEmpty())
                             <a href="/requests/repair-ict-request/{{ $repair_ict->where('status', 'pending')->first()->request_no }}"
                                 class="rounded btn btn-primary w-100 text-uppercase">
                                 ICT job Request
                             </a>
                         @else
-                            <a href="" class="rounded btn btn-primary w-100 text-uppercase">
+                            <a class="rounded btn btn-primary w-100 text-uppercase pointer-events-none">
                                 No pending report
                             </a>
                         @endif
@@ -112,7 +123,7 @@
                                 Pre-repair Request
                             </a>
                         @else
-                            <a href="" class="rounded btn btn-primary w-100 text-uppercase">
+                            <a class="rounded btn btn-primary w-100 text-uppercase pointer-events-none">
                                 No pending report
                             </a>
                         @endif
@@ -124,7 +135,7 @@
                                 Post repair Request
                             </a>
                         @else
-                            <a href="/requests/" class="rounded btn btn-primary w-100 text-uppercase">
+                            <a class="rounded btn btn-primary w-100 text-uppercase pointer-events-none">
                                 No pending report
                             </a>
                         @endif
@@ -133,220 +144,348 @@
             </div>
         </div>
     </div>
-    <div class="row mb-2">
-        <div class="col-xl-12">
-            <div class="card shadow mb-4">
+    <form action="/requests/delete" method="POST" enctype="multipart/form-data">
+        @method('DELETE')
+        @csrf
 
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
-                        Repair Request Data Table
-                    </h6>
+        <div class="row mb-2">
+            <div class="col-xl-12">
+                <div class="card shadow mb-4">
 
-                    {{-- <div>
-                        <button type="" name="" value="" class="btn btn-info">
-                            Edit
-                        </button>
-                        <button type="" name="" value="" class="btn btn-danger">
-                            Delete
-                        </button>
-                    </div> --}}
-                </div>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
+                            Repair Request Data Table
+                        </h6>
 
-                <div class="card-body" style="min-height: 80vh;">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>ID.</th>
-                                    {{-- <th hidden>ID</th> --}}
-                                    <th>Brand Model</th>
-                                    <th>Status</th>
-                                    <th>Property No.</th>
-                                    <th>Serial No.</th>
-                                    <th>Date Requested</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $no = 1;
-                                @endphp
-                                @foreach ($repair_request as $each_request)
-                                    @if ($each_request->status == 'deleted')
-                                    @else
-                                        <tr>
-                                            <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
-                                            {{-- <td>{{ $no++ }}</td> --}}
-                                            <td> {{ $each_request->id }} </td>
-                                            <td> {{ $each_request->equipment->brand_model }} </td>
-                                            <td class="text-uppercase"> {{ $each_request->status }} </td>
-                                            <td> {{ $each_request->equipment->property_no }} </td>
-                                            <td> {{ $each_request->equipment->serial_no }} </td>
-                                            <td> {{ $each_request->date_requested }} </td>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <div class="">
+                            <button type="button" id="repair" onclick="redirectEdit('repair')" class="btn btn-info">
+                                Edit
+                            </button>
+
+                            <button type="submit" name="action" value="repair-delete" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="min-height: 80vh;">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Request No.</th>
+                                        {{-- <th hidden>ID</th> --}}
+                                        <th>Brand Model</th>
+                                        <th>Status</th>
+                                        <th>Property No.</th>
+                                        <th>Serial No.</th>
+                                        <th>Date Requested</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($repair_request as $each_request)
+                                        @if ($each_request->status == 'deleted')
+                                        @else
+                                            <tr>
+                                                @if ($each_request->status == 'pending')
+                                                    <td> <input type="radio" name="repair"
+                                                            value="{{ $each_request->request_no }}">
+                                                    </td>
+                                                @else
+                                                    <td> <input type="radio" name="repair" hidden readonly
+                                                            tabindex="-1">
+                                                    </td>
+                                                @endif
+                                                {{-- <td>{{ $no++ }}</td> --}}
+                                                <td>
+                                                    <input type="text" name="request_no" id="request_no"
+                                                        value="{{ $each_request->request_no }}" readonly tabindex="-1"
+                                                        hidden>
+                                                    <a href="/requests/info/repair/{{ $each_request->request_no }}">
+                                                        {{ $each_request->request_no }}
+                                                    </a>
+                                                </td>
+                                                <td> {{ $each_request->equipment->brand_model }} </td>
+                                                <td class="text-uppercase"> {{ $each_request->status }} </td>
+                                                <td> {{ $each_request->equipment->property_no }} </td>
+                                                <td> {{ $each_request->equipment->serial_no }} </td>
+                                                <td> {{ $each_request->date_requested }} </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
-    <div class="row mb-2">
-        <div class="col-xl-12">
-            <div class="card shadow mb-4">
+    </form>
+    <form action="/requests/delete" method="POST" enctype="multipart/form-data">
+        @method('DELETE')
+        @csrf
+        <div class="row mb-2">
+            <div class="col-xl-12">
+                <div class="card shadow mb-4">
 
 
 
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
-                        ICT Job Request Data Table
-                    </h6>
-                </div>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
+                            ICT Job Request Data Table
+                        </h6>
 
-                <div class="card-body" style="min-height: 80vh;">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Request No.</th>
-                                    <th>User Name</th>
-                                    <th>Status</th>
-                                    <th>Date Requested</th>
-                                    <th>Total area of request</th>
-                                    <th>Type of Request</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($repair_ict as $each_request)
-                                    @if ($each_request->status == 'deleted')
-                                    @else
-                                        <tr>
-                                            <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
-                                            <td> {{ $each_request->request_no }} </td>
-                                            <td> {{ $each_request->users->first_name . ' ' . $each_request->users->last_name }}
-                                            </td>
-                                            <td class="text-uppercase"> {{ $each_request->status }} </td>
-                                            <td> {{ $each_request->date_requested }} </td>
-                                            <td> {{ $each_request->arearequests->count() }} </td>
-                                            <td> {{ $each_request->type_of_requests->request_title }} </td>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <div class="">
+                            <button type="button" id="ict" onclick="redirectEdit('ict')" class="btn btn-info">
+                                Edit
+                            </button>
+
+                            <button type="submit" name="action" value="ict-delete" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="min-height: 80vh;">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Request No.</th>
+                                        <th>User Name</th>
+                                        <th>Status</th>
+                                        <th>Date Requested</th>
+                                        <th>Total area of request</th>
+                                        <th>Type of Request</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($repair_ict as $each_request)
+                                        @if ($each_request->status == 'done')
+                                        @else
+                                            <tr>
+                                                <td> <input type="radio" name="ict"
+                                                        value="{{ $each_request->request_no }}">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="request_no" id="request_no"
+                                                        value="{{ $each_request->request_no }}" readonly
+                                                        tabindex="-1" hidden>
+                                                    <a href="/requests/info/ict/{{ $each_request->request_no }}">
+                                                        {{ $each_request->request_no }}
+                                                    </a>
+                                                </td>
+                                                <td> {{ $each_request->users->first_name . ' ' . $each_request->users->last_name }}
+                                                </td>
+                                                <td class="text-uppercase"> {{ $each_request->status }} </td>
+                                                <td> {{ $each_request->date_requested }} </td>
+                                                <td> {{ $each_request->arearequests->count() }} </td>
+                                                <td> {{ $each_request->type_of_requests->request_title }} </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
-    <div class="row mb-2">
-        <div class="col-xl-12">
-            <div class="card shadow mb-4">
+    </form>
+    <form action="/requests/delete" method="POST" enctype="multipart/form-data">
+        @method('DELETE')
+        @csrf
+        <div class="row mb-2">
+            <div class="col-xl-12">
+                <div class="card shadow mb-4">
 
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
-                        Pre-repair Inspection Data Table
-                    </h6>
-                </div>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
+                            Pre-repair Inspection Data Table
+                        </h6>
 
-                <div class="card-body" style="min-height: 80vh;">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>No.</th>
-                                    {{-- <th hidden>ID</th> --}}
-                                    <th>Brand Model</th>
-                                    <th>Status</th>
-                                    <th>Date Requested</th>
-                                    <th>Date of Latest Repair</th>
-                                    <th>Mature of Latest Repair</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- @php
+                        <div class="">
+                            <button type="button" id="pre" onclick="redirectEdit('pre')" class="btn btn-info">
+                                Edit
+                            </button>
+
+                            <button type="submit" name="action" value="prerepair-delete" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="min-height: 80vh;">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Request No.</th>
+                                        {{-- <th hidden>ID</th> --}}
+                                        <th>Brand Model</th>
+                                        <th>Status</th>
+                                        <th>Date Requested</th>
+                                        <th>Date of Latest Repair</th>
+                                        <th>Mature of Latest Repair</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{-- @php
                                     $no = 1
                                 @endphp --}}
-                                @foreach ($pre_repair as $each_request)
-                                    @if ($each_request->status == 'deleted')
-                                    @else
-                                        <tr>
-                                            <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
-                                            {{-- <td hidden>{{ $no++ }}</td> --}}
-                                            <td> {{ $each_request->id }} </td>
-                                            <td> {{ $each_request->repair_requests->equipment->brand_model }} </td>
-                                            <td class="text-uppercase"> {{ $each_request->status }} </td>
-                                            <td> {{ $each_request->created_at }} </td>
-                                            <td> {{ $each_request->date_of_latest_repair }} </td>
-                                            <td> {{ $each_request->mature_of_latest_repair }} </td>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                                    @foreach ($pre_repair as $each_request)
+                                        @if ($each_request->status == 'deleted')
+                                        @else
+                                            <tr>
+                                                @if ($each_request->status == 'pending')
+                                                    <td> <input type="radio" name="pre"
+                                                            value="{{ $each_request->repair_requests_id }}">
+                                                    </td>
+                                                @else
+                                                    <td> <input type="radio" name="pre" readonly tabindex="-1" hidden>
+                                                    </td>
+                                                @endif
 
+                                                {{-- <td hidden>{{ $no++ }}</td> --}}
+                                                <td>
+                                                    <input type="text" name="request_no" id="request_no"
+                                                        value="{{ $each_request->repair_requests->request_no }}"
+                                                        readonly tabindex="-1" hidden>
+
+                                                    <a
+                                                        href="/requests/info/repair/{{ $each_request->repair_requests->request_no }}">
+                                                        {{ $each_request->repair_requests->request_no }}
+                                                    </a>
+                                                </td>
+                                                <td> {{ $each_request->repair_requests->equipment->brand_model }}
+                                                </td>
+                                                <td class="text-uppercase"> {{ $each_request->status }} </td>
+                                                <td> {{ $each_request->created_at }} </td>
+                                                <td> {{ $each_request->date_of_latest_repair }} </td>
+                                                <td> {{ $each_request->mature_of_latest_repair }} </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card shadow mb-4">
+    </form>
+    <form action="/requests/delete" method="POST" enctype="multipart/form-data">
+        @method('DELETE')
+        @csrf
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card shadow mb-4">
 
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
-                        Post-repair inspection data Table
-                    </h6>
-                </div>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-gray-700 text-uppercase">
+                            Post-repair inspection data Table
+                        </h6>
 
-                <div class="card-body" style="min-height: 80vh;">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>No.</th>
-                                    <th>Repair Shop</th>
-                                    <th>Status</th>
-                                    <th>Job Order</th>
-                                    <th>Invoice No.</th>
-                                    <th>Amt/J.O./P.O. No.</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($post_repair as $each_request)
-                                    @if ($each_request->status == 'deleted')
-                                    @else
-                                        <tr>
-                                            <td> <input type="checkbox" value="{{ $each_request->id }}"> </td>
-                                            <td> {{ $each_request->id }} </td>
-                                            <td> {{ $each_request->repair_shop }} </td>
-                                            <td class="text-uppercase"> {{ $each_request->status }} </td>
-                                            <td> {{ $each_request->job_order_no }} </td>
-                                            <td> {{ $each_request->invoice_no }} </td>
-                                            <td> {{ $each_request->amt_no }} </td>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <div class="">
+                            <button type="button" id="post" onclick="redirectEdit('post')" class="btn btn-info">
+                                Edit
+                            </button>
+
+                            <button type="submit" name="action" value="postrepair-delete" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="min-height: 80vh;">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Request No.</th>
+                                        <th>Repair Shop</th>
+                                        <th>Status</th>
+                                        <th>Job Order</th>
+                                        <th>Invoice No.</th>
+                                        <th>Amt/J.O./P.O. No.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($post_repair as $each_request)
+                                        @if ($each_request->status == 'deleted')
+                                        @else
+                                            <tr>
+                                                @if ($each_request->status == 'pending')
+                                                    <td> <input type="radio" name="post"
+                                                            value="{{ $each_request->pre_repair_inspections_id }}">
+                                                    </td>
+                                                @else
+                                                    <td> <input type="radio" name="post" readonly tabindex="-1" hidden>
+                                                    </td>
+                                                @endif
+
+                                                <td>
+                                                    <input type="text" name="request_no" id="request_no"
+                                                        value="{{ $each_request->pre_repair_inspections->repair_requests->request_no }}"
+                                                        readonly tabindex="-1" hidden>
+                                                    <a
+                                                        href="/requests/info/repair/{{ $each_request->pre_repair_inspections->repair_requests->request_no }}">
+                                                        {{ $each_request->pre_repair_inspections->repair_requests->request_no }}
+                                                    </a>
+                                                </td>
+                                                <td> {{ $each_request->repair_shop }} </td>
+                                                <td class="text-uppercase"> {{ $each_request->status }} </td>
+                                                <td> {{ $each_request->job_order_no }} </td>
+                                                <td> {{ $each_request->invoice_no }} </td>
+                                                <td> {{ $each_request->amt_no }} </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
+    </form>
 
     <script>
+        function redirectEdit(name) {
+            var btn = document.getElementById(name)
+            btn.addEventListener('click', function() {
+                if (document.querySelector('[name=' + name + ']:checked')) {
+                    var req_no = document.querySelector('[name=' + name + ']:checked').value
+
+                    if (name == 'repair') {
+                        window.location.href = '/requests/repair-request/' + req_no;
+                    }
+                    if (name == 'ict') {
+                        window.location.href = '/requests/repair-ict-request/' + req_no;
+                    }
+                    if (name == 'pre') {
+                        window.location.href = '/requests/pre-inspection/' + req_no;
+                    }
+                    if (name == 'post') {
+                        window.location.href = '/requests/post-inspection/' + req_no;
+                    }
+                } else {
+                    alert('Select one request.')
+                }
+            })
+        }
+
         var barData = [];
         let x = 0;
 
@@ -407,6 +546,8 @@
         x = 0;
 
 
+
+
         @if (!$RmonthBardata->isEmpty() || !$ImonthBardata->isEmpty())
             @if (!$RmonthBardata->isEmpty())
                 @foreach ($RmonthBardata as $RmonthBardata)
@@ -435,7 +576,7 @@
             scData[j] = rbarData[j];
         }
 
-        console.log(scData);
+        // console.log(scData);
 
         // bar chart
         Highcharts.chart('bar-chart-2', {

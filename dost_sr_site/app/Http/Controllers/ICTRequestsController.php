@@ -49,23 +49,48 @@ class ICTRequestsController extends Controller
 
     public function update(Request $request)
     {
-        $this->validate(
-            $request,
-            [
-                'AreaRequest' => ['required', 'array', 'distinct'],
-                'request_no' => ['required', 'alpha_dash', 'String']
-            ],
-            [
-                'AreaRequest.required' => 'Area of Request must be checked if done',
-            ]
-        );
+        switch ($request->action) {
+            case 'save':
+                $this->validate(
+                    $request,
+                    [
+                        'AreaRequest' => ['required', 'array', 'distinct'],
+                        'request_no' => ['required', 'alpha_dash', 'String']
+                    ],
+                    [
+                        'AreaRequest.required' => 'Area of Request must be checked if done',
+                    ]
+                );
 
-        IctForms::where('request_no', $request->request_no)
-            ->update([
-                'status' => 'done',
-            ]);
+                IctForms::where('request_no', $request->request_no)
+                    ->update([
+                        'status' => 'in-progress',
+                    ]);
 
-        return redirect('/requests')->with('success', 'Request: ' . $request->request_no . ' - done.');
+                return back()->with('success', 'Request: ' . $request->request_no . ' - save');
+                break;
+            case 'print':
+                break;
+            case 'done':
+                $this->validate(
+                    $request,
+                    [
+                        'AreaRequest' => ['required', 'array', 'distinct'],
+                        'request_no' => ['required', 'alpha_dash', 'String']
+                    ],
+                    [
+                        'AreaRequest.required' => 'Area of Request must be checked if done',
+                    ]
+                );
+
+                IctForms::where('request_no', $request->request_no)
+                    ->update([
+                        'status' => 'done',
+                    ]);
+
+                return redirect('/requests')->with('success', 'Request: ' . $request->request_no . ' - done.');
+                break;
+        }
     }
 
     public function create(Request $requests)

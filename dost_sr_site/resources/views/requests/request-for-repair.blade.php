@@ -9,7 +9,7 @@
 
         {{-- CONTENT - BODY --}}
         <section class="content-position">
-            @if (auth()->user()->user_type == 'admin')
+            @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
                 @include('posts.left-sidebar') {{-- Admin LEFT SIDEBAR --}}
             @else
                 @include('customer.page-style.left-sidebar') {{-- Customer LEFT SIDEBAR --}}

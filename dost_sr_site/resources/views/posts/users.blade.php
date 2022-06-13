@@ -35,10 +35,10 @@
                                         </div>
                                         <div class="d-flex flex-column overflow-auto h-100" style="width: 165px;">
                                             @if (!$divisions->isEmpty())
-
                                             @endif
                                             @foreach ($divisions as $division)
-                                                <span>Divisions {{ $div->where('id', $division->division)->first()->division_number . ': ' . $division->count }}</span>
+                                                <span>Divisions
+                                                    {{ $div->where('id', $division->division)->first()->division_number . ': ' . $division->count }}</span>
                                             @endforeach
                                         </div>
                                     </div>
@@ -55,67 +55,83 @@
             </div>
         </div>
     </div>
-    <div class="row mb-4">
-        <div class="col-xl-12">
-            <div class="card shadow mb-4">
+    <form action="/request/delete" method="POST" enctype="multipart/form-data">
+        @method('DELETE')
+        @csrf
+        <div class="row mb-4">
+            <div class="col-xl-12" >
+                <div class="card shadow mb-4">
 
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-gray-600 text-uppercase">
-                        User Data Table
-                    </h6>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-gray-600 text-uppercase">
+                            User Data Table
+                        </h6>
 
-                </div>
+                        <button type="button" class="btn btn-warning text-capitalize" data-modal-target="#userID">
+                            delete
+                        </button>
+                    </div>
 
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>No.</th>
-                                    <th>Name</th>
-                                    <th>User Type</th>
-                                    <th>Division</th>
-                                    <th>Email</th>
-                                    <th>Division Address Assigned</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $no = 1;
-                                @endphp
-                                @foreach ($users as $user)
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            <input type="checkbox" name="" id="" value="{{ $user->id }}">
-                                        </td>
-                                        <td>
-                                            {{ $no++ }}
-                                        </td>
-                                        <td>
-                                            {{ $user->last_name . ', ' . $user->first_name }}
-                                        </td>
-                                        <td>
-                                            {{ $user->user_type }}
-                                        </td>
-                                        <td>
-                                            {{ $user->divisions->division_number }}
-                                        </td>
-                                        <td>
-                                            {{ $user->email }}
-                                        </td>
-                                        <td>
-                                            {{ $user->divisions->division_address }}
-                                        </td>
+                                        <th></th>
+                                        <th>No.</th>
+                                        <th>Name</th>
+                                        <th>User Type</th>
+                                        <th>Division</th>
+                                        <th>Email</th>
+                                        <th>Division Address Assigned</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="selected_user[]" id="selected_user[]"
+                                                    value="{{ $user->id }}">
+                                            </td>
+                                            <td>
+                                                {{ $no++ }}
+                                            </td>
+                                            <td>
+                                                {{ $user->last_name . ', ' . $user->first_name }}
+                                            </td>
+                                            <td>
+                                                {{ $user->user_type }}
+                                            </td>
+                                            <td>
+                                                {{ $user->divisions->division_number }}
+                                            </td>
+                                            <td>
+                                                {{ $user->email }}
+                                            </td>
+                                            <td>
+                                                {{ $user->divisions->division_address }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <x-modal-body id="userID" title="Are you sure to delete this request?">
+            If you delete the request you can't recover it.
+            <x-form.button type="submit" name="action" value="multi-delete" class="btn-warning"
+                class-label="d-flex justify-content-end mt-3">
+                delete
+            </x-form.button>
+        </x-modal-body>
+        <div id="overlay" style="z-index: 3"></div>
+    </form>
 
     <script>
         let x = 0;

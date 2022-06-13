@@ -4,7 +4,7 @@
 
         {{-- CONTENT - BODY --}}
         <section class="content-position">
-            @if (auth()->user()->user_type == 'admin')
+            @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
                 @include('posts.left-sidebar') {{-- Admin LEFT SIDEBAR --}}
             @else
                 @include('customer.page-style.left-sidebar') {{-- Customer LEFT SIDEBAR --}}
@@ -298,7 +298,7 @@
                     </div>
                 </div>
                 <hr>
-                @if (auth()->user()->user_type == 'customer')
+                @if (auth()->user()->user_type == 'customer' || auth()->user()->user_type == 'technician')
                     <div class="row mx-0">
                         <div class="card w-100">
                             <div class="card-body">
@@ -312,8 +312,8 @@
                                     </div>
                                     {{-- DELETE CLEAR HISTORY of REQUEST --}}
                                     <div class="col mt-4">
-                                        <form action="/profile/update" method="POST" enctype="multipart/form-data">
-                                            @method('PATCH')
+                                        <form action="/profile/delete" method="POST" enctype="multipart/form-data">
+                                            @method('DELETE')
                                             @csrf
 
                                             {{-- <div class="d-flex flex-column mb-2">
@@ -339,7 +339,7 @@
                                                     @enderror
 
                                                     <div class="d-flex justify-content-end my-3">
-                                                        <button type="submit" name="action" value="accout_delete"
+                                                        <button type="submit" name="action" value="account_delete"
                                                             class="btn btn-primary">
                                                             Confirm
                                                         </button>

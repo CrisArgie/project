@@ -24,7 +24,8 @@ return new class extends Migration
             $table->text('problem_encountered')->nullable();
             $table->text('corrective_action_performed')->nullable();
             $table->timestamps();
-            $table->foreignId('users_id')->unsigned();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->foreignId('users_id')->unsigned()->nullOnDelete();
             $table->foreignId('equipment_id')->unsigned();
             $table->string('status');
         });

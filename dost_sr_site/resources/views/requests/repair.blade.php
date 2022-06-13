@@ -110,8 +110,15 @@
                                                     <label for="problem_encountered"
                                                         class="mb-0 text-gray-900 text-capitalize">
                                                         Problem Encountered:</label>
-                                                    <textarea class="input-design-1" name="problem_encountered" id="problem_encountered" cols="30" rows="7.5"
-                                                        placeholder="Type here..."></textarea>
+
+                                                    @if ($post->problem_encountered != null)
+                                                        <textarea class="input-design-1" name="problem_encountered" id="problem_encountered" cols="30" rows="7.5"
+                                                            placeholder="Type here...">{{ $post->problem_encountered }}</textarea>
+                                                    @else
+                                                        <textarea class="input-design-1" name="problem_encountered" id="problem_encountered" cols="30" rows="7.5"
+                                                            placeholder="Type here..."></textarea>
+                                                    @endif
+
                                                     @error('problem_encountered')
                                                         <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                     @enderror
@@ -122,8 +129,15 @@
                                                     <label for="corrective_action_performed"
                                                         class="mb-0 text-gray-900 text-capitalize">
                                                         Corrective Action Performed:</label>
-                                                    <textarea class="input-design-1" name="corrective_action_performed" id="corrective_action_performed" cols="30"
-                                                        rows="7.5" placeholder="Type here..."></textarea>
+
+                                                    @if ($post->corrective_action_performed != null)
+                                                        <textarea class="input-design-1" name="corrective_action_performed" id="corrective_action_performed" cols="30"
+                                                            rows="7.5" placeholder="Type here...">{{ $post->corrective_action_performed }}</textarea>
+                                                    @else
+                                                        <textarea class="input-design-1" name="corrective_action_performed" id="corrective_action_performed" cols="30"
+                                                            rows="7.5" placeholder="Type here..."></textarea>
+                                                    @endif
+
                                                     @error('corrective_action_performed')
                                                         <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                     @enderror
@@ -158,10 +172,10 @@
                                                         </div>
                                                     </button>
                                                 </div>
-                                                <div class="col-xl-12 col-md-4 p-1">
+                                                {{-- <div class="col-xl-12 col-md-4 p-1">
                                                     <button type="button"
                                                         class="btn btn-primary text-capitalize w-100">save</button>
-                                                </div>
+                                                </div> --}}
                                                 <div class="col-xl-12 col-md-4 p-1">
                                                     <button type="submit"
                                                         class="btn btn-success text-capitalize w-100">done</button>

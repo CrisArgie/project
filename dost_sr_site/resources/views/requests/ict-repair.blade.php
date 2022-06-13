@@ -275,25 +275,34 @@
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100">
+                                                <button type="submit" name="action" value="print"
+                                                    class="btn btn-primary text-capitalize w-100">
                                                     <div class="row mx-0 justify-content-center align-content-center">
                                                         <img src="/icons/svg-files/printer.svg" width="24" height="24"
                                                             alt="Printer.svg" class="icon-white col-xl-12 col-md-4 p-0">
-                                                        <div class="col-xl-12 col-md-8 px-1">print</div>
+                                                        <div class="col-xl-12 col-md-8 px-1">
+                                                            print
+                                                        </div>
                                                     </div>
                                                 </button>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button class="btn btn-primary text-capitalize w-100">save</button>
+                                                <button type="submit" name="action" value="save"
+                                                    class="btn btn-primary text-capitalize w-100">
+                                                    save
+                                                </button>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1 mb-2">
                                                 <a href="/request-for-repair"
-                                                    class="btn btn-info text-capitalize w-100 text-xs">Need
-                                                    Repair - Request</a>
+                                                    class="btn btn-info text-capitalize w-100 text-xs">
+                                                    Need Repair - Request
+                                                </a>
                                             </div>
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button type="submit"
-                                                    class="btn btn-success text-capitalize w-100">done</button>
+                                                <button type="submit" name="action" value="done"
+                                                    class="btn btn-success text-capitalize w-100">
+                                                    done
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

@@ -76,18 +76,23 @@
                                     </div>
 
                                     <div class="d-flex justify-content-end g-2">
-                                        <a href="" class="btn btn-info btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-arrow-right"></i>
-                                            </span>
-                                            <span class="text text-xs text-capitalize d-flex align-items-center">
-                                                Pre-repair Inspection
-                                            </span>
-                                        </a>
-                                        <x-form.button type="submit" name="action" value="repair-delete"
-                                            class="btn-warning">
-                                            delete
-                                        </x-form.button>
+                                        @if ($user->status == 'in-progress')
+                                            <a href="/request/repair/pre-repair/{{ $user->request_no }}"
+                                                class="btn btn-info btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </span>
+                                                <span class="text text-xs text-capitalize d-flex align-items-center">
+                                                    Pre-repair Inspection
+                                                </span>
+                                            </a>
+                                        @else
+                                            <x-form.button type="submit" name="action" value="repair-delete"
+                                                class="btn-warning">
+                                                delete
+                                            </x-form.button>
+                                        @endif
+
                                     </div>
                                 </x-card>
                             </section>
@@ -101,7 +106,7 @@
                                                             alt="Return to Previous page" class="icon-white">
                                                     </a>
                                                 @else --}}
-                                            <a href="/view/requests" class="btn btn-danger">
+                                            <a href="{{ url()->previous() }}" class="btn btn-danger">
                                                 <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>
@@ -178,7 +183,8 @@
                                     </div>
 
                                     <div class="d-flex justify-content-end g-2">
-                                        <a href="" class="btn btn-info btn-icon-split">
+                                        <a href="/request/repair/repair/{{ $user->request_no }}"
+                                            class="btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-arrow-left"></i>
                                             </span>
@@ -186,17 +192,24 @@
                                                 Request for Repair
                                             </span>
                                         </a>
-                                        <a href="" class="btn btn-info btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-arrow-right"></i>
-                                            </span>
-                                            <span class="text text-xs text-capitalize d-flex align-items-center">
-                                                Post Repair Inspection
-                                            </span>
-                                        </a>
-                                        <button type="button" class="btn btn-warning text-capitalize">
-                                            delete
-                                        </button>
+                                        @if ($user->prerepairinspections->first()->status == 'in-progress')
+                                            <a href="/request/repair/post-repair/{{ $user->request_no }}"
+                                                class="btn btn-info btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </span>
+                                                <span class="text text-xs text-capitalize d-flex align-items-center">
+                                                    Post Repair Inspection
+                                                </span>
+                                            </a>
+                                        @else
+                                            <button type="button" class="btn btn-warning text-capitalize"
+                                                data-modal-target="#preID">
+                                                delete
+                                            </button>
+                                        @endif
+
+
                                         {{-- <x-form.button type="button" name="action" value="pre-delete"
                                             class="btn-warning">
                                             delete
@@ -214,7 +227,7 @@
                                                         alt="Return to Previous page" class="icon-white">
                                                 </a>
                                             @else --}}
-                                            <a href="/view/requests" class="btn btn-danger">
+                                            <a href="{{ url()->previous() }}" class="btn btn-danger">
                                                 <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>
@@ -224,6 +237,14 @@
                                 </div>
                             </section>
                         </div>
+                        <x-modal-body id="preID" title="Are you sure to delete this request?">
+                            If you delete the request you can't recover it.
+                            <x-form.button type="submit" name="action" value="prerepair-delete" class="btn-warning"
+                                class-label="d-flex justify-content-end mt-3">
+                                delete
+                            </x-form.button>
+                        </x-modal-body>
+                        <div id="overlay"></div>
                     </form>
                 @elseif ($requests == 'post-repair')
                     <form action="/request/delete" method="POST" enctype="multipart/form-data">
@@ -290,7 +311,8 @@
                                             class="btn btn-info text-xs d-flex align-items-center text-uppercase">
                                             Pre-repair Inspection
                                         </a> --}}
-                                        <a href="" class="btn btn-info btn-icon-split">
+                                        <a href="/request/repair/pre-repair/{{ $user->request_no }}"
+                                            class="btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-arrow-left"></i>
                                             </span>
@@ -298,9 +320,12 @@
                                                 Pre-repair Inspection
                                             </span>
                                         </a>
-                                        <button type="button" class="btn btn-warning text-capitalize">
-                                            delete
-                                        </button>
+                                        @if ($user->prerepairinspections->first()->postrepairinspections->first()->status == 'pending')
+                                        <button type="button" class="btn btn-warning text-capitalize"
+                                        data-modal-target="#postID">
+                                        delete
+                                    </button>
+                                        @endif
                                     </div>
                                 </x-card>
                             </section>
@@ -314,7 +339,7 @@
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>
                                         @else --}}
-                                            <a href="/view/requests" class="btn btn-danger">
+                                            <a href="{{ url()->previous() }}" class="btn btn-danger">
                                                 <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>
@@ -324,6 +349,14 @@
                                 </div>
                             </section>
                         </div>
+                        <x-modal-body id="postID" title="Are you sure to delete this request?">
+                            If you delete the request you can't recover it.
+                            <x-form.button type="submit" name="action" value="postrepair-delete" class="btn-warning"
+                                class-label="d-flex justify-content-end mt-3">
+                                delete
+                            </x-form.button>
+                        </x-modal-body>
+                        <div id="overlay"></div>
                     </form>
                 @endif
             </x-main>
@@ -332,5 +365,5 @@
 
     <x-flash />
 
-
+    <script type="text/javascript" src="/script.js" defer onload="modalFunc()"></script>
 </x-right-content-layout>

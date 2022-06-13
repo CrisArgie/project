@@ -47,7 +47,7 @@
     <main class="home-container">
         <div id="home" class="main-container p-4">
             <div class="d-flex justify-content-center">
-                <div class="row g-3 p-4 bg-white border-radius-1 border-shadow-1">
+                <div class="row g-3 p-4 bg-white border-radius-1 border-shadow-1" style="width: 1100px;">
                     <div class="w-100 d-flex justify-content-center">
                         <img src="img/undraw_posting_photo.svg" style="width: 35rem" alt="news-img.svg">
                     </div>
@@ -61,17 +61,33 @@
         </div>
         <div id="about" class="main-container p-4">
             <div class="row justify-content-center g-2">
-                <div class="d-flex align-items-center flex-column bg-white border-radius-1 border-shadow-1 p-4">
+                <div class="d-flex align-items-center flex-column bg-white border-radius-1 border-shadow-1 p-4"
+                    style="width: 1100px;">
                     <h4 class="text-light-blue mb-3"> <b> About </b> </h4>
                     <img src="img/flowchart-request.svg" style="width: 60rem" alt="request-flowchart.svg">
+
+                    <p class="mt-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptates accusantium at
+                        tenetur nam omnis nesciunt quae quia neque, natus rerum cum accusamus? Veritatis ipsum voluptate
+                        excepturi porro amet aliquam fuga facilis itaque ipsam omnis natus inventore fugiat voluptatum
+                        doloremque cumque, harum eum quasi eius ducimus dolorum, sit minus? Recusandae magnam magni
+                        inventore, accusantium impedit exercitationem aperiam, accusamus tempore beatae amet pariatur
+                        quam a! Accusantium maiores debitis omnis quos iure mollitia esse impedit maxime quo ea, eos
+                        blanditiis iusto repudiandae numquam iste corrupti aliquid vel illo voluptatem porro,
+                        dignissimos cupiditate soluta modi corporis! Obcaecati aut deserunt rerum perferendis, molestiae
+                        at.
+                    </p>
                 </div>
+
             </div>
         </div>
         <div id="contact" class="main-container p-4">
             <div class="row justify-content-center g-2">
                 <div class="d-flex align-items-center flex-column bg-white border-radius-1 border-shadow-1 p-4"
-                    style="width: 63rem;">
+                    style="width: 1100px;">
                     <h4 class="text-light-blue mb-3"> <b> Contact </b> </h4>
+
+                    <div class=""></div>
                 </div>
             </div>
         </div>

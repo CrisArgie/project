@@ -25,7 +25,7 @@ class UsersController extends Controller
             return $groups->count() > 0;
         });
 
-        // ddd($divisions);
+        // dd($divisions);
 
         return view('admin.users', [
             'users' => $userall,

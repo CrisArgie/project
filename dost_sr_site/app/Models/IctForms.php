@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class IctForms extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $guarded = [];
-    protected $with = ['ict_requests', 'arearequests', 'type_of_requests'];
+    protected $with = ['ict_requests', 'arearequests', 'type_of_requests', 'equipment'];
 
     protected $fillable = [
         'date_requested',

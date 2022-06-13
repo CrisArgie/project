@@ -31,6 +31,7 @@ class MainController extends Controller
     public function update(Request $request)
     {
         $user = Users::where('id', auth()->user()->id);
+
         switch ($request->action) {
             case 'update':
 
@@ -96,76 +97,6 @@ class MainController extends Controller
                 }
 
                 break;
-            case 'accout_delete':
-                // dd($request->_token);
-
-                $value = $request->confimation_password;
-                $hashedValue = auth()->user()->password;
-
-                $valid = Hash::check($value, $hashedValue);
-
-                if ($valid) {
-
-                    $repairReq = $user->first()->repairrequest->whereIn('status', ['pending', 'in-progress', 'done'])->all();
-
-
-                    foreach ($repairReq as $reprq) {
-                        $prerqs[] = $reprq->prerepairinspections->first();
-                    }
-
-                    if ($prerqs != null) {
-
-                        foreach ($prerqs as $prerq) {
-                            $preIds[] = $prerq->id;
-                        }
-
-                        foreach ($preIds as $preId) {
-                            $postID[]  = PostRepairInspections::all()->where('pre_repair_inspections_id', $preId);
-                        }
-
-
-                        if ($postID != null) {
-                            foreach ($postID as $eachPost) {
-                                if ($eachPost->first() != null) {
-                                    $eachPost->first()->update(['status' => 'deleted']);
-                                }
-                            }
-                        }
-
-                        foreach ($prerqs as $prerq) {
-                            $prerq->update(['status' => 'deleted']);
-                        }
-
-                        foreach ($repairReq as $reprq) {
-                            $reprq->update(['status' => 'deleted']);
-                        }
-                    }
-
-
-
-                    $user->update([
-                        'password' => 'deleted',
-                        'remember_token' => $request->_token,
-                    ]);
-
-                    if (!$user->first()->ictforms->whereIn('status', ['pending', 'in-progress', 'done'])->isEmpty()) {
-                        $user->first()->ictforms->whereIn('status', ['pending', 'in-progress', 'done'])->update([
-                            'status' => 'deleted',
-                        ]);
-                    }
-
-
-                    auth()->logout();
-                    return redirect('/')->with('success', 'Thank you for using the site!');
-                } else {
-                    throw ValidationException::withMessages([
-                        'confimation_password' => 'Error! Incorrect password.'
-                    ]);
-
-                    // return redirect('/')->with('fail', 'Error Encountered! Account deleted.');
-                }
-
-                break;
             case 'division_update':
 
                 $this->validate(request(), [
@@ -177,6 +108,79 @@ class MainController extends Controller
                 ]);
 
                 return back()->with('success', 'Divisions Updated');
+                break;
+        }
+    }
+
+    public function destroy()
+    {
+        $user = Users::findOrFail(auth()->user()->id);
+
+        switch (request()->action) {
+            case 'account_delete':
+
+                $value = request()->confimation_password;
+                $hashedValue = auth()->user()->password;
+                $valid = Hash::check($value, $hashedValue);
+
+                // dd($user->repairrequest->isEmpty());
+
+                if ($valid) {
+
+                    // dd($user->repairrequest->isEmpty() && $user->ictforms->isEmpty(), 'valid');
+
+                    if ($user->repairrequest->isEmpty() && $user->ictforms->isEmpty()) {
+                        $user->delete();
+
+                        auth()->logout();
+                        return redirect('/')->with('success', 'Thank you for using the site!');
+                    } else {
+                        // dd($user->repairrequest->last()->prerepairinspections->postrepairinspections);
+
+                        if (!$user->ictforms->isEmpty()) {
+                            foreach ($user->first()->ictforms as $ictitem) {
+                                $ictitem->update(['status' => 'deleted']);
+                                $ictitem->delete();
+                            }
+                        }
+                        if (!$user->repairrequest->isEmpty()) {
+                            foreach ($user->repairrequest as $item) {
+                                if ($item->prerepairinspections == null) {
+                                    $item->update(['status' => 'deleted']);
+                                    $item->delete();
+                                } else {
+                                    // foreach ($item->prerepairinspections as $val) {
+                                    if ($item->prerepairinspections->postrepairinspections == null) {
+                                        $item->prerepairinspections->update(['status' => 'deleted']);
+                                        $item->update(['status' => 'deleted']);
+                                        $item->prerepairinspections->delete();
+                                        $item->delete();
+                                    } else {
+                                        $item->prerepairinspections->postrepairinspections->update(['status' => 'deleted']);
+                                        $item->prerepairinspections->update(['status' => 'deleted']);
+                                        $item->update(['status' => 'deleted']);
+                                        $item->prerepairinspections->postrepairinspections->first()->delete();
+                                        $item->prerepairinspections->delete();
+                                        $item->delete();
+                                    }
+                                    // }
+                                }
+                            }
+                        }
+
+
+                        $user->delete();
+
+                        auth()->logout();
+                        return redirect('/')->with('success', 'Thank you for using the site!');
+                    }
+                } else {
+                    throw ValidationException::withMessages([
+                        'confimation_password' => 'Error! Incorrect password.'
+                    ]);
+                    // return redirect('/')->with('fail', 'Error Encountered! Account deleted.');
+                }
+
                 break;
         }
     }

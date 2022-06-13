@@ -17,7 +17,7 @@ class RepairRequestsController extends Controller
     public function index(RepairRequest $repair_request)
     {
         return view('requests.repair', [
-            'repair_request' => $repair_request
+            'repair_request' => $repair_request->where('request_no', request()->id)
         ]);
     }
 
@@ -182,11 +182,11 @@ class RepairRequestsController extends Controller
                 'request_no' => ['required'],
                 'date_requested' => ['required', 'date'],
                 'description_of_property_type' => ['required'],
-                'serial_no' => ['required', Rule::unique('equipment', 'serial_no')],
+                'serial_no' => ['required'],
                 'acquisition_date' => ['required', 'date', 'after_or_equal:' . $todayDate],
                 'location' => ['required'],
                 'brand_model' => ['required'],
-                'property_no' => ['required', Rule::unique('equipment', 'property_no')],
+                'property_no' => ['required'],
                 'acquisition_cost' => ['required'],
                 'users_id' => ['required'],
                 'corrective_action_performed' => ['nullable'],

@@ -68,6 +68,8 @@
         </div>
     </div>
 
+    <x-flash />
+
     <script>
         chkboxPasswordElement = document.getElementById('pwdChkbox');
         textPasswordElement = document.getElementById('password');

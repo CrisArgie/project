@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RepairRequest extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     // public $timestamps = true;
     protected $fillable = [
@@ -38,7 +39,7 @@ class RepairRequest extends Model
 
     public function prerepairinspections()
     {
-        return $this->hasMany(PreRepairInspections::class, 'repair_requests_id', 'id');
+        return $this->hasOne(PreRepairInspections::class, 'repair_requests_id', 'id');
         // return $this->hasMany(PreRepairInspections::class);
 
     }

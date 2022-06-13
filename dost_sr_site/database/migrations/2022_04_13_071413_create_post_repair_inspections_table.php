@@ -24,7 +24,8 @@ return new class extends Migration
             $table->text('payable_account')->nullable();
             $table->text('recommendation')->nullable();
             $table->timestamps();
-            $table->foreignId('pre_repair_inspections_id')->unsigned();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->foreignId('pre_repair_inspections_id')->unsigned()->nullOnDelete();
             $table->string('status');
         });
     }

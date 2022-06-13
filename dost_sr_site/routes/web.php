@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MainController::class, 'show']);
-Route::get('/profile/{id}', [MainController::class, 'index'])->middleware('auth');
-Route::patch('/profile/update', [MainController::class, 'update'])->middleware('auth');
-
+Route::get('/profile/{id}', [MainController::class, 'index'])->middleware(['auth']);
+Route::patch('/profile/update', [MainController::class, 'update'])->middleware(['auth']);
+Route::delete('/profile/delete', [MainController::class, 'destroy'])->middleware(['auth']);
 
 // LOGIN PAGE
 Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
@@ -37,30 +37,32 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 // REQUESTS REPAIR
-Route::get('/requests/repair-request/{id}', [RepairRequestsController::class, 'index'])->middleware('admin');
-Route::patch('/requests/repair-request/{id}', [RepairRequestsController::class, 'update'])->middleware('admin');
-
-
+Route::get('/requests/repair-request/{id}', [RepairRequestsController::class, 'index'])->middleware(['auth', 'admin', 'tech']);
+Route::patch('/requests/repair-request/{id}', [RepairRequestsController::class, 'update'])->middleware(['auth', 'admin', 'tech']);
 
 // REQUEST ICT
-Route::get('/requests/repair-ict-request/{id}', [ICTRequestsController::class, 'index'])->middleware('auth');
-Route::patch('/requests/repair-ict-request/{id}', [ICTRequestsController::class, 'update'])->middleware('auth');
-Route::get('/request-ict-user', [ICTRequestsController::class, 'ictRequest'])->middleware('admin');
+Route::get('/requests/repair-ict-request/{id}', [ICTRequestsController::class, 'index'])->middleware(['auth', 'admin', 'tech']);
+Route::patch('/requests/repair-ict-request/{id}', [ICTRequestsController::class, 'update'])->middleware(['auth', 'admin', 'tech']);
+Route::get('/request-ict-user', [ICTRequestsController::class, 'ictRequest'])->middleware(['auth', 'admin', 'tech']);
 
 
 
 // REQUESTS FOR ADMIN
-Route::get('/requests/pre-inspection/{id}', [PreInspectionsController::class, 'show'])->middleware('admin');
-Route::patch('/requests/pre-inspection/{id}/{rrId}', [PreInspectionsController::class, 'update'])->middleware('admin');
-Route::get('/requests/need-post-inspection/{id}/{rrId}', [PostInspectionsController::class, 'create'])->middleware('admin');
-Route::get('/requests/post-inspection/{id}', [PostInspectionsController::class, 'show'])->middleware('admin');
-Route::patch('/requests/post-inspection/{id}', [PostInspectionsController::class, 'update'])->middleware('admin');
+Route::get('/requests/pre-inspection/{id}', [PreInspectionsController::class, 'show'])->middleware(['auth', 'admin', 'tech']);
+Route::patch('/requests/pre-inspection/{id}/{rrId}', [PreInspectionsController::class, 'update'])->middleware(['auth', 'admin', 'tech']);
+Route::get('/requests/need-post-inspection/{id}/{rrId}', [PostInspectionsController::class, 'create'])->middleware(['auth', 'admin', 'tech']);
+Route::get('/requests/post-inspection/{id}', [PostInspectionsController::class, 'show'])->middleware(['auth', 'admin', 'tech']);
+Route::patch('/requests/post-inspection/{id}', [PostInspectionsController::class, 'update'])->middleware(['auth', 'admin', 'tech']);
+Route::delete('/requests/delete', [AdminController::class, 'destroy'])->middleware(['auth']);
 
+Route::get('/requests/info/{name}/{id}', [RequestsController::class, 'viewInfo'])->middleware(['auth', 'admin', 'tech']);
 
-Route::get('/dashboard', [AdminController::class, 'show'])->middleware('admin');
-Route::get('/requests', [RequestsController::class, 'show'])->middleware('admin');
-Route::get('/users', [UsersController::class, 'show'])->middleware('admin');
-Route::post('/users/create', [UsersController::class, 'create'])->middleware('admin');
+// Route::get('/request/{name}/{id}', [RequestsController::class, 'edit'])->middleware('admin');
+
+Route::get('/dashboard', [AdminController::class, 'show'])->middleware(['auth', 'admin', 'tech']);
+Route::get('/requests', [RequestsController::class, 'show'])->middleware(['auth', 'admin', 'tech']);
+Route::get('/users', [UsersController::class, 'show'])->middleware(['auth', 'admin', 'tech']);
+Route::post('/users/create', [UsersController::class, 'create'])->middleware(['auth', 'admin', 'tech']);
 
 
 // NEUTRAL AREA
@@ -74,20 +76,9 @@ Route::get('/abouts', [AboutsController::class, 'show'])->middleware('auth');
 
 Route::get('/request/{name}/{action}/{no}', [RepairRequestsController::class, 'edit'])->middleware('auth');
 
-
-
 // CUSTOMER
-Route::get('/home', [CustomerController::class, 'index'])->middleware('auth');
-Route::patch('/home/{id}/update', [DivisionsController::class, 'update'])->middleware('auth');
-
-
-Route::get('/customer/request', [RequestsController::class, 'index'])->middleware('auth');
-Route::get('/view/requests', [RequestsController::class, 'viewRequest'])->middleware('auth');
-Route::delete('/request/delete', [RequestsController::class, 'delete'])->middleware('auth');
-
-
-
-
-
-
-
+Route::get('/home', [CustomerController::class, 'index'])->middleware(['auth', 'customer']);
+Route::patch('/home/{id}/update', [DivisionsController::class, 'update'])->middleware(['auth']);
+Route::get('/customer/request', [RequestsController::class, 'index'])->middleware(['auth', 'customer']);
+Route::get('/view/requests', [RequestsController::class, 'viewRequest'])->middleware(['auth', 'customer']);
+Route::delete('/request/delete', [RequestsController::class, 'destroy'])->middleware('auth');

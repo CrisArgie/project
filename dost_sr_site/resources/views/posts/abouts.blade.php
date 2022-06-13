@@ -12,7 +12,7 @@
     <div class="d-flex justify-content-between mb-3">
         <h1 class="h3 mb-4 text-dark font-weight-bolder">FAQ (Frequent Asked Questions)</h1>
 
-        @if (Auth::user()->user_type == 'admin')
+        @if (Auth::user()->user_type == 'admin' || Auth::user()->user_type == 'technician')
             <div class="mx-2 mb-3">
                 <button type="button" class="btn btn-primary font-weight-bold text-uppercase"
                     data-modal-target="#faqModal">

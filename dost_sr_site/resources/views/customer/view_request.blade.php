@@ -129,7 +129,8 @@
                                                                 </a>
                                                             @endif
                                                         @elseif ($request->status == 'done')
-                                                            <a class="pointer-events-none">
+                                                            <a class=""
+                                                                href="/request/repair/post-repair/{{ $request->request_no }}">
                                                                 {{ $request->request_no }}
                                                             </a>
                                                         @endif
@@ -141,7 +142,8 @@
                                                                 done
                                                             </a>
                                                         @elseif ($request->status == 'pending')
-                                                            <div class="pointer-events-none btn btn-secondary text-uppercase">
+                                                            <div
+                                                                class="pointer-events-none btn btn-secondary text-uppercase">
                                                                 View
                                                             </div>
                                                         @else
@@ -221,19 +223,20 @@
                                                             {{ $request->request_no }}
                                                         </a>
                                                     </td>
-                                                    <td>
+                                                    <td class="d-flex justify-content-center text-white">
                                                         @if ($request->status == 'done')
                                                             <a href="/request/ict/done/{{ $request->request_no }}"
                                                                 class="btn btn-success text-uppercase">
                                                                 Done
                                                             </a>
                                                         @elseif ($request->status == 'pending')
-                                                            <div class="btn btn-secondary text-uppercase pointer-events-none">
+                                                            <div
+                                                                class="btn btn-secondary text-uppercase pointer-events-none">
                                                                 View
                                                             </div>
                                                         @else
                                                             <a href="/request/ict/cancel/{{ $request->request_no }}"
-                                                                class="btn btn-danger text-uppercase">
+                                                                class="btn btn-warning text-uppercase">
                                                                 Cancel
                                                             </a>
                                                         @endif

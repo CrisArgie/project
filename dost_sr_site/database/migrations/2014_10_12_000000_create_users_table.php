@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->foreignId('divisions_id')->nullable()->unsigned();
             $table->timestamps();
-
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken()->nullable();
         });

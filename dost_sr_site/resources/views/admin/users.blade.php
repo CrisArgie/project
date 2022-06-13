@@ -17,7 +17,7 @@
                     <div class="title">
                         Add Division Information
                     </div>
-                    <button data-close-button class="close-button">&times;</button>
+                    <button type="button" data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="modal-body p-4">
                     <div class="d-flex flex-column mb-2">
@@ -59,7 +59,7 @@
                     <div class="title">
                         Add User Information
                     </div>
-                    <button data-close-button class="close-button">&times;</button>
+                    <button type="button" data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="modal-body p-4">
                     <div class="d-flex flex-column mb-2">
@@ -115,7 +115,7 @@
                         <select name="divisions_id" id="divisions_id" size="8" x-model="message"
                             class="position-absolute input-design-1" x-show="open"
                             style="width: 500px !important; transform: translate(77px, -245px);" required>
-                            @foreach ($divisions as $division)
+                            @foreach ($div as $division)
                                 <option value="{{ $division->id }}" class="py-1">
                                     {{ $division->id . '. ' . $division->division_number . ' - ' . $division->division_name }}
                                 </option>
@@ -134,7 +134,6 @@
                     </div>
                 </div>
             </div>
-
         </form>
 
         <div id="overlay"></div>

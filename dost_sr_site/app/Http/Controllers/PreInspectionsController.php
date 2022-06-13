@@ -13,58 +13,52 @@ class PreInspectionsController extends Controller
 
     public function show(Request $requests)
     {
-        // dd(PreRepairInspections::where('status', 'pending')->where('repair_requests_id', $requests->id)->first()->id);
+        // dd(RepairRequest::findOrFail($requests->id)->prerepairinspections);
         return view('requests.pre-repair', [
-            'repairInfo' => RepairRequest::where('id', $requests->id)->first(),
+            'repairInfo' => RepairRequest::findOrFail($requests->id),
             'prerepairId' => $requests->id,
-            'idforPost' => PreRepairInspections::where('status', 'pending')->where('repair_requests_id', $requests->id)->first()
+            'idforPost' => RepairRequest::findOrFail($requests->id)->prerepairinspections
         ]);
     }
 
-    public function update(Request $requests)
+    public function update(Request $requests, $id, $rrId)
     {
-        switch(request()->input('action'))
-        {
+        switch (request()->input('action')) {
             case 'print':
-                dd( 'print' );
+                dd('print');
 
                 break;
-
             case 'need-post-inspection':
                 $status = 'in-progress';
                 $this->uploadToDB($requests, $status);
 
-                return redirect('/requests/need-post-inspection/'. $requests->id .'/'. $requests->rrId )->with('success', 'Pre-Repair Inspection Request: Saved In-progress.');
+                return redirect('/requests/need-post-inspection/' . $requests->id . '/' . $requests->rrId)->with('success', 'Pre-Repair Inspection Request: Saved In-progress.');
 
                 break;
-
             case 'done':
+                // dd(RepairRequest::findOrFail($requests->id));
                 $status = 'done';
                 $this->uploadToDB($requests, $status);
-                RepairRequest::where('id', $requests->id)->where('status', 'in-progress')->update([
+
+                RepairRequest::findOrFail($requests->id)->update([
                     'status' => $status,
                 ]);
 
                 return redirect('/requests')->with('success', 'Pre-Repair Inspection Request: Done.');
 
                 break;
-
             case 'save':
                 $status = 'pending';
                 $this->uploadToDB($requests, $status);
                 // return redirect('/requests/pre-inspection/'. $requests->id)->with('success', 'Pre Inspection Request: Saved Pending.');
                 return redirect('/requests')->with('success', 'Pre-Repair Inspection Request: Saved Pending.');
 
-
                 break;
-
         }
-
     }
 
     public function uploadToDB($requests, $status)
     {
-        // dd(PreRepairInspections::where('repair_requests_id', $requests->Tids)->where('status', 'pending')->first()->id);
         $todayDate = date('Y-m-d');
         $queryPreElement = PreRepairInspections::where('repair_requests_id', $requests->id)->where('status', 'pending');
 

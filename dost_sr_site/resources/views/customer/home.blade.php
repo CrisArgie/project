@@ -73,8 +73,13 @@
                                                                                     {{ $repair->date_requested }}
                                                                                 </td>
                                                                                 <td>
-                                                                                    <a href="{{ $repair->id }}"
-                                                                                        class="btn btn-primary text-xs text-uppercase">View</a>
+                                                                                    {{-- <a href="{{ $repair->id }}"
+                                                                                        class="btn btn-primary text-xs text-uppercase">View</a> --}}
+
+                                                                                    <a class="btn btn-primary text-xs text-uppercase"
+                                                                                        href="/request/repair/repair/{{ $repair->request_no }}">
+                                                                                        View
+                                                                                    </a>
                                                                                 </td>
                                                                             </tr>
                                                                         @endforeach
@@ -93,7 +98,11 @@
                                                                                     {{ $repair->date_requested }}
                                                                                 </td>
                                                                                 <td>
-                                                                                    <a href="{{ $repair->id }}"
+                                                                                    {{-- <a href="{{ $repair->id }}"
+                                                                                        class="btn btn-primary text-xs text-uppercase">
+                                                                                        View
+                                                                                    </a> --}}
+                                                                                    <a href="/request/ict/view/{{ $repair->request_no }}"
                                                                                         class="btn btn-primary text-xs text-uppercase">
                                                                                         View
                                                                                     </a>

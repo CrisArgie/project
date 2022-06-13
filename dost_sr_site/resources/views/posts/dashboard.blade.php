@@ -18,7 +18,7 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <img class="w-25 h-25" src="../icons/svg-files/pencil-alt.svg">
                                         <p class="h4 mb-0 font-weight-bold text-gray-800">
-                                            {{ $repairrequests->where('status', 'in-progress')->count() + $ictrequests->where('status', 'in-progres')->count() }}
+                                            {{ $repairrequests->where('status', 'in-progress')->count() + $ictrequests->where('status', 'in-progress')->count() }}
                                         </p>
                                     </div>
                                 </div>
@@ -70,9 +70,17 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-10 px-0">
+                                    {{-- @if (!$ictrequests->isEmpty() || !$repairrequests->isEmpty() || !$pre->isEmpty() || !$post->isEmpty()) --}}
                                     <figure class="highcharts-figure pt-4 mb-0">
                                         <div id="container"></div>
                                     </figure>
+                                    {{-- @else
+                                        <div class="col-xl-12 p-2">
+                                            <div class="d-flex justify-content-center">
+                                                <p class="text-uppercase font-weight-bold">No Request Data.</p>
+                                            </div>
+                                        </div>
+                                    @endif --}}
                                 </div>
                             </div>
                         </div>
@@ -91,58 +99,43 @@
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Total number of request by status per month</h6>
-
-                    {{-- <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Requests Menu:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div> --}}
-
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        Total number of request by status per month
+                    </h6>
                 </div>
 
                 <div class="card-body">
-                    <ul class="row mx-0 justify-content-start g-5 list-unstyled px-2">
-                        <li class="d-flex flex-column g-4">
-                            <div>
-                                Completed:
-                                <span class="text-gray-800">
-                                    {{ $repairperM->where('status', 'done')->count() + $ictperM->where('status', 'done')->count() }}
-                                </span>
-                            </div>
-                            <div>
-                                In-progress:
-                                <span class="text-gray-800">
-                                    {{ $repairperM->where('status', 'in-progress')->count() + $ictperM->where('status', 'in-progress')->count() }}
-                                </span>
-                            </div>
-                            {{-- <div>
-                                New:
-                                <span></span>
-                            </div> --}}
-                            {{-- <div>
-                                Assigned:
-                                <span>
-                                    {{ $repairperM->where('status', 'in-progress')->count() + $ictperM->where('status', 'in-progress')->count() }}
-                                </span>
-                            </div> --}}
-                            {{-- @dd($repairperM->where('status', 'pending')->count() + $ictperM->where('status', 'pending')->count()) --}}
-                            <div>
-                                Pending:
-                                <span class="text-gray-800">
-                                    {{ $repairperM->where('status', 'pending')->count() + $ictperM->where('status', 'pending')->count() }}
-                                </span>
-                            </div>
-                        </li>
+                    <ul class="row mx-0 justify-content-start list-unstyled px-2 overflow-auto" style="height: 320px;">
+                        @if (!$perMir->isEmpty())
+                            @foreach ($perMir as $item)
+                                <li class="col-xl-12 border bg-gray-100 p-2">
+                                    <p class="text-uppercase font-weight-bold">
+                                        {{ date('F', mktime(0, 0, 0, $item->month, 01)) }}</p>
+                                    <div>
+                                        Completed:
+                                        <span class="text-gray-800">
+                                            {{ $item->done }}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        In-progress:
+                                        <span class="text-gray-800">
+                                            {{ $item->inprogress }}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        Pending:
+                                        <span class="text-gray-800">
+                                            {{ $item->pending }}
+                                        </span>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @else
+                            <li class="col-xl-12 border bg-gray-100 p-2">
+                                <p class="text-uppercase font-weight-bold">No Requests made.</p>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -152,93 +145,10 @@
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Total number of user by division</h6>
-
-                    {{-- <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Users Menu:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div> --}}
-
                 </div>
 
                 <div class="card-body">
                     <ul class="row justify-content-center list-unstyled mx-0">
-                        {{-- <li class="col-xl-2 d-flex flex-column g-4"> --}}
-                        {{-- <div>
-                                Completed:
-                                <span>
-                                    @php
-                                        $uniqueId = 0;
-                                    @endphp
-                                    @foreach ($allUser as $user)
-                                        @if (!$user->repairrequest->isEmpty())
-                                            @foreach ($user->repairrequest as $items)
-                                                @if ($items->status == 'done')
-                                                    @php $uniqueId++; @endphp
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-                                    @foreach ($allUser as $user)
-                                        @if (!$user->ictforms->isEmpty())
-                                            @foreach ($user->ictforms as $items)
-                                                @if ($items->status == 'done')
-                                                    @php $uniqueId++; @endphp
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-
-                                    {{ $uniqueId }}
-                                </span>
-                            </div>
-                            <div>
-                                Pending:
-                                <span>
-                                    @php
-                                        $uniqueICTId = 0;
-                                    @endphp
-
-                                    @foreach ($allUser as $user)
-
-                                        @if ($user->ictforms == null)
-                                        @else
-                                            @foreach ($user->ictforms as $item)
-                                                @if ($item->status == 'pending')
-                                                    @php $uniqueICTId++; @endphp
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-                                    @foreach ($allUser as $user)
-                                        @if ($user->repairrequest == null)
-                                        @else
-                                            @foreach ($user->repairrequest as $item)
-                                                @if ($item->status == 'pending')
-                                                    @php $uniqueICTId++; @endphp
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-                                    {{ $uniqueICTId }}
-                                </span>
-                            </div>
-                            <div>
-                                Request:
-                                <span>
-                                    {{ $total_request }}
-                                </span>
-                            </div> --}}
-                        {{-- </li> --}}
                         <li class="col-auto h-100">
                             <figure class="highcharts-figure m-0">
                                 <div id="pie-chart-legend" class="chartjs-render-monitor"
@@ -251,47 +161,52 @@
         </div>
     </div>
 
-    {{-- ictrequests --}}
-    {{-- repairrequests --}}
-    {{-- @dd($ictrequests) --}}
-
     <script type="text/javascript">
         var req = [];
-
-        let m = 0;
         @if (!$ictrequests->isEmpty())
-            req[m] = {
+            req[0] = {
                 name: 'ICT job Request(s)',
                 data: [{{ $ictrequests->count() }}]
             };
-            m++;
+        @else
+            req[0] = {
+                name: 'ICT job Request(s)',
+                data: []
+            };
         @endif
-
         @if (!$repairrequests->isEmpty())
-            req[m] = {
+            req[1] = {
                 name: 'Repair Request(s)',
                 data: [{{ $repairrequests->count() }}]
             };
-            m++;
+        @else
+            req[1] = {
+                name: 'Repair Request(s)',
+                data: []
+            };
         @endif
-
         @if (!$pre->isEmpty())
-            req[m] = {
+            req[2] = {
                 name: 'Pre-repair inspection(s)',
                 data: [{{ $pre->count() }}]
             };
-            m++;
+        @else
+            req[2] = {
+                name: 'Pre-repair inspection(s)',
+                data: []
+            };
         @endif
-
         @if (!$post->isEmpty())
-            req[m] = {
+            req[3] = {
                 name: 'Post repair inspection(s)',
                 data: [{{ $post->count() }}]
             };
-            m++;
+        @else
+            req[3] = {
+                name: 'Post repair inspection(s)',
+                data: []
+            };
         @endif
-
-        console.log(req);
 
 
         Highcharts.chart({
@@ -367,22 +282,6 @@
                 x++
             @endforeach
         @endif
-
-        // console.log();
-        // [{
-        //     name: 'Chrome',
-        //     y: 61.41,
-        //     sliced: true,
-        //     selected: true
-        // }, {
-        //     name: 'Internet Explorer',
-        //     y: 11.84
-        // }, {
-        //     name: 'Firefox',
-        //     y: 10.85
-        // }]
-
-
 
         window.chart = new Highcharts.chart({
             chart: {
