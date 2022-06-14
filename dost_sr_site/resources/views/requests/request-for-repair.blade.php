@@ -24,7 +24,21 @@
                         <section class="col-xl-11">
                             <div class="card">
                                 <div class="card-body rounded-none shadow">
-                                    <div class="row justify-content-between mx-0">
+                                    <x-dost-heading></x-dost-heading>
+                                    <div class="Print" style="display: none;">
+                                        <div class="d-flex justify-content-between mx-3">
+                                            <div class="">
+                                                <label>No.: </label>
+                                                <input type="text" class="input-design-1">
+                                            </div>
+                                            <div class="">
+                                                <label>Date: </label>
+                                                <input type="text" class="input-design-1">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-between mx-0 noPrint">
                                         <div class="col-xl-auto col-sm-12 mb-2">
                                             <div style="width: 245px">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -34,12 +48,13 @@
                                                     @if ($repair_request->last() == null)
                                                         <input name="request_no" id="request_no"
                                                             value="{{ 0 + 1 . 1 . '-' . date('Y-md') }}" readonly
-                                                            tabindex="-1" type="text" class="input-design-1" required>
+                                                            tabindex="-1" type="text" class="input-design-1 noPrint"
+                                                            required>
                                                     @else
                                                         <input name="request_no" id="request_no"
                                                             value="{{ $repair_request->last()->id + 1 . 1 . '-' . date('Y-md') }}"
-                                                            readonly tabindex="-1" type="text" class="input-design-1"
-                                                            required>
+                                                            readonly tabindex="-1" type="text"
+                                                            class="input-design-1 noPrint" required>
                                                     @endif
 
                                                 </div>
@@ -56,7 +71,7 @@
                                                         Date: </label>
                                                     <input name="date_requested" id="date_requested"
                                                         value="{{ date('Y-m-d') }}" readonly tabindex="-1" type="text"
-                                                        class="input-design-1" required>
+                                                        class="input-design-1 noPrint" required>
                                                 </div>
                                                 @error('date_requested')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
@@ -91,8 +106,7 @@
                                                     Serial/Engine No.:</label>
                                                 <input name="serial_no" id="serial_no" type="text"
                                                     class="input-design-1 w-100" required
-                                                    value="{{ old('serial_no') }}"
-                                                    placeholder="ex. 14D77D2498">
+                                                    value="{{ old('serial_no') }}" placeholder="ex. 14D77D2498">
                                                 @error('serial_no')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                 @enderror
@@ -102,8 +116,10 @@
                                                     class="mb-0 text-gray-900 text-capitalize">
                                                     Acquisition Date:</label>
                                                 <input name="acquisition_date" id="acquisition_date" type="date"
-                                                    class="input-design-1 w-100" required
+                                                    class="input-design-1 w-100 noPrint" required
                                                     value="{{ old('acquisition_date') }}">
+                                                <input type="text" class="input-design-1 w-100 Print"
+                                                    style="display: none;" placeholder="month/day/year">
                                                 @error('acquisition_date')
                                                     <p class="mb-0 text-danger text-xs">{{ $message }}</p>
                                                 @enderror
@@ -164,8 +180,10 @@
                                                 <label for="problem_encountered"
                                                     class="mb-0 text-gray-900 text-capitalize">
                                                     Problem Encountered:</label>
-                                                <textarea class="input-design-1" name="problem_encountered" id="problem_encountered" cols="30" rows="8"
+                                                <textarea class="input-design-1 noPrint" name="problem_encountered" id="problem_encountered" cols="30" rows="8"
                                                     placeholder="Type here..."></textarea>
+                                                <textarea rows="8" class="input-design-1 w-100 Print" style="display: none;"></textarea>
+
                                             </div>
                                         </div>
                                         <div class="col-xl-6 mt-2">
@@ -173,8 +191,9 @@
                                                 <label for="corrective_action_performed"
                                                     class="mb-0 text-gray-900 text-capitalize">
                                                     Corrective Action Performed:</label>
-                                                <textarea class="input-design-1" name="corrective_action_performed" id="corrective_action_performed" cols="30" rows="8"
-                                                    placeholder="Type here..."></textarea>
+                                                <textarea class="input-design-1 noPrint" name="corrective_action_performed" id="corrective_action_performed" cols="30"
+                                                    rows="8" placeholder="Type here..."></textarea>
+                                                <textarea rows="8" class="input-design-1 w-100 Print" style="display: none;"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +202,7 @@
                         </section>
                         <section class="col-xl-1 pt-4 px-0">
                             <div class="row mx-0 h-100">
-                                <div class="col-xl-12 col-md-4 px-0 p-1">
+                                <div class="col-xl-12 col-md-4 px-0 p-1 noPrint">
                                     <div class="d-flex justify-content-center">
                                         @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
                                             <a href="/requests" class="btn btn-danger">
@@ -198,7 +217,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-xl-auto col-md-8 w-100 p-0">
+                                <div class="col-xl-auto col-md-8 w-100 p-0 noPrint">
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
                                             @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
@@ -295,7 +314,7 @@
                                                     </button>
                                                 </div> --}}
                                                 <div class="col-xl-12 col-md-4 p-1">
-                                                    <button type="submit" name="action" value="print"
+                                                    <button type="button" onclick="window.print();"
                                                         class="btn btn-primary text-capitalize w-100">
                                                         <img src="/icons/svg-files/printer.svg" alt="printer"
                                                             class="icon-white col-xl-12 col-md-4 p-0" width="24"

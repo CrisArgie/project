@@ -17,7 +17,11 @@ class IsCustomer
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()?->user_type != 'customer'){
+        // if(auth()->user()?->user_type != 'customer'){
+        //     abort(Response::HTTP_FORBIDDEN);
+        // }
+
+        if (auth()->user()->user_type !== 'customer') {
             abort(Response::HTTP_FORBIDDEN);
         }
 

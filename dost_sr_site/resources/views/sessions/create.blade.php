@@ -8,7 +8,7 @@
                         <div class="card-body p-0">
                             <div class="row">
                                 <div class="col-lg-6 bg-gray-200 d-flex justify-content-center align-items-center">
-                                    <a href="/">
+                                    <a href="/" tabindex="-1">
                                         <img src="../img/DOST_log.png" alt="" style="height: 370px; width: 370px">
                                     </a>
                                 </div>

@@ -68,11 +68,6 @@ class RepairRequestsController extends Controller
 
                 return back()->with('success', 'Your Repair Request has been created.');
                 break;
-
-            case 'print':
-                dd('action => ' . $request->action);
-
-                break;
         }
         // return redirect('/requests')->with('success', 'Your Repair Request has been created.');
         // return back()->with('success', 'Post Updated!');
@@ -106,8 +101,6 @@ class RepairRequestsController extends Controller
         // {name}/{action}/{no}
 
         $user = Users::where('id', auth()->user()->id)->with('repairrequest', 'ictforms')->first();
-
-        // ddd();
 
         switch (request()->name) {
             case 'repair':

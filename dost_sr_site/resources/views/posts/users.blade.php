@@ -20,6 +20,11 @@
                         Add Division
                     </button>
                 </div>
+                <div class="col-xl-12 col-md-4 col-sm-12">
+                    <button class="rounded btn btn-primary w-100" type="button" data-modal-target="#deleteDiv">
+                        Delete Division
+                    </button>
+                </div>
             </div>
         </div>
         <div class="col-xl-10 col-md-12 mb-2">
@@ -37,8 +42,11 @@
                                             @if (!$divisions->isEmpty())
                                             @endif
                                             @foreach ($divisions as $division)
-                                                <span>Divisions
-                                                    {{ $div->where('id', $division->division)->first()->division_number . ': ' . $division->count }}</span>
+                                                @if ($division->division != null)
+                                                    <span>Divisions
+                                                        {{ $div->where('id', $division->division)->first()->division_number . ': ' . $division->count }}</span>
+                                                @else
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -59,7 +67,7 @@
         @method('DELETE')
         @csrf
         <div class="row mb-4">
-            <div class="col-xl-12" >
+            <div class="col-xl-12">
                 <div class="card shadow mb-4">
 
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -106,13 +114,21 @@
                                                 {{ $user->user_type }}
                                             </td>
                                             <td>
-                                                {{ $user->divisions->division_number }}
+                                                @if ($user->divisions == null)
+                                                    None
+                                                @else
+                                                    {{ $user->divisions->division_number }}
+                                                @endif
                                             </td>
                                             <td>
                                                 {{ $user->email }}
                                             </td>
                                             <td>
-                                                {{ $user->divisions->division_address }}
+                                                @if ($user->divisions == null)
+                                                    None
+                                                @else
+                                                    {{ $user->divisions->division_address }}
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

@@ -16,6 +16,7 @@
                         <section class="col-xl-11">
                             <div class="card">
                                 <div class="card-body rounded-none shadow">
+                                    <x-dost-heading></x-dost-heading>
                                     <div class="row mx-0">
                                         <div class="col-xl-12 bg-heading-color-1 d-flex justify-content-center py-1">
                                             <div class="h3 mb-0 text-white font-weight-bold text-uppercase">
@@ -23,7 +24,25 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mx-0 my-3 justify-content-between">
+                                    <div class="my-3 Print" style="display: none;">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                <label class="mb-0 text-capitalize text-gray-900">
+                                                    Date/Time of Request:
+                                                </label>
+                                                <input type="text" class="input-design-1"
+                                                    value="{{ $repair_ictform->date_requested }}">
+                                            </div>
+                                            <div class="">
+                                                <label class="mb-0 text-capitalize text-gray-900">
+                                                    Request No.:
+                                                </label>
+                                                <input type="text" class="input-design-1"
+                                                    value="{{ $repair_ictform->request_no }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-0 my-3 justify-content-between noPrint">
                                         <div class="col-xl-auto col-sm-12 mb-2">
                                             <div style="width: 375px">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -78,7 +97,7 @@
                                     </div>
                                     <hr class="my-4">
                                     <div class="row mx-0">
-                                        <div class="col-xl-4">
+                                        <div class="col-xl-4 my-2">
                                             <div class="card shadow border-bottom-success">
                                                 <div class="card-header">
                                                     <div class="text-uppercase text-gray-600">
@@ -131,7 +150,7 @@
                                         {{-- @dd(!$repair_ictform->ict_requests->isEmpty()) --}}
 
                                         @if (!$repair_ictform->ict_requests->isEmpty())
-                                            <div class="col-xl-8">
+                                            <div class="col-xl-8 my-2">
                                                 <div class="card">
                                                     <div class="card shadow border-bottom-info">
                                                         <div class="card-header">
@@ -173,7 +192,7 @@
                                                                             <img src="/icons/svg-files/folder.svg"
                                                                                 alt="document.png" width="42"
                                                                                 height="42">
-                                                                            1 - File exist
+                                                                            Click here to download file
                                                                         </a>
                                                                     @endif
 
@@ -261,7 +280,7 @@
                                 </div>
                             </div>
                         </section>
-                        <section class="col-xl-1 pt-4 px-0">
+                        <section class="col-xl-1 pt-4 px-0 noPrint">
                             <div class="row mx-0 h-100 justify-content-center">
                                 <div class="col-xl-12 col-md-4 px-0 pt-1">
                                     <div class="d-flex justify-content-center">
@@ -275,11 +294,12 @@
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button type="submit" name="action" value="print"
+                                                <button type="button" onclick="window.print();"
                                                     class="btn btn-primary text-capitalize w-100">
                                                     <div class="row mx-0 justify-content-center align-content-center">
                                                         <img src="/icons/svg-files/printer.svg" width="24" height="24"
-                                                            alt="Printer.svg" class="icon-white col-xl-12 col-md-4 p-0">
+                                                            alt="Printer.svg"
+                                                            class="icon-white col-xl-12 col-md-4 p-0">
                                                         <div class="col-xl-12 col-md-8 px-1">
                                                             print
                                                         </div>

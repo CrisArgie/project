@@ -89,10 +89,6 @@ class PostInspectionsController extends Controller
                 return redirect('/requests')->with('success', 'Post Repair Inspection Request: Saved Pending.');
 
                 break;
-            case 'print':
-                dd('print');
-
-                break;
         }
     }
 

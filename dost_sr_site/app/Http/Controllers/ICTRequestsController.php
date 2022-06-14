@@ -69,8 +69,6 @@ class ICTRequestsController extends Controller
 
                 return back()->with('success', 'Request: ' . $request->request_no . ' - save');
                 break;
-            case 'print':
-                break;
             case 'done':
                 $this->validate(
                     $request,
@@ -223,11 +221,6 @@ class ICTRequestsController extends Controller
 
 
                 return back()->with('success', 'Your ICT job Request has been created.');
-                break;
-
-            case 'print':
-                dd($requests->action);
-
                 break;
         }
     }

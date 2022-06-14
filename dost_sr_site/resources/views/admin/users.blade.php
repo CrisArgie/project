@@ -52,6 +52,50 @@
             </div>
         </form>
 
+        <form action="/division/delete" method="POST" enctype="multipart/form-data">
+            @method('DELETE')
+            @csrf
+            <div class="modal" id="deleteDiv" style="overflow: visible;">
+                <div class="modal-header">
+                    <div class="title">
+                        Division
+                    </div>
+                    <button type="button" data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body p-4">
+
+                    <div x-data="{ open: false, message: '' }" class="d-flex flex-column mb-2">
+                        <div class="d-flex g-2 align-items-center">
+                            <label for="divisions_id" class="text-gray-900 mb-2">
+                                Select a Division to be deleted: <span x-text="message"></span>
+                            </label>
+                        </div>
+
+                        <select name="divisions_id" id="divisions_id" size="8" x-model="message"
+                            class="input-design-1 w-100""
+                            style="" required>
+                            @foreach ($div as $division)
+                                <option value="{{ $division->id }}" class="py-1">
+                                    {{ $division->id . '. ' . $division->division_number . ' - ' . $division->division_name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+                    <div class="d-flex justify-content-end mt-3">
+                        <button type="submit" name="action" value="delete_division"
+                            class="btn btn-primary">Submit</button>
+                    </div>
+                    @foreach ($errors->all() as $error)
+                        <div class="d-flex flex-column">
+                            <p class="text-danger text-xs">{{ $error }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </form>
+
         <form action="/users/create" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="modal" id="addUser" style="overflow: visible;">

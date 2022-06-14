@@ -17,7 +17,7 @@ class IsTech
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() || !auth()->user()->user_type == 'technician') {
+        if (auth()->user()->user_type !== 'technician') {
             abort(Response::HTTP_FORBIDDEN);
         }
 

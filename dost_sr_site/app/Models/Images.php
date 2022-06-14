@@ -16,6 +16,6 @@ class Images extends Model
 
     public function ictrequest()
     {
-        return $this->hasMany(IctRequests::class);
+        return $this->hasMany(IctRequests::class, 'images_id', 'id');
     }
 }

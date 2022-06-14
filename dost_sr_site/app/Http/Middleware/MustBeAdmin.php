@@ -21,7 +21,7 @@ class MustBeAdmin
         //     abort(Response::HTTP_FORBIDDEN);
         // }
 
-        if (!auth()->check() || !auth()->user()->user_type == 'admin') {
+        if (auth()->user()->user_type !== 'admin' && auth()->user()->user_type !== 'technician') {
             abort(Response::HTTP_FORBIDDEN);
         }
 

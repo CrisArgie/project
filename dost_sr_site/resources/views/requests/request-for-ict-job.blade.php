@@ -23,6 +23,7 @@
                             <section class="col-xl-11">
                                 <div class="card">
                                     <div class="card-body rounded-none shadow">
+                                        <x-dost-heading></x-dost-heading>
                                         <div class="row mx-0">
                                             <div class="col-xl-12 bg-heading-color-1 d-flex justify-content-center py-1">
                                                 <div class="h3 mb-0 text-white font-weight-bold text-uppercase">
@@ -30,7 +31,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row mx-0 my-3 justify-content-between">
+                                        <div class="mx-0 my-3 Print" style="display: none;">
+                                            <div class="d-flex">
+                                                <div class="w-50">
+                                                    <label class="mb-0 text-capitalize text-gray-900">Date/Time of
+                                                        Request:</label>
+                                                    <input type="text" class="input-design-1">
+                                                </div>
+                                                <div class="d-flex justify-content-end w-50">
+                                                    <label class="mb-0 text-capitalize text-gray-900">Request
+                                                        No.:</label>
+                                                    <input type="text" class="input-design-1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mx-0 my-3 justify-content-between noPrint">
                                             <div class="col-xl-auto col-sm-12 mb-2">
                                                 <div style="width: 375px">
                                                     <div class="d-flex justify-content-between align-items-center">
@@ -128,6 +143,9 @@
                                                                         x-on:click="open = true">
                                                                     <label class="mb-0 text-gray-600 text-capitalize"
                                                                         for="">Other</label>
+                                                                    <input type="text"
+                                                                        class="input-design-1 w-100 Print"
+                                                                        style="display: none;">
                                                                 </div>
                                                                 <label for="type_request_description"
                                                                     class="m-0"></label>
@@ -137,7 +155,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-column mx-0 align-items-end">
+                                                    <div class="row flex-column mx-0 align-items-end noPrint">
                                                         {{-- <div class="row mx-0">
                                                         <button class="btn btn-info btn-icon-split" type="button" x-model="show">
                                                             <span class="icon text-white-50">
@@ -248,8 +266,9 @@
                                                         Programs (list):</label>
                                                 </div>
                                                 <label for="SF_description" hidden></label>
-                                                <textarea name="SF_description" id="SF_description" rows="10" class="input-design-1 w-100 " placeholder="Type here..."
-                                                    :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
+                                                <textarea name="SF_description" id="SF_description" rows="10" class="input-design-1 w-100 noPrint"
+                                                    placeholder="Type here..." :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
+                                                <textarea rows="8" class="input-design-1 w-100 Print" style="display: none;"></textarea>
                                             </div>
                                             <div class="col-xl-4" x-data="{ open: false }">
                                                 <div class="d-flex align-items-center g-1 mb-1">
@@ -259,8 +278,9 @@
                                                         Hardware:</label>
                                                 </div>
                                                 <label for="OH_description" hidden></label>
-                                                <textarea name="OH_description" id="OH_description" rows="10" class="input-design-1 w-100 " placeholder="Type here..."
-                                                    :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
+                                                <textarea name="OH_description" id="OH_description" rows="10" class="input-design-1 w-100 noPrint"
+                                                    placeholder="Type here..." :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
+                                                <textarea rows="8" class="input-design-1 w-100 Print" style="display: none;"></textarea>
                                             </div>
                                             <div class="col-xl-4" x-data="{ open: false }">
                                                 <div class="d-flex align-items-center g-1 mb-1">
@@ -270,8 +290,9 @@
                                                         Device:</label>
                                                 </div>
                                                 <label for="UD_description" hidden></label>
-                                                <textarea name="UD_description" id="UD_description" rows="10" class="input-design-1 w-100 " placeholder="Type here..."
-                                                    :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
+                                                <textarea name="UD_description" id="UD_description" rows="10" class="input-design-1 w-100 noPrint"
+                                                    placeholder="Type here..." :class="open ? 'required' : 'disabled'" tabindex="-1"></textarea>
+                                                <textarea rows="8" class="input-design-1 w-100 Print" style="display: none;"></textarea>
                                             </div>
                                         </div>
                                         @foreach ($errors->all() as $error)
@@ -282,17 +303,17 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="col-xl-1 pt-4 px-0">
+                            <section class="col-xl-1 pt-4 px-0 noPrint">
                                 <div class="row mx-0 h-100">
                                     <div class="col-xl-12 col-md-4 px-0 pt-1">
                                         <div class="d-flex justify-content-center">
                                             @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'technician')
-                                                <a href="{{ url()->previous() }}" class="btn btn-danger">
+                                                <a href="/request-ict-user" class="btn btn-danger">
                                                     <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                         alt="Return to Previous page" class="icon-white">
                                                 </a>
                                             @else
-                                                <a href="{{ url()->previous() }}" class="btn btn-danger">
+                                                <a href="/customer/request" class="btn btn-danger">
                                                     <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                         alt="Return to Previous page" class="icon-white">
                                                 </a>
@@ -335,7 +356,7 @@
                                                     </div>
                                                 @else
                                                     <div class="col-xl-12 col-md-4 p-1">
-                                                        <button type="submit" name="action" value="print"
+                                                        <button type="button" onclick="window.print();"
                                                             class="btn btn-primary text-capitalize w-100">
                                                             <img src="/icons/svg-files/printer.svg" alt="printer"
                                                                 class="icon-white col-xl-12 col-md-4 p-0" width="24"
@@ -632,7 +653,7 @@
                                 <div class="row mx-0 h-100 justify-content-center">
                                     <div class="col-xl-12 col-md-4 px-0 pt-1">
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ url()->previous() }}" class="btn btn-danger">
+                                            <a href="/view/requests" class="btn btn-danger">
                                                 <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>

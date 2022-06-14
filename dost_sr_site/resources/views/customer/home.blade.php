@@ -6,8 +6,8 @@
 
         @if (auth()->user()->divisions_id == null)
             <div class="pointer-events-none">
-            @else
-                <div>
+        @else
+            <div>
         @endif
         {{-- CONTENT - BODY --}}
         <section class="content-position">
@@ -28,7 +28,7 @@
                             <div class="row mx-0">
                                 <div class="col-xl-9 mb-2">
                                     <div class="card rounded-0 shadow">
-                                        <div class="card-body" style="height: 240px; overflow-y:auto;">
+                                        <div class="card-body" style="height: 290px; overflow-y:auto;">
                                             @if (!$user->repairrequest->isEmpty() || !$user->ictforms->isEmpty())
                                                 <div class="table-responsive">
                                                     <div class="row mx-0">

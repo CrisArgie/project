@@ -7,7 +7,8 @@
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
 
             <x-main>
-                <form action="/requests/pre-inspection/{{ $prerepairId }}/{{ $idforPost->id }}" method="POST" enctype="multipart/form-data">
+                <form action="/requests/pre-inspection/{{ $prerepairId }}/{{ $idforPost->id }}" method="POST"
+                    enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
 
@@ -15,7 +16,27 @@
                         <section class="col-xl-11">
                             <div class="card">
                                 <div class="card-body rounded-none shadow">
-                                    <div class="row justify-content-between mx-0">
+                                    <x-dost-heading></x-dost-heading>
+
+                                    <div class="Print" style="display: none;">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                <label class="mb-0 text-capitalize text-gray-900">
+                                                    No.:
+                                                </label>
+                                                <input type="text" class="input-design-1"
+                                                    value="{{ $repairInfo->request_no }}">
+                                            </div>
+                                            <div class="">
+                                                <label class="mb-0 text-capitalize text-gray-900">
+                                                    Date:
+                                                </label>
+                                                <input type="text" class="input-design-1"
+                                                    value="{{ $repairInfo->date_requested }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between mx-0 noPrint">
                                         <div class="col-xl-auto col-sm-12 mb-2">
                                             <div style="width: 245px">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -101,7 +122,8 @@
                                                                 required>
                                                         @else
                                                             <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1"
-                                                                type="date" value="{{ old('date_of_latest_repair') }}"
+                                                                type="date"
+                                                                value="{{ old('date_of_latest_repair') }}"
                                                                 name="date_of_latest_repair" id="date_of_latest_repair"
                                                                 required>
                                                         @endif
@@ -115,16 +137,16 @@
                                                         <label class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Brand
                                                             Model:</label>
                                                         <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text"
-                                                            value="{{ $repairInfo->equipment->brand_model }}" readonly
-                                                            tabindex="-1">
+                                                            value="{{ $repairInfo->equipment->brand_model }}"
+                                                            readonly tabindex="-1">
                                                     </li>
                                                     <li class="row my-1 mx-0">
                                                         <label
                                                             class="col-xl-5 p-0 m-auto text-gray-900 text-ssm">Property
                                                             No.:</label>
                                                         <input class="col-xl-7 p-0 mt-1 mb-1 input-design-1" type="text"
-                                                            value="{{ $repairInfo->equipment->property_no }}" readonly
-                                                            tabindex="-1">
+                                                            value="{{ $repairInfo->equipment->property_no }}"
+                                                            readonly tabindex="-1">
                                                     </li>
                                                     <li class="row my-1 mx-0">
                                                         <label
@@ -172,12 +194,10 @@
 
                                                             @if ($idforPost->detail_of_defects != null)
                                                                 <textarea class="input-design-1 text-ssm" name="detail_of_defects" id="detail_of_defects"
-                                                                    style="width: 100%; height: 200px;" required
-                                                                    placeholder="DEFECTS/COMPLAINTS">{{ $idforPost->detail_of_defects }}</textarea>
+                                                                    style="width: 100%; height: 200px;" required placeholder="DEFECTS/COMPLAINTS">{{ $idforPost->detail_of_defects }}</textarea>
                                                             @else
                                                                 <textarea class="input-design-1 text-ssm" name="detail_of_defects" id="detail_of_defects"
-                                                                    style="width: 100%; height: 200px;" required
-                                                                    placeholder="DEFECTS/COMPLAINTS"></textarea>
+                                                                    style="width: 100%; height: 200px;" required placeholder="DEFECTS/COMPLAINTS"></textarea>
                                                             @endif
                                                             @error('detail_of_defects')
                                                                 <p class="mb-0 text-danger text-xs">{{ $message }}</p>
@@ -188,12 +208,10 @@
 
                                                             @if ($idforPost->pre_repair_assessment_done != null)
                                                                 <textarea class="input-design-1 text-ssm" name="pre_repair_assessment_done" id="pre_repair_assessment_done"
-                                                                    style="width: 100%; height: 200px;" required
-                                                                    placeholder="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE">{{ $idforPost->pre_repair_assessment_done }}</textarea>
+                                                                    style="width: 100%; height: 200px;" required placeholder="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE">{{ $idforPost->pre_repair_assessment_done }}</textarea>
                                                             @else
                                                                 <textarea class="input-design-1 text-ssm" name="pre_repair_assessment_done" id="pre_repair_assessment_done"
-                                                                    style="width: 100%; height: 200px;" required
-                                                                    placeholder="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE"></textarea>
+                                                                    style="width: 100%; height: 200px;" required placeholder="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE"></textarea>
                                                             @endif
                                                             @error('pre_repair_assessment_done')
                                                                 <p class="mb-0 text-danger text-xs">{{ $message }}</p>
@@ -207,7 +225,7 @@
                                 </div>
                             </div>
                         </section>
-                        <section class="col-xl-1 pt-4 px-0">
+                        <section class="col-xl-1 pt-4 px-0 noPrint">
                             <div class="row mx-0 h-100">
                                 <div class="col-xl-12 col-md-4 px-0 p-1">
                                     <div class="d-flex justify-content-center">
@@ -221,7 +239,8 @@
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button type="submit" name="action" value="print" class="btn btn-primary text-capitalize w-100">
+                                                <button type="button" onclick="window.print();"
+                                                    class="btn btn-primary text-capitalize w-100">
                                                     <div class="row mx-0 justify-content-center align-content-center">
                                                         <img src="/icons/svg-files/printer.svg" width="24" height="24"
                                                             alt="Printer.svg" class="icon-white col-xl-12 col-md-4 p-0">

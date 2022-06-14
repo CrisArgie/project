@@ -16,6 +16,6 @@ class Documents extends Model
 
     public function ictrequest()
     {
-        return $this->hasMany(IctRequests::class);
+        return $this->hasMany(IctRequests::class, 'documents_id', 'id');
     }
 }

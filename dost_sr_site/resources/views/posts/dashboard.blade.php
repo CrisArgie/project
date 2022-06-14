@@ -275,10 +275,17 @@
             var pieData = [];
 
             @foreach ($div as $item)
-                pieData[x] = {
-                    name: "Division {{ $name->where('id', $item->division)->first()->division_number }}",
-                    y: {{ $item->count }}
-                };
+                @if ($item->division == null)
+                    pieData[x] = {
+                        name: "No Division",
+                        y: {{ $item->count }}
+                    };
+                @else
+                    pieData[x] = {
+                        name: "Division {{ $name->where('id', $item->division)->first()->division_number }}",
+                        y: {{ $item->count }}
+                    };
+                @endif
                 x++
             @endforeach
         @endif
@@ -299,7 +306,7 @@
             },
             accessibility: {
                 point: {
-                    valueSuffix: '%'
+                    valueSuffix: ''
                 }
             },
             plotOptions: {
@@ -308,12 +315,12 @@
                     cursor: 'pointer',
                     dataLabels: {
                         enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        format: '<b>{point.name}</b>: {point.y: f} User(s)'
                     }
                 }
             },
             series: [{
-                name: 'Request',
+                name: 'User',
                 colorByPoint: true,
                 data: pieData
             }]

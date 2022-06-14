@@ -1,4 +1,4 @@
-<aside class="sidebar open" data-slider>
+<aside class="sidebar open noPrint" data-slider>
     <div class="admin-top-sidebar">
         <div class="sidebar-list">
             <button class="button-style-2" data-menu-icon-btn>

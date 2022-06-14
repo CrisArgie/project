@@ -96,7 +96,7 @@
                                     </div>
                                 </x-card>
                             </section>
-                            <section class="col-xl-1">
+                            <section class="col-xl-1 noPrint">
                                 <div class="row mx-0 h-100">
                                     <div class="col-xl-12 col-md-4 px-0 p-1">
                                         <div class="d-flex justify-content-center">
@@ -106,7 +106,7 @@
                                                             alt="Return to Previous page" class="icon-white">
                                                     </a>
                                                 @else --}}
-                                            <a href="{{ url()->previous() }}" class="btn btn-danger">
+                                            <a href="/view/requests" class="btn btn-danger">
                                                 <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>
@@ -217,7 +217,7 @@
                                     </div>
                                 </x-card>
                             </section>
-                            <section class="col-xl-1">
+                            <section class="col-xl-1 noPrint">
                                 <div class="row mx-0 h-100">
                                     <div class="col-xl-12 col-md-4 px-0 p-1">
                                         <div class="d-flex justify-content-center">
@@ -227,7 +227,7 @@
                                                         alt="Return to Previous page" class="icon-white">
                                                 </a>
                                             @else --}}
-                                            <a href="{{ url()->previous() }}" class="btn btn-danger">
+                                            <a href="/view/requests" class="btn btn-danger">
                                                 <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>
@@ -321,15 +321,15 @@
                                             </span>
                                         </a>
                                         @if ($user->prerepairinspections->first()->postrepairinspections->first()->status == 'pending')
-                                        <button type="button" class="btn btn-warning text-capitalize"
-                                        data-modal-target="#postID">
-                                        delete
-                                    </button>
+                                            <button type="button" class="btn btn-warning text-capitalize"
+                                                data-modal-target="#postID">
+                                                delete
+                                            </button>
                                         @endif
                                     </div>
                                 </x-card>
                             </section>
-                            <section class="col-xl-1">
+                            <section class="col-xl-1 noPrint">
                                 <div class="row mx-0 h-100">
                                     <div class="col-xl-12 col-md-4 px-0 p-1">
                                         <div class="d-flex justify-content-center">
@@ -339,7 +339,7 @@
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>
                                         @else --}}
-                                            <a href="{{ url()->previous() }}" class="btn btn-danger">
+                                            <a href="/view/requests" class="btn btn-danger">
                                                 <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                     alt="Return to Previous page" class="icon-white">
                                             </a>

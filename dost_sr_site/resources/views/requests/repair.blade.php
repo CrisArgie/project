@@ -25,7 +25,24 @@
                             <section class="col-xl-11">
                                 <div class="card">
                                     <div class="card-body rounded-none shadow">
-                                        <div class="row justify-content-between mx-0">
+                                        <x-dost-heading></x-dost-heading>
+
+                                        <div class="Print" style="display: none;">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="">
+                                                    <label class="mb-0 text-capitalize text-gray-900">No.:</label>
+                                                    <input type="text" class="input-design-1"
+                                                        value="{{ $post->request_no }}">
+                                                </div>
+                                                <div class="">
+                                                    <label class="mb-0 text-capitalize text-gray-900">Date:</label>
+                                                    <input type="text" class="input-design-1"
+                                                        value="{{ $post->date_requested }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-between mx-0 noPrint">
                                             <div class="col-xl-auto col-sm-12 mb-2">
                                                 <div style="width: 245px">
                                                     <div class="d-flex justify-content-between align-items-center">
@@ -147,7 +164,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="col-xl-1 pt-4 px-0">
+                            <section class="col-xl-1 pt-4 px-0 noPrint">
                                 <div class="row mx-0 h-100">
                                     <div class="col-xl-12 col-md-4 px-0 p-1">
                                         <div class="d-flex justify-content-center">
@@ -162,7 +179,8 @@
                                         <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                             <div class="row mx-0">
                                                 <div class="col-xl-12 col-md-4 p-1">
-                                                    <button type="button" class="btn btn-primary text-capitalize w-100">
+                                                    <button type="button" onclick="window.print();"
+                                                        class="btn btn-primary text-capitalize w-100">
                                                         <div
                                                             class="row mx-0 justify-content-center align-content-center">
                                                             <img src="/icons/svg-files/printer.svg" width="24"

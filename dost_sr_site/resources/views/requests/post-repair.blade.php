@@ -2,7 +2,7 @@
     <main class="d-flex flex-column">
         @include('posts.header') {{-- HEADER --}}
 
-{{-- @dd($prId->first()->postrepairinspections->repair_shop) --}}
+        {{-- @dd($prId->first()->postrepairinspections->repair_shop) --}}
         {{-- CONTENT - BODY --}}
         <section class="content-position">
             @include('posts.left-sidebar') {{-- LEFT SIDEBAR --}}
@@ -17,7 +17,27 @@
                         <section class="col-xl-11">
                             <div class="card">
                                 <div class="card-body rounded-none shadow">
-                                    <div class="row justify-content-between mx-0">
+                                    <x-dost-heading></x-dost-heading>
+
+                                    <div class="Print" style="display: none;">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                <label class="mb-0 text-capitalize text-gray-900">
+                                                    No.:
+                                                </label>
+                                                <input type="text" class="input-design-1"
+                                                    value="{{ $prId->first()->repair_requests->request_no }}">
+                                            </div>
+                                            <div class="">
+                                                <label class="mb-0 text-capitalize text-gray-900">
+                                                    Date:
+                                                </label>
+                                                <input type="text" class="input-design-1"
+                                                    value="{{ $prId->first()->repair_requests->date_requested }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between mx-0 noPrint">
                                         <div class="col-xl-auto col-sm-12 mb-2">
                                             <div style="width: 245px">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -33,7 +53,8 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <label class="mb-0 text-capitalize text-gray-900">
                                                         Date: </label>
-                                                    <input value="{{ $prId->first()->repair_requests->date_requested }}"
+                                                    <input
+                                                        value="{{ $prId->first()->repair_requests->date_requested }}"
                                                         type="text" class="input-design-1" readonly tabindex="-1">
                                                 </div>
                                             </div>
@@ -207,8 +228,7 @@
                                                     <label for="recommendation" hidden></label>
                                                     @if ($prId->first()->postrepairinspections->recommendation != null)
                                                         <textarea class="input-design-1 text-ssm" name="recommendation" id="recommendation" style="width: 100%; height: 224px;"
-                                                            placeholder="FINDINGS/RECOMMENDATIONS"
-                                                            required>{{ $prId->first()->postrepairinspections->recommendation }}</textarea>
+                                                            placeholder="FINDINGS/RECOMMENDATIONS" required>{{ $prId->first()->postrepairinspections->recommendation }}</textarea>
                                                     @else
                                                         <textarea class="input-design-1 text-ssm" name="recommendation" id="recommendation" style="width: 100%; height: 224px;"
                                                             placeholder="FINDINGS/RECOMMENDATIONS" required></textarea>
@@ -224,21 +244,21 @@
                                 </div>
                             </div>
                         </section>
-                        <section class="col-xl-1 pt-4 px-0">
+                        <section class="col-xl-1 pt-4 px-0 noPrint">
                             <div class="row mx-0 h-100">
                                 <div class="col-xl-12 col-md-4 px-0 p-1">
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" onclick="window.history.back()" class="btn btn-danger">
+                                        <a href="/requests" type="button" class="btn btn-danger">
                                             <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
                                                 alt="Return to Previous page" class="icon-white">
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-xl-auto col-md-8 p-0">
                                     <div class="d-flex flex-column justify-content-end align-content-center h-100">
                                         <div class="row mx-0">
                                             <div class="col-xl-12 col-md-4 p-1">
-                                                <button type="submit" name="action" value="print"
+                                                <button type="button" onclick="window.print();"
                                                     class="btn btn-primary text-capitalize w-100">
                                                     <div class="row mx-0 justify-content-center align-content-center">
                                                         <img src="/icons/svg-files/printer.svg" width="24" height="24"

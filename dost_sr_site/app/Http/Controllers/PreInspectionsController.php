@@ -24,10 +24,6 @@ class PreInspectionsController extends Controller
     public function update(Request $requests, $id, $rrId)
     {
         switch (request()->input('action')) {
-            case 'print':
-                dd('print');
-
-                break;
             case 'need-post-inspection':
                 $status = 'in-progress';
                 $this->uploadToDB($requests, $status);

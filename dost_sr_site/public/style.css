@@ -650,6 +650,15 @@ body {
     background-color: var(--color2);
 }
 
+@media print {
+    .noPrint {
+        display: none;
+    }
+    .Print {
+        display: block !important;
+    }
+}
+
 
 /* li {
     list-style: none;
