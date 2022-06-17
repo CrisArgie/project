@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DivisionsController;
 use App\Http\Controllers\ICTRequestsController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostInspectionsController;
 use App\Http\Controllers\PreInspectionsController;
@@ -75,3 +76,16 @@ Route::get('/customer/request', [RequestsController::class, 'index'])->middlewar
 Route::get('/view/requests', [RequestsController::class, 'viewRequest'])->middleware(['customer']);
 Route::delete('/request/delete', [RequestsController::class, 'destroy'])->middleware('auth');
 Route::delete('/division/delete', [DivisionsController::class, 'destroy'])->middleware('auth');
+
+
+
+
+// Mails
+
+Route::get('/auth/forgotpassword', [MailController::class, 'index'])->middleware('guest');
+Route::post('/auth/login', [MailController::class, 'checkMail'])->middleware('guest');
+Route::get('/auth/code/{id}', [MailController::class, 'show'])->middleware('guest');
+
+Route::post('/auth/code', [MailController::class, 'checkCode'])->middleware('guest');
+Route::get('/auth/newpassword/{id}', [MailController::class, 'passView'])->middleware('guest');
+Route::patch('/auth/newpassword/update', [MailController::class, 'update'])->middleware('guest');

@@ -1,10 +1,10 @@
 <x-index-layout>
-    <div class="min-vh-100 min-vw-100" style="background-color: var(--color1);">
+    <div class="d-flex min-vh-100 min-vw-100" style="background-color: var(--color1);">
 
-        <div class="container justify-content-center m-auto">
+        <div class="row justify-content-center m-auto">
             <div class="row justify-content-center">
                 <div class="col-xl-10 col-lg-12 col-md-9">
-                    <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card o-hidden border-0 shadow-lg">
                         <div class="card-body p-0">
                             <div class="row">
                                 <div class="col-lg-6 bg-gray-200 d-flex justify-content-center align-items-center">
@@ -52,7 +52,7 @@
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="#">Forgot Password?</a>
+                                            <a class="small" href="/auth/forgotpassword">Forgot Password?</a>
                                         </div>
                                         <div class="text-center">
                                             <span class="small"> Don't have an account? </span> <a
