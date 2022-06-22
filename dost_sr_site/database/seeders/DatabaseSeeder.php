@@ -37,10 +37,10 @@ class DatabaseSeeder extends Seeder
 
         Users::factory()->create([
             'user_type' => 'admin',
-            'first_name' => 'Cris Argie',
-            'last_name' => 'Ecleo',
-            'email' => 'crisrgcleo@gmail.com',
-            'password' => 'helloworld2022',
+            'first_name' => 'Admin',
+            'last_name' => 'User',
+            'email' => 'dost_sr_admin@gmail.com',
+            'password' => 'dost_sr_admin',
         ]);
 
 
