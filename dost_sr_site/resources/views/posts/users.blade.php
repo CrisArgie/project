@@ -5,10 +5,34 @@
     <div class="row mb-4">
         <div class="col-xl-2 col-md-12 mb-2">
             <div class="row mx-0 g-3">
-                <div class="col-xl-12 col-md-4 col-sm-12">
-                    <button class="rounded btn btn-primary w-100">
+                <div class="col-xl-12 col-md-4 col-sm-12" x-data="{ open: false }">
+                    <button type="button" class="rounded btn btn-primary w-100" x-on:click="open = ! open">
                         Generate Report
                     </button>
+                    <div x-show="open" x-cloak class="position-absolute" style="z-index: 10;">
+                        <div class="card" style="width: 450px;">
+                            <div class="card-body">
+                                <form action="/generate-report" method="POST" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="text-gray-800">
+                                        Export as FILE
+                                    </div>
+                                    <div class="">
+                                        Save this data to your computer as a FILE, to be shared offline or printed. You
+                                        may select which data to save.
+                                    </div>
+
+                                    <div class="d-flex justify-content-end mt-4">
+                                        <button type="submit" name="action" value="users"
+                                            class="text-capitalize btn btn-primary">
+                                            export
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-xl-12 col-md-4 col-sm-12">
                     <button class="rounded btn btn-primary w-100" type="button" data-modal-target="#addUser">

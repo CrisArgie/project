@@ -11,6 +11,7 @@ use App\Http\Controllers\PostInspectionsController;
 use App\Http\Controllers\PreInspectionsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RepairRequestsController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UsersController;
@@ -61,6 +62,7 @@ Route::get('/request/{name}/{action}/{no}', [RepairRequestsController::class, 'e
 
 
 // NEUTRAL AREA
+Route::post('/generate-report', [ReportController::class, 'create'])->middleware('auth');
 Route::get('/request-for-repair', [RepairRequestsController::class, 'show'])->middleware('auth');
 Route::post('/request-for-repair', [RepairRequestsController::class, 'create'])->middleware('auth');
 Route::get('/request-for-ict-job/{id}', [ICTRequestsController::class, 'show'])->middleware('auth');
@@ -89,3 +91,4 @@ Route::get('/auth/code/{id}', [MailController::class, 'show'])->middleware('gues
 Route::post('/auth/code', [MailController::class, 'checkCode'])->middleware('guest');
 Route::get('/auth/newpassword/{id}', [MailController::class, 'passView'])->middleware('guest');
 Route::patch('/auth/newpassword/update', [MailController::class, 'update'])->middleware('guest');
+

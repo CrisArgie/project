@@ -25,19 +25,21 @@
                             Division Number:
                         </label>
                         <input type="text" name="division_number" id="division_number" required
-                            value="{{ old('division_number') }}">
+                            class="input-design-1" value="{{ old('division_number') }}">
                     </div>
                     <div class="d-flex flex-column mb-2">
                         <label for="division_name">
                             Division Name:
                         </label>
-                        <input type="text" name="division_name" id="division_name" class="input-design-1" required value="{{ old('division_name') }}">
+                        <input type="text" name="division_name" id="division_name" class="input-design-1" required
+                            value="{{ old('division_name') }}">
                     </div>
                     <div class="d-flex  flex-column mb-2">
                         <label for="division_address">
                             Division Address:
                         </label>
-                        <input type="text" name="division_address" id="division_address" class="input-design-1" required value="{{ old('division_address') }}">
+                        <input type="text" name="division_address" id="division_address" class="input-design-1"
+                            required value="{{ old('division_address') }}">
                     </div>
                     <div class="d-flex justify-content-end mt-3">
                         <button type="submit" name="action" value="division_submit"
@@ -72,8 +74,7 @@
                         </div>
 
                         <select name="divisions_id" id="divisions_id" size="8" x-model="message"
-                            class="input-design-1 w-100""
-                            style="" required>
+                            class="input-design-1 w-100"" style="" required>
                             @foreach ($div as $division)
                                 <option value="{{ $division->id }}" class="py-1">
                                     {{ $division->id . '. ' . $division->division_number . ' - ' . $division->division_name }}
@@ -135,8 +136,8 @@
                         <label for="email" class="m-0">
                             Email:
                         </label>
-                        <input type="text" name="email" id="email" class="input-design-1" value="{{ old('email') }}"
-                            required>
+                        <input type="text" name="email" id="email" class="input-design-1"
+                            value="{{ old('email') }}" required>
                     </div>
                     <div class="d-flex flex-column mb-3">
                         <label for="password" class="m-0">
@@ -174,7 +175,8 @@
                         </div>
                     @endforeach
                     <div class="d-flex justify-content-end">
-                        <button type="submit" name="action" value="user_submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="action" value="user_submit"
+                            class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </div>
