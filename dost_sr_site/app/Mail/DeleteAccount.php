@@ -17,10 +17,11 @@ class DeleteAccount extends Mailable
      * @return void
      */
 
-    public $name;
-    public function __construct($name)
+    public $name, $email;
+    public function __construct($name, $email)
     {
         $this->name = $name;
+        $this->email = $email;
     }
 
     /**
@@ -30,6 +31,6 @@ class DeleteAccount extends Mailable
      */
     public function build()
     {
-        return $this->markdown('view.name');
+        return $this->markdown('mails.post.deletemessage');
     }
 }

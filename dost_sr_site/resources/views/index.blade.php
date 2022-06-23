@@ -66,17 +66,34 @@
                     <h4 class="text-light-blue mb-3"> <b> About </b> </h4>
                     <img src="img/flowchart-request.svg" style="width: 60rem" alt="request-flowchart.svg">
 
-                    <p class="mt-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptates accusantium at
-                        tenetur nam omnis nesciunt quae quia neque, natus rerum cum accusamus? Veritatis ipsum voluptate
-                        excepturi porro amet aliquam fuga facilis itaque ipsam omnis natus inventore fugiat voluptatum
-                        doloremque cumque, harum eum quasi eius ducimus dolorum, sit minus? Recusandae magnam magni
-                        inventore, accusantium impedit exercitationem aperiam, accusamus tempore beatae amet pariatur
-                        quam a! Accusantium maiores debitis omnis quos iure mollitia esse impedit maxime quo ea, eos
-                        blanditiis iusto repudiandae numquam iste corrupti aliquid vel illo voluptatem porro,
-                        dignissimos cupiditate soluta modi corporis! Obcaecati aut deserunt rerum perferendis, molestiae
-                        at.
-                    </p>
+                    <div class="mt-5">
+                        <span class="text-gray-700 text-uppercase font-weight-bolder">
+                            Process of Requesting Service
+                        </span>
+                        <ol>
+                            <li>
+                                First, create an Account if you don't have one. After Signing in you may proceed by
+                                clicking the request tab.
+                            </li>
+                            <li>
+                                Second, choose what type of service needed for your request.
+                            </li>
+                            <li>
+                                Third, if the request is ICT job fill up the request form then submit and wait for it is
+                                in-progress for resolving the issue or if the request is Repair request fill up the
+                                request form then submit and wait for it is in-progress to pre-repair inspection until
+                                the issue is resolve.
+                            </li>
+                            <li>
+                                If ICT job request is needed for repair it will redirect for repair request fill up the
+                                request then submit. If pre-repair inspection need for post repair inspection the
+                                technician will make a request.
+                            </li>
+                            <li>
+                                The last process if the request is finish the status is updated to done.
+                            </li>
+                        </ol>
+                    </div>
                 </div>
 
             </div>
@@ -106,7 +123,10 @@
                                 </div>
 
                                 <div class="">
-                                    Website: caraga.dost.gov.ph
+                                    Website:
+                                    <a target="_blank" href="caraga.dost.gov.ph" class="pointer-events-none">
+                                        caraga.dost.gov.ph
+                                    </a>
                                 </div>
                                 <div class="row mx-0 my-2">
                                     <div class="p-0 col-xl-2">
@@ -115,19 +135,19 @@
 
                                     <div class="col-xl-10">
                                         <div class="d-flex flex-column">
-                                            <div class="">
+                                            <a href="dostcaraga@yahoo.com" class="pointer-events-none">
                                                 dostcaraga@yahoo.com
-                                            </div>
-                                            <div class="">
+                                            </a>
+                                            <a href="dost13@caraga.dost.gov.ph" class="pointer-events-none">
                                                 dost13@caraga.dost.gov.ph
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="">
+                                <a target="_blank" href="https://www.facebook.com/DOST.Caraga" class="">
                                     facebook.com/DOST.Caraga
-                                </div>
+                                </a>
 
                             </div>
                         </div>

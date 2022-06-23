@@ -16,9 +16,15 @@ class RequestQueue extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $name, $email, $request, $status, $type;
+    public function __construct($name, $email, $request, $status, $type)
     {
-        //
+        $this->name = $name;
+        $this->email = $email;
+        $this->request = $request;
+        $this->status = $status;
+        $this->type = $type;
     }
 
     /**
@@ -28,6 +34,6 @@ class RequestQueue extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('mails.post.requestmessage');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RequestQueue;
 use App\Models\AreaOfRequests;
 use App\Models\AreaRequests;
 use App\Models\Divisions;
@@ -12,6 +13,7 @@ use App\Models\IctRequests;
 use App\Models\Images;
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
 class ICTRequestsController extends Controller
@@ -219,6 +221,10 @@ class ICTRequestsController extends Controller
                     }
                 }
 
+
+                $user = Users::findOrFail($requests->users_id);
+                // $name, $email, $request, $status, $type
+                Mail::to($user->email)->send(new RequestQueue($user->first_name, $user->email, $requests->request_no, 'pending', 'ICT job request'));
 
                 return back()->with('success', 'Your ICT job Request has been created.');
                 break;

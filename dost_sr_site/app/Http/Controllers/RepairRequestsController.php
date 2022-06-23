@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RequestQueue;
 use App\Models\Equipment;
 use App\Models\PreRepairInspections;
 use App\Models\RepairRequest;
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -54,7 +56,7 @@ class RepairRequestsController extends Controller
                     'brand_model' => $request->brand_model,
                 ]);
 
-                RepairRequest::create([
+                $reqID = RepairRequest::create([
                     'date_requested' => $request->date_requested,
                     'request_no' => $request->request_no,
                     'description_of_property_type' => $request->description_of_property_type,
@@ -65,6 +67,10 @@ class RepairRequestsController extends Controller
                     'equipment_id' => $equipmentID,
                     'status' => 'pending',
                 ]);
+
+                $user = Users::findOrFail($request->users_id);
+                // $name, $email, $request, $status, $type
+                Mail::to($user->email)->send(new RequestQueue($user->first_name, $user->email, $request->request_no, $status, 'Repair request'));
 
                 return back()->with('success', 'Your Repair Request has been created.');
                 break;

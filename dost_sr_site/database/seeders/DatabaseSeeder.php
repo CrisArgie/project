@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'User',
             'email' => 'dost_sr_admin@gmail.com',
-            'password' => 'dost_sr_admin',
+            'password' => 'DOST13_admin',
         ]);
 
 

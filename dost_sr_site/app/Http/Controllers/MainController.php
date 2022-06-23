@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DeleteAccount;
 use App\Models\Divisions;
 use App\Models\PostRepairInspections;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
@@ -128,6 +130,7 @@ class MainController extends Controller
                 if ($valid) {
 
                     // dd($user->repairrequest->isEmpty() && $user->ictforms->isEmpty(), 'valid');
+                    Mail::to($user->email)->send(new DeleteAccount($user->first_name, $user->email));
 
                     if ($user->repairrequest->isEmpty() && $user->ictforms->isEmpty()) {
                         $user->delete();
@@ -136,6 +139,7 @@ class MainController extends Controller
                         return redirect('/')->with('success', 'Thank you for using the site!');
                     } else {
                         // dd($user->repairrequest->last()->prerepairinspections->postrepairinspections);
+
 
                         if (!$user->ictforms->isEmpty()) {
                             foreach ($user->first()->ictforms as $ictitem) {

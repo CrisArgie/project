@@ -13,13 +13,13 @@ If you did not attempt to sign in to your account, your password may be compromi
     Click here
 </a>
 
-<br>
 {{-- @component('mail::button', ['url' => 'http://127.0.0.1:8000/auth/code/{{ $id }}'])
     Click here
 @endcomponent --}}
 
-
-Thanks,
-The DOST service request Team
+<div class="my-3">
+    Thanks,
+    The DOST XII Team
+</div>
 
 @endcomponent
