@@ -45,7 +45,7 @@ class RepairRequestsController extends Controller
                 //     break;
 
             case 'submit':
-                $status = 'in-progress';
+                $status = 'pending';
 
                 $attributes = $this->validateInput($request);
                 // dd('action => ' . $request->action);
@@ -65,12 +65,12 @@ class RepairRequestsController extends Controller
                     'acquisition_cost' => $request->acquisition_cost,
                     'users_id' => $request->users_id,
                     'equipment_id' => $equipmentID,
-                    'status' => 'pending',
+                    'status' => $status,
                 ]);
 
                 $user = Users::findOrFail($request->users_id);
                 // $name, $email, $request, $status, $type
-                Mail::to($user->email)->send(new RequestQueue($user->first_name, $user->email, $request->request_no, $status, 'Repair request'));
+                Mail::to($user->email)->send(new RequestQueue($user->first_name, $user->email, $request->request_no, $status, 'Repair request', 'repair', 'repair'));
 
                 return back()->with('success', 'Your Repair Request has been created.');
                 break;
@@ -98,7 +98,8 @@ class RepairRequestsController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect('/requests')->with('success', 'Repair Request Updated');
+
+        return redirect('/requests')->with('success', 'Request for Repair updated. Pre-repair created.');
     }
 
 

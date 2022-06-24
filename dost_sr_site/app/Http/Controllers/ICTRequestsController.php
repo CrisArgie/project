@@ -224,7 +224,7 @@ class ICTRequestsController extends Controller
 
                 $user = Users::findOrFail($requests->users_id);
                 // $name, $email, $request, $status, $type
-                Mail::to($user->email)->send(new RequestQueue($user->first_name, $user->email, $requests->request_no, 'pending', 'ICT job request'));
+                Mail::to($user->email)->send(new RequestQueue($user->first_name, $user->email, $requests->request_no, 'pending', 'ICT job request', 'ict', 'view'));
 
                 return back()->with('success', 'Your ICT job Request has been created.');
                 break;

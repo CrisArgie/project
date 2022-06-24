@@ -7,13 +7,16 @@
     <main class="d-flex flex-column">
         @include('posts.header') {{-- HEADER --}}
 
+
         {{-- CONTENT - BODY --}}
         <section class="content-position">
+
             @if (auth()->user()->user_type == 'admin')
                 @include('posts.left-sidebar') {{-- Admin LEFT SIDEBAR --}}
             @else
                 @include('customer.page-style.left-sidebar') {{-- Customer LEFT SIDEBAR --}}
             @endif
+
 
             {{-- @dd() --}}
 
@@ -107,8 +110,8 @@
                                                     </a>
                                                 @else --}}
                                             <a href="/view/requests" class="btn btn-danger">
-                                                <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
-                                                    alt="Return to Previous page" class="icon-white">
+                                                <img src="/icons/svg-files/chevron-left.svg" width="16"
+                                                    height="16" alt="Return to Previous page" class="icon-white">
                                             </a>
                                             {{-- @endif --}}
                                         </div>
@@ -163,8 +166,8 @@
                                             <x-form.input name="acquisition_cost" label="Acquisition Cost"
                                                 class="d-flex flex-column mb-2"
                                                 value="{{ $user->acquisition_cost }}" />
-                                            <x-form.input name="mature_of_latest_repair" label="Mature of latest repair"
-                                                class="d-flex flex-column w-100 mb-2"
+                                            <x-form.input name="mature_of_latest_repair"
+                                                label="Mature of latest repair" class="d-flex flex-column w-100 mb-2"
                                                 value="{{ $user->prerepairinspections->first()->mature_of_latest_repair }}" />
                                         </div>
                                     </div>
@@ -228,8 +231,8 @@
                                                 </a>
                                             @else --}}
                                             <a href="/view/requests" class="btn btn-danger">
-                                                <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
-                                                    alt="Return to Previous page" class="icon-white">
+                                                <img src="/icons/svg-files/chevron-left.svg" width="16"
+                                                    height="16" alt="Return to Previous page" class="icon-white">
                                             </a>
                                             {{-- @endif --}}
                                         </div>
@@ -239,8 +242,8 @@
                         </div>
                         <x-modal-body id="preID" title="Are you sure to delete this request?">
                             If you delete the request you can't recover it.
-                            <x-form.button type="submit" name="action" value="prerepair-delete" class="btn-warning"
-                                class-label="d-flex justify-content-end mt-3">
+                            <x-form.button type="submit" name="action" value="prerepair-delete"
+                                class="btn-warning" class-label="d-flex justify-content-end mt-3">
                                 delete
                             </x-form.button>
                         </x-modal-body>
@@ -340,8 +343,8 @@
                                             </a>
                                         @else --}}
                                             <a href="/view/requests" class="btn btn-danger">
-                                                <img src="/icons/svg-files/chevron-left.svg" width="16" height="16"
-                                                    alt="Return to Previous page" class="icon-white">
+                                                <img src="/icons/svg-files/chevron-left.svg" width="16"
+                                                    height="16" alt="Return to Previous page" class="icon-white">
                                             </a>
                                             {{-- @endif --}}
                                         </div>
@@ -351,8 +354,8 @@
                         </div>
                         <x-modal-body id="postID" title="Are you sure to delete this request?">
                             If you delete the request you can't recover it.
-                            <x-form.button type="submit" name="action" value="postrepair-delete" class="btn-warning"
-                                class-label="d-flex justify-content-end mt-3">
+                            <x-form.button type="submit" name="action" value="postrepair-delete"
+                                class="btn-warning" class-label="d-flex justify-content-end mt-3">
                                 delete
                             </x-form.button>
                         </x-modal-body>

@@ -17,14 +17,16 @@ class RequestQueue extends Mailable
      * @return void
      */
 
-    public $name, $email, $request, $status, $type;
-    public function __construct($name, $email, $request, $status, $type)
+    public $name, $email, $request, $status, $type, $action, $views;
+    public function __construct($name, $email, $request, $status, $type, $action, $views)
     {
         $this->name = $name;
         $this->email = $email;
         $this->request = $request;
         $this->status = $status;
         $this->type = $type;
+        $this->action = $action;
+        $this->views = $views;
     }
 
     /**

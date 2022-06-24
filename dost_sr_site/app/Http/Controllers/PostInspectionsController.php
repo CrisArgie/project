@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RequestQueue;
 use App\Models\PostRepairInspections;
 use App\Models\PreRepairInspections;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
 class PostInspectionsController extends Controller
@@ -40,8 +42,6 @@ class PostInspectionsController extends Controller
                 $status = 'done';
                 $attributes = $this->validateInput($post, $state);
 
-                // dd();
-
 
                 $attributes['repair_shop'] = request()->repair_shop;
                 $attributes['repair_shop_date'] = request()->repair_shop_date;
@@ -54,6 +54,7 @@ class PostInspectionsController extends Controller
                 $attributes['status'] = $status;
 
 
+                $user = PreRepairInspections::where('id', request()->id)->where('status', 'in-progress')->first()->repair_requests;
 
                 PreRepairInspections::where('id', request()->id)->where('status', 'in-progress')->first()->repair_requests->update([
                     'status' => $status,
@@ -62,6 +63,9 @@ class PostInspectionsController extends Controller
                     'status' => $status,
                 ]);
                 $post->where('pre_repair_inspections_id', request()->id)->where('status', 'pending')->update($attributes);
+
+
+                Mail::to($user->users->email)->send(new RequestQueue($user->users->first_name, $user->users->email, $user->request_no, $status, 'post-repair inspection', 'repair', 'repair'));
 
                 return redirect('/requests')->with('success', 'Post Repair Inspection Request: Done.');
 

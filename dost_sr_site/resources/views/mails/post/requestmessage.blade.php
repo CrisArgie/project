@@ -4,7 +4,7 @@ Hi {{ $name }}
 
 
 
-The request no: {{ $request }}. The {{ $type }} is now queued and the status is {{ $status }}.
+The request no: <a href="http://127.0.0.1:8000/request/{{ $action }}/{{ $views }}/{{ $request }}">{{ $request }}</a>. The {{ $type }} is now queued and the status is {{ $status }}.
 
 
 <div class="my-3">

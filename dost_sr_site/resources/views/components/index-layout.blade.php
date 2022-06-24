@@ -9,6 +9,7 @@
 
     <title>DOST Repair and ICT job Request Service</title>
 
+    <link rel="icon" href="/img/DOST_log.png" type="image/icon type">
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link

@@ -27,7 +27,7 @@ Route::get('/profile/{id}', [MainController::class, 'index'])->middleware(['auth
 Route::patch('/profile/update', [MainController::class, 'update'])->middleware(['auth']);
 Route::delete('/profile/delete', [MainController::class, 'destroy'])->middleware(['auth']);
 // LOGIN PAGE
-Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
+Route::get('/login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('/sessions', [SessionsController::class, 'store'])->middleware('guest');
 // REGISTRATION PAGE
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
@@ -57,7 +57,7 @@ Route::get('/requests', [RequestsController::class, 'show'])->middleware('admin'
 Route::get('/users', [UsersController::class, 'show'])->middleware('admin');
 Route::post('/users/create', [UsersController::class, 'create'])->middleware('admin');
 
-Route::get('/request/{name}/{action}/{no}', [RepairRequestsController::class, 'edit'])->middleware('auth');
+Route::get('/request/{name}/{action}/{no}', [RepairRequestsController::class, 'edit']);
 
 
 
@@ -91,4 +91,3 @@ Route::get('/auth/code/{id}', [MailController::class, 'show'])->middleware('gues
 Route::post('/auth/code', [MailController::class, 'checkCode'])->middleware('guest');
 Route::get('/auth/newpassword/{id}', [MailController::class, 'passView'])->middleware('guest');
 Route::patch('/auth/newpassword/update', [MailController::class, 'update'])->middleware('guest');
-

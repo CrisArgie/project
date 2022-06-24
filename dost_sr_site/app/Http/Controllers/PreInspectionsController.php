@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Mail\RequestQueue;
 use App\Models\PreRepairInspections;
 use App\Models\RepairRequest;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Mail;
 
 class PreInspectionsController extends Controller
 {
@@ -28,6 +28,10 @@ class PreInspectionsController extends Controller
                 $status = 'in-progress';
                 $this->uploadToDB($requests, $status);
 
+                $user = RepairRequest::findOrFail($requests->id);
+
+                Mail::to($user->users->email)->send(new RequestQueue($user->users->first_name, $user->users->email, $user->request_no, $status, 'post-repair inspection is needed and', 'repair', 'repair'));
+
                 return redirect('/requests/need-post-inspection/' . $requests->id . '/' . $requests->rrId)->with('success', 'Pre-Repair Inspection Request: Saved In-progress.');
 
                 break;
@@ -39,6 +43,10 @@ class PreInspectionsController extends Controller
                 RepairRequest::findOrFail($requests->id)->update([
                     'status' => $status,
                 ]);
+
+                $user = RepairRequest::findOrFail($requests->id);
+
+                Mail::to($user->users->email)->send(new RequestQueue($user->users->first_name, $user->users->email, $user->request_no, $status, 'Pre-repair inspection', 'repair', 'repair'));
 
                 return redirect('/requests')->with('success', 'Pre-Repair Inspection Request: Done.');
 
