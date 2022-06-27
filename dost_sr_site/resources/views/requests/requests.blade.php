@@ -79,7 +79,7 @@
                                     </div>
 
                                     <div class="d-flex justify-content-end g-2">
-                                        @if ($user->status == 'in-progress')
+                                        @if ($user->status == 'in-progress' || $user->status == 'done')
                                             <a href="/request/repair/pre-repair/{{ $user->request_no }}"
                                                 class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50">
@@ -153,7 +153,7 @@
                                                 value="{{ $user->acquisition_date }}" />
                                             <x-form.input name="date_of_latest_repair" label="Date of latest repair"
                                                 class="d-flex flex-column w-100 mb-2"
-                                                value="{{ $user->prerepairinspections->first()->date_of_latest_repair }}" />
+                                                value="{{ $user->prerepairinspections->date_of_latest_repair }}" />
                                         </div>
 
                                         <div class="col-xl-6">
@@ -168,7 +168,7 @@
                                                 value="{{ $user->acquisition_cost }}" />
                                             <x-form.input name="mature_of_latest_repair"
                                                 label="Mature of latest repair" class="d-flex flex-column w-100 mb-2"
-                                                value="{{ $user->prerepairinspections->first()->mature_of_latest_repair }}" />
+                                                value="{{ $user->prerepairinspections->mature_of_latest_repair }}" />
                                         </div>
                                     </div>
                                     <hr>
@@ -178,11 +178,11 @@
                                     <div class="d-flex flex-column">
                                         <x-form.textarea name="detail_of_defects" label="DEFECTS/COMPLAINTS"
                                             class-label="d-flex flex-column mb-2"
-                                            value="{{ $user->prerepairinspections->first()->detail_of_defects }}" />
+                                            value="{{ $user->prerepairinspections->detail_of_defects }}" />
                                         <x-form.textarea name="pre_repair_assessment_done"
                                             label="PRE-REPAIR ASSESSMENT NATURE/SCOPE OF WORK TO BE DONE"
                                             class-label="d-flex flex-column mb-2"
-                                            value="{{ $user->prerepairinspections->first()->pre_repair_assessment_done }}" />
+                                            value="{{ $user->prerepairinspections->pre_repair_assessment_done }}" />
                                     </div>
 
                                     <div class="d-flex justify-content-end g-2">
@@ -195,7 +195,7 @@
                                                 Request for Repair
                                             </span>
                                         </a>
-                                        @if ($user->prerepairinspections->first()->status == 'in-progress')
+                                        @if ($user->prerepairinspections->status == 'in-progress' || $user->prerepairinspections->status == 'done')
                                             <a href="/request/repair/post-repair/{{ $user->request_no }}"
                                                 class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50">
@@ -268,35 +268,35 @@
                                             POST REPAIR INSPECTION REPORT
                                         </div>
                                     </div>
-
+{{-- @dd($user->prerepairinspections) --}}
                                     <div class="row mx-0">
                                         <div class="col-xl-6">
                                             <x-form.input name="repair_shop	" label="Repair Shop/Supplier"
                                                 class="d-flex flex-column mb-2"
-                                                value="{{ $user->prerepairinspections->first()->postrepairinspections->first()->repair_shop }}" />
+                                                value="{{ $user->prerepairinspections->postrepairinspections->repair_shop }}" />
                                             <x-form.input name="job_order_no" label="Job Order/P.O. No."
                                                 class="d-flex flex-column mb-2"
-                                                value="{{ $user->prerepairinspections->first()->postrepairinspections->first()->job_order_no }}" />
+                                                value="{{ $user->prerepairinspections->postrepairinspections->job_order_no }}" />
                                             <x-form.input name="invoice_no" label="Invoice No."
                                                 class="d-flex flex-column w-100 mb-2"
-                                                value="{{ $user->prerepairinspections->first()->postrepairinspections->first()->invoice_no }}" />
+                                                value="{{ $user->prerepairinspections->postrepairinspections->invoice_no }}" />
                                             <x-form.input name="amt_no" label="Amt/J.O./P.O. No."
                                                 class="d-flex flex-column w-100 mb-2"
-                                                value="{{ $user->prerepairinspections->first()->postrepairinspections->first()->amt_no }}" />
+                                                value="{{ $user->prerepairinspections->postrepairinspections->amt_no }}" />
                                         </div>
 
                                         <div class="col-xl-6">
                                             <x-form.input name="repair_shop_date" label="Date"
                                                 class="d-flex flex-column mb-2 w-100"
-                                                value="{{ $user->prerepairinspections->first()->postrepairinspections->first()->repair_shop_date }}" />
+                                                value="{{ $user->prerepairinspections->postrepairinspections->repair_shop_date }}" />
 
                                             <x-form.input name="job_order_date" label="Date"
                                                 class="d-flex flex-column mb-2 w-100"
-                                                value="{{ $user->prerepairinspections->first()->postrepairinspections->first()->job_order_date }}" />
+                                                value="{{ $user->prerepairinspections->postrepairinspections->job_order_date }}" />
 
                                             <x-form.input name="payable_account" label="Payable Account"
                                                 class="d-flex flex-column mb-2"
-                                                value="{{ $user->prerepairinspections->first()->postrepairinspections->first()->payable_account }}" />
+                                                value="{{ $user->prerepairinspections->postrepairinspections->payable_account }}" />
                                         </div>
                                     </div>
                                     <hr>
@@ -306,7 +306,7 @@
                                     <div class="d-flex flex-column">
                                         <x-form.textarea name="recommendation" label="" style="height: 190px;"
                                             class-label="d-flex flex-column mb-2"
-                                            value="{{ $user->prerepairinspections->first()->postrepairinspections->first()->recommendation }}" />
+                                            value="{{ $user->prerepairinspections->postrepairinspections->recommendation }}" />
                                     </div>
 
                                     <div class="d-flex justify-content-end g-2">
@@ -323,7 +323,7 @@
                                                 Pre-repair Inspection
                                             </span>
                                         </a>
-                                        @if ($user->prerepairinspections->first()->postrepairinspections->first()->status == 'pending')
+                                        @if ($user->prerepairinspections->postrepairinspections->status == 'pending')
                                             <button type="button" class="btn btn-warning text-capitalize"
                                                 data-modal-target="#postID">
                                                 delete

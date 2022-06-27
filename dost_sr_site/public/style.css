@@ -178,7 +178,7 @@ body {
     justify-content: stretch;
     transition: width var(--animation-duration) var(--animation-timing-curve);
     background-color: var(--color1);
-    z-index: 1;
+    z-index: 10;
 }
 
 .sidebar.open .image-chevron {

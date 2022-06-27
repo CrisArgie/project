@@ -113,16 +113,60 @@ class RepairRequestsController extends Controller
             case 'repair':
                 switch (request()->action) {
                     case 'done':
-                        dd(request()->name, request()->action);
+                        if ($user->repairrequest->where('request_no', request()->no) == null) {
+                            return back()->with('fail', 'Error! No request found.');
+                        }
 
+                        foreach ($user->repairrequest->where('request_no', request()->no) as $request) {
+                            if ($request != null) {
+                                if ($request->prerepairinspections != null) {
+                                    if ($request->prerepairinspections->postrepairinspections != null) {
+                                        $request->prerepairinspections->postrepairinspections->update(['status' => 'deleted']);
+                                        $request->prerepairinspections->update(['status' => 'deleted']);
+                                        $request->update(['status' => 'deleted']);
+
+                                        $request->prerepairinspections->postrepairinspections->delete();
+                                        $request->prerepairinspections->delete();
+                                        $request->delete();
+                                    } else {
+                                        $request->prerepairinspections->update(['status' => 'deleted']);
+                                        $request->update(['status' => 'deleted']);
+
+                                        $request->prerepairinspections->delete();
+                                        $request->delete();
+                                    }
+                                }
+                            }
+                        }
+
+                        return back()->with('success', 'Successfully deleted request: ' . request()->no . '.');
                         break;
                     case 'cancel':
-                        dd(request()->name, request()->action);
+                        if ($user->repairrequest->where('request_no', request()->no) == null) {
+                            return back()->with('fail', 'Error! No request found.');
+                        }
 
-                        break;
-                    case 'update':
+                        foreach ($user->repairrequest->where('request_no', request()->no) as $request) {
+                            if ($request != null) {
+                                if ($request->prerepairinspections != null) {
+                                    if ($request->prerepairinspections->postrepairinspections != null) {
+                                        $request->prerepairinspections->postrepairinspections->update(['status' => 'canceled']);
+                                        $request->prerepairinspections->update(['status' => 'canceled']);
+                                        $request->update(['status' => 'canceled']);
+                                    } else {
+                                        $request->prerepairinspections->update(['status' => 'canceled']);
+                                        $request->update(['status' => 'canceled']);
+                                    }
+                                }
+                            }
+                        }
 
+                        return back()->with('success', 'Successfully canceled request: ' . request()->no . '.');
                         break;
+                        // case 'update':
+                        //     dd(request()->name, request()->action);
+
+                        //     break;
                     case 'repair':
                         return view('requests.requests', [
                             'requests' => request()->action,
@@ -150,8 +194,16 @@ class RepairRequestsController extends Controller
             case 'ict':
                 switch (request()->action) {
                     case 'done':
-                        dd(request()->name, request()->action);
+                        if ($user->repairrequest->where('request_no', request()->no) == null) {
+                            return back()->with('fail', 'Error! No request found.');
+                        }
 
+                        foreach ($user->ictforms->where('request_no', request()->no) as $request) {
+                            $request->update(['status' => 'deleted']);
+                            $request->delete();
+                        }
+
+                        return back()->with('success', 'Successfully deleted request: ' . request()->no . '.');
                         break;
                     case 'view':
                         return view('requests.request-for-ict-job', [
@@ -161,12 +213,20 @@ class RepairRequestsController extends Controller
 
                         break;
                     case 'cancel':
-                        dd(request()->name, request()->action);
+                        if ($user->repairrequest->where('request_no', request()->no) == null) {
+                            return back()->with('fail', 'Error! No request found.');
+                        }
+
+                        foreach ($user->ictforms->where('request_no', request()->no) as $request) {
+                            $request->update(['status' => 'canceled']);
+                        }
+
+                        return back()->with('success', 'Successfully canceled request: ' . request()->no . '.');
 
                         break;
-                    case 'update':
-
-                        break;
+                        // case 'update':
+                        //     dd();
+                        //     break;
                 }
                 break;
         }

@@ -152,7 +152,7 @@
                         <li class="col-auto h-100">
                             <figure class="highcharts-figure m-0">
                                 <div id="pie-chart-legend" class="chartjs-render-monitor"
-                                    style="width: 626px;height: 320px;"></div>
+                                    style="max-width: 626px;height: 320px;"></div>
                             </figure>
                         </li>
                     </ul>

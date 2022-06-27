@@ -14,17 +14,65 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <button href="#" class="btn btn-primary btn-icon-split">
-                            <span class="icon">
-                                <img src="/icons/svg-files/printer.svg" alt="Generate_Report" width="20" height="20"
-                                    class="icon-white">
-                            </span>
-                            <span class="text">Generate Report</span>
-                        </button>
 
-                        <a href="/customer/request" class="btn btn-info">
-                            Add Request
-                        </a>
+                        <div class="d-flex g-2">
+                            <div class="" x-data="{ open: false }">
+                                <button type="button" class="btn btn-primary btn-icon-split" x-on:click="open = ! open">
+                                    <span class="icon">
+                                        <img src="/icons/svg-files/printer.svg" alt="Generate_Report" width="20"
+                                            height="20" class="icon-white">
+                                    </span>
+                                    <span class="text">Generate Report</span>
+                                </button>
+
+                                <div x-show="open" x-cloak class="position-absolute row" style="z-index: 1;">
+                                    <div class="card col-xl-10">
+                                        <div class="card-body">
+                                            <form action="/generate-report" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+
+                                                <div class="text-gray-800">
+                                                    Export as FILE
+                                                </div>
+                                                <div class="">
+                                                    Save this data to your computer as a FILE, to be shared offline or
+                                                    printed. You
+                                                    may select which data to save.
+                                                </div>
+
+                                                <div class="mt-3">
+                                                    <div class="">
+                                                        <input type="radio" name="export" value="user-repair">
+                                                        <label for="export"> Repair request </label>
+                                                    </div>
+                                                    <div class="">
+                                                        <input type="radio" name="export" value="user-ict">
+                                                        <label for="export"> ICT job request </label>
+                                                    </div>
+                                                    <div class="">
+                                                        <input type="radio" name="export" value="user-all">
+                                                        <label for="export"> All </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex justify-content-end mt-4">
+                                                    <button type="submit" name="action" value="requests"
+                                                        class="text-capitalize btn btn-primary">
+                                                        export
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="/customer/request" class="btn btn-info">
+                                Add Request
+                            </a>
+                        </div>
+
                     </div>
                 </div>
                 <div class="row mx-0 justify-content-between">
@@ -76,7 +124,7 @@
                             <div class="card-header">
                                 <div class="text-capitalize">Repair Request Table</div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body overflow-auto">
                                 <table class="table table-bordered dataTable" id="dataTable" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
@@ -129,17 +177,27 @@
                                                                 </a>
                                                             @endif
                                                         @elseif ($request->status == 'done')
-                                                            <a class=""
-                                                                href="/request/repair/post-repair/{{ $request->request_no }}">
-                                                                {{ $request->request_no }}
-                                                            </a>
+                                                            {{-- @dd($request->prerepairinspections) --}}
+                                                            @if ($request->prerepairinspections->status == 'done')
+                                                                @if ($request->prerepairinspections->postrepairinspections != null)
+                                                                    <a class=""
+                                                                        href="/request/repair/post-repair/{{ $request->request_no }}">
+                                                                        {{ $request->request_no }}
+                                                                    </a>
+                                                                @else
+                                                                    <a class=""
+                                                                        href="/request/repair/pre-repair/{{ $request->request_no }}">
+                                                                        {{ $request->request_no }}
+                                                                    </a>
+                                                                @endif
+                                                            @endif
                                                         @endif
                                                     </td>
                                                     <td class="d-flex justify-content-center text-white">
                                                         @if ($request->status == 'done')
                                                             <a href="/request/repair/done/{{ $request->request_no }}"
-                                                                class="btn btn-success text-uppercase">
-                                                                done
+                                                                class="btn btn-warning text-uppercase">
+                                                                delete
                                                             </a>
                                                         @elseif ($request->status == 'pending')
                                                             <div
@@ -187,7 +245,7 @@
                             <div class="card-header">
                                 <div class="text-capitalize">ICT job Request Table</div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body overflow-auto">
                                 <table class="table table-bordered dataTable" id="dataTable" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
@@ -226,8 +284,8 @@
                                                     <td class="d-flex justify-content-center text-white">
                                                         @if ($request->status == 'done')
                                                             <a href="/request/ict/done/{{ $request->request_no }}"
-                                                                class="btn btn-success text-uppercase">
-                                                                Done
+                                                                class="btn btn-warning text-uppercase">
+                                                                Delete
                                                             </a>
                                                         @elseif ($request->status == 'pending')
                                                             <div

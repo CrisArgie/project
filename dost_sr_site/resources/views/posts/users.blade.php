@@ -9,7 +9,7 @@
                     <button type="button" class="rounded btn btn-primary w-100" x-on:click="open = ! open">
                         Generate Report
                     </button>
-                    <div x-show="open" x-cloak class="position-absolute" style="z-index: 10;">
+                    <div x-show="open" x-cloak class="position-absolute" style="z-index: 1;">
                         <div class="card" style="width: 450px;">
                             <div class="card-body">
                                 <form action="/generate-report" method="POST" enctype="multipart/form-data">
@@ -22,6 +22,22 @@
                                         Save this data to your computer as a FILE, to be shared offline or printed. You
                                         may select which data to save.
                                     </div>
+
+                                    <div class="mt-3">
+                                        <div class="">
+                                            <input type="radio" name="export" value="admin-all-customer">
+                                            <label for="export"> Customer </label>
+                                        </div>
+                                        {{-- <div class="">
+                                            <input type="radio" name="export" value="user-ict">
+                                            <label for="export"> ICT job request </label>
+                                        </div> --}}
+                                        <div class="">
+                                            <input type="radio" name="export" value="admin-all-user">
+                                            <label for="export"> All </label>
+                                        </div>
+                                    </div>
+
 
                                     <div class="d-flex justify-content-end mt-4">
                                         <button type="submit" name="action" value="users"
@@ -55,14 +71,14 @@
             <div class="row h-100">
                 <div class="col-xl-12  mb-2">
                     <div class="card border-left-success shadow h-100 py-2">
-                        <div class="card-body" style="height: 65vh;">
-                            <div class="row mx-0 h-100 align-items-center">
-                                <div class="col-xl-2 h-100 px-0">
+                        <div class="card-body" style="min-height: 65vh;">
+                            <div class="row mx-0 h-100 align-items-start">
+                                <div class="col-xl-2 px-0">
                                     <div class="d-flex flex-column align-items-center h-100">
                                         <div class="row mx-0 h6 text-uppercase">
                                             Total of user per division
                                         </div>
-                                        <div class="d-flex flex-column overflow-auto h-100" style="width: 165px;">
+                                        <div class="d-flex flex-column overflow-auto" style="width: 165px;">
                                             @if (!$divisions->isEmpty())
                                             @endif
                                             @foreach ($divisions as $division)
@@ -75,7 +91,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-10 h-100 px-0">
+                                <div class="col-xl-10 px-0">
                                     <figure class="h-100 overflow-auto highcharts-figure pt-4 m-0">
                                         <div id="admin-bar-per-users" class="admin-bar-1"></div>
                                     </figure>

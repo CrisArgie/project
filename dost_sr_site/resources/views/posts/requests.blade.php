@@ -19,7 +19,7 @@
                     <button type="button" class="rounded btn btn-primary w-100" x-on:click="open = ! open">
                         Generate Report
                     </button>
-                    <div x-show="open" x-cloak class="position-absolute" style="z-index: 10;">
+                    <div x-show="open" x-cloak class="position-absolute" style="z-index: 1;">
                         <div class="card" style="width: 450px;">
                             <div class="card-body">
                                 <form action="/generate-report" method="POST" enctype="multipart/form-data">
@@ -30,6 +30,21 @@
                                     <div class="">
                                         Save this data to your computer as a FILE, to be shared offline or printed. You
                                         may select which data to save.
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <div class="">
+                                            <input type="radio" name="export" value="admin-repair">
+                                            <label for="export"> Repair request </label>
+                                        </div>
+                                        <div class="">
+                                            <input type="radio" name="export" value="admin-ict">
+                                            <label for="export"> ICT job request </label>
+                                        </div>
+                                        <div class="">
+                                            <input type="radio" name="export" value="admin-all">
+                                            <label for="export"> All </label>
+                                        </div>
                                     </div>
 
                                     <div class="d-flex justify-content-end mt-4">
@@ -179,7 +194,8 @@
                         </h6>
 
                         <div class="">
-                            <button type="button" id="repair" onclick="redirectEdit('repair')" class="btn btn-info">
+                            <button type="button" id="repair" onclick="redirectEdit('repair')"
+                                class="btn btn-info">
                                 Edit
                             </button>
 
