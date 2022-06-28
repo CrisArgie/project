@@ -196,15 +196,18 @@
                                             </span>
                                         </a>
                                         @if ($user->prerepairinspections->status == 'in-progress' || $user->prerepairinspections->status == 'done')
-                                            <a href="/request/repair/post-repair/{{ $user->request_no }}"
-                                                class="btn btn-info btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-arrow-right"></i>
-                                                </span>
-                                                <span class="text text-xs text-capitalize d-flex align-items-center">
-                                                    Post Repair Inspection
-                                                </span>
-                                            </a>
+                                            @if ($user->prerepairinspections->postrepairinspections != null)
+                                                <a href="/request/repair/post-repair/{{ $user->request_no }}"
+                                                    class="btn btn-info btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-arrow-right"></i>
+                                                    </span>
+                                                    <span
+                                                        class="text text-xs text-capitalize d-flex align-items-center">
+                                                        Post Repair Inspection
+                                                    </span>
+                                                </a>
+                                            @endif
                                         @else
                                             <button type="button" class="btn btn-warning text-capitalize"
                                                 data-modal-target="#preID">
@@ -268,7 +271,7 @@
                                             POST REPAIR INSPECTION REPORT
                                         </div>
                                     </div>
-{{-- @dd($user->prerepairinspections) --}}
+                                    {{-- @dd($user->prerepairinspections) --}}
                                     <div class="row mx-0">
                                         <div class="col-xl-6">
                                             <x-form.input name="repair_shop	" label="Repair Shop/Supplier"

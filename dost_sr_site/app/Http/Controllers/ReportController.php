@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Divisions;
 use App\Models\Equipment;
 use App\Models\IctForms;
 use App\Models\PostRepairInspections;
@@ -19,24 +20,98 @@ class ReportController extends Controller
     {
         switch (request()->action) {
             case 'users':
-                dd(request(), request()->export);
-
-                switch (request()->export) {
-                    case 'admin-all-customer':
-                        break;
-                    case 'admin-all-user':
-                        break;
-                }
-
                 // Create a new spreadsheet
                 $spreadsheet = new Spreadsheet();
                 $sheet = $spreadsheet->getActiveSheet();
+                $e = 2; // Row start at 2
 
-                // set cell value
-                $sheet->setCellValue('A1', 'Hello World !');
+                switch (request()->export) {
+                    case 'admin-all-customer':
+                        //Excel Heading
+                        $sheet->setCellValue('A1', 'ID');
+                        $sheet->setCellValue('B1', 'FIRST NAME');
+                        $sheet->setCellValue('C1', 'LAST NAME');
+                        $sheet->setCellValue('D1', 'EMAIL');
+                        $sheet->setCellValue('E1', 'USER TYPE');
+                        $sheet->setCellValue('F1', 'CREATED AT');
+                        $sheet->setCellValue('G1', 'DIVISION ID');
 
-                //  Set active sheet index to the first sheet, so Excel opens this as the first sheet
-                $spreadsheet->setActiveSheetIndex(0);
+                        // Excel Data
+                        $data = Users::where('user_type', 'customer')->get();
+
+                        if (!empty($data)) {
+                            foreach ($data as $item) {
+                                $sheet->setCellValue('A' . $e, $item->id);
+                                $sheet->setCellValue('B' . $e, $item->first_name);
+                                $sheet->setCellValue('C' . $e, $item->last_name);
+                                $sheet->setCellValue('D' . $e, $item->email);
+                                $sheet->setCellValue('E' . $e, $item->user_type);
+                                $sheet->setCellValue('F' . $e, $item->created_at);
+                                $sheet->setCellValue('G' . $e, $item->divisions_id);
+
+                                $e++;
+                            }
+                        }
+
+                        $sheet->setTitle('CUSTOMERS');
+                        break;
+                    case 'admin-all-user':
+                        //Excel Heading
+                        $sheet->setCellValue('A1', 'ID');
+                        $sheet->setCellValue('B1', 'FIRST NAME');
+                        $sheet->setCellValue('C1', 'LAST NAME');
+                        $sheet->setCellValue('D1', 'EMAIL');
+                        $sheet->setCellValue('E1', 'USER TYPE');
+                        $sheet->setCellValue('F1', 'CREATED AT');
+                        $sheet->setCellValue('G1', 'DIVISION ID');
+
+                        // Excel Data
+                        $data = Users::all();
+
+                        if (!empty($data)) {
+                            foreach ($data as $item) {
+                                $sheet->setCellValue('A' . $e, $item->id);
+                                $sheet->setCellValue('B' . $e, $item->first_name);
+                                $sheet->setCellValue('C' . $e, $item->last_name);
+                                $sheet->setCellValue('D' . $e, $item->email);
+                                $sheet->setCellValue('E' . $e, $item->user_type);
+                                $sheet->setCellValue('F' . $e, $item->created_at);
+                                $sheet->setCellValue('G' . $e, $item->divisions_id);
+
+                                $e++;
+                            }
+                        }
+
+                        $sheet->setTitle('USERS');
+                        break;
+                }
+
+                $sheet = $spreadsheet->createSheet();
+                //Excel Heading
+                $sheet->setCellValue('A1', 'ID');
+                $sheet->setCellValue('B1', 'DIVISION NO');
+                $sheet->setCellValue('C1', 'DIVISION NAME');
+                $sheet->setCellValue('D1', 'DIVISION ADDRESS');
+                $sheet->setCellValue('E1', 'CREATED AT');
+
+
+                // Excel Data
+                $data = Divisions::all();
+
+                if (!empty($data)) {
+                    $e = 2; // Row start at 2
+                    foreach ($data as $item) {
+                        $sheet->setCellValue('A' . $e, $item->id);
+                        $sheet->setCellValue('B' . $e, $item->division_number);
+                        $sheet->setCellValue('C' . $e, $item->division_name);
+                        $sheet->setCellValue('D' . $e, $item->division_address);
+                        $sheet->setCellValue('E' . $e, $item->created_at);
+
+                        $e++;
+                    }
+                    $sheet->setTitle('DIVISIONS');
+                }
+
 
                 // save file
                 $writer = new Xlsx($spreadsheet);
@@ -141,6 +216,7 @@ class ReportController extends Controller
 
                         $e++;
                     }
+                    $sheet->setTitle($excelSheet[$x]);
                 }
             } elseif ($excelSheet[$x] == 'Pre-repair') {
                 $sheet = $spreadsheet->createSheet();
@@ -172,6 +248,7 @@ class ReportController extends Controller
                             $sheet->setCellValue('G' . $e, $item->status);
                             $e++;
                         }
+                        $sheet->setTitle($excelSheet[$x]);
                     }
                 } elseif ($type == 'user') {
                     $data = Users::findOrFail(auth()->user()->id)->repairrequest;
@@ -189,6 +266,7 @@ class ReportController extends Controller
                                 $e++;
                             }
                         }
+                        $sheet->setTitle($excelSheet[$x]);
                     }
                 }
                 // dd($data);
@@ -230,6 +308,7 @@ class ReportController extends Controller
                             $sheet->setCellValue('K' . $e, $item->status);
                             $e++;
                         }
+                        $sheet->setTitle($excelSheet[$x]);
                     }
                 } elseif ($type == 'user') {
                     $data = Users::findOrFail(auth()->user()->id)->repairrequest;
@@ -253,13 +332,13 @@ class ReportController extends Controller
                                 }
                             }
                         }
+                        $sheet->setTitle($excelSheet[$x]);
                     }
                 }
             } elseif ($excelSheet[$x] == 'ICT') {
-                if ($request->export == 'user-ict'){
+                if ($request->export == 'user-ict') {
                     $sheet = $spreadsheet->getActiveSheet();
-                }
-                else{
+                } else {
                     $sheet = $spreadsheet->createSheet();
                 }
                 //Excel Heading
@@ -295,6 +374,7 @@ class ReportController extends Controller
                         $sheet->setCellValue('H' . $e, $item->type_request_description);
                         $e++;
                     }
+                    $sheet->setTitle($excelSheet[$x]);
                 }
 
                 //Excel Heading
@@ -321,6 +401,7 @@ class ReportController extends Controller
                             $e++;
                         }
                     }
+                    $sheet->setTitle('AREA OF REQUESTS');
                 }
             }
         }
@@ -366,8 +447,26 @@ class ReportController extends Controller
                     $sheet->setCellValue('D' . $e, $reqst->equipment->brand_model);
                     $e++;
                 }
+            } elseif (!empty($data->repairrequest) && empty($data->ictforms)) {
+                foreach ($data->repairrequest as $reqst) {
+                    $sheet->setCellValue('A' . $e, $reqst->equipment->id);
+                    $sheet->setCellValue('B' . $e, $reqst->equipment->serial_no);
+                    $sheet->setCellValue('C' . $e, $reqst->equipment->property_no);
+                    $sheet->setCellValue('D' . $e, $reqst->equipment->brand_model);
+                    $e++;
+                }
+            } elseif (empty($data->repairrequest) && !empty($data->ictforms)) {
+                foreach ($data->ictforms as $reqst) {
+                    $sheet->setCellValue('A' . $e, $reqst->equipment->id);
+                    $sheet->setCellValue('B' . $e, $reqst->equipment->serial_no);
+                    $sheet->setCellValue('C' . $e, $reqst->equipment->property_no);
+                    $sheet->setCellValue('D' . $e, $reqst->equipment->brand_model);
+                    $e++;
+                }
+            } else {
             }
         }
+        $sheet->setTitle('EQUIPMENT');
 
         $writer = new Xlsx($spreadsheet);
 
