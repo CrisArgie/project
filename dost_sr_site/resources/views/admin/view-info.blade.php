@@ -111,6 +111,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {{-- @dd($info->ict_requests) --}}
                                                 <div class="col-xl-4 mb-3">
                                                     <div class="card">
                                                         <div class="card-header bg-heading-color-1">
@@ -119,15 +120,19 @@
                                                             </div>
                                                         </div>
                                                         <div class="card-body">
-                                                            @if ($info->ict_requests->first()->documents != null)
-                                                                <a href="{{ asset('storage/' . $info->ict_requests->first()->documents->path_name) }}"
-                                                                    target="_blank"
-                                                                    class="d-flex flex-column m-0 text-primary hover-1">
-                                                                    Click here to download the file.
-                                                                </a>
-                                                                {{-- <iframe
+                                                            @if (!$info->ict_requests->isEmpty())
+                                                                @if ($info->ict_requests->first()->documents != null)
+                                                                    <a href="{{ asset('storage/' . $info->ict_requests->first()->documents->path_name) }}"
+                                                                        target="_blank"
+                                                                        class="d-flex flex-column m-0 text-primary hover-1">
+                                                                        Click here to download the file.
+                                                                    </a>
+                                                                    {{-- <iframe
                                                                 src="{{ asset('storage/' . $info->ict_requests->first()->documents->path_name) }}"
                                                                 style="width: 100%; height: 400px; border: none;"></iframe> --}}
+                                                                @else
+                                                                    No document files.
+                                                                @endif
                                                             @else
                                                                 No document files.
                                                             @endif
@@ -145,15 +150,17 @@
                                                             @if ($info->ict_requests->isEmpty())
                                                                 No images attach.
                                                             @else
-                                                                @foreach ($info->ict_requests as $item)
-                                                                    <a href="{{ asset('storage/' . $item->images->path_name) }}"
-                                                                        target="_blank" class="hover-1"
-                                                                        style="color: transparent; text-decoration: none;">
-                                                                        <img src="{{ asset('storage/' . $item->images->path_name) }}"
-                                                                            style="max-width: 500px; min-width: 64px; min-height: 125px; max-height: 256px;"
-                                                                            alt="image.png">
-                                                                    </a>
-                                                                @endforeach
+                                                                @if ($info->ict_requests->first()->images != null)
+                                                                    @foreach ($info->ict_requests as $item)
+                                                                        <a href="{{ asset('storage/' . $item->images->path_name) }}"
+                                                                            target="_blank" class="hover-1"
+                                                                            style="color: transparent; text-decoration: none;">
+                                                                            <img src="{{ asset('storage/' . $item->images->path_name) }}"
+                                                                                style="max-width: 500px; min-width: 64px; min-height: 125px; max-height: 256px;"
+                                                                                alt="image.png">
+                                                                        </a>
+                                                                    @endforeach
+                                                                @endif
                                                             @endif
 
                                                         </div>

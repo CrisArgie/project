@@ -193,15 +193,42 @@
                             Repair Request Data Table
                         </h6>
 
-                        <div class="">
+                        <div class="d-flex g-1">
                             <button type="button" id="repair" onclick="redirectEdit('repair')"
                                 class="btn btn-info">
                                 Edit
                             </button>
 
-                            <button type="submit" name="action" value="repair-delete" class="btn btn-danger">
-                                Delete
-                            </button>
+                            <div class="" x-data="{ open: false }">
+                                <button type="button" class="btn btn-danger" x-on:click="open = ! open">
+                                    Delete
+                                </button>
+
+                                <div class="position-absolute" x-show="open" x-cloak
+                                    style="z-index: 1; right:18px;">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <span class="font-weight-bold">
+                                                Are you sure to delete this request?
+                                            </span>
+                                            <p class="text-gray-900">
+                                                If you delete the request you can't recover it. Press "Confirm" to
+                                                continue delete request.
+                                            </p>
+                                            <div class="d-flex justify-content-end g-1">
+                                                <button type="button" class="btn btn-secondary"
+                                                    x-on:click="open = false">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="action" value="repair-delete"
+                                                    class="btn btn-danger">
+                                                    Confirm
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -277,15 +304,43 @@
                             ICT Job Request Data Table
                         </h6>
 
-                        <div class="">
+                        <div class="d-flex g-1">
                             <button type="button" id="ict" onclick="redirectEdit('ict')"
                                 class="btn btn-info">
                                 Edit
                             </button>
 
-                            <button type="submit" name="action" value="ict-delete" class="btn btn-danger">
-                                Delete
-                            </button>
+
+                            <div class="" x-data="{ open: false }">
+                                <button type="button" class="btn btn-danger" x-on:click="open = ! open">
+                                    Delete
+                                </button>
+
+                                <div class="position-absolute" x-show="open" x-cloak
+                                    style="z-index: 1; right:18px;">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <span class="font-weight-bold">
+                                                Are you sure to delete this request?
+                                            </span>
+                                            <p class="text-gray-900">
+                                                If you delete the request you can't recover it. Press "Confirm" to
+                                                continue delete request.
+                                            </p>
+                                            <div class="d-flex justify-content-end g-1">
+                                                <button type="button" class="btn btn-secondary"
+                                                    x-on:click="open = false">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="action" value="ict-delete"
+                                                    class="btn btn-danger">
+                                                    Confirm
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -305,7 +360,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($repair_ict as $each_request)
-                                        @if ($each_request->status == 'done')
+                                        @if ($each_request->status == 'deleted')
                                         @else
                                             <tr>
                                                 <td> <input type="radio" name="ict"
@@ -350,15 +405,42 @@
                             Pre-repair Inspection Data Table
                         </h6>
 
-                        <div class="">
+                        <div class="d-flex g-1">
                             <button type="button" id="pre" onclick="redirectEdit('pre')"
                                 class="btn btn-info">
                                 Edit
                             </button>
 
-                            <button type="submit" name="action" value="prerepair-delete" class="btn btn-danger">
-                                Delete
-                            </button>
+                            <div class="" x-data="{ open: false }">
+                                <button type="button" class="btn btn-danger" x-on:click="open = ! open">
+                                    Delete
+                                </button>
+
+                                <div class="position-absolute" x-show="open" x-cloak
+                                    style="z-index: 1; right:18px;">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <span class="font-weight-bold">
+                                                Are you sure to delete this request?
+                                            </span>
+                                            <p class="text-gray-900">
+                                                If you delete the request you can't recover it. Press "Confirm" to
+                                                continue delete request.
+                                            </p>
+                                            <div class="d-flex justify-content-end g-1">
+                                                <button type="button" class="btn btn-secondary"
+                                                    x-on:click="open = false">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="action" value="prerepair-delete"
+                                                    class="btn btn-danger">
+                                                    Confirm
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -436,15 +518,43 @@
                             Post-repair inspection data Table
                         </h6>
 
-                        <div class="">
+                        <div class="d-flex g-1">
                             <button type="button" id="post" onclick="redirectEdit('post')"
                                 class="btn btn-info">
                                 Edit
                             </button>
 
-                            <button type="submit" name="action" value="postrepair-delete" class="btn btn-danger">
-                                Delete
-                            </button>
+
+                            <div class="" x-data="{ open: false }">
+                                <button type="button" class="btn btn-danger" x-on:click="open = ! open">
+                                    Delete
+                                </button>
+
+                                <div class="position-absolute" x-show="open" x-cloak
+                                    style="z-index: 1; right:18px;">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <span class="font-weight-bold">
+                                                Are you sure to delete this request?
+                                            </span>
+                                            <p class="text-gray-900">
+                                                If you delete the request you can't recover it. Press "Confirm" to
+                                                continue delete request.
+                                            </p>
+                                            <div class="d-flex justify-content-end g-1">
+                                                <button type="button" class="btn btn-secondary"
+                                                    x-on:click="open = false">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="action" value="postrepair-delete"
+                                                    class="btn btn-danger">
+                                                    Confirm
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
